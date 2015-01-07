@@ -1,8 +1,8 @@
 /**
  * BaseActivity.java
  *
- * Created by Gan Jianping on 07/09/13.
- * Copyright (c) 2013 GANJP. All rights reserved.
+ * Created by Gan Jianping on 07/01/15.
+ * Copyright (c) 2015 GANJP. All rights reserved.
  */
 package org.ganjp.glib.core;
 

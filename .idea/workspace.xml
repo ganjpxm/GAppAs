@@ -18,26 +18,39 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="20779798-86a2-45cc-8e56-492fbaaa0e65" name="Default" comment="2">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/libs/jackson-core-asl-1.9.7.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/libs/jackson-mapper-asl-1.9.7.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/util/CollectionUtil.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/util/ConnectionManager.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/util/ConnectionUtil.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/util/DateUtil.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/util/DialogUtil.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/util/FileUtil.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/util/HtmlUtil.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/util/HttpConnection.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/util/ImageUtil.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/util/JacksonUtil.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/util/NetworkUtil.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/util/ObjectUtil.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/entity/Response.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/util/StringUtil.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/util/SystemUtil.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/util/ThreadUtil.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/util/WebViewUtil.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/res/layout/common_dialog_call.xml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/appcompat_v7_21_0_2.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/support_annotations_21_0_2.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/support_v4_21_0_2.xml" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/ActivityStack.java" afterPath="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/ActivityStack.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/BaseActionBarActivity.java" afterPath="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/BaseActionBarActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/BaseActivity.java" afterPath="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/BaseActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/BaseApplication.java" afterPath="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/BaseApplication.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/Const.java" afterPath="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/Const.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/glib/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/glib/src/main/res/values/strings.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
-    <list id="e7a2e2cb-782a-4e82-8c31-5462c8fcbbd2" name="Rejected commit: Default" comment="2">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/ActivityStack.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/BaseActionBarActivity.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/BaseActivity.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/BaseApplication.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/Const.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/res/anim/grow_from_middle.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/res/anim/in_from_left.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/res/anim/in_from_right.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/res/anim/out_to_left.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/res/anim/out_to_right.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/res/anim/shrink_to_middle.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/res/anim/slide_down.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/res/anim/slide_up.xml" />
     </list>
     <ignored path="GApp.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/BaseActionBarActivity.java" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,127 +70,83 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="BaseActivity.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/BaseActivity.java">
+      <file leaf-file-name="DialogUtil.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/util/DialogUtil.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="2233" max-vertical-offset="2970">
-              <caret line="10" column="28" selection-start-line="10" selection-start-column="28" selection-end-line="10" selection-end-column="28" />
-              <folding>
-                <element signature="e#826#827#0" expanded="true" />
-                <element signature="e#867#868#0" expanded="true" />
-                <element signature="e#1009#1010#0" expanded="true" />
-                <element signature="e#1033#1034#0" expanded="true" />
-                <element signature="e#1153#1154#0" expanded="true" />
-                <element signature="e#1175#1176#0" expanded="true" />
-                <element signature="e#2011#2012#0" expanded="true" />
-                <element signature="e#2064#2065#0" expanded="true" />
-                <element signature="e#2255#2256#0" expanded="true" />
-                <element signature="e#2299#2300#0" expanded="true" />
-                <element signature="e#2395#2396#0" expanded="true" />
-                <element signature="e#2413#2414#0" expanded="true" />
-                <element signature="e#3005#3006#0" expanded="true" />
-                <element signature="e#3030#3031#0" expanded="true" />
-                <element signature="e#3098#3099#0" expanded="true" />
-                <element signature="e#3124#3125#0" expanded="true" />
-                <element signature="e#3657#3658#0" expanded="true" />
-                <element signature="e#3711#3712#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BaseActionBarActivity.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/BaseActionBarActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.66367716" vertical-offset="1984" max-vertical-offset="2430">
-              <caret line="183" column="16" selection-start-line="183" selection-start-column="16" selection-end-line="183" selection-end-column="16" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Const.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/Const.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="113" max-vertical-offset="600">
-              <caret line="23" column="28" selection-start-line="23" selection-start-column="28" selection-end-line="23" selection-end-column="28" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="874" max-vertical-offset="6180">
+              <caret line="78" column="32" selection-start-line="78" selection-start-column="32" selection-end-line="78" selection-end-column="32" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
-                <element signature="docComment;class#Const#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ActivityStack.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/ActivityStack.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="2" max-vertical-offset="1665">
-              <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-              <folding>
                 <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="shrink_to_middle.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/glib/src/main/res/anim/shrink_to_middle.xml">
+      <file leaf-file-name="StringUtil.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/util/StringUtil.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="300">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="1776" max-vertical-offset="12585">
+              <caret line="148" column="11" selection-start-line="148" selection-start-column="11" selection-end-line="148" selection-end-column="11" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ObjectUtil.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/util/ObjectUtil.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="531" max-vertical-offset="1200">
+              <caret line="50" column="6" selection-start-line="50" selection-start-column="6" selection-end-line="50" selection-end-column="6" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ImageUtil.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/util/ImageUtil.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.72289157" vertical-offset="0" max-vertical-offset="3000">
+              <caret line="39" column="38" selection-start-line="39" selection-start-column="38" selection-end-line="39" selection-end-column="38" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Response.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/entity/Response.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="615">
+              <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="4" selection-end-column="56" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="out_to_right.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/glib/src/main/res/anim/out_to_right.xml">
+      <file leaf-file-name="common_dialog_call.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/glib/src/main/res/layout/common_dialog_call.xml">
+          <provider editor-type-id="android-designer">
+            <state />
+          </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="150">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state vertical-scroll-proportion="-6.111111" vertical-offset="0" max-vertical-offset="285">
+              <caret line="11" column="66" selection-start-line="11" selection-start-column="66" selection-end-line="11" selection-end-column="66" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="out_to_left.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/glib/src/main/res/anim/out_to_left.xml">
+      <file leaf-file-name="build.gradle" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/glib/build.gradle">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="135">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="in_from_right.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/glib/src/main/res/anim/in_from_right.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="165">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="in_from_left.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/glib/src/main/res/anim/in_from_left.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="165">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="grow_from_middle.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/glib/src/main/res/anim/grow_from_middle.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="330">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="450">
+              <caret line="22" column="53" selection-start-line="22" selection-start-column="53" selection-end-line="22" selection-end-column="53" />
               <folding />
             </state>
           </provider>
@@ -1065,7 +1034,7 @@
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="$PROJECT_DIR$" value="5682459559000" />
+        <entry key="$PROJECT_DIR$" value="5682464304000" />
       </map>
     </option>
     <option name="projectBuildClasspath">
@@ -1200,7 +1169,30 @@
         <option value="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/Const.java" />
         <option value="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/BaseApplication.java" />
         <option value="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/BaseActivity.java" />
+        <option value="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/ActivityStack.java" />
         <option value="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/BaseActionBarActivity.java" />
+        <option value="$PROJECT_DIR$/glib/src/main/res/values/strings.xml" />
+        <option value="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/util/WebViewUtil.java" />
+        <option value="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/util/ThreadUtil.java" />
+        <option value="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/util/SystemUtil.java" />
+        <option value="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/util/NetworkUtil.java" />
+        <option value="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/entity/Response.java" />
+        <option value="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/util/JacksonUtil.java" />
+        <option value="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/util/HttpConnection.java" />
+        <option value="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/util/HtmlUtil.java" />
+        <option value="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/util/FileUtil.java" />
+        <option value="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/util/DateUtil.java" />
+        <option value="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/util/ConnectionManager.java" />
+        <option value="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/util/CollectionUtil.java" />
+        <option value="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/util/ConnectionUtil.java" />
+        <option value="$PROJECT_DIR$/glib/build.gradle" />
+        <option value="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/util/DialogUtil.java" />
+        <option value="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/dao/DAO.java" />
+        <option value="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/dao/SystemDAO.java" />
+        <option value="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/dao/DatabaseHelper.java" />
+        <option value="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/util/StringUtil.java" />
+        <option value="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/util/ObjectUtil.java" />
+        <option value="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/util/ImageUtil.java" />
       </list>
     </option>
   </component>
@@ -1358,10 +1350,6 @@
               <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -1377,107 +1365,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GApp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GAppAs" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="glib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="anim" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GApp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GAppAs" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="glib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="core" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GApp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GAppAs" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="glib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GApp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GAppAs" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
+              <option name="myItemId" value="libs" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1515,11 +1403,16 @@
     <property name="recentsLimit" value="5" />
     <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="0647d46300608807" />
     <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_AVD" value="Nexus_5_API_21" />
+    <property name="android.project.structure.last.selected" value="glib" />
+    <property name="android.project.structure.proportion" value="0.15" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/glib/src/main/res/anim" />
-      <recent name="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core" />
+      <recent name="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/dao" />
+      <recent name="$PROJECT_DIR$/glib/src/main/res/layout" />
+      <recent name="$PROJECT_DIR$/glib/libs" />
+      <recent name="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/entity" />
+      <recent name="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/util" />
     </key>
   </component>
   <component name="RunManager" selected="Android Application.app">
@@ -1676,6 +1569,11 @@
     </configuration>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SliceManager">
+    <option name="analysisUIOptions">
+      <AnalysisUIOptions />
+    </option>
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -1689,34 +1587,63 @@
       <created>1420626952411</created>
       <updated>1420626952411</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="2">
+      <created>1420627377209</created>
+      <updated>1420627377209</updated>
+    </task>
+    <task id="LOCAL-00003" summary="2">
+      <created>1420627423470</created>
+      <updated>1420627423470</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
+  </component>
+  <component name="TodoView" selected-index="0">
+    <todo-panel id="selected-file">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="default-changelist">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="false" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1439" height="860" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3293011" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.29704303" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25268432" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3293011" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18145162" sideWeight="0.5003579" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3293011" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3293011" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17069893" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18145162" sideWeight="0.4996421" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28629032" sideWeight="0.5640659" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2496318" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3293011" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24910523" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21116678" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3293011" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24194703" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3293011" sideWeight="0.4996421" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Memory Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -1802,26 +1729,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/BaseApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2" max-vertical-offset="1410">
-          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1217#1218#0" expanded="true" />
-            <element signature="e#1254#1255#0" expanded="true" />
-            <element signature="e#1551#1552#0" expanded="true" />
-            <element signature="e#1584#1585#0" expanded="true" />
-            <element signature="e#1708#1709#0" expanded="true" />
-            <element signature="e#1758#1759#0" expanded="true" />
-            <element signature="e#1857#1858#0" expanded="true" />
-            <element signature="e#1885#1886#0" expanded="true" />
-            <element signature="e#1995#1996#0" expanded="true" />
-            <element signature="e#2028#2029#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/glib/src/main/res/anim/slide_up.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="589">
@@ -1886,11 +1793,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/BaseApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1335">
+          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/BaseActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2233" max-vertical-offset="2970">
-          <caret line="10" column="28" selection-start-line="10" selection-start-column="28" selection-end-line="10" selection-end-column="28" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3045">
+          <caret line="27" column="22" selection-start-line="27" selection-start-column="22" selection-end-line="27" selection-end-column="22" />
           <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="imports" expanded="true" />
             <element signature="e#826#827#0" expanded="true" />
             <element signature="e#867#868#0" expanded="true" />
             <element signature="e#1009#1010#0" expanded="true" />
@@ -1913,33 +1833,233 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/ActivityStack.java">
+    <entry file="file://$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/BaseActionBarActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2" max-vertical-offset="1665">
-          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2505">
+          <caret line="2" column="2" selection-start-line="2" selection-start-column="2" selection-end-line="2" selection-end-column="2" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/glib/src/main/res/values/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7217573" vertical-offset="0" max-vertical-offset="478">
+          <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/ActivityStack.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1740">
+          <caret line="3" column="1" selection-start-line="3" selection-start-column="1" selection-end-line="4" selection-end-column="49" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/util/WebViewUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1515">
+          <caret line="4" column="49" selection-start-line="4" selection-start-column="49" selection-end-line="4" selection-end-column="49" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1823#1856#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/util/ThreadUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="675">
+          <caret line="4" column="49" selection-start-line="4" selection-start-column="49" selection-end-line="4" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/util/SystemUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="735">
+          <caret line="4" column="49" selection-start-line="4" selection-start-column="49" selection-end-line="4" selection-end-column="49" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/Const.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="113" max-vertical-offset="600">
-          <caret line="23" column="28" selection-start-line="23" selection-start-column="28" selection-end-line="23" selection-end-column="28" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="600">
+          <caret line="3" column="1" selection-start-line="3" selection-start-column="1" selection-end-line="4" selection-end-column="56" />
           <folding>
-            <element signature="n#!!doc" expanded="true" />
             <element signature="docComment;class#Const#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/BaseActionBarActivity.java">
+    <entry file="file://$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/util/NetworkUtil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.66367716" vertical-offset="1984" max-vertical-offset="2430">
-          <caret line="183" column="16" selection-start-line="183" selection-start-column="16" selection-end-line="183" selection-end-column="16" />
+        <state vertical-scroll-proportion="-9.6" vertical-offset="0" max-vertical-offset="3150">
+          <caret line="40" column="13" selection-start-line="40" selection-start-column="13" selection-end-line="40" selection-end-column="13" />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/util/FileUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33272058" vertical-offset="74" max-vertical-offset="1230">
+          <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/util/HtmlUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.05514706" vertical-offset="0" max-vertical-offset="855">
+          <caret line="2" column="2" selection-start-line="2" selection-start-column="2" selection-end-line="2" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/util/HttpConnection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.05514706" vertical-offset="0" max-vertical-offset="2490">
+          <caret line="2" column="2" selection-start-line="2" selection-start-column="2" selection-end-line="2" selection-end-column="2" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/util/JacksonUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.63419116" vertical-offset="0" max-vertical-offset="2265">
+          <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#1028#1038#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/util/ConnectionUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="2.3713236" vertical-offset="0" max-vertical-offset="2370">
+          <caret line="104" column="28" selection-start-line="104" selection-start-column="28" selection-end-line="104" selection-end-column="28" />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/util/ConnectionManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.44117647" vertical-offset="0" max-vertical-offset="1245">
+          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/util/CollectionUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.44117647" vertical-offset="0" max-vertical-offset="544">
+          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/util/DateUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33272058" vertical-offset="74" max-vertical-offset="3315">
+          <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/glib/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="450">
+          <caret line="22" column="53" selection-start-line="22" selection-start-column="53" selection-end-line="22" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/glib/src/main/res/layout/common_dialog_call.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.111111" vertical-offset="0" max-vertical-offset="285">
+          <caret line="11" column="66" selection-start-line="11" selection-start-column="66" selection-end-line="11" selection-end-column="66" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/util/DialogUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="874" max-vertical-offset="6180">
+          <caret line="78" column="32" selection-start-line="78" selection-start-column="32" selection-end-line="78" selection-end-column="32" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/entity/Response.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="615">
+          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="4" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../adt-bundle-mac-x86_64-20140321/sdk/sources/android-21/android/database/sqlite/SQLiteOpenHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33200794" vertical-offset="703" max-vertical-offset="5475">
+          <caret line="75" column="11" selection-start-line="75" selection-start-column="11" selection-end-line="75" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/util/StringUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1776" max-vertical-offset="12585">
+          <caret line="148" column="11" selection-start-line="148" selection-start-column="11" selection-end-line="148" selection-end-column="11" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/util/ObjectUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="531" max-vertical-offset="1200">
+          <caret line="50" column="6" selection-start-line="50" selection-start-column="6" selection-end-line="50" selection-end-column="6" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/util/ImageUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.72289157" vertical-offset="0" max-vertical-offset="3000">
+          <caret line="39" column="38" selection-start-line="39" selection-start-column="38" selection-end-line="39" selection-end-column="38" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
           </folding>
         </state>
       </provider>

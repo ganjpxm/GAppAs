@@ -1,6 +1,8 @@
 /**
- * Copyright (c) Gan Jianping, 2013. All rights reserved.
- * Author: GanJianping
+ * BaseActionBarActivity.java
+ *
+ * Created by Gan Jianping on 07/01/15.
+ * Copyright (c) 2015 GANJP. All rights reserved.
  */
 package org.ganjp.glib.core;
 
