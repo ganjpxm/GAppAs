@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/GAppAs.iml" filepath="$PROJECT_DIR$/GAppAs.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/glib/glib.iml" filepath="$PROJECT_DIR$/glib/glib.iml" />
     </modules>
   </component>
 </project>
