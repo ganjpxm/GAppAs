@@ -3,8 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/GAppAs.iml" filepath="$PROJECT_DIR$/GAppAs.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gdemo/gdemo.iml" filepath="$PROJECT_DIR$/gdemo/gdemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/glib/glib.iml" filepath="$PROJECT_DIR$/glib/glib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/obs/obs.iml" filepath="$PROJECT_DIR$/obs/obs.iml" />
     </modules>
   </component>
 </project>

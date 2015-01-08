@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/activity_bg"
+    android:orientation="vertical" >
+
+    <fragment
+        android:id="@+id/fragment_booking_add"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1"
+        class="com.onetransport.obs.fragment.BookingUpcomingFragment" />
+
+    <fragment
+        android:id="@+id/fragment_booking_history"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1"
+        class="com.onetransport.obs.fragment.BookingHistoryFragment" />
+
+
+	<fragment
+        android:id="@+id/fragment_my_profile"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1"
+        class="com.onetransport.obs.fragment.MyProfileFragment" />
+
+	<fragment
+        android:id="@+id/fragment_more"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1"
+        class="com.onetransport.obs.fragment.MoreFragment" />
+	
+    <com.ganjp.obsd.fragment.FragmentIndicator
+        android:id="@+id/indicator"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/tab_footer_bg" />
+
+</LinearLayout>

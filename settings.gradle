@@ -1,1 +1,1 @@
-include ':app', ':glib'
+include ':glib', ':gdemo', ':obs'

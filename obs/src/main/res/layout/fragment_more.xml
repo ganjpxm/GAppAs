@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent" android:layout_height="fill_parent"
+    android:orientation="vertical" android:background="@color/gray_bg">
+
+    <org.ganjp.obsd.common.view.TitleView android:id="@+id/title" android:layout_width="fill_parent"
+        android:layout_height="wrap_content"/>
+
+	<ScrollView android:layout_width="match_parent" android:layout_height="match_parent" android:scrollbars="none">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"  android:orientation="vertical">
+            
+            <RelativeLayout android:id="@+id/push_notification_rl" android:layout_width="match_parent" android:layout_height="50dip" android:background="@color/white" 
+                android:layout_marginLeft="5dip" android:layout_marginRight="5dip" android:layout_marginTop="25dip">
+			    <TextView android:id="@+id/push_notification_tv" android:layout_width="fill_parent" android:layout_height="wrap_content"
+		                android:textSize="15sp" android:textColor="@color/black" android:paddingLeft="10dip"
+		                android:text="@string/push_notification" android:layout_centerVertical="true"/>
+			    <!-- <Button android:layout_width="20dip" android:layout_height="25dip" android:layout_centerVertical="true"
+			        android:layout_marginRight="5dip" android:layout_marginBottom="10dip" android:layout_marginTop="10dip" 
+			        android:background ="@drawable/icon_arrow_right_black" android:layout_alignParentRight="true" 
+			        android:contentDescription="@string/empty" /> -->
+			    <ToggleButton android:id="@+id/push_notification_tb" android:layout_width="wrap_content" android:layout_height="wrap_content"
+			        android:layout_centerVertical="true" android:layout_marginRight="5dip" android:layout_alignParentRight="true" 
+			        android:textOn="On" android:textOff="Off"/>
+			</RelativeLayout>
+			
+			<RelativeLayout android:id="@+id/clear_data_rl" android:layout_width="match_parent" android:layout_height="50dip" android:background="@color/white" 
+                android:layout_marginLeft="5dip" android:layout_marginRight="5dip" android:layout_marginTop="1dip">
+			    <TextView android:id="@+id/clear_data_tv" android:layout_width="fill_parent" android:layout_height="wrap_content" 
+		                android:textSize="15sp" android:textColor="@color/black"  android:paddingLeft="10dip"
+		                android:text="@string/clear_data" android:layout_centerVertical="true"/>
+			    <Button android:layout_width="20dip" android:layout_height="25dip" android:layout_centerVertical="true"
+			        android:layout_marginRight="5dip" android:layout_marginBottom="10dip"
+			        android:background ="@drawable/icon_arrow_right_black" android:layout_alignParentRight="true" 
+			        android:contentDescription="@string/empty" />
+			</RelativeLayout>
+			
+			<RelativeLayout android:id="@+id/about_rl"  android:layout_width="match_parent" android:layout_height="50dip" android:background="@color/white" 
+                android:layout_marginLeft="5dip" android:layout_marginRight="5dip" android:layout_marginTop="25dip">
+			    <TextView android:id="@+id/about_tv" android:layout_width="fill_parent" android:layout_height="wrap_content" 
+		                android:textSize="15sp" android:textColor="@color/black"  android:paddingLeft="10dip"
+		                android:text="@string/about" android:layout_centerVertical="true"/>
+			    <Button android:layout_width="20dip" android:layout_height="25dip" android:layout_centerVertical="true"
+			        android:layout_marginRight="5dip" android:layout_marginBottom="10dip"
+			        android:background ="@drawable/icon_arrow_right_black" android:layout_alignParentRight="true" 
+			        android:contentDescription="@string/empty" />
+			</RelativeLayout>
+            
+			<RelativeLayout android:id="@+id/logout_rl" android:layout_width="match_parent" android:layout_height="50dip" android:background="@color/white" 
+                android:layout_marginLeft="5dip" android:layout_marginRight="5dip" android:layout_marginTop="25dip">
+			    <TextView android:id="@+id/logout_tv" android:layout_width="fill_parent" android:layout_height="wrap_content" 
+		                android:textSize="15sp" android:textColor="@color/black"  android:paddingLeft="10dip"
+		                android:text="@string/logout" android:layout_centerVertical="true"/>
+			    <Button android:layout_width="20dip" android:layout_height="25dip" android:layout_centerVertical="true"
+			        android:layout_marginRight="5dip" android:layout_marginBottom="10dip"
+			        android:background ="@drawable/icon_arrow_right_black" android:layout_alignParentRight="true" 
+			        android:contentDescription="@string/empty" />
+			</RelativeLayout>
+		</LinearLayout>
+    </ScrollView>
+</LinearLayout>

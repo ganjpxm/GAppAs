@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <org.ganjp.obsd.common.view.TitleView android:id="@+id/title" android:layout_width="fill_parent"
+        android:layout_height="wrap_content"/>
+
+    <org.ganjp.glib.core.view.RefreshableView android:id="@+id/refreshable_view"
+        android:layout_width="fill_parent" android:layout_height="fill_parent">
+		<org.ganjp.jlib.thirdparty.astickyheader.ui.PinnedSectionListView
+	        android:id="@+id/list"
+	        android:layout_width="match_parent"
+	        android:layout_height="match_parent"
+	        android:background="@android:color/white"
+	        android:choiceMode="singleChoice"
+	        android:drawSelectorOnTop="true"
+	        android:focusable="false"
+	        android:gravity="center"
+	        android:paddingLeft="0dp"
+	        android:paddingRight="0dp"
+	        android:divider="#d6d5da"
+	        android:dividerHeight="1px"
+	        android:scrollbarStyle="outsideOverlay" 
+	        android:listSelector="@color/green_selection"/>
+    </org.ganjp.glib.core.view.RefreshableView>
+</LinearLayout>
