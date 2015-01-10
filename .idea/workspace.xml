@@ -33,61 +33,11 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="app: sg.lt.obs" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="20779798-86a2-45cc-8e56-492fbaaa0e65" name="Default" comment="2">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/obs/src/main/res/drawable/icon_add_black.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/obs/src/main/res/drawable/icon_add_white.png" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/obs/src/main/res/drawable/icon_add_green.png" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/obs/src/androidTest/java/com/onetransport/obs/ApplicationTest.java" afterPath="$PROJECT_DIR$/obs/src/androidTest/java/sg/lt/obs/ApplicationTest.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/obs/src/main/java/com/onetransport/obs/BookingDetailActivity.java" afterPath="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/BookingDetailActivity.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/obs/src/main/java/com/onetransport/obs/BookingDetailFragmentActivity.java" afterPath="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/BookingDetailFragmentActivity.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/obs/src/main/java/com/onetransport/obs/DriverLoginActivity.java" afterPath="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/DriverLoginActivity.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/obs/src/main/java/com/onetransport/obs/MainActivity.java" afterPath="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/MainActivity.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/obs/src/main/java/com/onetransport/obs/ObsBottomTabFragmentActivity.java" afterPath="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/ObsBottomTabFragmentActivity.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/obs/src/main/java/com/onetransport/obs/SplashActivity.java" afterPath="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/SplashActivity.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/obs/src/main/java/com/onetransport/obs/common/ObsConst.java" afterPath="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/common/ObsConst.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/obs/src/main/java/com/onetransport/obs/common/activity/ObsActivity.java" afterPath="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/common/activity/ObsActivity.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/obs/src/main/java/com/onetransport/obs/common/adapt/BookingVehicleListAdapter.java" afterPath="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/common/adapt/BookingVehicleListAdapter.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/obs/src/main/java/com/onetransport/obs/common/dao/BmConfigDAO.java" afterPath="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/common/dao/BmConfigDAO.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/obs/src/main/java/com/onetransport/obs/common/dao/DAO.java" afterPath="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/common/dao/DAO.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/obs/src/main/java/com/onetransport/obs/common/dao/DatabaseHelper.java" afterPath="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/common/dao/DatabaseHelper.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/obs/src/main/java/com/onetransport/obs/common/dao/ObmBookingVehicleItemDAO.java" afterPath="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/common/dao/ObmBookingVehicleItemDAO.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/obs/src/main/java/com/onetransport/obs/common/dao/ObsDaoFactory.java" afterPath="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/common/dao/ObsDaoFactory.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/obs/src/main/java/com/onetransport/obs/common/dao/SystemDAO.java" afterPath="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/common/dao/SystemDAO.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/obs/src/main/java/com/onetransport/obs/common/entity/BaseModel.java" afterPath="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/common/entity/BaseModel.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/obs/src/main/java/com/onetransport/obs/common/entity/BmConfig.java" afterPath="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/common/entity/BmConfig.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/obs/src/main/java/com/onetransport/obs/common/entity/BookingVehicleItem.java" afterPath="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/common/entity/BookingVehicleItem.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/obs/src/main/java/com/onetransport/obs/common/entity/ObmBookingVehicleItem.java" afterPath="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/common/entity/ObmBookingVehicleItem.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/obs/src/main/java/com/onetransport/obs/common/gcm/GcmBroadcastReceiver.java" afterPath="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/common/gcm/GcmBroadcastReceiver.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/obs/src/main/java/com/onetransport/obs/common/gcm/GcmIntentService.java" afterPath="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/common/gcm/GcmIntentService.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/obs/src/main/java/com/onetransport/obs/common/gcm/GcmUtil.java" afterPath="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/common/gcm/GcmUtil.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/obs/src/main/java/com/onetransport/obs/common/other/ObsApplication.java" afterPath="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/common/other/ObsApplication.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/obs/src/main/java/com/onetransport/obs/common/other/ObsUtil.java" afterPath="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/common/other/ObsUtil.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/obs/src/main/java/com/onetransport/obs/common/other/PreferenceUtil.java" afterPath="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/common/other/PreferenceUtil.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/obs/src/main/java/com/onetransport/obs/common/view/TitleView.java" afterPath="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/common/view/TitleView.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/obs/src/main/java/com/onetransport/obs/fragment/BookingHistoryFragment.java" afterPath="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/fragment/BookingHistoryFragment.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/obs/src/main/java/com/onetransport/obs/fragment/BookingUpcomingFragment.java" afterPath="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/fragment/BookingUpcomingFragment.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/obs/src/main/java/com/onetransport/obs/fragment/FragmentIndicator.java" afterPath="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/fragment/FragmentIndicator.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/obs/src/main/java/com/onetransport/obs/fragment/MoreFragment.java" afterPath="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/fragment/MoreFragment.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/obs/src/main/java/com/onetransport/obs/fragment/MyProfileFragment.java" afterPath="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/fragment/MyProfileFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obs/src/main/res/drawable/icon_history_gray.png" afterPath="$PROJECT_DIR$/obs/src/main/res/drawable/icon_history_gray.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obs/src/main/res/drawable/icon_me_gray.png" afterPath="$PROJECT_DIR$/obs/src/main/res/drawable/icon_me_gray.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obs/src/main/res/drawable/icon_more_gray.png" afterPath="$PROJECT_DIR$/obs/src/main/res/drawable/icon_more_gray.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obs/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/obs/src/main/AndroidManifest.xml" />
+    <list default="true" id="20779798-86a2-45cc-8e56-492fbaaa0e65" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/BaseActionBarActivity.java" afterPath="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/BaseActionBarActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/BaseActivity.java" afterPath="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/BaseActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/BaseApplication.java" afterPath="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/BaseApplication.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/Const.java" afterPath="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/Const.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/util/DateUtil.java" afterPath="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/util/DateUtil.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/util/HttpConnection.java" afterPath="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/util/HttpConnection.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obs/src/main/res/layout/activity_main_fragment.xml" afterPath="$PROJECT_DIR$/obs/src/main/res/layout/activity_main_fragment.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obs/build.gradle" afterPath="$PROJECT_DIR$/obs/build.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obs/src/main/res/layout/fragment_booking_history.xml" afterPath="$PROJECT_DIR$/obs/src/main/res/layout/fragment_booking_history.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obs/src/main/res/layout/fragment_booking_upcoming.xml" afterPath="$PROJECT_DIR$/obs/src/main/res/layout/fragment_booking_upcoming.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obs/src/main/res/layout/fragment_more.xml" afterPath="$PROJECT_DIR$/obs/src/main/res/layout/fragment_more.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obs/src/main/res/layout/fragment_my_profile.xml" afterPath="$PROJECT_DIR$/obs/src/main/res/layout/fragment_my_profile.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obs/src/main/assets/www/page/obsdBookingVehicleDetail.html" afterPath="$PROJECT_DIR$/obs/src/main/assets/www/page/obsdBookingVehicleDetail.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/glib/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/glib/src/main/res/values/strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obs/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/obs/src/main/res/values/strings.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="c6d85b13-7c1e-4750-9f68-1b3ca2eb7e87" name="Failed commit: Default" comment="2" />
@@ -128,8 +78,8 @@
       <file leaf-file-name="ObsBottomTabFragmentActivity.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/ObsBottomTabFragmentActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.09389672" vertical-offset="555" max-vertical-offset="3480">
-              <caret line="33" column="46" selection-start-line="33" selection-start-column="46" selection-end-line="33" selection-end-column="46" />
+            <state vertical-scroll-proportion="0.11980831" vertical-offset="555" max-vertical-offset="3480">
+              <caret line="42" column="23" selection-start-line="42" selection-start-column="23" selection-end-line="42" selection-end-column="23" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#2169#2563#0" expanded="true" />
@@ -2392,7 +2342,11 @@
       <created>1420722549404</created>
       <updated>1420722549404</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="2">
+      <created>1420887236648</created>
+      <updated>1420887236649</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -2417,7 +2371,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="12" y="44" width="1358" height="873" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.29404467" sideWeight="0.53333336" order="7" side_tool="false" content_ui="tabs" />
@@ -2440,7 +2394,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.27659574" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27659574" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26948482" sideWeight="0.48518518" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Memory Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28929988" sideWeight="0.5148148" order="12" side_tool="true" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -2591,10 +2545,10 @@
         <state vertical-scroll-proportion="-11.25" vertical-offset="0" max-vertical-offset="1110">
           <caret line="18" column="25" selection-start-line="18" selection-start-column="20" selection-end-line="18" selection-end-column="25" />
           <folding>
-            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#label#0;n#form#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#form#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#div#0;n#form#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#span#0;n#label#0;n#form#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#input#0;n#form#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#input#0;n#div#0;n#form#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -3008,8 +2962,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/ObsBottomTabFragmentActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.09389672" vertical-offset="555" max-vertical-offset="3480">
-          <caret line="33" column="46" selection-start-line="33" selection-start-column="46" selection-end-line="33" selection-end-column="46" />
+        <state vertical-scroll-proportion="0.11980831" vertical-offset="555" max-vertical-offset="3480">
+          <caret line="42" column="23" selection-start-line="42" selection-start-column="23" selection-end-line="42" selection-end-column="23" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#2169#2563#0" expanded="true" />
