@@ -4,12 +4,12 @@
     android:layout_height="fill_parent"
     android:orientation="vertical" >
 
-    <org.ganjp.obsd.common.view.TitleView android:id="@+id/title" android:layout_width="fill_parent"
+    <sg.lt.obs.common.view.TitleView android:id="@+id/title" android:layout_width="fill_parent"
         android:layout_height="wrap_content"/>
 
     <org.ganjp.glib.core.view.RefreshableView android:id="@+id/refreshable_view"
         android:layout_width="fill_parent" android:layout_height="fill_parent">
-		<org.ganjp.jlib.thirdparty.astickyheader.ui.PinnedSectionListView
+		<org.ganjp.glib.thirdparty.astickyheader.ui.PinnedSectionListView
 	        android:id="@+id/list"
 	        android:layout_width="match_parent"
 	        android:layout_height="match_parent"

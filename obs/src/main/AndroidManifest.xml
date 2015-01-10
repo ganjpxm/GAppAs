@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.onetransport.obs" >
+    package="sg.lt.obs">
 
     <uses-feature android:name="android.hardware.camera" />
     <uses-feature android:name = "android.hardware.camera.autofocus" />
@@ -44,11 +44,11 @@
     <!-- application can register and receive messages. -->
     <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
     <!-- applicationPackage + ".permission.C2D_MESSAGE" prevent other Android applications from registering and receiving the Android application's messages.  -->
-    <permission android:name="com.onetransport.obs.permission.C2D_MESSAGE" android:protectionLevel="signature" />
-    <uses-permission android:name="com.onetransport.obs.permission.C2D_MESSAGE" />
+    <permission android:name="sg.lt.obs.permission.C2D_MESSAGE" android:protectionLevel="signature" />
+    <uses-permission android:name="sg.lt.obs.permission.C2D_MESSAGE" />
 
     <application android:allowBackup="true" android:icon="@drawable/ic_launcher" android:label="@string/app_name"
-        android:name="com.onetransport.obs.common.other.ObsApplication" android:theme="@android:style/Theme.NoTitleBar">
+        android:name=".common.other.ObsApplication" android:theme="@android:style/Theme.NoTitleBar">
         <meta-data android:name="com.google.android.maps.v2.API_KEY" android:value="AIzaSyAPygqV1VVfpG8wxzJlQhGl38r_DOaFwdM"/>
         <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version" />
 

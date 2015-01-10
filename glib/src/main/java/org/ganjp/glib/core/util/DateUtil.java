@@ -53,7 +53,13 @@ public class DateUtil {
 	    	}
     	}
     }
-    
+
+    /**
+     * <p>getDdMmYYYYHhMmSsFormate</p>
+     *
+     * @param time
+     * @return
+     */
     public static final String getDdMmYYYYHhMmSsFormate(long time) {
     	if (time>0) {
     		 Date date=new Date(time);

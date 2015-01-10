@@ -2,7 +2,7 @@
 	android:id="@+id/activity" android:orientation="vertical" android:layout_width="fill_parent"
 	android:layout_height="fill_parent" android:background="@drawable/bg_gray">
 
-    <org.ganjp.obsd.common.view.TitleView android:id="@+id/title" android:layout_width="fill_parent"
+    <sg.lt.obs.common.view.TitleView android:id="@+id/title" android:layout_width="fill_parent"
         android:layout_height="wrap_content"/>
 
      <WebView android:id="@+id/web_view" android:layout_height="fill_parent" android:layout_width="fill_parent"

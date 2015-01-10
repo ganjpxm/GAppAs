@@ -10,14 +10,14 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:layout_weight="1"
-        class="com.onetransport.obs.fragment.BookingUpcomingFragment" />
+        class="sg.lt.obs.fragment.BookingUpcomingFragment" />
 
     <fragment
         android:id="@+id/fragment_booking_history"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:layout_weight="1"
-        class="com.onetransport.obs.fragment.BookingHistoryFragment" />
+        class="sg.lt.obs.fragment.BookingHistoryFragment" />
 
 
 	<fragment
@@ -25,16 +25,16 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:layout_weight="1"
-        class="com.onetransport.obs.fragment.MyProfileFragment" />
+        class="sg.lt.obs.fragment.MyProfileFragment" />
 
 	<fragment
         android:id="@+id/fragment_more"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:layout_weight="1"
-        class="com.onetransport.obs.fragment.MoreFragment" />
+        class="sg.lt.obs.fragment.MoreFragment" />
 	
-    <com.ganjp.obsd.fragment.FragmentIndicator
+    <sg.lt.obs.fragment.FragmentIndicator
         android:id="@+id/indicator"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"

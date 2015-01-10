@@ -13,6 +13,10 @@ import android.provider.Settings;
 
 /**
  * <p>Base Application</p>
+ * <pre>
+ *     BaseApplication ba = (BaseApplication)getApplicationContext();
+ *     ba.isScreenLarge();
+ * </pre>
  * 
  * @author GanJianping
  *
@@ -43,15 +47,6 @@ public class BaseApplication extends Application {
 	 */
 	public static Context getAppContext() {
 		return BaseApplication.context;
-	}
-	
-	/**
-	 * <p>Is airplane mode on</p>
-	 * 
-	 * @return boolean
-	 */
-	public boolean isAirplaneModeOn() {
-		return Settings.System.getInt(this.getContentResolver(), Settings.System.AIRPLANE_MODE_ON, 0) != 0;
 	}
 	
 	/**

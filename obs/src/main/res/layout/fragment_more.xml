@@ -3,7 +3,7 @@
     android:layout_width="fill_parent" android:layout_height="fill_parent"
     android:orientation="vertical" android:background="@color/gray_bg">
 
-    <org.ganjp.obsd.common.view.TitleView android:id="@+id/title" android:layout_width="fill_parent"
+    <sg.lt.obs.common.view.TitleView android:id="@+id/title" android:layout_width="fill_parent"
         android:layout_height="wrap_content"/>
 
 	<ScrollView android:layout_width="match_parent" android:layout_height="match_parent" android:scrollbars="none">

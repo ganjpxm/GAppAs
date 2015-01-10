@@ -101,8 +101,9 @@ public class HttpConnection extends ConnectionUtil implements Runnable {
 	}
 
 	private synchronized DefaultHttpClient getThreadSafeClient() {
-		if (httpClient != null)
-			return httpClient;
+		if (httpClient != null) {
+            return httpClient;
+        }
 		httpClient = new DefaultHttpClient();
 		ClientConnectionManager mgr = httpClient.getConnectionManager();
 		HttpParams params = httpClient.getParams();
