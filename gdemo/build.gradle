@@ -9,18 +9,27 @@ android {
         targetSdkVersion 21
         versionCode 1
         versionName "1.0"
+//        testInstrumentationRunner "android.support.multidex.MultiDexTestRunner"
     }
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
     productFlavors {
+        // Define separate dev and prod product flavors.
+//        dev {
+//            minSdkVersion 21
+//        }
+//        prod {
+//            minSdkVersion 14
+//        }
     }
 }
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:appcompat-v7:21.0.3'
+//    androidTestCompile 'com.android.support:multidex-instrumentation:1.0.0'
 }

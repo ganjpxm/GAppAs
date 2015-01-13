@@ -39,14 +39,15 @@ public class BookingUpcomingFragment extends Fragment implements OnItemClickList
 
 	private ArrayList<String> mHeaderNames = new ArrayList<String>();
 	private ArrayList<Integer> mHeaderPositions = new ArrayList<Integer>();
+    private ArrayList<String> mBookingVehilceItemIds = new ArrayList<String>();
 	private BookingVehicleListAdapter mAdapter;
 	private List<ObmBookingVehicleItem> mObmBookingVehicleItems;
 	private List<ObmBookingVehicleItem> mNewObmBookingVehicleItems;
-	private ArrayList<Section> sections = new ArrayList<Section>();
-	private SimpleSectionedListAdapter simpleSectionedListAdapter;
+	private ArrayList<Section> mSections = new ArrayList<Section>();
+	private SimpleSectionedListAdapter mSimpleSectionedListAdapter;
 	
 	private ListView mListView;
-	private View mParent;
+	private View mView;
 	private FragmentActivity mActivity;
 	private TitleView mTitleView;
 	
@@ -80,9 +81,9 @@ public class BookingUpcomingFragment extends Fragment implements OnItemClickList
 	public void onActivityCreated(Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);
 		mActivity = getActivity();
-		mParent = getView();
+		mView = getView();
 
-		mTitleView = (TitleView) mParent.findViewById(R.id.title);
+		mTitleView = (TitleView) mView.findViewById(R.id.title);
 		mTitleView.setTitle(R.string.booking_upcoming_title);
 		mTitleView.hiddenLeftButton();
 		mTitleView.hiddenRightButton();
@@ -95,10 +96,10 @@ public class BookingUpcomingFragment extends Fragment implements OnItemClickList
 //		});
 		mListView = (ListView)mActivity.findViewById(R.id.list);
 		initControls();
-		mListView.setAdapter(simpleSectionedListAdapter);
+		mListView.setAdapter(mSimpleSectionedListAdapter);
 		mListView.setOnItemClickListener(this);
 		
-		refreshableView = (RefreshableView) mParent.findViewById(R.id.refreshable_view);
+		refreshableView = (RefreshableView) mView.findViewById(R.id.refreshable_view);
 		refreshableView.setOnRefreshListener(new PullToRefreshListener() {
 			@Override
 			public void onRefresh() {
@@ -116,20 +117,21 @@ public class BookingUpcomingFragment extends Fragment implements OnItemClickList
 							for (int i=0; i<mHeaderPositions.size(); i++) {
 								mHeaderPositions.set(i, mHeaderPositions.get(i)+newLength);
 							}
-							
+
 							if (!mHeaderNames.contains("New Item")) {
 								mHeaderNames.add(0, "New Item");
 								mHeaderPositions.add(0, 0);
 							}
 
-							sections = new ArrayList<Section>();
+							mSections = new ArrayList<Section>();
 							for (int i = 0; i < mHeaderPositions.size(); i++) {
-								sections.add(new Section(mHeaderPositions.get(i), mHeaderNames.get(i)));
+								mSections.add(new Section(mHeaderPositions.get(i), mHeaderNames.get(i)));
 							}
 							mHandler.obtainMessage(0).sendToTarget();
 						}
 					} else {
 						Thread.sleep(2000);
+
 					}
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -143,7 +145,7 @@ public class BookingUpcomingFragment extends Fragment implements OnItemClickList
     	public void handleMessage (Message msg) { 
 //    		initValue();
     		mAdapter.addItems(mNewObmBookingVehicleItems);
-    		simpleSectionedListAdapter.setSections(sections.toArray(new Section[0]));
+    		mSimpleSectionedListAdapter.setSections(mSections.toArray(new Section[0]));
     	}  
     }; 
 	
@@ -151,11 +153,11 @@ public class BookingUpcomingFragment extends Fragment implements OnItemClickList
 		initValue();
 		mAdapter = new BookingVehicleListAdapter(mActivity, mObmBookingVehicleItems);
 		for (int i = 0; i < mHeaderPositions.size(); i++) {
-			sections.add(new Section(mHeaderPositions.get(i), mHeaderNames.get(i)));
+			mSections.add(new Section(mHeaderPositions.get(i), mHeaderNames.get(i)));
 		}
-		simpleSectionedListAdapter = new SimpleSectionedListAdapter(mActivity, mAdapter,
+		mSimpleSectionedListAdapter = new SimpleSectionedListAdapter(mActivity, mAdapter,
 				R.layout.booking_vehicle_list_item_header, R.id.header);
-		simpleSectionedListAdapter.setSections(sections.toArray(new Section[0]));
+		mSimpleSectionedListAdapter.setSections(mSections.toArray(new Section[0]));
 	}
 	
 	private void initValue() {
@@ -174,6 +176,7 @@ public class BookingUpcomingFragment extends Fragment implements OnItemClickList
 				mHeaderNames.add(date);
 				mHeaderPositions.add(i);
 			}
+            mBookingVehilceItemIds.add(obmBookingVehicleItem.getBookingVehicleItemId());
 		}
 	}
 

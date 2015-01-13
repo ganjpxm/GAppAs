@@ -62,7 +62,9 @@ public abstract class ObsUtil {
 		String url = ObsConst.URL_GET_DRIVER_BOOKING + driverUserId;
 		if (pIsUpdate) {
             String bookingVehicleItemLastUpdateDatetime = DateUtil.getDdMmYYYYHhMmSsFormate(PreferenceUtil.getLong(ObsConst.KEY_PREFERENCE_BOOKING_VEHICLE_UPDATE_ITEM_LAST_TIME));
-			url += "?" + ObsConst.KEY_START_DATE + "=" + java.net.URLEncoder.encode(bookingVehicleItemLastUpdateDatetime);
+			if (StringUtil.hasText(bookingVehicleItemLastUpdateDatetime)) {
+                url += "?" + ObsConst.KEY_START_DATE + "=" + java.net.URLEncoder.encode(bookingVehicleItemLastUpdateDatetime);
+            }
 		}
 		pHttpConnection.get(url);
 		if (pHttpConnection.getResponse()!=null) {

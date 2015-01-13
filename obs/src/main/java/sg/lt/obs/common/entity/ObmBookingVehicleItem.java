@@ -7,6 +7,8 @@
  */
 package sg.lt.obs.common.entity;
 
+import org.ganjp.glib.core.util.StringUtil;
+
 import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.Date;
@@ -62,6 +64,7 @@ public class ObmBookingVehicleItem extends BaseModel implements Serializable {
     public String driverClaimCurrency;
     public Float driverClaimPrice;
     public String driverAction;
+    public String historyDriverUserIds;
 
     private boolean isNew = false;
 
@@ -98,6 +101,9 @@ public class ObmBookingVehicleItem extends BaseModel implements Serializable {
     }
 
     public String getPickupTime() {
+        if (StringUtil.isNotEmpty(pickupTime) && pickupTime.length()>5) {
+            pickupTime = pickupTime.substring(0, 5);
+        }
         return pickupTime;
     }
 
@@ -375,5 +381,13 @@ public class ObmBookingVehicleItem extends BaseModel implements Serializable {
 
     public void setNew(boolean isNew) {
         this.isNew = isNew;
+    }
+
+    public String getHistoryDriverUserIds() {
+        return historyDriverUserIds;
+    }
+
+    public void setHistoryDriverUserIds(String historyDriverUserIds) {
+        this.historyDriverUserIds = historyDriverUserIds;
     }
 }

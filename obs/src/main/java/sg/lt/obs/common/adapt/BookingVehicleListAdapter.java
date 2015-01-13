@@ -17,12 +17,14 @@ import sg.lt.obs.R;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.text.Html;
 import android.util.SparseArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 /**
@@ -35,6 +37,7 @@ public class BookingVehicleListAdapter extends BaseAdapter {
 	
 	private LayoutInflater mInflater;
     private List<ObmBookingVehicleItem> mObmBookingVehicleItems = null;
+    private Context mContext;
 
 	public void addItems(List<ObmBookingVehicleItem> items) {
 		mObmBookingVehicleItems.addAll(0, items);
@@ -44,6 +47,7 @@ public class BookingVehicleListAdapter extends BaseAdapter {
 	public BookingVehicleListAdapter(Context context) {
         super();
 //        this.mInflater = LayoutInflater.from(context);
+        mContext = context;
         mInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         mObmBookingVehicleItems = new ArrayList<ObmBookingVehicleItem>();
     }
@@ -51,6 +55,7 @@ public class BookingVehicleListAdapter extends BaseAdapter {
 	public BookingVehicleListAdapter(Context context, List<ObmBookingVehicleItem> items) {
         super();
 //        this.mInflater = LayoutInflater.from(context);
+        mContext = context;
         mInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         mObmBookingVehicleItems = items;
     }
@@ -81,38 +86,44 @@ public class BookingVehicleListAdapter extends BaseAdapter {
 	}
 	
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
-		if (convertView == null) {
-			convertView = mInflater.inflate(R.layout.booking_vehicle_list_item, parent, false);
+    public View getView(int position, View view, ViewGroup parent) {
+		if (view == null) {
+			view = mInflater.inflate(R.layout.booking_vehicle_list_item, parent, false);
 		}
 		ObmBookingVehicleItem obmBookingVehicleItem = mObmBookingVehicleItems.get(position);
-		
-		TextView pickupTimeTv = ViewHolder.get(convertView, R.id.pickup_time_tv);
-		if (obmBookingVehicleItem.isNew()) {
-			Date pickupDateTime = DateUtil.getDate(obmBookingVehicleItem.getPickupDate(), obmBookingVehicleItem.getPickupTime());
-			String pickupDateTimeStr = DateUtil.formateDate(new Date(pickupDateTime.getTime()), "dd MMM HH:mm");
-			pickupTimeTv.setText(pickupDateTimeStr);
-//			pickupTimeTv.setTextSize(14);
-//			pickupTimeTv.setPadding(10, 20, 0, 5);
-		} else {
-			String pickupTime = obmBookingVehicleItem.getPickupTime();
-			pickupTimeTv.setText(pickupTime);
-		}
+
+        TextView pickupTimeTv = ViewHolder.get(view, R.id.pickup_time_tv);
+        String pickupTime = obmBookingVehicleItem.getPickupTime();
+        pickupTimeTv.setText(pickupTime);
+
 		String paymentStatus = obmBookingVehicleItem.getPaymentStatus();
 		if (StringUtil.isNotEmpty(paymentStatus)) {
-			TextView paymentStateTv = ViewHolder.get(convertView, R.id.payment_state_tv);
+			TextView paymentStateTv = ViewHolder.get(view, R.id.payment_state_tv);
 			paymentStateTv.setText(paymentStatus);
 			if ("Paid".equalsIgnoreCase(paymentStatus)) {
-				paymentStateTv.setTextColor(Color.rgb(85,220,76));
+				paymentStateTv.setTextColor(Color.BLACK);
 			} else {
-				paymentStateTv.setTextColor(Color.rgb(255,0,0));
+				paymentStateTv.setTextColor(Color.RED);
 			}
 		}
 		
-		TextView bookingNumberTv = ViewHolder.get(convertView, R.id.booking_number_tv);
-		bookingNumberTv.setText(obmBookingVehicleItem.getBookingNumber());
-		
-		TextView bookingAddressTv = ViewHolder.get(convertView, R.id.booking_address_tv);
+		TextView bookingNumberTv = ViewHolder.get(view, R.id.booking_number_tv);
+        String firstLine = obmBookingVehicleItem.getBookingNumber() + "<font color='gray'> - " + obmBookingVehicleItem.getBookingService() + "</font>";
+		bookingNumberTv.setText(Html.fromHtml(firstLine));
+        ImageView remarkIv = ViewHolder.get(view, R.id.remark_iv);
+        if (StringUtil.hasText(obmBookingVehicleItem.getRemark())) {
+            remarkIv.setVisibility(View.VISIBLE);
+        } else {
+            remarkIv.setVisibility(View.GONE);
+        }
+        ImageView stopIv = ViewHolder.get(view, R.id.stop_iv);
+        if (StringUtil.hasText(obmBookingVehicleItem.getStop1Address()) || StringUtil.hasText(obmBookingVehicleItem.getStop2Address())) {
+            stopIv.setVisibility(View.VISIBLE);
+        } else {
+            stopIv.setVisibility(View.GONE);
+        }
+
+		TextView bookingAddressTv = ViewHolder.get(view, R.id.booking_address_tv);
 		String address = "<b>";
 		if ("0101".equalsIgnoreCase(obmBookingVehicleItem.getBookingServiceCd())) {
 			address += obmBookingVehicleItem.getFlightNumber() + " " + obmBookingVehicleItem.getPickupAddress();
@@ -129,15 +140,17 @@ public class BookingVehicleListAdapter extends BaseAdapter {
 		} else {
 			address += obmBookingVehicleItem.getDestination();
 		}
-		bookingAddressTv.setText(Html.fromHtml(address));
+        address = "<img src='icon_location_black'/>  " + address;
+		bookingAddressTv.setText(Html.fromHtml(address, new ImageGetter(), null));
 		
-		TextView bookingStateTv = ViewHolder.get(convertView, R.id.booking_state_tv);
+		TextView bookingStateTv = ViewHolder.get(view, R.id.booking_state_tv);
 		String bookingStatus = obmBookingVehicleItem.getBookingStatus();
 		if ("Confirmed".equalsIgnoreCase(bookingStatus)) {
-			bookingStatus = "<font color='gray'>" + bookingStatus + "</font>";
+
 		}
+        bookingStatus = "<font color='gray'>" + bookingStatus + " - " + obmBookingVehicleItem.getDriverUserName() + "</font>";
 		bookingStateTv.setText(Html.fromHtml(bookingStatus));
-		return convertView;
+		return view;
 		
 //		View view = mInflater.inflate(R.layout.booking_vehicle_list_item, null);
 //    	ImageView imageIv = (ImageView) view.findViewById(R.id.item_image_ib);
@@ -168,5 +181,30 @@ public class BookingVehicleListAdapter extends BaseAdapter {
 			return (T) childView;
 		}
 	}
+
+    private class ImageGetter implements Html.ImageGetter {
+
+        public Drawable getDrawable(String source) {
+            int id;
+
+            id = mContext.getResources().getIdentifier(source, "drawable", mContext.getPackageName());
+
+            if (id == 0) {
+                // the drawable resource wasn't found in our package, maybe it is a stock android drawable?
+                id = mContext.getResources().getIdentifier(source, "drawable", "android");
+            }
+
+            if (id == 0) {
+                // prevent a crash if the resource still can't be found
+                return null;
+            }
+            else {
+                Drawable d = mContext.getResources().getDrawable(id);
+                d.setBounds(0, 0, d.getIntrinsicWidth(), d.getIntrinsicHeight());
+                return d;
+            }
+        }
+
+    }
     
 }

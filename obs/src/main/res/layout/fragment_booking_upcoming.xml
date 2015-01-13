@@ -23,6 +23,6 @@
 	        android:divider="#d6d5da"
 	        android:dividerHeight="1px"
 	        android:scrollbarStyle="outsideOverlay" 
-	        android:listSelector="@color/green_selection"/>
+	        android:listSelector="@color/white_press"/>
     </org.ganjp.glib.core.view.RefreshableView>
 </LinearLayout>

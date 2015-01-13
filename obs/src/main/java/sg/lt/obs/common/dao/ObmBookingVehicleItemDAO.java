@@ -82,6 +82,7 @@ public class ObmBookingVehicleItemDAO extends DAO {
     public static final String  COLUMN_DRIVER_CLAIM_CURRENCY       = "driverClaimCurrency";
     public static final String  COLUMN_DRIVER_CLAIM_PRICE          = "driverClaimPrice";
     public static final String  COLUMN_DRIVER_ACTION               = "driverAction";
+    public static final String  COLUMN_HISTORTY_DRIVER_USER_IDS    = "historyDriverUserIds";
 
 	public static final String  COLUMN_CREATE_DATE_TIME            = "createDateTime";
 	public static final String  COLUMN_MODIFY_TIMESTAMP            = "modifyTimestamp";
@@ -92,7 +93,7 @@ public class ObmBookingVehicleItemDAO extends DAO {
 			.append(COLUMN_BOOKING_VEHICLE_ITEM_ID).append(" TEXT primary key, ")
 			.append(COLUMN_BOOKING_NUMBER).append(" TEXT, ")
             .append(COLUMN_PICKUP_DATE).append(" INTEGER, ")
-            .append(COLUMN_PICKUP_TIME).append(" INTEGER, ")
+            .append(COLUMN_PICKUP_TIME).append(" TEXT, ")
             .append(COLUMN_PICKUP_DATE_TIME).append(" INTEGER, ")
 			.append(COLUMN_BOOKING_SERVICE).append(" TEXT, ")
             .append(COLUMN_BOOKING_SERVICE_CD).append(" TEXT, ")
@@ -130,6 +131,7 @@ public class ObmBookingVehicleItemDAO extends DAO {
             .append(COLUMN_DRIVER_CLAIM_CURRENCY).append(" TEXT, ")
             .append(COLUMN_DRIVER_CLAIM_PRICE).append(" INTEGER, ")
             .append(COLUMN_DRIVER_ACTION).append(" TEXT, ")
+            .append(COLUMN_HISTORTY_DRIVER_USER_IDS).append(" TEXT, ")
 
             .append(COLUMN_CREATE_DATE_TIME).append(" INTEGER, ")
             .append(COLUMN_MODIFY_TIMESTAMP).append(" INTEGER, ")
@@ -213,6 +215,7 @@ public class ObmBookingVehicleItemDAO extends DAO {
             cv.put(COLUMN_DRIVER_CLAIM_CURRENCY, obmBookingVehicleItem.getDriverClaimCurrency());
             cv.put(COLUMN_DRIVER_CLAIM_PRICE, obmBookingVehicleItem.getDriverClaimPrice());
             cv.put(COLUMN_DRIVER_ACTION, obmBookingVehicleItem.getDriverAction());
+            cv.put(COLUMN_HISTORTY_DRIVER_USER_IDS, obmBookingVehicleItem.getHistoryDriverUserIds());
 
 			cv.put(COLUMN_CREATE_DATE_TIME, obmBookingVehicleItem.getCreateDateTime().getTime());
 			cv.put(COLUMN_MODIFY_TIMESTAMP, obmBookingVehicleItem.getModifyTimestamp().getTime());
@@ -247,13 +250,14 @@ public class ObmBookingVehicleItemDAO extends DAO {
 		if (StringUtil.isNotEmpty(driverUserId)) {
 			Date currentDate = new Date();
 			long currentMilliseconds = currentDate.getTime();
-			if (FLAG_UPCOMING.equalsIgnoreCase(flag)) {
-				sql += " where " + COLUMN_PICKUP_DATE_TIME + " >=  " + currentMilliseconds  + " order by " + COLUMN_PICKUP_DATE + " asc," + COLUMN_PICKUP_TIME + " asc";
+            sql += " where driverLoginUserId = '" + driverUserId + "' ";
+            if (FLAG_UPCOMING.equalsIgnoreCase(flag)) {
+				sql += " and " + COLUMN_PICKUP_DATE_TIME + " >=  " + currentMilliseconds + " order by " + COLUMN_PICKUP_DATE + " asc," + COLUMN_PICKUP_TIME + " asc";;
 			} else if (FLAG_PAST.equalsIgnoreCase(flag)) {
-				sql += " where " + COLUMN_PICKUP_DATE_TIME + " <  " +  currentMilliseconds + " order by " + COLUMN_PICKUP_DATE + " desc," + COLUMN_PICKUP_TIME + " asc";
+				sql += " and " + COLUMN_PICKUP_DATE_TIME + " <  " +  currentMilliseconds + " order by " + COLUMN_PICKUP_DATE + " desc," + COLUMN_PICKUP_TIME + " asc";;
 			} else {
-				sql += " order by " + COLUMN_PICKUP_DATE + " asc," + COLUMN_PICKUP_TIME + " asc";
-			}
+                sql += " order by " + COLUMN_PICKUP_DATE + " desc," + COLUMN_PICKUP_TIME + " asc";
+            }
 		}
 		return getObmBookingVehicleItemsBySql(sql);
 	}
@@ -443,6 +447,7 @@ public class ObmBookingVehicleItemDAO extends DAO {
         ObmBookingVehicleItem.setDriverClaimCurrency(cursor.getString(cursor.getColumnIndex(COLUMN_DRIVER_CLAIM_CURRENCY)));
         ObmBookingVehicleItem.setDriverClaimPrice(cursor.getFloat(cursor.getColumnIndex(COLUMN_DRIVER_CLAIM_PRICE)));
         ObmBookingVehicleItem.setDriverAction(cursor.getString(cursor.getColumnIndex(COLUMN_DRIVER_ACTION)));
+        ObmBookingVehicleItem.setHistoryDriverUserIds(cursor.getString(cursor.getColumnIndex(COLUMN_HISTORTY_DRIVER_USER_IDS)));
 
         ObmBookingVehicleItem.setCreateDateTime(new Timestamp(cursor.getLong(cursor.getColumnIndex(COLUMN_CREATE_DATE_TIME))));
         ObmBookingVehicleItem.setModifyTimestamp(new Timestamp(cursor.getLong(cursor.getColumnIndex(COLUMN_MODIFY_TIMESTAMP))));
