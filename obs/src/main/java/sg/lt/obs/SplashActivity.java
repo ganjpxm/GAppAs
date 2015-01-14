@@ -13,11 +13,16 @@ import org.ganjp.glib.core.util.StringUtil;
 import org.ganjp.glib.core.util.ThreadUtil;
 import sg.lt.obs.common.ObsConst;
 import sg.lt.obs.common.activity.ObsActivity;
+import sg.lt.obs.common.dao.ObmBookingVehicleItemDAO;
+import sg.lt.obs.common.entity.ObmBookingVehicleItem;
 import sg.lt.obs.common.other.ObsUtil;
 import sg.lt.obs.common.other.PreferenceUtil;
 
 import android.content.Intent;
 import android.os.Bundle;
+
+import java.util.List;
+import java.util.Map;
 
 /**
  * <p>Splash screen activity</p>
@@ -29,7 +34,8 @@ public class SplashActivity extends ObsActivity {
     boolean isTimeout = false;
     private static Thread mTimeoutThread;
     String userId = "";
-    
+    private Map<String,String> resultMap;
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -47,7 +53,7 @@ public class SplashActivity extends ObsActivity {
                     e.printStackTrace();
                 }
                 if (isTimeout) {
-                    forward();
+                    forward(false);
                     showToastFromBackground(Const.VALUE_TIMEOUT);
                 }
 	            }
@@ -57,16 +63,16 @@ public class SplashActivity extends ObsActivity {
 			new Thread(new Runnable() {
 				public void run() {
                 try {
-                    ObsUtil.getDataFromWeb(new HttpConnection(false), true);
+                    resultMap = ObsUtil.getBookingVehicleItemsFromWeb(new HttpConnection(false), true);
                     isTimeout = false;
                     if (mTimeoutThread!=null) {
                         mTimeoutThread.interrupt();
                         mTimeoutThread=null;
                     }
-                    forward();
+                    forward(true);
                 } catch (Exception e) {
                     e.printStackTrace();
-                    forward();
+                    forward(false);
                     showToastFromBackground(Const.VALUE_FAIL);
                 }
 				}
@@ -75,7 +81,7 @@ public class SplashActivity extends ObsActivity {
 			ThreadUtil.run(new Runnable() {
 	            @Override
 	            public void run() {
-	                forward();
+	                forward(false);
 	            }
 	         }, Const.DURATION_SPLASH);
 		}
@@ -86,11 +92,19 @@ public class SplashActivity extends ObsActivity {
 		super.onBackPressed();
 	}
 	
-	public void forward() {
+	public void forward(boolean isShowBroadcast) {
 		finish();
 		Intent intent = null;
 	    if (StringUtil.isNotEmpty(userId)) {
-	    	intent = new Intent(SplashActivity.this, ObsBottomTabFragmentActivity.class);//BasicMapDemoActivity,ObsBottomTabFragmentActivity, CameraDemoActivity
+            if (isShowBroadcast) {
+                if (resultMap!=null && StringUtil.hasText(resultMap.get("broadcastBookingVehicleItemIds"))) {
+                    intent = new Intent(SplashActivity.this, BookingVehicleAlarmListActivity.class);
+                } else {
+                    intent = new Intent(SplashActivity.this, ObsBottomTabFragmentActivity.class);
+                }
+            } else {
+                intent = new Intent(SplashActivity.this, ObsBottomTabFragmentActivity.class);
+            }
 		} else {
 			intent = new Intent(SplashActivity.this, DriverLoginActivity.class);
 		}

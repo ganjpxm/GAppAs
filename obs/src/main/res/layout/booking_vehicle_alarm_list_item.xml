@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>   
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:id="@+id/booking_panel"	android:layout_height="wrap_content"
+	android:layout_width="fill_parent" android:orientation="horizontal">	
+	
+	<RelativeLayout android:id="@+id/left_item_rl" android:layout_width="60dip" android:layout_height="80dip">
+      	<TextView android:id="@+id/pickup_time_tv" android:layout_width="wrap_content" android:layout_height="wrap_content"
+      		android:paddingLeft="10dip" android:paddingTop="20dip" android:textColor="@color/black" android:textSize="14sp" >
+   		</TextView>
+        <TextView android:id="@+id/payment_state_tv" android:layout_width="fill_parent" android:layout_height="wrap_content" 
+            android:layout_below="@+id/pickup_time_tv" android:paddingLeft="10dip" android:textColor="@color/black" 
+            android:textSize="10sp" android:layout_centerHorizontal="true">
+        </TextView>
+    </RelativeLayout>
+       
+	<TextView android:id="@+id/middle_line_tv"  android:layout_width="2dip" android:layout_toRightOf="@id/left_item_rl"
+        android:layout_height="60dip" android:layout_marginTop="10dip" android:layout_marginRight="5dip" android:background="@color/black">
+    </TextView>
+	
+    <LinearLayout android:layout_width="fill_parent" android:layout_height="fill_parent" android:orientation="vertical" 
+        android:layout_toRightOf="@id/middle_line_tv">
+        <RelativeLayout  android:id="@+id/first_line_rl" android:layout_width="fill_parent" android:layout_height="wrap_content"
+             android:orientation="horizontal">
+       	    <TextView android:id="@+id/booking_number_tv" android:layout_width="wrap_content" android:layout_height="wrap_content"
+        	    android:paddingLeft="5dip" android:paddingRight="5dip" android:paddingTop="5dip" android:textColor="@color/black" android:textSize="14sp" >
+            </TextView>
+            <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_alignParentRight="true" >
+                <ImageView android:id="@+id/stop_iv" android:layout_width="15dp" android:layout_height="13dp" android:visibility="gone"
+                    android:layout_marginRight="6dp" android:layout_marginTop="5dp" android:background="@drawable/icon_stop_red" android:adjustViewBounds="true" />
+                <ImageView android:id="@+id/remark_iv" android:layout_width="15dp" android:layout_height="13dp" android:visibility="gone"
+                    android:layout_marginRight="6dp" android:layout_marginTop="5dp" android:background="@drawable/icon_comment_red" android:adjustViewBounds="true" />
+            </LinearLayout>
+        </RelativeLayout>
+
+        <TextView android:id="@+id/booking_address_tv" android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:paddingLeft="5dip" android:paddingRight="5dip" android:textColor="@color/black" android:textSize="14sp" >
+        </TextView>
+        <TextView android:id="@+id/booking_state_tv" android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:paddingLeft="5dip" android:paddingRight="5dip" android:paddingBottom="5dp" android:textColor="@color/black" android:textSize="12sp" >
+        </TextView>
+	</LinearLayout>
+</RelativeLayout>

@@ -4,15 +4,19 @@ import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 import org.ganjp.glib.core.util.DateUtil;
 import org.ganjp.glib.core.util.HttpConnection;
 import org.ganjp.glib.core.util.NetworkUtil;
+import org.ganjp.glib.core.util.StringUtil;
 import org.ganjp.glib.core.view.RefreshableView;
 import org.ganjp.glib.core.view.RefreshableView.PullToRefreshListener;
 import org.ganjp.glib.thirdparty.astickyheader.SimpleSectionedListAdapter;
 import org.ganjp.glib.thirdparty.astickyheader.SimpleSectionedListAdapter.Section;
 import sg.lt.obs.BookingDetailFragmentActivity;
+import sg.lt.obs.BookingVehicleAlarmListActivity;
+import sg.lt.obs.ObsBottomTabFragmentActivity;
 import sg.lt.obs.common.ObsConst;
 import sg.lt.obs.common.adapt.BookingVehicleListAdapter;
 import sg.lt.obs.common.dao.ObmBookingVehicleItemDAO;
@@ -28,6 +32,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -37,13 +42,13 @@ import android.widget.ListView;
 
 public class BookingUpcomingFragment extends Fragment implements OnItemClickListener {
 
-	private ArrayList<String> mHeaderNames = new ArrayList<String>();
-	private ArrayList<Integer> mHeaderPositions = new ArrayList<Integer>();
-    private ArrayList<String> mBookingVehilceItemIds = new ArrayList<String>();
+	private List<String> mHeaderNames = new ArrayList<String>();
+	private List<Integer> mHeaderPositions = new ArrayList<Integer>();
+    private List<String> mBookingVehilceItemIds = new ArrayList<String>();
 	private BookingVehicleListAdapter mAdapter;
 	private List<ObmBookingVehicleItem> mObmBookingVehicleItems;
 	private List<ObmBookingVehicleItem> mNewObmBookingVehicleItems;
-	private ArrayList<Section> mSections = new ArrayList<Section>();
+	private List<Section> mSections = new ArrayList<Section>();
 	private SimpleSectionedListAdapter mSimpleSectionedListAdapter;
 	
 	private ListView mListView;
@@ -81,12 +86,13 @@ public class BookingUpcomingFragment extends Fragment implements OnItemClickList
 	public void onActivityCreated(Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);
 		mActivity = getActivity();
-		mView = getView();
-
-		mTitleView = (TitleView) mView.findViewById(R.id.title);
-		mTitleView.setTitle(R.string.booking_upcoming_title);
-		mTitleView.hiddenLeftButton();
-		mTitleView.hiddenRightButton();
+        if (mView ==null) {
+            mView = getView();
+        }
+        mTitleView = (TitleView) mView.findViewById(R.id.title);
+        mTitleView.setTitle(R.string.booking_upcoming_title);
+        mTitleView.hiddenLeftButton();
+        mTitleView.hiddenRightButton();
 		
 //		mTitleView.setRightButton(R.string.sign_in, new OnRightButtonClickListener() {
 //			@Override
@@ -105,33 +111,23 @@ public class BookingUpcomingFragment extends Fragment implements OnItemClickList
 			public void onRefresh() {
 				try {
 					if (NetworkUtil.isNetworkAvailable(mActivity)) {
-						ObmBookingVehicleItem[] obmBookingVehicleItems = ObsUtil.getBookingVehicleItemsFromWeb(new HttpConnection(false), true);
-						if (obmBookingVehicleItems!=null) {
-							int newLength = obmBookingVehicleItems.length;
-							mNewObmBookingVehicleItems = new ArrayList<ObmBookingVehicleItem>();
-							for (ObmBookingVehicleItem obmBookingVehicleItem : obmBookingVehicleItems) {
-								obmBookingVehicleItem.setNew(true);
-								obmBookingVehicleItem.setPickupDateTime(new Timestamp(DateUtil.getDate(obmBookingVehicleItem.getPickupDate(), obmBookingVehicleItem.getPickupTime()).getTime()));
-								mNewObmBookingVehicleItems.add(obmBookingVehicleItem);
-							}
-							for (int i=0; i<mHeaderPositions.size(); i++) {
-								mHeaderPositions.set(i, mHeaderPositions.get(i)+newLength);
-							}
-
-							if (!mHeaderNames.contains("New Item")) {
-								mHeaderNames.add(0, "New Item");
-								mHeaderPositions.add(0, 0);
-							}
-
-							mSections = new ArrayList<Section>();
-							for (int i = 0; i < mHeaderPositions.size(); i++) {
-								mSections.add(new Section(mHeaderPositions.get(i), mHeaderNames.get(i)));
-							}
-							mHandler.obtainMessage(0).sendToTarget();
+						Map<String,String> resultMap = ObsUtil.getBookingVehicleItemsFromWeb(new HttpConnection(false), true);
+                        String updateSize = resultMap.get("updateSize");
+                        String broadcastBookingVehicleItemIds = resultMap.get("broadcastBookingVehicleItemIds");
+						if (StringUtil.hasText(broadcastBookingVehicleItemIds)) {
+                            mActivity.finish();
+                            Intent intent = new Intent(mActivity, BookingVehicleAlarmListActivity.class);
+                            mActivity.startActivity(intent);
 						}
+                        if (StringUtil.hasText(updateSize)) {
+                            Fragment frg = mActivity.getSupportFragmentManager().findFragmentById(R.id.fragment_booking_add);
+                            FragmentTransaction ft = mActivity.getSupportFragmentManager().beginTransaction();
+                            ft.detach(frg);
+                            ft.attach(frg);
+                            ft.commit();
+                        }
 					} else {
 						Thread.sleep(2000);
-
 					}
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -151,12 +147,12 @@ public class BookingUpcomingFragment extends Fragment implements OnItemClickList
 	
 	private void initControls() {
 		initValue();
+        mSections = new ArrayList<Section>();
 		mAdapter = new BookingVehicleListAdapter(mActivity, mObmBookingVehicleItems);
 		for (int i = 0; i < mHeaderPositions.size(); i++) {
 			mSections.add(new Section(mHeaderPositions.get(i), mHeaderNames.get(i)));
 		}
-		mSimpleSectionedListAdapter = new SimpleSectionedListAdapter(mActivity, mAdapter,
-				R.layout.booking_vehicle_list_item_header, R.id.header);
+		mSimpleSectionedListAdapter = new SimpleSectionedListAdapter(mActivity, mAdapter, R.layout.booking_vehicle_list_item_header, R.id.header);
 		mSimpleSectionedListAdapter.setSections(mSections.toArray(new Section[0]));
 	}
 	

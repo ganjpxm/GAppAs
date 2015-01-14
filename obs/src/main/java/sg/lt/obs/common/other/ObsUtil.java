@@ -5,6 +5,9 @@
 package sg.lt.obs.common.other;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import org.apache.http.NameValuePair;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
@@ -56,12 +59,14 @@ public abstract class ObsUtil {
      * @return
      * @throws Exception
      */
-	public static ObmBookingVehicleItem[] getBookingVehicleItemsFromWeb(HttpConnection pHttpConnection, boolean pIsUpdate) throws Exception {
+	public static Map<String,String> getBookingVehicleItemsFromWeb(HttpConnection pHttpConnection, boolean pIsUpdate) throws Exception {
+        Map<String,String> resultMap = new HashMap<String,String>();
 		ObmBookingVehicleItem[] obmBookingVehicleItems = null;
 		String driverUserId = PreferenceUtil.getString(ObsConst.KEY_USER_ID_OBS);
 		String url = ObsConst.URL_GET_DRIVER_BOOKING + driverUserId;
+        String bookingVehicleItemLastUpdateDatetime = "";
 		if (pIsUpdate) {
-            String bookingVehicleItemLastUpdateDatetime = DateUtil.getDdMmYYYYHhMmSsFormate(PreferenceUtil.getLong(ObsConst.KEY_PREFERENCE_BOOKING_VEHICLE_UPDATE_ITEM_LAST_TIME));
+            bookingVehicleItemLastUpdateDatetime = DateUtil.getDdMmYYYYHhMmSsFormate(PreferenceUtil.getLong(ObsConst.KEY_PREFERENCE_BOOKING_VEHICLE_UPDATE_ITEM_LAST_TIME));
 			if (StringUtil.hasText(bookingVehicleItemLastUpdateDatetime)) {
                 url += "?" + ObsConst.KEY_START_DATE + "=" + java.net.URLEncoder.encode(bookingVehicleItemLastUpdateDatetime);
             }
@@ -71,16 +76,42 @@ public abstract class ObsUtil {
 			String jsonData = HttpConnection.processEntity(pHttpConnection.getResponse().getEntity());
 			JSONObject jsonObject = new JSONObject(jsonData);
 			String data = jsonObject.getString("data");
+            String broadcastBookingVehicleItemIds = jsonObject.getString("broadcastBookingVehicleItemIds");
+            resultMap.put("broadcastBookingVehicleItemIds", broadcastBookingVehicleItemIds);
 			if (StringUtil.hasText(data) && !"[]".equalsIgnoreCase(data)) {
 		    	ObjectMapper mapper = new ObjectMapper();
 		    	obmBookingVehicleItems = mapper.readValue(data, ObmBookingVehicleItem[].class);
+                resultMap.put("updateSize", String.valueOf(obmBookingVehicleItems.length));
 				long lastTime = ObmBookingVehicleItemDAO.getInstance().insertOrUpdate(obmBookingVehicleItems);
 				PreferenceUtil.saveLong(ObsConst.KEY_PREFERENCE_BOOKING_VEHICLE_UPDATE_ITEM_LAST_TIME, lastTime);
+                if (StringUtil.hasText(bookingVehicleItemLastUpdateDatetime) && pIsUpdate) {
+                    List<Map<String,String>> maps = ObmBookingVehicleItemDAO.getInstance().getAllBookingVehicleItem();
+                    int itemSize = 0;
+                    for (Map<String,String> map : maps) {
+                        String bookingVehicleItemId = map.get(ObmBookingVehicleItemDAO.COLUMN_BOOKING_VEHICLE_ITEM_ID);
+                        if ("yes".equals(ObmBookingVehicleItemDAO.COLUMN_BROADCAST_TAG)) {
+                            if (!StringUtil.hasText(broadcastBookingVehicleItemIds) || (broadcastBookingVehicleItemIds.indexOf(bookingVehicleItemId)==-1)) {
+                                ObmBookingVehicleItemDAO.getInstance().deleteByBookingVehicleItemId(bookingVehicleItemId);
+                                continue;
+                            }
+                        } else {
+                            if (!driverUserId.equals(map.get(ObmBookingVehicleItemDAO.COLUMN_DRIVER_LOGIN_USER_ID)) &&
+                                    !driverUserId.equals(map.get(ObmBookingVehicleItemDAO.COLUMN_ASSIGN_DRIVER_USER_ID))) {
+                                ObmBookingVehicleItemDAO.getInstance().deleteByBookingVehicleItemId(bookingVehicleItemId);
+                                continue;
+                            }
+                        }
+                        itemSize++;
+                        if (itemSize>400) {
+                            ObmBookingVehicleItemDAO.getInstance().deleteByBookingVehicleItemId(bookingVehicleItemId);
+                        }
+                    }
+                }
 			}
 		}
-		return obmBookingVehicleItems;
+		return resultMap;
 	}
-	
+
 	public static String acceptBooking(String bookingVehicleItemId) {
 //		NSMutableDictionary *parameters = [[NSMutableDictionary alloc] init];
 //        NSString *userCd = [JpDataUtil getValueFromUDByKey:KEY_USER_CD_OBS];

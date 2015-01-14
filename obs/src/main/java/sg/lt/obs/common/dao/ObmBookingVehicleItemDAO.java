@@ -9,8 +9,10 @@ package sg.lt.obs.common.dao;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 
 import org.ganjp.glib.core.util.StringUtil;
 import sg.lt.obs.common.ObsConst;
@@ -82,7 +84,12 @@ public class ObmBookingVehicleItemDAO extends DAO {
     public static final String  COLUMN_DRIVER_CLAIM_CURRENCY       = "driverClaimCurrency";
     public static final String  COLUMN_DRIVER_CLAIM_PRICE          = "driverClaimPrice";
     public static final String  COLUMN_DRIVER_ACTION               = "driverAction";
+
+    public static final String  COLUMN_ASSIGN_DRIVER_USER_ID       = "assignDriverUserId";
+    public static final String  COLUMN_ASSIGN_DRIVER_USER_NAME     = "assignDriverUserName";
+
     public static final String  COLUMN_HISTORTY_DRIVER_USER_IDS    = "historyDriverUserIds";
+    public static final String  COLUMN_BROADCAST_TAG               = "broadcastTag";
 
 	public static final String  COLUMN_CREATE_DATE_TIME            = "createDateTime";
 	public static final String  COLUMN_MODIFY_TIMESTAMP            = "modifyTimestamp";
@@ -131,7 +138,12 @@ public class ObmBookingVehicleItemDAO extends DAO {
             .append(COLUMN_DRIVER_CLAIM_CURRENCY).append(" TEXT, ")
             .append(COLUMN_DRIVER_CLAIM_PRICE).append(" INTEGER, ")
             .append(COLUMN_DRIVER_ACTION).append(" TEXT, ")
+
+            .append(COLUMN_ASSIGN_DRIVER_USER_ID).append(" TEXT, ")
+            .append(COLUMN_ASSIGN_DRIVER_USER_NAME).append(" TEXT, ")
+
             .append(COLUMN_HISTORTY_DRIVER_USER_IDS).append(" TEXT, ")
+            .append(COLUMN_BROADCAST_TAG).append(" TEXT, ")
 
             .append(COLUMN_CREATE_DATE_TIME).append(" INTEGER, ")
             .append(COLUMN_MODIFY_TIMESTAMP).append(" INTEGER, ")
@@ -180,7 +192,7 @@ public class ObmBookingVehicleItemDAO extends DAO {
             cv.put(COLUMN_PICKUP_TIME, obmBookingVehicleItem.getPickupTime());
             cv.put(COLUMN_PICKUP_DATE_TIME, obmBookingVehicleItem.getPickupDateTime().getTime());
 			cv.put(COLUMN_BOOKING_SERVICE, obmBookingVehicleItem.getBookingService());
-            cv.put(COLUMN_BOOKING_SERVICE_CD, obmBookingVehicleItem.getBookingService());
+            cv.put(COLUMN_BOOKING_SERVICE_CD, obmBookingVehicleItem.getBookingServiceCd());
             cv.put(COLUMN_BOOKING_HOURS, obmBookingVehicleItem.getBookingHours());
 			cv.put(COLUMN_FLIGHT_NUMBER, obmBookingVehicleItem.getFlightNumber());
 			cv.put(COLUMN_PICKUP_ADDRESS, obmBookingVehicleItem.getPickupAddress());
@@ -215,7 +227,12 @@ public class ObmBookingVehicleItemDAO extends DAO {
             cv.put(COLUMN_DRIVER_CLAIM_CURRENCY, obmBookingVehicleItem.getDriverClaimCurrency());
             cv.put(COLUMN_DRIVER_CLAIM_PRICE, obmBookingVehicleItem.getDriverClaimPrice());
             cv.put(COLUMN_DRIVER_ACTION, obmBookingVehicleItem.getDriverAction());
+
+            cv.put(COLUMN_ASSIGN_DRIVER_USER_ID, obmBookingVehicleItem.getAssignDriverUserId());
+            cv.put(COLUMN_ASSIGN_DRIVER_USER_NAME, obmBookingVehicleItem.getAssignDriverUserName());
+
             cv.put(COLUMN_HISTORTY_DRIVER_USER_IDS, obmBookingVehicleItem.getHistoryDriverUserIds());
+            cv.put(COLUMN_BROADCAST_TAG, obmBookingVehicleItem.getBroadcastTag());
 
 			cv.put(COLUMN_CREATE_DATE_TIME, obmBookingVehicleItem.getCreateDateTime().getTime());
 			cv.put(COLUMN_MODIFY_TIMESTAMP, obmBookingVehicleItem.getModifyTimestamp().getTime());
@@ -240,6 +257,17 @@ public class ObmBookingVehicleItemDAO extends DAO {
 		return super.insertOrUpdateWithTime(values, COLUMN_BOOKING_VEHICLE_ITEM_ID + " = ?", new String[]{bookingVehicleItemId});
 	}
 
+    /**
+     * <p>Get broadcast the ObmBookingVehicleItem data</p>
+     *
+     * @return List<ObmBookingVehicleItem>
+     */
+    public List<ObmBookingVehicleItem> getBroadcastObmBookingVehicleItems() {
+        String sql = "SELECT * FROM " + TABLE_NAME + " where " + COLUMN_BROADCAST_TAG + " = 'yes' " + " order by " + COLUMN_PICKUP_DATE
+                + " desc," + COLUMN_PICKUP_TIME + " asc";
+        return getObmBookingVehicleItemsBySql(sql);
+    }
+
 	/**
 	 * <p>Get all the ObmBookingVehicleItem data</p>
 	 * 
@@ -252,9 +280,9 @@ public class ObmBookingVehicleItemDAO extends DAO {
 			long currentMilliseconds = currentDate.getTime();
             sql += " where driverLoginUserId = '" + driverUserId + "' ";
             if (FLAG_UPCOMING.equalsIgnoreCase(flag)) {
-				sql += " and " + COLUMN_PICKUP_DATE_TIME + " >=  " + currentMilliseconds + " order by " + COLUMN_PICKUP_DATE + " asc," + COLUMN_PICKUP_TIME + " asc";;
+				sql += " and " + COLUMN_PICKUP_DATE_TIME + " >=  " + currentMilliseconds + " order by " + COLUMN_PICKUP_DATE + " asc," + COLUMN_PICKUP_TIME + " asc";
 			} else if (FLAG_PAST.equalsIgnoreCase(flag)) {
-				sql += " and " + COLUMN_PICKUP_DATE_TIME + " <  " +  currentMilliseconds + " order by " + COLUMN_PICKUP_DATE + " desc," + COLUMN_PICKUP_TIME + " asc";;
+				sql += " and " + COLUMN_PICKUP_DATE_TIME + " <  " +  currentMilliseconds + " order by " + COLUMN_PICKUP_DATE + " desc," + COLUMN_PICKUP_TIME + " asc";
 			} else {
                 sql += " order by " + COLUMN_PICKUP_DATE + " desc," + COLUMN_PICKUP_TIME + " asc";
             }
@@ -281,7 +309,7 @@ public class ObmBookingVehicleItemDAO extends DAO {
 	
 	/**
 	 * <p>Get ObmBookingVehicleItems By Sql</p>
-	 * 
+	 *
 	 * @param sql
 	 * @return
 	 */
@@ -317,6 +345,48 @@ public class ObmBookingVehicleItemDAO extends DAO {
 		}
 		return ObmBookingVehicleItems;
 	}
+
+    /**
+     * <p>Get BookingVehicleItems By Sql</p>
+     *
+     * @return
+     */
+     public List<Map<String,String>> getAllBookingVehicleItem() {
+        String sql = "SELECT * FROM " + TABLE_NAME + " order by " + COLUMN_PICKUP_DATE + " desc," + COLUMN_PICKUP_TIME + " desc";
+        List<Map<String,String>> maps = new LinkedList<Map<String,String>>();
+
+        SQLiteDatabase db = null;
+        Cursor cursor = null;
+        try {
+            db = this.getDatabase();
+            cursor = db.rawQuery(sql, null);
+            if( cursor != null && cursor.getCount() > 0 ) {
+                cursor.moveToFirst();
+
+                while(cursor.isAfterLast()==false) {
+                    Map<String,String> map = new HashMap<String,String>();
+                    map.put(COLUMN_BOOKING_VEHICLE_ITEM_ID, cursor.getString(cursor.getColumnIndex(COLUMN_BOOKING_VEHICLE_ITEM_ID)));
+                    map.put(COLUMN_DRIVER_LOGIN_USER_ID, cursor.getString(cursor.getColumnIndex(COLUMN_DRIVER_LOGIN_USER_ID)));
+                    map.put(COLUMN_ASSIGN_DRIVER_USER_ID, cursor.getString(cursor.getColumnIndex(COLUMN_ASSIGN_DRIVER_USER_ID)));
+                    map.put(COLUMN_BROADCAST_TAG, cursor.getString(cursor.getColumnIndex(COLUMN_BROADCAST_TAG)));
+                    maps.add(map);
+                    cursor.moveToNext();
+                }
+            }
+        } catch( Exception ex ) {
+            Log.e(TAG, ex.getMessage());
+        } finally {
+            if ( cursor!=null ){
+                cursor.close();
+                cursor = null;
+            }
+            if (db!=null) {
+                db.close();
+            }
+        }
+        return maps;
+    }
+
 	/**
 	 * <p>Get a ObmBookingVehicleItem object</p>
 	 * 
@@ -389,7 +459,21 @@ public class ObmBookingVehicleItemDAO extends DAO {
 	public boolean deleteByBookingVehicleItemId(String bookingVehicleItemId) {
 		return super.delete(COLUMN_BOOKING_VEHICLE_ITEM_ID + " = ?", new String[]{bookingVehicleItemId});
 	}
-	
+
+    String makePlaceholders(int len) {
+        if (len < 1) {
+            // It will lead to an invalid query anyway ..
+            throw new RuntimeException("No placeholders");
+        } else {
+            StringBuilder sb = new StringBuilder(len * 2 - 1);
+            sb.append("?");
+            for (int i = 1; i < len; i++) {
+                sb.append(",?");
+            }
+            return sb.toString();
+        }
+    }
+
 	@Override
 	public boolean delete() {
 		super.mTableName = TABLE_NAME;
@@ -413,6 +497,7 @@ public class ObmBookingVehicleItemDAO extends DAO {
         ObmBookingVehicleItem.setPickupTime(cursor.getString(cursor.getColumnIndex(COLUMN_PICKUP_TIME)));
         ObmBookingVehicleItem.setPickupDateTime(new Timestamp(cursor.getLong(cursor.getColumnIndex(COLUMN_PICKUP_DATE_TIME))));
 		ObmBookingVehicleItem.setBookingService(cursor.getString(cursor.getColumnIndex(COLUMN_BOOKING_SERVICE)));
+        ObmBookingVehicleItem.setBookingServiceCd(cursor.getString(cursor.getColumnIndex(COLUMN_BOOKING_SERVICE_CD)));
         ObmBookingVehicleItem.setBookingHours(cursor.getFloat(cursor.getColumnIndex(COLUMN_BOOKING_HOURS)));
 		ObmBookingVehicleItem.setFlightNumber(cursor.getString(cursor.getColumnIndex(COLUMN_FLIGHT_NUMBER)));
 		ObmBookingVehicleItem.setPickupAddress(cursor.getString(cursor.getColumnIndex(COLUMN_PICKUP_ADDRESS)));
@@ -447,7 +532,12 @@ public class ObmBookingVehicleItemDAO extends DAO {
         ObmBookingVehicleItem.setDriverClaimCurrency(cursor.getString(cursor.getColumnIndex(COLUMN_DRIVER_CLAIM_CURRENCY)));
         ObmBookingVehicleItem.setDriverClaimPrice(cursor.getFloat(cursor.getColumnIndex(COLUMN_DRIVER_CLAIM_PRICE)));
         ObmBookingVehicleItem.setDriverAction(cursor.getString(cursor.getColumnIndex(COLUMN_DRIVER_ACTION)));
+
+        ObmBookingVehicleItem.setAssignDriverUserId(cursor.getString(cursor.getColumnIndex(COLUMN_ASSIGN_DRIVER_USER_ID)));
+        ObmBookingVehicleItem.setAssignDriverUserName(cursor.getString(cursor.getColumnIndex(COLUMN_ASSIGN_DRIVER_USER_NAME)));
+
         ObmBookingVehicleItem.setHistoryDriverUserIds(cursor.getString(cursor.getColumnIndex(COLUMN_HISTORTY_DRIVER_USER_IDS)));
+        ObmBookingVehicleItem.setBroadcastTag(cursor.getString(cursor.getColumnIndex(COLUMN_BROADCAST_TAG)));
 
         ObmBookingVehicleItem.setCreateDateTime(new Timestamp(cursor.getLong(cursor.getColumnIndex(COLUMN_CREATE_DATE_TIME))));
         ObmBookingVehicleItem.setModifyTimestamp(new Timestamp(cursor.getLong(cursor.getColumnIndex(COLUMN_MODIFY_TIMESTAMP))));

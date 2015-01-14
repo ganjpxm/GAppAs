@@ -6,13 +6,6 @@
  */
 package sg.lt.obs.common.adapt;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import org.ganjp.glib.core.util.StringUtil;
-import sg.lt.obs.common.entity.ObmBookingVehicleItem;
-import sg.lt.obs.R;
-
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
@@ -25,14 +18,22 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import org.ganjp.glib.core.util.StringUtil;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import sg.lt.obs.R;
+import sg.lt.obs.common.entity.ObmBookingVehicleItem;
+
 /**
  * <p>Knowledge list adapter</p>
  * 
  * @author Gan Jianping
  * @since 1.0.0
  */
-public class BookingVehicleListAdapter extends BaseAdapter {
-	
+public class BookingVehicleAlarmListAdapter extends BaseAdapter {
+
 	private LayoutInflater mInflater;
     private List<ObmBookingVehicleItem> mObmBookingVehicleItems = null;
     private Context mContext;
@@ -42,15 +43,15 @@ public class BookingVehicleListAdapter extends BaseAdapter {
         notifyDataSetChanged();
     }
 
-	public BookingVehicleListAdapter(Context context) {
+	public BookingVehicleAlarmListAdapter(Context context) {
         super();
 //        this.mInflater = LayoutInflater.from(context);
         mContext = context;
         mInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         mObmBookingVehicleItems = new ArrayList<ObmBookingVehicleItem>();
     }
-	
-	public BookingVehicleListAdapter(Context context, List<ObmBookingVehicleItem> items) {
+
+	public BookingVehicleAlarmListAdapter(Context context, List<ObmBookingVehicleItem> items) {
         super();
 //        this.mInflater = LayoutInflater.from(context);
         mContext = context;

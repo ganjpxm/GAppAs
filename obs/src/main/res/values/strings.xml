@@ -5,7 +5,6 @@
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="title">Limousine Transport</string>
-
     <string name="booking_upcoming_tab">Upcoming</string>
     <string name="booking_upcoming_title">Upcoming Booking</string>
     <string name="booking_history_tab">History</string>
@@ -16,7 +15,6 @@
     <string name="push_notification">Push Notification</string>
     <string name="clear_data">Clear All Data</string>
     <string name="logout">Logout</string>
-
     <string name="from">From</string>
     <string name="to">To</string>
     <string name="lead_passenger">Lead Passenger</string>
@@ -30,7 +28,8 @@
     <string name="share">Share</string>
     <string name="menu">Menu</string>
     <string name="chinese_english">中文／English</string>
-
     <string name="error_login_fail"><![CDATA[Sorry for your mobile number or password is wrong. Please try again.]]></string>
     <string name="error_connect_fail"><![CDATA[Sorry for connection exception. Please try again.]]></string>
+    <string name="title_activity_alarm_list">AlarmListActivity</string>
+
 </resources>

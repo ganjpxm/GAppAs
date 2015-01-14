@@ -64,10 +64,14 @@ public class ObmBookingVehicleItem extends BaseModel implements Serializable {
     public String driverClaimCurrency;
     public Float driverClaimPrice;
     public String driverAction;
+
+    public String assignDriverUserId;
+    public String assignDriverUserName;
+
     public String historyDriverUserIds;
+    public String broadcastTag;
 
     private boolean isNew = false;
-
 	   
 	//----------------------------------------------- default constructor --------------------------
     public ObmBookingVehicleItem() {
@@ -389,5 +393,29 @@ public class ObmBookingVehicleItem extends BaseModel implements Serializable {
 
     public void setHistoryDriverUserIds(String historyDriverUserIds) {
         this.historyDriverUserIds = historyDriverUserIds;
+    }
+
+    public String getBroadcastTag() {
+        return broadcastTag;
+    }
+
+    public void setBroadcastTag(String broadcastTag) {
+        this.broadcastTag = broadcastTag;
+    }
+
+    public String getAssignDriverUserId() {
+        return assignDriverUserId;
+    }
+
+    public void setAssignDriverUserId(String assignDriverUserId) {
+        this.assignDriverUserId = assignDriverUserId;
+    }
+
+    public String getAssignDriverUserName() {
+        return assignDriverUserName;
+    }
+
+    public void setAssignDriverUserName(String assignDriverUserName) {
+        this.assignDriverUserName = assignDriverUserName;
     }
 }
