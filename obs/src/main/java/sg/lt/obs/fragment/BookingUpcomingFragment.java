@@ -1,6 +1,5 @@
 package sg.lt.obs.fragment;
 
-import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -16,7 +15,6 @@ import org.ganjp.glib.thirdparty.astickyheader.SimpleSectionedListAdapter;
 import org.ganjp.glib.thirdparty.astickyheader.SimpleSectionedListAdapter.Section;
 import sg.lt.obs.BookingDetailFragmentActivity;
 import sg.lt.obs.BookingVehicleAlarmListActivity;
-import sg.lt.obs.ObsBottomTabFragmentActivity;
 import sg.lt.obs.common.ObsConst;
 import sg.lt.obs.common.adapt.BookingVehicleListAdapter;
 import sg.lt.obs.common.dao.ObmBookingVehicleItemDAO;
@@ -199,7 +197,7 @@ public class BookingUpcomingFragment extends Fragment implements OnItemClickList
 		ObmBookingVehicleItem obmBookingVehicleItem = mAdapter.getItem(actPosition);
         if (obmBookingVehicleItem!=null) {
         	Intent intent = new Intent(getActivity(), BookingDetailFragmentActivity.class);
-        	intent.putExtra(ObsConst.KEY_BOOKING_VEHICLE_ITEM_OBSD, obmBookingVehicleItem);
+        	intent.putExtra(ObsConst.KEY_BOOKING_VEHICLE_ITEM_OBS, obmBookingVehicleItem);
         	getActivity().startActivity(intent);
         	getActivity().overridePendingTransition(R.anim.in_from_right, R.anim.out_to_left);
         }

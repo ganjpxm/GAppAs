@@ -52,7 +52,7 @@ public class DriverLoginActivity extends ObsActivity {
 	private Timer mTimer;
 	private static Thread mTimeoutThread;
 	boolean isTimeout = false;
-	 
+    private Map<String,String> mResultMap;
 	/**
 	 * Init view and load application form from pweb   
 	 */
@@ -199,14 +199,11 @@ public class DriverLoginActivity extends ObsActivity {
         /**
          * <p>Launch another activity</p>
          * 
-         * @param userCdOrEmailOrMobileNumber
+         * @param mobileNumber
          * @param password
          */
         @JavascriptInterface
-        public void login(final String userCdOrEmailOrMobileNumber, final String password) {
-        	String jsonData = PreferenceUtil.getString(userCdOrEmailOrMobileNumber);
-        	final String passwordExist = StringUtil.getJsonData(jsonData, ObsConst.KEY_PASSWORD_OBS);
-
+        public void login(final String mobileNumber, final String password) {
         	Activity activity = (Activity)mContext;
 	        if (NetworkUtil.isNetworkAvailable(activity)) {
 	        	DialogUtil.showProcessingDialog(mContext);
@@ -220,13 +217,9 @@ public class DriverLoginActivity extends ObsActivity {
     	                    e.printStackTrace();
     	                }
     	                if (isTimeout) {
-	    	                if (StringUtil.isNotEmpty(passwordExist) && passwordExist.equals(password)) {
-	    	        			forwardHome();
-	    	        		} else {
-	    	        			mHandlerDialog.obtainMessage(0).sendToTarget();
-	    	        		}
+	    	        		mHandlerDialog.obtainMessage(0).sendToTarget();
     	                }
-    	               }
+    	            }
 	    	    });
 				mTimeoutThread.start();
 		        new Thread(new Runnable() {
@@ -234,7 +227,7 @@ public class DriverLoginActivity extends ObsActivity {
                         try {
                             HttpConnection httpConnection = new HttpConnection(false);
                             ArrayList<NameValuePair> pairs = new ArrayList<NameValuePair>();
-                            pairs.add(new BasicNameValuePair(ObsConst.KEY_LOGIN_USER_CD_OR_EMAIL_OR_MOBILE_NUMBER, userCdOrEmailOrMobileNumber));
+                            pairs.add(new BasicNameValuePair(ObsConst.KEY_LOGIN_USER_CD_OR_EMAIL_OR_MOBILE_NUMBER, mobileNumber));
                             pairs.add(new BasicNameValuePair(ObsConst.KEY_LOGIN_USER_PASSWORD, password));
                             httpConnection.post(ObsConst.URL_LOGIN, new UrlEncodedFormEntity(pairs, HTTP.UTF_8));
                             String jsonData = HttpConnection.processEntity(httpConnection.getResponse().getEntity());
@@ -248,23 +241,17 @@ public class DriverLoginActivity extends ObsActivity {
                             String result = jsonObject.getString("result");
                             if ("success".equalsIgnoreCase(result)) {
                                 String userId = jsonObject.getString(ObsConst.KEY_USER_ID_OBS);
-                                PreferenceUtil.saveString(userCdOrEmailOrMobileNumber, jsonData);
                                 PreferenceUtil.saveString(ObsConst.KEY_USER_ID_OBS, userId);
-                                PreferenceUtil.saveString(ObsConst.KEY_USER_CD_OBS, jsonObject.getString(ObsConst.KEY_USER_CD_OBS));
-                                PreferenceUtil.saveString(ObsConst.KEY_PASSWORD_OBS, jsonObject.getString(ObsConst.KEY_PASSWORD_OBS));
-                                PreferenceUtil.saveString(ObsConst.KEY_USER_NAME_OBS, jsonObject.getString(ObsConst.KEY_USER_NAME_OBS));
-                                PreferenceUtil.saveString(ObsConst.KEY_USER_EMAIL_OBS, jsonObject.getString(ObsConst.KEY_USER_EMAIL_OBS));
-                                PreferenceUtil.saveString(ObsConst.KEY_USER_MOBILE_PHONE_OBS, jsonObject.getString(ObsConst.KEY_USER_MOBILE_PHONE_OBS));
+                                PreferenceUtil.saveString(userId, jsonData);
 
                                 //Get driver booking information
                                 httpConnection.get(ObsConst.URL_GET_DRIVER_BOOKING + userId);
-                                ObsUtil.getDataFromWeb(new HttpConnection(false), false);
-                                forwardHome();
+                                mResultMap = ObsUtil.getDataFromWeb(new HttpConnection(false), false);
+                                forward();
                             } else {
                                 DialogUtil.dismissProgressDialog();
                                 mHandlerDialog.obtainMessage(1).sendToTarget();
                             }
-                            System.out.println(result);
                         } catch (Exception e) {
                             log(e.getMessage());
                             isTimeout = false;
@@ -278,26 +265,23 @@ public class DriverLoginActivity extends ObsActivity {
 					}
 				}).start();
         	} else {
-        		if (StringUtil.isNotEmpty(passwordExist) && passwordExist.equals(password)) {
-        			forwardHome();
-        		} else {
-        			DialogUtil.showAlertDialog(mContext, getString(R.string.error_no_network));
-        		}
+                DialogUtil.dismissProgressDialog();
+        		DialogUtil.showAlertDialog(mContext, getString(R.string.error_no_network));
         	}
         }
     }
     
     private Handler mHandlerDialog = new Handler() {  
     	public void handleMessage (Message msg) { 
-            if (msg.what==0) {
-                mHasReload = true;
-                mIsLoadingUrl = false;
-                DialogUtil.showAlertDialog(DriverLoginActivity.this, getString(R.string.error_loading_timeout));
-            } else if (msg.what==1) {
-                DialogUtil.showAlertDialog(DriverLoginActivity.this, getString(R.string.error_login_fail));
-            } else if (msg.what==2) {
-                DialogUtil.showAlertDialog(DriverLoginActivity.this, getString(R.string.error_connect_fail));
-            }
+        if (msg.what==0) {
+            mHasReload = true;
+            mIsLoadingUrl = false;
+            DialogUtil.showAlertDialog(DriverLoginActivity.this, getString(R.string.error_loading_timeout));
+        } else if (msg.what==1) {
+            DialogUtil.showAlertDialog(DriverLoginActivity.this, getString(R.string.error_login_fail));
+        } else if (msg.what==2) {
+            DialogUtil.showAlertDialog(DriverLoginActivity.this, getString(R.string.error_connect_fail));
+        }
     	}  
     }; 
     
@@ -365,10 +349,14 @@ public class DriverLoginActivity extends ObsActivity {
         }
     }
     
-    private void forwardHome() {
-    	Intent intent = new Intent(DriverLoginActivity.this, ObsBottomTabFragmentActivity.class);
+    private void forward() {
+        Intent intent = new Intent(DriverLoginActivity.this, ObsBottomTabFragmentActivity.class);
+//        if (mResultMap !=null && StringUtil.hasText(mResultMap.get(ObsConst.KEY_BROADCAST_BOOKING_VEHICLE_ITEM_IDS))) {
+//            intent = new Intent(DriverLoginActivity.this, BookingVehicleAlarmListActivity.class);
+//        } else {
+//            intent = new Intent(DriverLoginActivity.this, ObsBottomTabFragmentActivity.class);
+//        }
     	DriverLoginActivity.this.startActivity(intent);
     	transitForward();	
     }
-   
 }

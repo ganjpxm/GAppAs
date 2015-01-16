@@ -13,15 +13,12 @@ import org.ganjp.glib.core.util.StringUtil;
 import org.ganjp.glib.core.util.ThreadUtil;
 import sg.lt.obs.common.ObsConst;
 import sg.lt.obs.common.activity.ObsActivity;
-import sg.lt.obs.common.dao.ObmBookingVehicleItemDAO;
-import sg.lt.obs.common.entity.ObmBookingVehicleItem;
 import sg.lt.obs.common.other.ObsUtil;
 import sg.lt.obs.common.other.PreferenceUtil;
 
 import android.content.Intent;
 import android.os.Bundle;
 
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -34,7 +31,7 @@ public class SplashActivity extends ObsActivity {
     boolean isTimeout = false;
     private static Thread mTimeoutThread;
     String userId = "";
-    private Map<String,String> resultMap;
+    private Map<String,String> mResultMap;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -63,7 +60,7 @@ public class SplashActivity extends ObsActivity {
 			new Thread(new Runnable() {
 				public void run() {
                 try {
-                    resultMap = ObsUtil.getBookingVehicleItemsFromWeb(new HttpConnection(false), true);
+                    mResultMap = ObsUtil.getBookingVehicleItemsFromWeb(new HttpConnection(false), true);
                     isTimeout = false;
                     if (mTimeoutThread!=null) {
                         mTimeoutThread.interrupt();
@@ -83,7 +80,7 @@ public class SplashActivity extends ObsActivity {
 	            public void run() {
 	                forward(false);
 	            }
-	         }, Const.DURATION_SPLASH);
+	        }, Const.DURATION_SPLASH);
 		}
 	}
 	
@@ -97,7 +94,7 @@ public class SplashActivity extends ObsActivity {
 		Intent intent = null;
 	    if (StringUtil.isNotEmpty(userId)) {
             if (isShowBroadcast) {
-                if (resultMap!=null && StringUtil.hasText(resultMap.get("broadcastBookingVehicleItemIds"))) {
+                if (mResultMap !=null && StringUtil.hasText(mResultMap.get(ObsConst.KEY_BROADCAST_BOOKING_VEHICLE_ITEM_IDS))) {
                     intent = new Intent(SplashActivity.this, BookingVehicleAlarmListActivity.class);
                 } else {
                     intent = new Intent(SplashActivity.this, ObsBottomTabFragmentActivity.class);

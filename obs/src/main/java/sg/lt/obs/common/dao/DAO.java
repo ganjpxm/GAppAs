@@ -132,7 +132,7 @@ public abstract class DAO {
 			db = this.getDatabase();
 			if (db.update(mTableName, values, whereClause, whereArgs)<=0)
 				db.insertOrThrow(mTableName, null, values);
-			Log.d(TAG, TAGClass + this.mTableName + "insert or updata data Successful");
+			Log.d(TAG, TAGClass + this.mTableName + "insert or update data Successful");
 			return true;
 		} catch( Exception ex ) {
 			Log.e(TAG, "insertTable:exception:"+ex);

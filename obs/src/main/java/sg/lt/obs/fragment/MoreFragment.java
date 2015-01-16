@@ -120,7 +120,7 @@ public class MoreFragment extends Fragment implements OnClickListener {
 		super.onHiddenChanged(hidden);
 		if (hidden==false) {
 			if (StringUtil.isEmpty(regId)) {
-				regId = PreferenceUtil.getString(ObsConst.KEY_REG_ID_OBSD);
+				regId = PreferenceUtil.getString(ObsConst.KEY_REG_ID_OBS);
 			} 
 			if (StringUtil.isNotEmpty(regId)) {
 				String regIdVale = PreferenceUtil.getString(regId);
@@ -136,7 +136,7 @@ public class MoreFragment extends Fragment implements OnClickListener {
 				    			try {
 				    				if (isChecked) {
 							        	String result = ObsUtil.registDevice(regId, Const.VALUE_NO);
-								    	if (Const.VALUE_SCCESS.equalsIgnoreCase(result)) {
+								    	if (Const.VALUE_SUCCESS.equalsIgnoreCase(result)) {
 								    		PreferenceUtil.saveString(regId, Const.VALUE_YES);
 								    		mHandlerDialog.obtainMessage(1).sendToTarget();
 								    	} else {
@@ -144,7 +144,7 @@ public class MoreFragment extends Fragment implements OnClickListener {
 								    	}
 							        } else {
 							        	String result = ObsUtil.registDevice(regId, Const.VALUE_YES);
-								    	if (Const.VALUE_SCCESS.equalsIgnoreCase(result)) {
+								    	if (Const.VALUE_SUCCESS.equalsIgnoreCase(result)) {
 								    		PreferenceUtil.saveString(regId, Const.VALUE_NO);
 								    		mHandlerDialog.obtainMessage(0).sendToTarget();
 								    	} else {
@@ -167,9 +167,9 @@ public class MoreFragment extends Fragment implements OnClickListener {
 	private Handler mHandlerDialog = new Handler() {  
     	public void handleMessage (Message msg) { 
     		if (msg.what==0) {
-    			DialogUtil.showAlertDialog(mActivity, "Swich off push notification success");
+    			DialogUtil.showAlertDialog(mActivity, "Swich off push mNotificationContent success");
     		} else if (msg.what==1) {
-    			DialogUtil.showAlertDialog(mActivity, "Swich on push notification success");
+    			DialogUtil.showAlertDialog(mActivity, "Swich on push mNotificationContent success");
     		} else if (msg.what==2) {
     			DialogUtil.showAlertDialog(mActivity, "Fail");
     		}

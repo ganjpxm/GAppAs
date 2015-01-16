@@ -5,7 +5,7 @@
 	
 	<RelativeLayout android:id="@+id/left_item_rl" android:layout_width="60dip" android:layout_height="80dip">
       	<TextView android:id="@+id/pickup_time_tv" android:layout_width="wrap_content" android:layout_height="wrap_content"
-      		android:paddingLeft="10dip" android:paddingTop="20dip" android:textColor="@color/black" android:textSize="14sp" >
+      		android:paddingLeft="6dp" android:paddingTop="20dip" android:textColor="@color/black" android:textSize="18sp" >
    		</TextView>
         <TextView android:id="@+id/payment_state_tv" android:layout_width="fill_parent" android:layout_height="wrap_content" 
             android:layout_below="@+id/pickup_time_tv" android:paddingLeft="10dip" android:textColor="@color/black" 
@@ -22,7 +22,7 @@
         <RelativeLayout  android:id="@+id/first_line_rl" android:layout_width="fill_parent" android:layout_height="wrap_content"
              android:orientation="horizontal">
        	    <TextView android:id="@+id/booking_number_tv" android:layout_width="wrap_content" android:layout_height="wrap_content"
-        	    android:paddingLeft="5dip" android:paddingRight="5dip" android:paddingTop="5dip" android:textColor="@color/black" android:textSize="14sp" >
+        	    android:paddingLeft="5dip" android:paddingRight="5dip" android:paddingTop="5dip" android:textColor="@color/black" android:textSize="16sp" >
             </TextView>
             <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_alignParentRight="true" >
                 <ImageView android:id="@+id/stop_iv" android:layout_width="15dp" android:layout_height="13dp" android:visibility="gone"
@@ -33,7 +33,7 @@
         </RelativeLayout>
 
         <TextView android:id="@+id/booking_address_tv" android:layout_width="wrap_content" android:layout_height="wrap_content"
-            android:paddingLeft="5dip" android:paddingRight="5dip" android:textColor="@color/black" android:textSize="14sp" >
+            android:paddingLeft="5dip" android:paddingRight="5dip" android:textColor="@color/black" android:textSize="16sp" >
         </TextView>
         <TextView android:id="@+id/booking_state_tv" android:layout_width="wrap_content" android:layout_height="wrap_content"
             android:paddingLeft="5dip" android:paddingRight="5dip" android:paddingBottom="5dp" android:textColor="@color/black" android:textSize="12sp" >

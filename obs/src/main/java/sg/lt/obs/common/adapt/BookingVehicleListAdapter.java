@@ -9,11 +9,15 @@ package sg.lt.obs.common.adapt;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.ganjp.glib.core.util.DialogUtil;
 import org.ganjp.glib.core.util.StringUtil;
+
+import sg.lt.obs.common.ObsConst;
 import sg.lt.obs.common.entity.ObmBookingVehicleItem;
 import sg.lt.obs.R;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.text.Html;
@@ -22,8 +26,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 /**
  * <p>Knowledge list adapter</p>
@@ -106,8 +112,15 @@ public class BookingVehicleListAdapter extends BaseAdapter {
 		}
 		
 		TextView bookingNumberTv = ViewHolder.get(view, R.id.booking_number_tv);
-        String firstLine = obmBookingVehicleItem.getBookingNumber() + "<font color='gray'> - " + obmBookingVehicleItem.getBookingService() + "</font>";
-		bookingNumberTv.setText(Html.fromHtml(firstLine));
+        if (ObsConst.BOOKING_STATUS_CD_ENQUIRY.equals(obmBookingVehicleItem.getBookingStatusCd()) ||
+                ObsConst.BOOKING_STATUS_CD_UNSUCCESSFUL.equals(obmBookingVehicleItem.getBookingStatusCd()) ||
+                ObsConst.BOOKING_STATUS_CD_PENDING.equals(obmBookingVehicleItem.getBookingStatusCd())) {
+            bookingNumberTv.setText(Html.fromHtml("<big><font color='#ff0000'>Booking Enquiry</font></big>"));
+        } else {
+            String firstLine = obmBookingVehicleItem.getBookingNumber() + "<font color='gray'> - " + obmBookingVehicleItem.getBookingService() + "</font>";
+            bookingNumberTv.setText(Html.fromHtml(firstLine));
+        }
+
         ImageView remarkIv = ViewHolder.get(view, R.id.remark_iv);
         if (StringUtil.hasText(obmBookingVehicleItem.getRemark())) {
             remarkIv.setVisibility(View.VISIBLE);
@@ -124,15 +137,18 @@ public class BookingVehicleListAdapter extends BaseAdapter {
 		TextView bookingAddressTv = ViewHolder.get(view, R.id.booking_address_tv);
 		String address = "<b>";
 		if ("0101".equalsIgnoreCase(obmBookingVehicleItem.getBookingServiceCd())) {
-			address += obmBookingVehicleItem.getFlightNumber() + " " + obmBookingVehicleItem.getPickupAddress();
+            if (StringUtil.hasText(obmBookingVehicleItem.getFlightNumber())) {
+                address += "(" + obmBookingVehicleItem.getFlightNumber() + ") ";
+            }
+			address += obmBookingVehicleItem.getPickupAddress();
 		} else {
 			if ("0104".equalsIgnoreCase(obmBookingVehicleItem.getBookingServiceCd())) {
-				address += obmBookingVehicleItem.getBookingHours() + " " + obmBookingVehicleItem.getPickupAddress();
+				address += "(" + obmBookingVehicleItem.getBookingHours() + " hours) " + obmBookingVehicleItem.getPickupAddress();
 			} else {
 				address += obmBookingVehicleItem.getPickupAddress();
 			}
 		}
-		address += "</b> to ";
+		address += "</b> To ";
 		if ("0102".equalsIgnoreCase(obmBookingVehicleItem.getBookingServiceCd())) {
 			address += "<b>" + obmBookingVehicleItem.getFlightNumber() + "</b> " + obmBookingVehicleItem.getDestination();
 		} else {
@@ -148,19 +164,8 @@ public class BookingVehicleListAdapter extends BaseAdapter {
 		}
         bookingStatus = "<font color='gray'>" + bookingStatus + " - " + obmBookingVehicleItem.getDriverUserName() + "</font>";
 		bookingStateTv.setText(Html.fromHtml(bookingStatus));
-		return view;
-		
-//		View view = mInflater.inflate(R.layout.booking_vehicle_list_item, null);
-//    	ImageView imageIv = (ImageView) view.findViewById(R.id.item_image_ib);
-//    	if (StringUtil.isNotEmpty(mItems.get(position).getImagePath())) {
-//    		JOneUtil.setImageSmall(imageIv, mItems.get(position).getImagePath());
-//    	}
-//    	
-//    	TextView itemTitleTv = (TextView) view.findViewById(R.id.item_title_tv);
-//		itemTitleTv.setText(Html.fromHtml(mItems.get(position).getTitle()));
-//		TextView itemDescriptionTv = (TextView) view.findViewById(R.id.item_summary_tv);
-//		itemDescriptionTv.setText(Html.fromHtml(mItems.get(position).getSummary()));
-//      return
+
+        return view;
     }
 
     public static class ViewHolder {

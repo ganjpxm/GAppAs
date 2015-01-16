@@ -15,7 +15,6 @@ import sg.lt.obs.fragment.FragmentIndicator.OnIndicateListener;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -38,10 +37,10 @@ public class ObsBottomTabFragmentActivity extends FragmentActivity {
 	
 	//GCM
 	private static final int PLAY_SERVICES_RESOLUTION_REQUEST = 9000;
-	GoogleCloudMessaging gcm;
+	GoogleCloudMessaging mGoogleCloudMessaging;
     Context mContext;
     Activity mActivity;
-    String regid;
+    String mRegistrationId;
     String acceptResult;
 
 	@Override
@@ -57,10 +56,10 @@ public class ObsBottomTabFragmentActivity extends FragmentActivity {
 		mContext = getApplicationContext();
 		mActivity = this;
         if (checkPlayServices()) {
-            gcm = GoogleCloudMessaging.getInstance(this);
-            regid = GcmUtil.getRegistrationId(mContext);
+            mGoogleCloudMessaging = GoogleCloudMessaging.getInstance(this);
+            mRegistrationId = GcmUtil.getRegistrationId(mContext);
 
-            if (StringUtil.isEmpty(regid)) {
+            if (StringUtil.isEmpty(mRegistrationId)) {
                 registerInBackground();
             }
         } else {
@@ -104,34 +103,9 @@ public class ObsBottomTabFragmentActivity extends FragmentActivity {
 	@Override
 	protected void onResume() {
 		super.onResume();
+        checkPlayServices();
 		ActivityStack.setActiveActivity(this);
-		Bundle extras = getIntent().getExtras(); 
-		if (extras!=null) {
-			final String bookingVehicleItemId = extras.getString("bookingVehicleItemId"); 
-			String content = extras.getString("content"); 
-			
-			if (StringUtil.isNotEmpty(bookingVehicleItemId)) {
-				DialogUtil.showAlertDialog(mActivity, android.R.drawable.ic_dialog_alert, "", content, new DialogInterface.OnClickListener() {
-					@Override
-				    public void onClick(DialogInterface dialog, int which) {
-//				        if (which==-1) mMessageTv.setText("ignore");
-				        if (which==-2) {//Accept
-				        	new Thread(new Runnable() {
-					    		public void run() {
-					    			try {
-					    				acceptResult = ObsUtil.acceptBooking(bookingVehicleItemId);
-					    				mHandler.obtainMessage(1).sendToTarget();
-					    			} catch (Exception e) {
-					    				e.printStackTrace();
-					    				mHandler.obtainMessage(2).sendToTarget();
-					    			}
-					    		}
-					    	}).start();
-				    	}
-				    }
-		       }, new String[]{mActivity.getString(R.string.ignore), mActivity.getString(R.string.accept)});
-			}
-		}
+        //final String mBookingVehicleItemId = extras.getString("bookingVehicleItemId");
 	}
 	
 	@Override
@@ -167,9 +141,8 @@ public class ObsBottomTabFragmentActivity extends FragmentActivity {
 	
 
     /**
-     * Registers the application with GCM servers asynchronously.
-     * <p>
-     * Stores the registration ID and the app versionCode in the application's shared preferences.
+     * <p>Registers the application with GCM servers asynchronously.
+     * Stores the registration ID and the app versionCode in the application's shared preferences.</p>
      */
     private void registerInBackground() {
         new AsyncTask<Void, Void, String>() {
@@ -177,11 +150,11 @@ public class ObsBottomTabFragmentActivity extends FragmentActivity {
             protected String doInBackground(Void... params) {
                 String msg = "";
                 try {
-                    if (gcm == null) {
-                        gcm = GoogleCloudMessaging.getInstance(mContext);
+                    if (mGoogleCloudMessaging == null) {
+                        mGoogleCloudMessaging = GoogleCloudMessaging.getInstance(mContext);
                     }
-                    regid = gcm.register(ObsConst.APP_PROJECT_NUMBER);
-                    msg = "Device registered, registration ID=" + regid;
+                    mRegistrationId = mGoogleCloudMessaging.register(ObsConst.APP_PROJECT_NUMBER);
+                    msg = "Device registered, registration ID=" + mRegistrationId;
 
                     // You should send the registration ID to your server over HTTP, so it can use GCM/HTTP or CCS to send messages to your app.
                     sendRegistrationIdToBackend();
@@ -190,7 +163,7 @@ public class ObsBottomTabFragmentActivity extends FragmentActivity {
                     // 'from' address in the message.
 
                     // Persist the regID - no need to register again.
-//                    storeRegistrationId(context, regid);
+//                    storeRegistrationId(context, mRegistrationId);
                 } catch (IOException ex) {
                     msg = "Error :" + ex.getMessage();
                     // If there is an error, don't just keep trying to register.
@@ -214,12 +187,12 @@ public class ObsBottomTabFragmentActivity extends FragmentActivity {
      */
     private void sendRegistrationIdToBackend() {
     	try {
-    		GcmUtil.storeRegistrationId(mContext, regid);
-	    	String result = ObsUtil.registDevice(regid, Const.VALUE_NO);
-	    	if (Const.VALUE_SCCESS.equalsIgnoreCase(result)) {
-	    		PreferenceUtil.saveString(regid, Const.VALUE_YES);
+    		GcmUtil.storeRegistrationId(mContext, mRegistrationId);
+	    	String result = ObsUtil.registDevice(mRegistrationId, Const.VALUE_YES);
+	    	if (Const.VALUE_SUCCESS.equalsIgnoreCase(result)) {
+	    		PreferenceUtil.saveString(mRegistrationId, Const.VALUE_YES);
 	    	} else {
-	    		PreferenceUtil.saveString(regid, Const.VALUE_NO);
+	    		PreferenceUtil.saveString(mRegistrationId, Const.VALUE_NO);
 	    	}
     	} catch (Exception ex) {
     		ex.printStackTrace();

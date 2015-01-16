@@ -41,7 +41,7 @@ public class BookingDetailActivity extends ObsActivity {
 		
 		mNextBtn.setVisibility(View.INVISIBLE);
 		
-		obmBookingVehicleItem = (ObmBookingVehicleItem)getIntent().getExtras().getSerializable(ObsConst.KEY_BOOKING_VEHICLE_ITEM_OBSD);
+		obmBookingVehicleItem = (ObmBookingVehicleItem)getIntent().getExtras().getSerializable(ObsConst.KEY_BOOKING_VEHICLE_ITEM_OBS);
 		mTitleTv.setText(obmBookingVehicleItem.getBookingNumber());
 		
 		bookingServiceTv = (TextView) findViewById(R.id.booking_service_tv);

@@ -26,4 +26,17 @@
     </style>
 
     <color name="section_color">#f0eff5</color>
+
+    <style name="btn_haiti" parent="@android:style/Widget.Button">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:gravity">center</item>
+        <item name="android:shadowColor">#000000</item>
+        <item name="android:shadowDx">1</item>
+        <item name="android:shadowDy">1</item>
+        <item name="android:shadowRadius">0.6</item>
+        <item name="android:background">@drawable/style_btn_haiti</item>
+        <item name="android:padding">5dip</item>
+    </style>
 </resources>

@@ -11,10 +11,10 @@
         android:layout_gravity="left|top">
 
         <ImageView
-            android:layout_width="18dp"
-            android:layout_height="19dp"
+            android:layout_width="15dp"
+            android:layout_height="16dp"
             android:layout_marginLeft="6dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="12dp"
             android:id="@+id/imageView"
             android:background="@drawable/icon_calendar_black"
             android:adjustViewBounds="true" />
@@ -23,12 +23,13 @@
             android:id="@+id/header"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:paddingTop="10dp"
+            android:paddingTop="9dp"
             android:paddingLeft="6dp"
             android:singleLine="true"
             android:textAllCaps="true"
             android:textStyle="bold"
             android:textColor="@android:color/black"
+            android:textSize="16sp"
             android:textIsSelectable="false" android:background="@color/section_color"/>
 
     </LinearLayout>

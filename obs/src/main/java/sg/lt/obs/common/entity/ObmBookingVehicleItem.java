@@ -43,6 +43,7 @@ public class ObmBookingVehicleItem extends BaseModel implements Serializable {
     public String paymentStatus;
     public String paymentMode;
     public String bookingStatus;
+    public String bookingStatusCd;
 
     public String bookingUserFirstName;
     public String bookingUserLastName;
@@ -417,5 +418,13 @@ public class ObmBookingVehicleItem extends BaseModel implements Serializable {
 
     public void setAssignDriverUserName(String assignDriverUserName) {
         this.assignDriverUserName = assignDriverUserName;
+    }
+
+    public String getBookingStatusCd() {
+        return bookingStatusCd;
+    }
+
+    public void setBookingStatusCd(String bookingStatusCd) {
+        this.bookingStatusCd = bookingStatusCd;
     }
 }

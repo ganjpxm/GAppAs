@@ -141,7 +141,7 @@ public class MyProfileFragment extends Fragment {
 	        	if (jsonObject!=null) {
 	        		StringBuffer jsSb = new StringBuffer("javascript:(function() { ");
 	        		jsSb.append("document.getElementById('myName').innerHTML='").append(jsonObject.getString(ObsConst.KEY_USER_NAME_OBS)).append("';");
-	        		jsSb.append("document.getElementById('mobileNumber').innerHTML='").append(jsonObject.getString(ObsConst.KEY_USER_MOBILE_PHONE_OBS)).append("';");
+	        		jsSb.append("document.getElementById('mobileNumber').innerHTML='").append(jsonObject.getString(ObsConst.KEY_USER_MOBILE_NUMBER_OBS)).append("';");
 	        		jsSb.append("document.getElementById('email').innerHTML='").append(jsonObject.getString(ObsConst.KEY_USER_EMAIL_OBS)).append("';");
 	        		//vehicleMake:Mercedes Benz\t;vehicleModel:Viano;vehicleNo:PC1206L;vehicleColor:Black
 	        		//ObsdUserExtendItems

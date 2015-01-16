@@ -18,17 +18,20 @@ package sg.lt.obs.common.gcm;
 
 import org.ganjp.glib.core.ActivityStack;
 import org.ganjp.glib.core.util.DialogUtil;
+import org.ganjp.glib.core.util.HttpConnection;
 import org.ganjp.glib.core.util.StringUtil;
+
+import sg.lt.obs.BookingVehicleAlarmListActivity;
 import sg.lt.obs.ObsBottomTabFragmentActivity;
-import sg.lt.obs.common.other.ObsUtil;
 import sg.lt.obs.R;
+import sg.lt.obs.common.ObsConst;
+import sg.lt.obs.common.other.ObsUtil;
 
 import android.app.Activity;
 import android.app.IntentService;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -49,7 +52,7 @@ import com.google.android.gms.gcm.GoogleCloudMessaging;
 public class GcmIntentService extends IntentService {
     public static final int NOTIFICATION_ID = 1;
     private NotificationManager mNotificationManager;
-    NotificationCompat.Builder builder;
+    NotificationCompat.Builder mBuilder;
 //    private ActivityManager activityManager; 
 //    private String packageName;
 
@@ -57,18 +60,17 @@ public class GcmIntentService extends IntentService {
         super("GcmIntentService");
     }
     public static final String TAG = "GCM Demo";
-    protected String bookingVehicleItemId = "";
-    protected String notification = "";
-    protected String acceptResult = "";
+    protected String mBookingVehicleItemId = "";
+    protected String mNotificationContent = "";
+    protected String mAcceptResult = "";
 
     @Override
     protected void onHandleIntent(Intent intent) {
     	try {
-    		
 	        Bundle extras = intent.getExtras();
 	        
-	        bookingVehicleItemId = extras.getString("bookingVehicleItemId");
-	        notification = extras.getString("title");
+	        mBookingVehicleItemId = extras.getString(ObsConst.KEY_BOOKING_VEHICLE_ITEM_ID);
+	        mNotificationContent = extras.getString("title");
     		
 	        GoogleCloudMessaging gcm = GoogleCloudMessaging.getInstance(this);
 	        // The getMessageType() intent parameter must be the intent you received in your BroadcastReceiver.
@@ -91,11 +93,11 @@ public class GcmIntentService extends IntentService {
 	        	isRun = true;
 	        }
 	        if (!extras.isEmpty()) {  // has effect of unparcelling Bundle
-	        	//Bundle[{from=1083654704210, title=30/06/2014 20:25 From Changi Airport Singapore Singapore to Boon Keng Road Singapore, bookingVehicleItemId=8a3080d5457d005a01457f1aeec31aa4, android.support.content.wakelockid=1, collapse_key=do_not_collapse}]
-	            if (StringUtil.isNotEmpty(bookingVehicleItemId)) {
-	            	if (isRun && GoogleCloudMessaging.MESSAGE_TYPE_MESSAGE.equals(messageType)) {
-		                mHandler.obtainMessage(0).sendToTarget();
-		        	} else {
+	        	//Bundle[{from=1083654704210, title=30/06/2014 20:25 From Changi Airport Singapore Singapore to Boon Keng Road Singapore, mBookingVehicleItemId=8a3080d5457d005a01457f1aeec31aa4, android.support.content.wakelockid=1, collapse_key=do_not_collapse}]
+	            if (StringUtil.isNotEmpty(mBookingVehicleItemId)) {
+//	            	if (isRun && GoogleCloudMessaging.MESSAGE_TYPE_MESSAGE.equals(messageType)) {
+//		                mHandler.obtainMessage(0).sendToTarget();
+//		        	} else {
 			            /*
 			             * Filter messages based on message type. Since it is likely that GCM will be
 			             * extended in the future with new message types, just ignore any message types you're
@@ -107,11 +109,11 @@ public class GcmIntentService extends IntentService {
 			                sendNotification("Deleted messages on server: " + extras.toString());
 			            // If it's a regular GCM message, do some work.
 			            } else if (GoogleCloudMessaging.MESSAGE_TYPE_MESSAGE.equals(messageType)) {
-			                // Post notification of received message.
+			                // Post mNotificationContent of received message.
 			                sendNotification(extras.toString());
 			                Log.i(TAG, "Received: " + extras.toString());
 			            }
-		        	}
+//		        	}
 	            }
 	        }
 	        // Release the wake lock provided by the WakefulBroadcastReceiver.
@@ -123,27 +125,8 @@ public class GcmIntentService extends IntentService {
 
     private Handler mHandler = new Handler() {  
     	public void handleMessage (Message msg) {
-    		if (StringUtil.isNotEmpty(notification)) {
-	    		final Activity activity = ActivityStack.getAcitveActivity();
-	    		DialogUtil.showAlertDialog(activity, android.R.drawable.ic_dialog_alert, "", notification, new DialogInterface.OnClickListener() {
-					@Override
-				    public void onClick(DialogInterface dialog, int which) {
-	//			        if (which==-1) mMessageTv.setText("ignore");
-						if (which==-2) {//Accept
-							new Thread(new Runnable() {
-					    		public void run() {
-					    			try {
-					    				acceptResult = ObsUtil.acceptBooking(bookingVehicleItemId);
-					    				mHandlerDialog.obtainMessage(0).sendToTarget();
-					    			} catch (Exception e) {
-					    				e.printStackTrace();
-					    				mHandlerDialog.obtainMessage(1).sendToTarget();
-					    			}
-					    		}
-					    	}).start();
-				    	}
-				    }
-		       }, new String[]{activity.getString(R.string.ignore), activity.getString(R.string.accept)});
+    		if (StringUtil.isNotEmpty(mNotificationContent)) {
+	    		//final Activity activity = ActivityStack.getAcitveActivity();
     		}
     	}  
     }; 
@@ -152,28 +135,34 @@ public class GcmIntentService extends IntentService {
     	public void handleMessage (Message msg) { 
     		final Activity activity = ActivityStack.getAcitveActivity();
     		if (msg.what==0) {
-    			DialogUtil.showAlertDialog(activity, acceptResult);
+    			DialogUtil.showAlertDialog(activity, mAcceptResult);
     		} else if (msg.what==1) {
     			DialogUtil.showAlertDialog(activity, "Accept Fail");
     		}
     	}  
     }; 
-    // Put the message into a notification and post it.
+    // Put the message into a mNotificationContent and post it.
     // This is just one simple example of what you might choose to do with a GCM message.
     private void sendNotification(String msg) {
         mNotificationManager = (NotificationManager)this.getSystemService(Context.NOTIFICATION_SERVICE);
        
-        Intent notificationIntent = new Intent(this, ObsBottomTabFragmentActivity.class);
-        notificationIntent.putExtra("bookingVehicleItemId", bookingVehicleItemId); 
-        notificationIntent.putExtra("content", notification); 
+        Intent notificationIntent = new Intent(this, BookingVehicleAlarmListActivity.class);
+        notificationIntent.putExtra("mBookingVehicleItemId", mBookingVehicleItemId);
+        notificationIntent.putExtra("content", mNotificationContent);
         notificationIntent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_CLEAR_TOP);
         PendingIntent contentIntent = PendingIntent.getActivity(this, 0, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
         
         Uri sound = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.pushnotification);
         NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this).setSmallIcon(R.drawable.ic_launcher)
-        		.setContentTitle("Driver App").setStyle(new NotificationCompat.BigTextStyle().bigText(notification)).setContentText(notification).setSound(sound);
+        		.setContentTitle("Limousine Transport").setStyle(new NotificationCompat.BigTextStyle().bigText(mNotificationContent)).setContentText(mNotificationContent).setSound(sound);
         mBuilder.setContentIntent(contentIntent);
         mNotificationManager.notify(NOTIFICATION_ID, mBuilder.build());
+
+//        new Thread(new Runnable() {
+//            public void run() {
+//            ObsUtil.getBookingVehicleItemsFromWeb(new HttpConnection(false), true);
+//            }
+//        }).start();
     }
     
 //    public boolean isAppOnForeground() { 

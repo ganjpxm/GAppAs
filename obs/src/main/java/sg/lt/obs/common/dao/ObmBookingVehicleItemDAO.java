@@ -43,7 +43,7 @@ public class ObmBookingVehicleItemDAO extends DAO {
 	public static final String FLAG_PAST = "past";
 	
 	// BookingVehicleItem Table Columns names
-	public static final String  COLUMN_BOOKING_VEHICLE_ITEM_ID      = "bookingVehicleItemId";
+	public static final String  COLUMN_BOOKING_VEHICLE_ITEM_ID      = "mBookingVehicleItemId";
 	public static final String  COLUMN_BOOKING_NUMBER               = "bookingNumber";
     public static final String  COLUMN_PICKUP_DATE                  = "pickupDate";
     public static final String  COLUMN_PICKUP_TIME                  = "pickupTime";
@@ -63,6 +63,7 @@ public class ObmBookingVehicleItemDAO extends DAO {
     public static final String  COLUMN_PAYMENT_STATUS               = "paymentStatus";
     public static final String  COLUMN_PAYMENT_MODE                 = "paymentMode";
     public static final String  COLUMN_BOOKING_STATUS               = "bookingStatus";
+    public static final String  COLUMN_BOOKING_STATUS_CD            = "bookingStatusCd";
 
     public static final String  COLUMN_BOOKING_USER_FIRST_NAME     = "bookingUserFirstName";
     public static final String  COLUMN_BOOKING_USER_LAST_NAME      = "bookingUserLastName";
@@ -117,6 +118,7 @@ public class ObmBookingVehicleItemDAO extends DAO {
             .append(COLUMN_PAYMENT_STATUS).append(" TEXT, ")
             .append(COLUMN_PAYMENT_MODE).append(" TEXT, ")
             .append(COLUMN_BOOKING_STATUS).append(" TEXT, ")
+            .append(COLUMN_BOOKING_STATUS_CD).append(" TEXT, ")
 
             .append(COLUMN_BOOKING_USER_FIRST_NAME).append(" TEXT, ")
             .append(COLUMN_BOOKING_USER_LAST_NAME).append(" TEXT, ")
@@ -206,6 +208,7 @@ public class ObmBookingVehicleItemDAO extends DAO {
             cv.put(COLUMN_PAYMENT_STATUS, obmBookingVehicleItem.getPaymentStatus());
             cv.put(COLUMN_PAYMENT_MODE, obmBookingVehicleItem.getPaymentMode());
             cv.put(COLUMN_BOOKING_STATUS, obmBookingVehicleItem.getBookingStatus());
+            cv.put(COLUMN_BOOKING_STATUS_CD, obmBookingVehicleItem.getBookingStatusCd());
 
             cv.put(COLUMN_BOOKING_USER_FIRST_NAME, obmBookingVehicleItem.getBookingUserFirstName());
             cv.put(COLUMN_BOOKING_USER_LAST_NAME, obmBookingVehicleItem.getBookingUserLastName());
@@ -511,6 +514,7 @@ public class ObmBookingVehicleItemDAO extends DAO {
         ObmBookingVehicleItem.setPaymentStatus(cursor.getString(cursor.getColumnIndex(COLUMN_PAYMENT_STATUS)));
         ObmBookingVehicleItem.setPaymentMode(cursor.getString(cursor.getColumnIndex(COLUMN_PAYMENT_MODE)));
         ObmBookingVehicleItem.setBookingStatus(cursor.getString(cursor.getColumnIndex(COLUMN_BOOKING_STATUS)));
+        ObmBookingVehicleItem.setBookingStatusCd(cursor.getString(cursor.getColumnIndex(COLUMN_BOOKING_STATUS_CD)));
 
         ObmBookingVehicleItem.setBookingUserFirstName(cursor.getString(cursor.getColumnIndex(COLUMN_BOOKING_USER_FIRST_NAME)));
         ObmBookingVehicleItem.setBookingUserLastName(cursor.getString(cursor.getColumnIndex(COLUMN_BOOKING_USER_LAST_NAME)));
@@ -545,7 +549,7 @@ public class ObmBookingVehicleItemDAO extends DAO {
 	}
 	
 	/**
-	 * <p>Insert or update column's value base on bookingVehicleItemId</p>
+	 * <p>Insert or update column's value base on mBookingVehicleItemId</p>
 	 * 
 	 * @param bookingVehicleItemId
 	 * @param columnName
@@ -564,5 +568,6 @@ public class ObmBookingVehicleItemDAO extends DAO {
 	public static ObmBookingVehicleItemDAO getInstance() {
 		return (ObmBookingVehicleItemDAO) (ObsDaoFactory.getInstance().getDAO(DAOType.OBM_BOOKING_VEHICLE_ITEM, ObsApplication.getAppContext()));
 	}
-	
+
+
 }

@@ -192,7 +192,7 @@ public class BookingHistoryFragment extends Fragment implements OnItemClickListe
 		ObmBookingVehicleItem obmBookingVehicleItem = mAdapter.getItem(actPosition);
         if (obmBookingVehicleItem!=null) {
         	Intent intent = new Intent(getActivity(), BookingDetailFragmentActivity.class);
-        	intent.putExtra(ObsConst.KEY_BOOKING_VEHICLE_ITEM_OBSD, obmBookingVehicleItem);
+        	intent.putExtra(ObsConst.KEY_BOOKING_VEHICLE_ITEM_OBS, obmBookingVehicleItem);
         	getActivity().startActivity(intent);
         	getActivity().overridePendingTransition(R.anim.in_from_right, R.anim.out_to_left);
         }

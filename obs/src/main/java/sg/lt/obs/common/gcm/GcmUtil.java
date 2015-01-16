@@ -21,13 +21,13 @@ public class GcmUtil {
 	 *         registration ID.
 	 */
     public static String getRegistrationId(Context context) {
-        String registrationId = PreferenceUtil.getString(ObsConst.KEY_REG_ID_OBSD);
+        String registrationId = PreferenceUtil.getString(ObsConst.KEY_REG_ID_OBS);
         if (StringUtil.isEmpty(registrationId)) {
             Log.i(TAG, "Registration not found.");
             return "";
         }
         // Check if app was updated; if so, it must clear the registration ID since the existing regID is not guaranteed to work with the new app version.
-        int registeredVersion = PreferenceUtil.getInt(ObsConst.KEY_APP_VERSION_OBSD);
+        int registeredVersion = PreferenceUtil.getInt(ObsConst.KEY_APP_VERSION_OBS);
         int currentVersion = SystemUtil.getAppVersion(context);
         if (registeredVersion != currentVersion) {
             Log.i(TAG, "App version changed.");
@@ -46,8 +46,8 @@ public class GcmUtil {
     public static void storeRegistrationId(Context context, String regId) {
         int appVersion = SystemUtil.getAppVersion(context);
         Log.i(TAG, "Saving regId on app version " + appVersion);
-        PreferenceUtil.saveString(ObsConst.KEY_REG_ID_OBSD, regId);
-        PreferenceUtil.saveInt(ObsConst.KEY_APP_VERSION_OBSD, appVersion);
+        PreferenceUtil.saveString(ObsConst.KEY_REG_ID_OBS, regId);
+        PreferenceUtil.saveInt(ObsConst.KEY_APP_VERSION_OBS, appVersion);
     }
 
 }

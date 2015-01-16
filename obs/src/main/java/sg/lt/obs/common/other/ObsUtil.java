@@ -32,7 +32,7 @@ public abstract class ObsUtil {
 	 * @param pIsUpdate
 	 * @throws Exception
 	 */
-	public static void getDataFromWeb(HttpConnection pHttpConnection, boolean pIsUpdate) throws Exception {
+	public static Map<String,String> getDataFromWeb(HttpConnection pHttpConnection, boolean pIsUpdate) throws Exception {
 //		//get bmConfigs
 //		ArrayList<NameValuePair> pairs = new ArrayList<NameValuePair>();
 //		pairs.add(new BasicNameValuePair(ObsConst.KEY_CONFIG_CDS, ));
@@ -48,7 +48,7 @@ public abstract class ObsUtil {
 //			PreferenceUtil.saveLong(ObsConst.KEY_PREFERENCE_CONFIG_LAST_TIME, lastTime);
 //		}
 		
-		getBookingVehicleItemsFromWeb(pHttpConnection, pIsUpdate);
+		return getBookingVehicleItemsFromWeb(pHttpConnection, pIsUpdate);
 	}
 
     /**
@@ -89,7 +89,7 @@ public abstract class ObsUtil {
                     int itemSize = 0;
                     for (Map<String,String> map : maps) {
                         String bookingVehicleItemId = map.get(ObmBookingVehicleItemDAO.COLUMN_BOOKING_VEHICLE_ITEM_ID);
-                        if ("yes".equals(ObmBookingVehicleItemDAO.COLUMN_BROADCAST_TAG)) {
+                        if ("yes".equals(map.get(ObmBookingVehicleItemDAO.COLUMN_BROADCAST_TAG))) {
                             if (!StringUtil.hasText(broadcastBookingVehicleItemIds) || (broadcastBookingVehicleItemIds.indexOf(bookingVehicleItemId)==-1)) {
                                 ObmBookingVehicleItemDAO.getInstance().deleteByBookingVehicleItemId(bookingVehicleItemId);
                                 continue;
@@ -112,55 +112,38 @@ public abstract class ObsUtil {
 		return resultMap;
 	}
 
-	public static String acceptBooking(String bookingVehicleItemId) {
-//		NSMutableDictionary *parameters = [[NSMutableDictionary alloc] init];
-//        NSString *userCd = [JpDataUtil getValueFromUDByKey:KEY_USER_CD_OBS];
-//        NSDictionary *userDic = [JpDataUtil getDicFromUDByKey:userCd];
-//        [parameters setObject:[userDic objectForKey:KEY_USER_ID_OBS] forKey:@"userId"];
-//        [parameters setObject:[userDic objectForKey:KEY_USER_NAME_OBS] forKey:@"userName"];
-//        [parameters setObject:[userDic objectForKey:KEY_USER_MOBILE_PHONE_OBS] forKey:@"userName"];
-//        [parameters setObject:[userDic objectForKey:KEY_USER_EXTEND_ITEMS_OBS] forKey:@"vehicle"];
-//        [parameters setObject:[JpDataUtil getValueFromUDByKey:KEY_BOOKING_VEHICLE_ITEM_ID_OBSD] forKey:@"bookingVehicleItemId"];
+    /**
+     * <p>acceptOrRejectBooking</p>
+     *
+     * @param bookingVehicleItemId
+     * @param action
+     * @return Const.VALUE_FAIL / Const.VALUE_SUCCESS /Const.VALUE_ACCEPTED
+     */
+	public static String acceptOrRejectBooking(String bookingVehicleItemId, String action) {
 		try {
-			String userCd = PreferenceUtil.getString(ObsConst.KEY_USER_CD_OBS);
-	        if (StringUtil.isNotEmpty(userCd)) {
-	       	 	String jsonData = PreferenceUtil.getString(userCd);
-	       	 	if (StringUtil.isNotEmpty(jsonData)) {
-		       	 	JSONObject jsonObject = new JSONObject(jsonData);
-			       	HttpConnection httpConnection = new HttpConnection(false);
-			 		ArrayList<NameValuePair> pairs = new ArrayList<NameValuePair>();
-			 		pairs.add(new BasicNameValuePair("bookingVehicleItemId", bookingVehicleItemId));
-			 		pairs.add(new BasicNameValuePair("userId", jsonObject.getString(ObsConst.KEY_USER_ID_OBS)));
-			 		pairs.add(new BasicNameValuePair("userName", jsonObject.getString(ObsConst.KEY_USER_NAME_OBS)));
-			 		pairs.add(new BasicNameValuePair("mobileNumber", jsonObject.getString(ObsConst.KEY_USER_MOBILE_PHONE_OBS)));
-			 		pairs.add(new BasicNameValuePair("vehicle", jsonObject.getString(ObsConst.KEY_USER_EXTEND_ITEMS_OBS)));
-			 		httpConnection.post(ObsConst.URL_ACCEPT_BOOKING, new UrlEncodedFormEntity(pairs, HTTP.UTF_8));
-					String responseJsonData = HttpConnection.processEntity(httpConnection.getResponse().getEntity());
-					if (StringUtil.isNotEmpty(responseJsonData)) {
-						JSONObject responseJsonObject = new JSONObject(responseJsonData);
-				    	//result:success/error
-				    	String result = responseJsonObject.getString("result");
-				    	if (Const.VALUE_SCCESS.equalsIgnoreCase(result)) {
-				    		return "Thank you, booking added.";
-				    	} else if (Const.VALUE_ACCEPTED.equalsIgnoreCase(result)) {
-				    		return "Sorry, job taken!";
-				    	} else {
-				    		return "Sorry, system error.";
-				    	}
-					}
-	       	 	}
+			String userId = PreferenceUtil.getString(ObsConst.KEY_USER_ID_OBS);
+	        if (StringUtil.isNotEmpty(userId)) {
+                HttpConnection httpConnection = new HttpConnection(false);
+                ArrayList<NameValuePair> pairs = new ArrayList<NameValuePair>();
+                pairs.add(new BasicNameValuePair(ObsConst.KEY_BOOKING_VEHICLE_ITEM_ID, bookingVehicleItemId));
+                pairs.add(new BasicNameValuePair(ObsConst.KEY_USER_ID, userId));
+                pairs.add(new BasicNameValuePair(ObsConst.KEY_ACTION, action));
+                httpConnection.post(ObsConst.URL_RESPONSE_BROADCAST_BOOKING, new UrlEncodedFormEntity(pairs, HTTP.UTF_8));
+                String responseJsonData = HttpConnection.processEntity(httpConnection.getResponse().getEntity());
+                JSONObject responseJsonObject = new JSONObject(responseJsonData);
+                return responseJsonObject.getString(Const.KEY_RESULT);
 	        }
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
-        
-		return "Accept Fail";
+
+		return Const.VALUE_FAIL;
 	}
 
 	/**
 	 * <p>Regist device to server</p>
 	 * 
-	 * @param regId PreferenceUtil.getString(ObsConst.KEY_REG_ID_OBSD);
+	 * @param regId PreferenceUtil.getString(ObsConst.KEY_REG_ID_OBS);
 	 * @param state ObsConst.VALUE_NO
 	 * @return ObsConst.VALUE_FAIL ObsConst.VALUE_SUCCESS 
 	 */
