@@ -15,8 +15,10 @@
     <string name="push_notification">Push Notification</string>
     <string name="clear_data">Clear All Data</string>
     <string name="logout">Logout</string>
-    <string name="from">From</string>
-    <string name="to">To</string>
+    <string name="from">Pick-up Address</string>
+    <string name="to">Drop-off Address</string>
+    <string name="stop1">Stop 1 Address</string>
+    <string name="stop2">Stop 2 Address</string>
     <string name="lead_passenger">Lead Passenger</string>
     <string name="book_by">Book by</string>
     <string name="assign_by">Assign by</string>

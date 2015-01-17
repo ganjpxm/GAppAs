@@ -11,99 +11,121 @@
 	            <TextView android:id="@+id/booking_service_tv" android:layout_width="fill_parent" android:layout_height="wrap_content" 
 	                android:paddingLeft="5dip" android:paddingRight="5dip" android:paddingTop="5dip"
 	                android:textSize="14sp" android:textColor="@color/gray"/>
-	            <TextView android:id="@+id/pickup_datetime_tv" android:layout_width="fill_parent" android:layout_height="wrap_content" 
+	            <TextView android:id="@+id/pickup_datetime_tv" android:layout_width="fill_parent" android:layout_height="wrap_content"
 	                android:paddingLeft="5dip" android:paddingRight="5dip" android:paddingTop="1dip" android:paddingBottom="5dip"
-	                android:textSize="14sp" android:textColor="@color/black"/>
+	                android:textSize="16sp" android:textColor="@color/black"/>
             </LinearLayout>
-            
-            <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@color/white" 
+
+            <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@color/white"
                 android:layout_marginLeft="5dip" android:layout_marginRight="5dip" android:layout_marginTop="5dip">
-			    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" 
-            		android:layout_marginLeft="5dip" android:layout_marginRight="50dip" android:layout_marginTop="5dip" 
+			    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical"
+            		android:layout_marginLeft="5dip" android:layout_marginRight="50dip" android:layout_marginTop="5dip"
             		android:layout_alignParentLeft="true">
-		            <TextView android:id="@+id/from_tv" android:layout_width="fill_parent" android:layout_height="wrap_content" 
+		            <TextView android:id="@+id/from_tv" android:layout_width="fill_parent" android:layout_height="wrap_content"
 		                android:textSize="14sp" android:textColor="@color/gray" android:text="@string/from"/>
-		            <TextView android:id="@+id/pickup_address_tv" android:layout_width="fill_parent" android:layout_height="wrap_content" 
-		                android:paddingTop="1dip"  android:paddingBottom="5dip" android:textSize="14sp" android:textColor="@color/black"/>
+		            <TextView android:id="@+id/pickup_address_tv" android:layout_width="fill_parent" android:layout_height="wrap_content"
+		                android:paddingTop="1dip"  android:paddingBottom="5dip" android:textSize="16sp" android:textColor="@color/black"/>
 	            </LinearLayout>
-	            
+
 			    <Button android:id="@+id/direction_btn" android:layout_width="40dip" android:layout_height="40dip" android:layout_centerVertical="true"
-			        android:layout_marginRight="5dip" android:layout_marginBottom="5dip" android:layout_marginTop="5dip" 
-			        android:background ="@drawable/icon_direction_blue" android:layout_alignParentRight="true" 
+			        android:layout_marginRight="5dip" android:layout_marginBottom="5dip" android:layout_marginTop="5dip"
+			        android:background ="@drawable/icon_direction_blue" android:layout_alignParentRight="true"
 			        android:contentDescription="@string/empty" />
 			</RelativeLayout>
-			
-            <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@color/white" 
+
+            <RelativeLayout android:id="@+id/stop1_rl" android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@color/white"
+                android:layout_marginLeft="5dip" android:layout_marginRight="5dip" android:layout_marginTop="5dip" android:visibility="gone">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical"
+                    android:layout_marginLeft="5dip" android:layout_marginRight="50dip" android:layout_marginTop="5dip" android:layout_alignParentLeft="true">
+                    <TextView android:id="@+id/stop1_tv" android:layout_width="fill_parent" android:layout_height="wrap_content"
+                        android:textSize="14sp" android:textColor="@color/gray" android:text="@string/stop1"/>
+                    <TextView android:id="@+id/stop1_address_tv" android:layout_width="fill_parent" android:layout_height="wrap_content"
+                        android:paddingTop="1dip"  android:paddingBottom="5dip" android:textSize="16sp" android:textColor="@color/black"/>
+                </LinearLayout>
+
+                <Button android:id="@+id/router_stop1_btn" android:layout_width="40dip" android:layout_height="40dip" android:layout_centerVertical="true"
+                    android:layout_marginBottom="5dip" android:layout_marginRight="5dip" android:layout_marginTop="5dip"
+                    android:background ="@drawable/icon_route_red" android:layout_alignParentRight="true"
+                    android:contentDescription="@string/empty" />
+            </RelativeLayout>
+
+            <RelativeLayout android:id="@+id/stop2_rl" android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@color/white"
+                android:layout_marginLeft="5dip" android:layout_marginRight="5dip" android:layout_marginTop="5dip" android:visibility="gone">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical"
+                    android:layout_marginLeft="5dip" android:layout_marginRight="50dp" android:layout_marginTop="5dip"
+                    android:layout_alignParentLeft="true">
+                    <TextView android:id="@+id/stop2_tv" android:layout_width="fill_parent" android:layout_height="wrap_content"
+                        android:textSize="14sp" android:textColor="@color/gray" android:text="@string/stop2"/>
+                    <TextView android:id="@+id/stop2_address_tv" android:layout_width="fill_parent" android:layout_height="wrap_content"
+                        android:paddingTop="1dip"  android:paddingBottom="5dip" android:textSize="16sp" android:textColor="@color/black"/>
+                </LinearLayout>
+
+                <Button android:id="@+id/router_stop2_btn" android:layout_width="40dip" android:layout_height="40dip" android:layout_centerVertical="true"
+                    android:layout_marginBottom="5dip" android:layout_marginRight="5dip" android:layout_marginTop="5dip"
+                    android:background ="@drawable/icon_route_red" android:layout_alignParentRight="true"
+                    android:contentDescription="@string/empty" />
+            </RelativeLayout>
+
+            <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@color/white"
                 android:layout_marginLeft="5dip" android:layout_marginRight="5dip" android:layout_marginTop="5dip">
-			    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" 
-            		android:layout_marginLeft="5dip" android:layout_marginRight="50dip" android:layout_marginTop="5dip" 
+			    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical"
+            		android:layout_marginLeft="5dip" android:layout_marginRight="50dip" android:layout_marginTop="5dip"
             		android:layout_alignParentLeft="true">
-		            <TextView android:id="@+id/to_tv" android:layout_width="fill_parent" android:layout_height="wrap_content" 
+		            <TextView android:id="@+id/to_tv" android:layout_width="fill_parent" android:layout_height="wrap_content"
 		                android:textSize="14sp" android:textColor="@color/gray" android:text="@string/to"/>
-		            <TextView android:id="@+id/destination_tv" android:layout_width="fill_parent" android:layout_height="wrap_content" 
-		                android:paddingTop="1dip"  android:paddingBottom="5dip" android:textSize="14sp" android:textColor="@color/black"/>
+		            <TextView android:id="@+id/destination_tv" android:layout_width="fill_parent" android:layout_height="wrap_content"
+		                android:paddingTop="1dip"  android:paddingBottom="5dip" android:textSize="16sp" android:textColor="@color/black"/>
 	            </LinearLayout>
-	            
+
 			    <Button android:id="@+id/route_btn" android:layout_width="40dip" android:layout_height="40dip" android:layout_centerVertical="true"
-			        android:layout_marginBottom="5dip" android:layout_marginRight="5dip" android:layout_marginTop="5dip" 
-			        android:background ="@drawable/icon_route_red" android:layout_alignParentRight="true" 
+			        android:layout_marginBottom="5dip" android:layout_marginRight="5dip" android:layout_marginTop="5dip"
+			        android:background ="@drawable/icon_route_red" android:layout_alignParentRight="true"
 			        android:contentDescription="@string/empty" />
 			</RelativeLayout>
-			
-            <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@color/white" 
+
+            <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@color/white"
                 android:layout_marginLeft="5dip" android:layout_marginRight="5dip" android:layout_marginTop="5dip">
-			    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" 
-            		android:layout_marginLeft="5dip" android:layout_marginRight="50dip" android:layout_marginTop="5dip" 
+			    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical"
+            		android:layout_marginLeft="5dip" android:layout_marginRight="50dip" android:layout_marginTop="5dip"
             		android:layout_alignParentLeft="true">
-		            <TextView android:layout_width="fill_parent" android:layout_height="wrap_content" 
+		            <TextView android:layout_width="fill_parent" android:layout_height="wrap_content"
 		                android:textSize="14sp" android:textColor="@color/gray" android:text="@string/lead_passenger"/>
-		            <TextView android:id="@+id/lead_passenger_tv" android:layout_width="fill_parent" android:layout_height="wrap_content" 
-		                android:paddingTop="1dip"  android:paddingBottom="5dip" android:textSize="14sp" android:textColor="@color/black"/>
+		            <TextView android:id="@+id/lead_passenger_tv" android:layout_width="fill_parent" android:layout_height="wrap_content"
+		                android:paddingTop="1dip"  android:paddingBottom="5dip" android:textSize="16sp" android:textColor="@color/black"/>
 	            </LinearLayout>
 			    <Button android:id="@+id/call_lead_passenger_btn" android:layout_width="40dip" android:layout_height="40dip" android:layout_centerVertical="true"
-			        android:layout_marginBottom="5dip" android:layout_marginRight="5dip" android:layout_marginTop="5dip" 
+			        android:layout_marginBottom="5dip" android:layout_marginRight="5dip" android:layout_marginTop="5dip"
 			        android:background ="@drawable/icon_call_green"
 			        android:layout_alignParentRight="true" android:contentDescription="@string/empty" />
 			</RelativeLayout>
-			
-            <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@color/white" 
+
+            <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@color/white"
                 android:layout_marginLeft="5dip" android:layout_marginRight="5dip" android:layout_marginTop="5dip">
-			   <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" 
-            		android:layout_marginLeft="5dip" android:layout_marginRight="50dip" android:layout_marginTop="5dip" 
+			   <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical"
+            		android:layout_marginLeft="5dip" android:layout_marginRight="50dip" android:layout_marginTop="5dip"
             		android:layout_alignParentLeft="true">
-		            <TextView android:layout_width="fill_parent" android:layout_height="wrap_content" 
+		            <TextView android:layout_width="fill_parent" android:layout_height="wrap_content"
 		                android:textSize="14sp" android:textColor="@color/gray" android:text="@string/book_by"/>
-		            <TextView android:id="@+id/book_by_tv" android:layout_width="fill_parent" android:layout_height="wrap_content" 
-		                android:paddingTop="1dip"  android:paddingBottom="5dip" android:textSize="14sp" android:textColor="@color/black"/>
+		            <TextView android:id="@+id/book_by_tv" android:layout_width="fill_parent" android:layout_height="wrap_content"
+		                android:paddingTop="1dip"  android:paddingBottom="5dip" android:textSize="16sp" android:textColor="@color/black"/>
 	            </LinearLayout>
 			    <Button android:id="@+id/call_book_by_btn" android:layout_width="40dip" android:layout_height="40dip" android:layout_centerVertical="true"
-			        android:layout_marginBottom="5dip" android:layout_marginRight="5dip" android:layout_marginTop="5dip" 
+			        android:layout_marginBottom="5dip" android:layout_marginRight="5dip" android:layout_marginTop="5dip"
 			        android:background ="@drawable/icon_call_green"
 			        android:layout_alignParentRight="true" android:contentDescription="@string/empty" />
 			</RelativeLayout>
-			
-            <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@color/white" 
-                android:layout_marginLeft="5dip" android:layout_marginRight="5dip" android:layout_marginTop="5dip">
-			    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" 
-            		android:layout_marginLeft="5dip" android:layout_marginRight="50dip" android:layout_marginTop="5dip" 
-            		android:layout_alignParentLeft="true">
-		            <TextView android:layout_width="fill_parent" android:layout_height="wrap_content" 
-		                android:textSize="14sp" android:textColor="@color/gray" android:text="@string/assign_by"/>
-		            <TextView android:id="@+id/assign_by_tv" android:layout_width="fill_parent" android:layout_height="wrap_content" 
-		                android:paddingTop="1dip"  android:paddingBottom="5dip" android:textSize="14sp" android:textColor="@color/black"/>
-	            </LinearLayout>
-			    <Button android:id="@+id/call_assign_by_btn" android:layout_width="40dip" android:layout_height="40dip" android:layout_centerVertical="true"
-			        android:layout_marginBottom="5dip" android:layout_marginRight="5dip" android:layout_marginTop="5dip" 
-			        android:background ="@drawable/icon_call_green"
-			        android:layout_alignParentRight="true" android:contentDescription="@string/empty" />
-			</RelativeLayout>
-			
-            <TextView android:id="@+id/remark_tv" android:layout_width="fill_parent" android:layout_height="wrap_content" 
-                android:layout_marginLeft="5dip" android:layout_marginRight="5dip" android:layout_marginTop="5dip" 
+
+            <TextView android:id="@+id/vehicle_tv" android:layout_width="fill_parent" android:layout_height="wrap_content"
+                android:layout_marginLeft="5dip" android:layout_marginRight="5dip" android:layout_marginTop="5dip" android:layout_marginBottom="5dp"
                 android:paddingLeft="5dip" android:paddingRight="5dip" android:paddingTop="10dip" android:paddingBottom="10dip"
-                android:background="@color/white" android:textSize="14sp" android:textColor="@color/black" android:visibility="gone"/>
+                android:background="@color/white" android:textSize="16sp" android:textColor="@color/black"/>
+
+            <TextView android:id="@+id/remark_tv" android:layout_width="fill_parent" android:layout_height="wrap_content"
+                android:layout_marginLeft="5dip" android:layout_marginRight="5dip" android:layout_marginTop="5dip" android:layout_marginBottom="10dp"
+                android:paddingLeft="5dip" android:paddingRight="5dip" android:paddingTop="10dip" android:paddingBottom="10dip"
+                android:background="@color/white" android:textSize="16sp" android:textColor="@color/black" android:visibility="gone"/>
             
-            <fragment android:id="@+id/map" android:layout_width="match_parent" android:layout_height="300dip"
+            <fragment android:id="@+id/map" android:layout_width="match_parent" android:layout_height="400dp"
   				class="com.google.android.gms.maps.SupportMapFragment"/>
 		</LinearLayout>
     </ScrollView>

@@ -24,12 +24,10 @@ public class BookingDetailActivity extends ObsActivity {
 	private TextView destinationTv;
 	private TextView leadPassengerTv;
 	private TextView bookByTv;
-	private TextView assignByTv;
 	private TextView remarkTv;
 	
 	private Button callLeadPassengerBtn;
 	private Button callBookByBtn;
-	private Button callAssignByBtn;
 	
 	private ObmBookingVehicleItem obmBookingVehicleItem;
 	
@@ -85,19 +83,7 @@ public class BookingDetailActivity extends ObsActivity {
 		bookByTv.setText(bookBy);
 		callBookByBtn = (Button) findViewById(R.id.call_book_by_btn);
 		callBookByBtn.setOnClickListener(this);
-		
-		String assignBy =  "";
-//		if (StringUtil.isNotEmpty(obmBookingVehicleItem.getAgentUserName()) && !"null".equalsIgnoreCase(obmBookingVehicleItem.getAgentUserName())) {
-//			assignBy = obmBookingVehicleItem.getAgentUserName() + "<br/>";
-//		} else if (!"null".equalsIgnoreCase(obmBookingVehicleItem.getOperatorName())) {
-//			assignBy = obmBookingVehicleItem.getOperatorName() + "<br/>";
-//		}
-//		assignBy += "from " + obmBookingVehicleItem.getOrgName();
-		assignByTv = (TextView) findViewById(R.id.assign_by_tv);
-		assignByTv.setText(Html.fromHtml(assignBy));
-		callAssignByBtn = (Button) findViewById(R.id.call_assign_by_btn);
-		callAssignByBtn.setOnClickListener(this);
-		
+
 		if (StringUtil.isNotEmpty(obmBookingVehicleItem.getRemark())) {
 			remarkTv = (TextView) findViewById(R.id.remark_tv);
 			remarkTv.setVisibility(View.VISIBLE);

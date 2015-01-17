@@ -1,23 +1,10 @@
 package sg.lt.obs;
 
-import java.util.Date;
-import java.util.List;
-import java.util.Locale;
-
-import org.ganjp.glib.core.ActivityStack;
-import org.ganjp.glib.core.util.DateUtil;
-import org.ganjp.glib.core.util.DialogUtil;
-import org.ganjp.glib.core.util.StringUtil;
-import sg.lt.obs.common.ObsConst;
-import sg.lt.obs.common.entity.ObmBookingVehicleItem;
-
-import android.content.Context;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.location.Address;
-import android.location.Criteria;
 import android.location.Geocoder;
 import android.location.Location;
-import android.location.LocationListener;
 import android.location.LocationManager;
 import android.net.Uri;
 import android.os.Bundle;
@@ -27,15 +14,33 @@ import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.model.CameraPosition;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.maps.model.PolylineOptions;
+import com.google.android.gms.common.api.GoogleApiClient;
+
+import org.ganjp.glib.core.ActivityStack;
+import org.ganjp.glib.core.util.DateUtil;
+import org.ganjp.glib.core.util.DialogUtil;
+import org.ganjp.glib.core.util.StringUtil;
+
+import java.util.Date;
+import java.util.List;
+import java.util.Locale;
+
+import sg.lt.obs.common.ObsConst;
+import sg.lt.obs.common.entity.ObmBookingVehicleItem;
+import sg.lt.obs.common.other.ObsUtil;
 
 /**
  * http://www.androidhive.info/2013/08/android-working-with-google-maps-v2
@@ -43,7 +48,7 @@ import com.google.android.gms.maps.model.MarkerOptions;
  * @author ganjianping
  *
  */
-public class BookingDetailFragmentActivity extends FragmentActivity implements OnClickListener, LocationListener {
+public class BookingDetailFragmentActivity extends FragmentActivity implements OnClickListener, OnMapReadyCallback {
 	protected Button mBackBtn = null;
 	protected TextView mTitleTv = null;
 	protected Button mNextBtn = null;
@@ -52,23 +57,26 @@ public class BookingDetailFragmentActivity extends FragmentActivity implements O
 	private TextView pickupDateTimeTv;
 	
 	private TextView pickupAddressTv;
+    private TextView stop1AddressTv;
+    private TextView stop2AddressTv;
 	private TextView destinationTv;
 	private TextView leadPassengerTv;
 	private TextView bookByTv;
-	private TextView assignByTv;
+	private TextView vehicleTv;
 	private TextView remarkTv;
+
+    private RelativeLayout stop1Rl;
+    private RelativeLayout stop2Rl;
 	
 	private Button directionBtn;
+    private Button routerStop1Btn;
+    private Button routerStop2Btn;
 	private Button routerBtn;
 	private Button callLeadPassengerBtn;
 	private Button callBookByBtn;
-	private Button callAssignByBtn;
 	
 	private ObmBookingVehicleItem obmBookingVehicleItem;
-	
-	private GoogleMap mMap;
-	private LocationManager locationManager;
-	private LatLng mCurrentLatLng;
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -104,7 +112,25 @@ public class BookingDetailFragmentActivity extends FragmentActivity implements O
 		pickupAddressTv.setText(Html.fromHtml(address));
 		directionBtn = (Button) findViewById(R.id.direction_btn);
 		directionBtn.setOnClickListener(this);
-		
+
+        if (StringUtil.hasText(obmBookingVehicleItem.getStop1Address())) {
+            stop1Rl = (RelativeLayout) findViewById(R.id.stop1_rl);
+            stop1AddressTv = (TextView) findViewById(R.id.stop1_address_tv);
+            stop1AddressTv.setText(obmBookingVehicleItem.getStop1Address());
+            routerStop1Btn = (Button) findViewById(R.id.router_stop1_btn);
+            routerStop1Btn.setOnClickListener(this);
+            stop1Rl.setVisibility(View.VISIBLE);
+        }
+
+        if (StringUtil.hasText(obmBookingVehicleItem.getStop2Address())) {
+            stop2Rl = (RelativeLayout) findViewById(R.id.stop2_rl);
+            stop2AddressTv = (TextView) findViewById(R.id.stop2_address_tv);
+            stop2AddressTv.setText(obmBookingVehicleItem.getStop2Address());
+            routerStop2Btn = (Button) findViewById(R.id.router_stop2_btn);
+            routerStop2Btn.setOnClickListener(this);
+            stop2Rl.setVisibility(View.VISIBLE);
+        }
+
 		address = "";
 		if ("0102".equalsIgnoreCase(obmBookingVehicleItem.getBookingServiceCd())) {
 			address += "<b>" + obmBookingVehicleItem.getFlightNumber() + "</b> " + obmBookingVehicleItem.getDestination();
@@ -128,24 +154,26 @@ public class BookingDetailFragmentActivity extends FragmentActivity implements O
 		bookByTv.setText(bookBy);
 		callBookByBtn = (Button) findViewById(R.id.call_book_by_btn);
 		callBookByBtn.setOnClickListener(this);
-		
-		String assignBy =  "";
-//		if (StringUtil.isNotEmpty(obmBookingVehicleItem.getAgentUserName()) && !"null".equalsIgnoreCase(obmBookingVehicleItem.getAgentUserName())) {
-//			assignBy = obmBookingVehicleItem.getAgentUserName() + "<br/>";
-//		} else if (!"null".equalsIgnoreCase(obmBookingVehicleItem.getOperatorName())) {
-//			assignBy = obmBookingVehicleItem.getOperatorName() + "<br/>";
-//		}
-//		assignBy += "from " + obmBookingVehicleItem.getOrgName();
-		assignByTv = (TextView) findViewById(R.id.assign_by_tv);
-		assignByTv.setText(Html.fromHtml(assignBy));
-		callAssignByBtn = (Button) findViewById(R.id.call_assign_by_btn);
-		callAssignByBtn.setOnClickListener(this);
-		
+
+        String vehicle = "<img src='icon_vehicle_black'/> ";
+		if (StringUtil.isNotEmpty(obmBookingVehicleItem.getVehicle())) {
+            vehicle += obmBookingVehicleItem.getVehicle();
+		}
+        if (StringUtil.isNotEmpty(obmBookingVehicleItem.getNumberOfPassenger())) {
+            vehicle += " - " + obmBookingVehicleItem.getNumberOfPassenger() + " passenger(s)";
+        }
+        vehicleTv = (TextView) findViewById(R.id.vehicle_tv);
+        vehicleTv.setText(Html.fromHtml(vehicle, new ImageGetter(), null));
+
 		if (StringUtil.isNotEmpty(obmBookingVehicleItem.getRemark())) {
 			remarkTv = (TextView) findViewById(R.id.remark_tv);
 			remarkTv.setVisibility(View.VISIBLE);
-			remarkTv.setText(obmBookingVehicleItem.getRemark());
+            String remark = "<img src='icon_comment_red'/> " + obmBookingVehicleItem.getRemark();
+			remarkTv.setText(Html.fromHtml(remark, new ImageGetter(), null));
 		}
+
+        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
+        mapFragment.getMapAsync(this);
 	}
 
 	@Override
@@ -159,13 +187,10 @@ public class BookingDetailFragmentActivity extends FragmentActivity implements O
 		} else if (view == callBookByBtn) {
 			DialogUtil.showCallDialog(this, "Call Booker", obmBookingVehicleItem.getBookingUserMobileNumber(), 
 					obmBookingVehicleItem.getBookingUserMobileNumber());
-//		} else if (view == callAssignByBtn) {
-//			DialogUtil.showCallDialog(this, "Call Assigner", obmBookingVehicleItem.getAgentMobileNumber(),
-//					obmBookingVehicleItem.getAgentMobileNumber());
 		} else if (view == directionBtn) {
-			if (mCurrentLatLng!=null) {
-				String uri = String.format(Locale.ENGLISH, "http://maps.google.com/maps?saddr=%f,%f&daddr=%s", 
-						mCurrentLatLng.latitude,  mCurrentLatLng.longitude, obmBookingVehicleItem.getPickupAddress());
+			if (ObsUtil.sCurrentLocation!=null) {
+				String uri = String.format(Locale.ENGLISH, "http://maps.google.com/maps?saddr=%f,%f&daddr=%s",
+                        ObsUtil.sCurrentLocation.getLatitude(),  ObsUtil.sCurrentLocation.getLongitude(), obmBookingVehicleItem.getPickupMapAddress());
 				Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
 				intent.setClassName("com.google.android.apps.maps", "com.google.android.maps.MapsActivity");
 				startActivity(intent);
@@ -179,9 +204,31 @@ public class BookingDetailFragmentActivity extends FragmentActivity implements O
 //		    if (intent.resolveActivity(getPackageManager()) != null) {
 //		        startActivity(intent);
 //		    }
-		} else if (view == routerBtn) {
-			String uri = String.format(Locale.ENGLISH, "http://maps.google.com/maps?saddr=%s&daddr=%s", 
-						obmBookingVehicleItem.getPickupAddress(), obmBookingVehicleItem.getDestination());
+        } else if (view == routerStop1Btn) {
+            String uri = String.format(Locale.ENGLISH, "http://maps.google.com/maps?saddr=%s&daddr=%s",
+                    obmBookingVehicleItem.getPickupAddress(), obmBookingVehicleItem.getStop1MapAddress());
+            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
+            intent.setClassName("com.google.android.apps.maps", "com.google.android.maps.MapsActivity");
+            startActivity(intent);
+		} else if (view == routerStop2Btn) {
+            String saddress = obmBookingVehicleItem.getPickupMapAddress();
+            if (StringUtil.hasText(obmBookingVehicleItem.getStop1MapAddress())) {
+                saddress = obmBookingVehicleItem.getStop1MapAddress();
+            }
+            String uri = String.format(Locale.ENGLISH, "http://maps.google.com/maps?saddr=%s&daddr=%s",
+                    saddress, obmBookingVehicleItem.getStop2MapAddress());
+            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
+            intent.setClassName("com.google.android.apps.maps", "com.google.android.maps.MapsActivity");
+            startActivity(intent);
+        } else if (view == routerBtn) {
+            String saddress = obmBookingVehicleItem.getPickupMapAddress();
+            if (StringUtil.hasText(obmBookingVehicleItem.getStop2MapAddress())) {
+                saddress = obmBookingVehicleItem.getStop2MapAddress();
+            } else if (StringUtil.hasText(obmBookingVehicleItem.getStop1MapAddress())) {
+                saddress = obmBookingVehicleItem.getStop1MapAddress();
+            }
+			String uri = String.format(Locale.ENGLISH, "http://maps.google.com/maps?saddr=%s&daddr=%s",
+                    saddress, obmBookingVehicleItem.getDestinationMapAddress());
 			Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
 			intent.setClassName("com.google.android.apps.maps", "com.google.android.maps.MapsActivity");
 			startActivity(intent);
@@ -194,12 +241,16 @@ public class BookingDetailFragmentActivity extends FragmentActivity implements O
 //		    }
 		}
     }
-	
-	@Override
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+    }
+
+    @Override
     protected void onResume() {
         super.onResume();
         ActivityStack.setActiveActivity(this);
-        setUpMapIfNeeded();
     }
 	
 	@Override
@@ -207,70 +258,74 @@ public class BookingDetailFragmentActivity extends FragmentActivity implements O
         super.onPause();
         ActivityStack.setActiveActivity(null);
     }
-	
-	private void setUpMapIfNeeded() {
-        // Do a null check to confirm that we have not already instantiated the map.
-        if (mMap == null) {
-            // Try to obtain the map from the SupportMapFragment.
-            mMap = ((SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map)).getMap();
-            // Check if we were successful in obtaining the map.
-            if (mMap != null) {
-                setUpMap();
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+    }
+
+    @Override
+    public void onMapReady(GoogleMap map) {
+        map.setMyLocationEnabled(true);
+        map.getUiSettings().setZoomControlsEnabled(true);
+        map.getUiSettings().setMapToolbarEnabled(true);
+        map.getUiSettings().setScrollGesturesEnabled(true);
+        map.getUiSettings().setRotateGesturesEnabled(true);
+        if (obmBookingVehicleItem!=null) {
+            PolylineOptions polylineOptions = new PolylineOptions().geodesic(true);
+            if (StringUtil.hasText(obmBookingVehicleItem.getPickupMapAddress())) {
+                LatLng pickupAddressLL = getLatLng(obmBookingVehicleItem.getPickupMapAddress());
+                if (pickupAddressLL!=null) {
+                    map.moveCamera(CameraUpdateFactory.newLatLngZoom(pickupAddressLL, 11));
+                    map.addMarker(new MarkerOptions().title("Pick-up Address").icon(BitmapDescriptorFactory.fromResource(R.drawable.icon_location_1))
+                            .snippet(obmBookingVehicleItem.getPickupMapAddress()).position(pickupAddressLL));
+                    polylineOptions.add(pickupAddressLL);
+                }
             }
+            if (StringUtil.hasText(obmBookingVehicleItem.getStop1MapAddress())) {
+                LatLng stop1AddressLL = getLatLng(obmBookingVehicleItem.getStop1MapAddress());
+                if (stop1AddressLL!=null) {
+                    map.addMarker(new MarkerOptions().title("Stop 1 Address").icon(BitmapDescriptorFactory.fromResource(R.drawable.icon_location_2))
+                            .snippet(obmBookingVehicleItem.getStop1MapAddress()).position(stop1AddressLL));
+                    polylineOptions.add(stop1AddressLL);
+                }
+            }
+            if (StringUtil.hasText(obmBookingVehicleItem.getStop2MapAddress())) {
+                int icon = R.drawable.icon_location_2;
+                if (StringUtil.hasText(obmBookingVehicleItem.getStop1MapAddress())) {
+                    icon = R.drawable.icon_location_3;
+                }
+                LatLng stop2AddressLL = getLatLng(obmBookingVehicleItem.getStop2MapAddress());
+                if (stop2AddressLL!=null) {
+                    map.addMarker(new MarkerOptions().title("Stop 2 Address").icon(BitmapDescriptorFactory.fromResource(icon))
+                            .snippet(obmBookingVehicleItem.getStop2MapAddress()).position(stop2AddressLL));
+                    polylineOptions.add(stop2AddressLL);
+                }
+            }
+            if (StringUtil.hasText(obmBookingVehicleItem.getDestinationMapAddress())) {
+                int icon = R.drawable.icon_location_2;
+                if (StringUtil.hasText(obmBookingVehicleItem.getStop1MapAddress())) {
+                    if (StringUtil.hasText(obmBookingVehicleItem.getStop2MapAddress())) {
+                        icon = R.drawable.icon_location_4;
+                    } else {
+                        icon = R.drawable.icon_location_3;
+                    }
+                } else {
+                    if (StringUtil.hasText(obmBookingVehicleItem.getStop2MapAddress())) {
+                        icon = R.drawable.icon_location_3;
+                    }
+                }
+                LatLng destinationAddressLL = getLatLng(obmBookingVehicleItem.getDestinationMapAddress());
+                if (destinationAddressLL!=null) {
+                    map.addMarker(new MarkerOptions().title("Drop-off Address").icon(BitmapDescriptorFactory.fromResource(icon))
+                            .snippet(obmBookingVehicleItem.getDestinationMapAddress()).position(destinationAddressLL));
+                    polylineOptions.add(destinationAddressLL);
+                }
+            }
+            map.addPolyline(polylineOptions);
         }
     }
-	
-	private void setUpMap() {
-		locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-		List<String> providers = locationManager.getAllProviders();
-		for (String provider : providers) {
-			System.out.println(provider);
-		}
-		Criteria criteria = new Criteria();
-        criteria.setAccuracy(Criteria.ACCURACY_FINE);//获取精准位置
-        criteria.setCostAllowed(true);//允许产生开销
-        criteria.setPowerRequirement(Criteria.POWER_HIGH);//消耗大的话，获取的频率高
-        criteria.setSpeedRequired(true);//手机位置移动
-        criteria.setAltitudeRequired(true);//海拔
-        String bestProvider = locationManager.getBestProvider(criteria, true);
-        System.out.println("The best Provider : "+bestProvider);
-        
-        locationManager.requestLocationUpdates(bestProvider,60000,100, this);
-		mMap.setMyLocationEnabled(true);
-		mMap.getUiSettings().setZoomGesturesEnabled(true);
-		mMap.getUiSettings().setCompassEnabled(true);
-		mMap.getUiSettings().setRotateGesturesEnabled(true);
-    }
-	
-	@Override
-    public void onLocationChanged(Location location) {
-		if (mCurrentLatLng==null) {
-			mCurrentLatLng = new LatLng(location.getLatitude(), location.getLongitude());
-			CameraPosition cameraPosition = new CameraPosition.Builder().target(mCurrentLatLng).zoom(15).build();
-			mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
-			
-			Marker currentMarker = mMap.addMarker(new MarkerOptions().position(
-						new LatLng(location.getLatitude(), location.getLongitude())).title("You are here"));
-			currentMarker.showInfoWindow();
-		}
-        Log.d("Current Position : ", "Latitude:" + location.getLatitude() + ", Longitude:"  + location.getLongitude());
-    }
- 
-    @Override
-    public void onProviderDisabled(String provider) {
-        Log.d("Latitude", "disable");
-    }
- 
-    @Override
-    public void onProviderEnabled(String provider) {
-        Log.d("Latitude", "enable");
-    }
- 
-    @Override
-    public void onStatusChanged(String provider, int status, Bundle extras) {
-        Log.d("Latitude", "status");
-    }
-    
+
     public LatLng getLatLng(String address) {
 	    List<Address> foundGeocode;
 	    try {
@@ -280,6 +335,31 @@ public class BookingDetailFragmentActivity extends FragmentActivity implements O
 	    } catch(Exception ex) {
 	    	ex.printStackTrace();
 	    }
-	    return mCurrentLatLng;
+	    return null;
     }
+
+    private class ImageGetter implements Html.ImageGetter {
+
+        public Drawable getDrawable(String source) {
+            int id;
+
+            id = getResources().getIdentifier(source, "drawable", getPackageName());
+
+            if (id == 0) {
+                // the drawable resource wasn't found in our package, maybe it is a stock android drawable?
+                id = getResources().getIdentifier(source, "drawable", "android");
+            }
+
+            if (id == 0) {
+                // prevent a crash if the resource still can't be found
+                return null;
+            } else {
+                Drawable d = getResources().getDrawable(id);
+                d.setBounds(0, 0, d.getIntrinsicWidth(), d.getIntrinsicHeight());
+                return d;
+            }
+        }
+
+    }
+
 }

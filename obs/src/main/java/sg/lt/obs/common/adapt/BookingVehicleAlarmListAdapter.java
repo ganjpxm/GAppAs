@@ -257,8 +257,7 @@ public class BookingVehicleAlarmListAdapter extends BaseAdapter {
             if (id == 0) {
                 // prevent a crash if the resource still can't be found
                 return null;
-            }
-            else {
+            } else {
                 Drawable d = mContext.getResources().getDrawable(id);
                 d.setBounds(0, 0, d.getIntrinsicWidth(), d.getIntrinsicHeight());
                 return d;

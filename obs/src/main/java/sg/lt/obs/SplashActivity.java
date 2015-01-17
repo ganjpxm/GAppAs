@@ -66,7 +66,9 @@ public class SplashActivity extends ObsActivity {
                         mTimeoutThread.interrupt();
                         mTimeoutThread=null;
                     }
+                    Thread.sleep(Const.DURATION_SPLASH);
                     forward(true);
+
                 } catch (Exception e) {
                     e.printStackTrace();
                     forward(false);
@@ -90,7 +92,6 @@ public class SplashActivity extends ObsActivity {
 	}
 	
 	public void forward(boolean isShowBroadcast) {
-		finish();
 		Intent intent = null;
 	    if (StringUtil.isNotEmpty(userId)) {
             if (isShowBroadcast) {
@@ -105,8 +106,9 @@ public class SplashActivity extends ObsActivity {
 		} else {
 			intent = new Intent(SplashActivity.this, DriverLoginActivity.class);
 		}
-	    SplashActivity.this.startActivity(intent);
-        transitForward();
+        startActivity(intent);
+        overridePendingTransition(R.anim.in_from_right, R.anim.out_to_left);
+        finish();
 	}
 }
 	

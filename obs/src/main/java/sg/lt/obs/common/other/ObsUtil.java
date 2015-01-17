@@ -4,6 +4,8 @@
  */
 package sg.lt.obs.common.other;
 
+import android.location.Location;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -24,7 +26,8 @@ import sg.lt.obs.common.entity.ObmBookingVehicleItem;
 import org.json.JSONObject;
 
 public abstract class ObsUtil {
-	
+
+    public static Location sCurrentLocation;
 	/**
 	 * <p>getDataFromWeb</p>
 	 * 

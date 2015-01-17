@@ -160,11 +160,25 @@ public class ObmBookingVehicleItem extends BaseModel implements Serializable {
         return pickupAddress;
     }
 
+    public String getPickupMapAddress() {
+        if (StringUtil.hasText(pickupAddress) && pickupAddress.indexOf("(")!=-1) {
+            return pickupAddress.substring(0, pickupAddress.indexOf("("));
+        }
+        return pickupAddress;
+    }
+
     public void setPickupAddress(String pickupAddress) {
         this.pickupAddress = pickupAddress;
     }
 
     public String getDestination() {
+        return destination;
+    }
+
+    public String getDestinationMapAddress() {
+        if (StringUtil.hasText(destination) && destination.indexOf("(")!=-1) {
+            return destination.substring(0, destination.indexOf("("));
+        }
         return destination;
     }
 
@@ -176,11 +190,25 @@ public class ObmBookingVehicleItem extends BaseModel implements Serializable {
         return stop1Address;
     }
 
+    public String getStop1MapAddress() {
+        if (StringUtil.hasText(stop1Address) && stop1Address.indexOf("(")!=-1) {
+            return stop1Address.substring(0, stop1Address.indexOf("("));
+        }
+        return stop1Address;
+    }
+
     public void setStop1Address(String stop1Address) {
         this.stop1Address = stop1Address;
     }
 
     public String getStop2Address() {
+        return stop2Address;
+    }
+
+    public String getStop2MapAddress() {
+        if (StringUtil.hasText(stop2Address) && stop2Address.indexOf("(")!=-1) {
+            return stop2Address.substring(0, stop2Address.indexOf("("));
+        }
         return stop2Address;
     }
 
