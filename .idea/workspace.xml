@@ -34,181 +34,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="20779798-86a2-45cc-8e56-492fbaaa0e65" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gdemo/src/main/res/drawable-hdpi/action_search.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gdemo/src/main/res/drawable-mdpi/action_search.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gdemo/src/main/res/drawable-xhdpi/action_search.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gdemo/src/main/res/drawable-hdpi/drawer_shadow.9.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gdemo/src/main/res/drawable-mdpi/drawer_shadow.9.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gdemo/src/main/res/drawable-xhdpi/drawer_shadow.9.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/res/drawable-hdpi/ic_action_about.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/res/drawable-xhdpi/ic_action_about.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/res/drawable-xxhdpi/ic_action_about.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/res/drawable-mdpi/ic_action_about_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/res/drawable-hdpi/ic_action_attach_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/res/drawable-mdpi/ic_action_attach_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/res/drawable-xhdpi/ic_action_attach_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/res/drawable-xxhdpi/ic_action_attach_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/res/drawable-hdpi/ic_action_call_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/res/drawable-mdpi/ic_action_call_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/res/drawable-xhdpi/ic_action_call_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/res/drawable-xxhdpi/ic_action_call_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/res/drawable-hdpi/ic_action_copy_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/res/drawable-mdpi/ic_action_copy_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/res/drawable-xhdpi/ic_action_copy_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/res/drawable-xxhdpi/ic_action_copy_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/res/drawable-hdpi/ic_action_cut_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/res/drawable-mdpi/ic_action_cut_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/res/drawable-xhdpi/ic_action_cut_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/res/drawable-xxhdpi/ic_action_cut_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/res/drawable-hdpi/ic_action_delete_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/res/drawable-mdpi/ic_action_delete_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/res/drawable-xhdpi/ic_action_delete_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/res/drawable-xxhdpi/ic_action_delete_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/res/drawable-hdpi/ic_action_done_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/res/drawable-mdpi/ic_action_done_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/res/drawable-xhdpi/ic_action_done_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/res/drawable-xxhdpi/ic_action_done_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/res/drawable-hdpi/ic_action_edit_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/res/drawable-mdpi/ic_action_edit_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/res/drawable-xhdpi/ic_action_edit_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/res/drawable-xxhdpi/ic_action_edit_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/res/drawable-hdpi/ic_action_help.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/res/drawable-xhdpi/ic_action_help.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/res/drawable-xxhdpi/ic_action_help.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/res/drawable-mdpi/ic_action_help_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/res/drawable-hdpi/ic_action_locate_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/res/drawable-mdpi/ic_action_locate_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/res/drawable-xhdpi/ic_action_locate_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/res/drawable-xxhdpi/ic_action_locate_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/res/drawable-hdpi/ic_action_mail_add_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/res/drawable-mdpi/ic_action_mail_add_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/res/drawable-xhdpi/ic_action_mail_add_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/res/drawable-xxhdpi/ic_action_mail_add_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/res/drawable-hdpi/ic_action_mail_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/res/drawable-mdpi/ic_action_mail_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/res/drawable-xhdpi/ic_action_mail_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/res/drawable-xxhdpi/ic_action_mail_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/res/drawable-hdpi/ic_action_microphone_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/res/drawable-mdpi/ic_action_microphone_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/res/drawable-xhdpi/ic_action_microphone_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/res/drawable-xxhdpi/ic_action_microphone_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/res/drawable-hdpi/ic_action_overflow_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/res/drawable-mdpi/ic_action_overflow_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/res/drawable-xhdpi/ic_action_overflow_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/res/drawable-xxhdpi/ic_action_overflow_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/res/drawable-hdpi/ic_action_paste_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/res/drawable-mdpi/ic_action_paste_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/res/drawable-xhdpi/ic_action_paste_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/res/drawable-xxhdpi/ic_action_paste_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/res/drawable-hdpi/ic_action_photo_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/res/drawable-mdpi/ic_action_photo_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/res/drawable-xhdpi/ic_action_photo_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/res/drawable-xxhdpi/ic_action_photo_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/res/drawable-hdpi/ic_action_refresh_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/res/drawable-mdpi/ic_action_refresh_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/res/drawable-xhdpi/ic_action_refresh_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/res/drawable-xxhdpi/ic_action_refresh_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/res/drawable-hdpi/ic_action_search_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/res/drawable-mdpi/ic_action_search_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/res/drawable-xhdpi/ic_action_search_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/res/drawable-xxhdpi/ic_action_search_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/res/drawable-hdpi/ic_action_select_all_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/res/drawable-mdpi/ic_action_select_all_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/res/drawable-xhdpi/ic_action_select_all_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/res/drawable-xxhdpi/ic_action_select_all_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/res/drawable-hdpi/ic_action_send_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/res/drawable-mdpi/ic_action_send_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/res/drawable-xhdpi/ic_action_send_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/res/drawable-xxhdpi/ic_action_send_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/res/drawable-hdpi/ic_action_settings_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/res/drawable-mdpi/ic_action_settings_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/res/drawable-xhdpi/ic_action_settings_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/res/drawable-xxhdpi/ic_action_settings_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/res/drawable-hdpi/ic_action_share_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/res/drawable-mdpi/ic_action_share_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/res/drawable-xhdpi/ic_action_share_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/res/drawable-xxhdpi/ic_action_share_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/res/drawable-hdpi/ic_action_star_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/res/drawable-mdpi/ic_action_star_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/res/drawable-xhdpi/ic_action_star_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/res/drawable-xxhdpi/ic_action_star_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/res/drawable-hdpi/ic_action_user_add_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/res/drawable-mdpi/ic_action_user_add_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/res/drawable-xhdpi/ic_action_user_add_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/res/drawable-xxhdpi/ic_action_user_add_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/res/drawable-hdpi/ic_action_user_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/res/drawable-mdpi/ic_action_user_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/res/drawable-xhdpi/ic_action_user_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/res/drawable-xxhdpi/ic_action_user_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/res/drawable-hdpi/ic_action_video_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/res/drawable-mdpi/ic_action_video_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/res/drawable-xhdpi/ic_action_video_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/res/drawable-xxhdpi/ic_action_video_light.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gdemo/src/main/java/org/ganjp/gdemo/base/DemoActionBarActivity.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gdemo/src/main/java/org/ganjp/gdemo/base/DemoActivity.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gdemo/src/main/java/org/ganjp/gdemo/base/DemoApplication.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gdemo/src/main/java/org/ganjp/gdemo/adapt/HomeNavDrawListAdapter.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gdemo/src/main/java/org/ganjp/gdemo/SplashActivity.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gdemo/src/main/java/org/ganjp/gdemo/fragment/UiInterfaceFragment.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gdemo/src/main/res/layout/activity_splash.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gdemo/src/main/res/values/colors.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/res/values/dimens.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gdemo/src/main/res/layout/fragment_ui_interface.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gdemo/src/main/res/layout/list_item_home_nav_draw.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gdemo/note" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gdemo/src/main/res/layout/toolbar.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/ActivityStack.java" afterPath="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/base/ActivityStack.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/BaseActionBarActivity.java" afterPath="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/base/BaseActionBarActivity.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/BaseActivity.java" afterPath="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/base/BaseActivity.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/BaseApplication.java" afterPath="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/base/BaseApplication.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/Const.java" afterPath="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/base/Const.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gdemo/src/main/res/drawable-hdpi/ic_launcher.png" afterPath="$PROJECT_DIR$/gdemo/src/main/res/drawable-hdpi/ic_launcher.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gdemo/src/main/res/drawable-mdpi/ic_launcher.png" afterPath="$PROJECT_DIR$/gdemo/src/main/res/drawable-mdpi/ic_launcher.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gdemo/src/main/res/drawable-xhdpi/ic_launcher.png" afterPath="$PROJECT_DIR$/gdemo/src/main/res/drawable-xhdpi/ic_launcher.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gdemo/src/main/res/drawable-xxhdpi/ic_launcher.png" afterPath="$PROJECT_DIR$/gdemo/src/main/res/drawable-xxhdpi/ic_launcher.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obs/src/main/res/drawable/icon_arrow_right_gray.png" afterPath="$PROJECT_DIR$/obs/src/main/res/drawable/icon_arrow_right_gray.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gdemo/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/gdemo/src/main/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/common/dao/BmConfigDAO.java" afterPath="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/common/dao/BmConfigDAO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/BookingDetailFragmentActivity.java" afterPath="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/BookingDetailFragmentActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/BookingVehicleAlarmListActivity.java" afterPath="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/BookingVehicleAlarmListActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/common/adapt/BookingVehicleAlarmListAdapter.java" afterPath="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/common/adapt/BookingVehicleAlarmListAdapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/common/dao/DAO.java" afterPath="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/common/dao/DAO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/util/DialogUtil.java" afterPath="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/util/DialogUtil.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/DriverLoginActivity.java" afterPath="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/DriverLoginActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/common/gcm/GcmIntentService.java" afterPath="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/common/gcm/GcmIntentService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/util/HttpConnection.java" afterPath="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/util/HttpConnection.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gdemo/src/main/java/org/ganjp/gdemo/MainActivity.java" afterPath="$PROJECT_DIR$/gdemo/src/main/java/org/ganjp/gdemo/MainActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/fragment/MoreFragment.java" afterPath="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/fragment/MoreFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/fragment/MyProfileFragment.java" afterPath="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/fragment/MyProfileFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/common/activity/ObsActivity.java" afterPath="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/common/activity/ObsActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/common/other/ObsApplication.java" afterPath="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/common/other/ObsApplication.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/ObsBottomTabFragmentActivity.java" afterPath="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/ObsBottomTabFragmentActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/common/ObsConst.java" afterPath="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/common/ObsConst.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/common/other/ObsUtil.java" afterPath="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/common/other/ObsUtil.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/SplashActivity.java" afterPath="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/SplashActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/util/WebViewUtil.java" afterPath="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/util/WebViewUtil.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obs/src/main/res/layout/activity_booking_detail.xml" afterPath="$PROJECT_DIR$/obs/src/main/res/layout/activity_booking_detail.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gdemo/src/main/res/layout/activity_main.xml" afterPath="$PROJECT_DIR$/gdemo/src/main/res/layout/activity_main.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gdemo/build.gradle" afterPath="$PROJECT_DIR$/gdemo/build.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/glib/src/main/res/values/colors.xml" afterPath="$PROJECT_DIR$/glib/src/main/res/values/colors.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gdemo/src/main/res/values/dimens.xml" afterPath="$PROJECT_DIR$/gdemo/src/main/res/values/dimens.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obs/src/main/res/layout/fragment_booking_history.xml" afterPath="$PROJECT_DIR$/obs/src/main/res/layout/fragment_booking_history.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obs/src/main/res/layout/fragment_more.xml" afterPath="$PROJECT_DIR$/obs/src/main/res/layout/fragment_more.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gdemo/gdemo.iml" afterPath="$PROJECT_DIR$/gdemo/gdemo.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gdemo/src/main/res/menu/menu_main.xml" afterPath="$PROJECT_DIR$/gdemo/src/main/res/menu/menu_main.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gdemo/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/gdemo/src/main/res/values/strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/glib/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/glib/src/main/res/values/strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obs/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/obs/src/main/res/values/strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/glib/src/main/res/drawable/style_bg_tab.xml" afterPath="$PROJECT_DIR$/glib/src/main/res/drawable/style_bg_tab.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/glib/src/main/res/drawable/style_list_bottom_round.xml" afterPath="$PROJECT_DIR$/glib/src/main/res/drawable/style_list_bottom_round.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/glib/src/main/res/drawable/style_list_bottom_selector.xml" afterPath="$PROJECT_DIR$/glib/src/main/res/drawable/style_list_bottom_selector.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/glib/src/main/res/drawable/style_list_center_round.xml" afterPath="$PROJECT_DIR$/glib/src/main/res/drawable/style_list_center_round.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/glib/src/main/res/drawable/style_list_center_selector.xml" afterPath="$PROJECT_DIR$/glib/src/main/res/drawable/style_list_center_selector.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/glib/src/main/res/drawable/style_list_default_round.xml" afterPath="$PROJECT_DIR$/glib/src/main/res/drawable/style_list_default_round.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/glib/src/main/res/drawable/style_list_round.xml" afterPath="$PROJECT_DIR$/glib/src/main/res/drawable/style_list_round.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/glib/src/main/res/drawable/style_list_top_round.xml" afterPath="$PROJECT_DIR$/glib/src/main/res/drawable/style_list_top_round.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/glib/src/main/res/drawable/style_list_top_selector.xml" afterPath="$PROJECT_DIR$/glib/src/main/res/drawable/style_list_top_selector.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gdemo/src/main/res/values/styles.xml" afterPath="$PROJECT_DIR$/gdemo/src/main/res/values/styles.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="c6d85b13-7c1e-4750-9f68-1b3ca2eb7e87" name="Failed commit: Default" comment="2" />
@@ -1894,8 +1719,8 @@
     <treeState />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="105" />
-    <option name="y" value="51" />
+    <option name="x" value="100" />
+    <option name="y" value="23" />
     <option name="width" value="1309" />
     <option name="height" value="855" />
   </component>
@@ -2553,7 +2378,11 @@
       <created>1421492402798</created>
       <updated>1421492402799</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="2">
+      <created>1421760228024</created>
+      <updated>1421760228024</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -2577,7 +2406,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="105" y="51" width="1309" height="855" extended-state="0" />
+    <frame x="100" y="23" width="1309" height="855" extended-state="0" />
     <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
