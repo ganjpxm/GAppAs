@@ -50,4 +50,5 @@
     <string name="error_loading_timeout"><![CDATA[Connection time out. Please try again later.]]></string>
     <string name="error_connect"><![CDATA[Unable to connect to server. Please try again later.]]></string>
     <string name="error_no_network"><![CDATA[Unable to detect a connection to the internet. Please check your phone settings.]]></string>
+    <string name="error_connect_or_no_network"><![CDATA[Sorry for unavailable network or server down, Please check the network then try again later.]]></string>
 </resources>

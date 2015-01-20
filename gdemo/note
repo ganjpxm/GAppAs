@@ -1,0 +1,11 @@
+1.Iconography
+mdpi (160dpi) , hdpi (240dpi), xhdpi (320dpi), xxhdpi (480dpi), xxxhdpi(640dpi) : 2:3:4:6:8 scaling ratio
+ic_launcher(px): 48x48, 72x72, 96x96, 144x144, 192x192
+action bar icons : 32x32 (24x24);
+contextual icons : 16x16 (12x12);
+notification icons : 24x24 dp;
+icon naming : ic_menu, ic_stat_notify, ic_tab, ic_dialog.
+
+2.Layout
+action bar / input element 48dp unit = 4 + 40 (12+16+12) + 4dp / 8 + 32 + 8;
+Spacing between each UI element is 8dp.

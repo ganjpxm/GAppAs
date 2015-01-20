@@ -6,7 +6,7 @@
  */
 package sg.lt.obs;
 
-import org.ganjp.glib.core.Const;
+import org.ganjp.glib.core.base.Const;
 import org.ganjp.glib.core.util.HttpConnection;
 import org.ganjp.glib.core.util.NetworkUtil;
 import org.ganjp.glib.core.util.StringUtil;

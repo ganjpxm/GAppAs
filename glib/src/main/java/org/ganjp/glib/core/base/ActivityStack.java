@@ -4,7 +4,7 @@
  * Created by Gan Jianping on 07/01/15.
  * Copyright (c) 2015 GANJP. All rights reserved.
  */
-package org.ganjp.glib.core;
+package org.ganjp.glib.core.base;
 
 import java.util.Stack;
 

@@ -4,10 +4,10 @@ import java.io.IOException;
 import java.util.Date;
 import java.text.DateFormat;
 
-import org.ganjp.glib.core.ActivityStack;
+import org.ganjp.glib.core.base.ActivityStack;
 import org.ganjp.glib.core.util.DialogUtil;
 import org.ganjp.glib.core.util.StringUtil;
-import org.ganjp.glib.core.Const;
+import org.ganjp.glib.core.base.Const;
 import sg.lt.obs.common.ObsConst;
 import sg.lt.obs.common.gcm.GcmUtil;
 import sg.lt.obs.common.other.ObsUtil;

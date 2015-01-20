@@ -7,10 +7,8 @@
  */
 package sg.lt.obs.common.activity;
 
-import org.ganjp.glib.core.BaseActivity;
+import org.ganjp.glib.core.base.BaseActivity;
 import sg.lt.obs.R;
-import sg.lt.obs.common.ObsConst;
-import sg.lt.obs.common.other.ObsApplication;
 
 import android.os.Bundle;
 import android.view.Menu;
@@ -20,7 +18,6 @@ import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 /**
  * <p>The activity will be extended by all the Activity</p>

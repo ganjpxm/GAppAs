@@ -1,30 +1,30 @@
 /**
- * BaseActionBarActivity.java
+ * BaseActivity.java
  *
  * Created by Gan Jianping on 07/01/15.
  * Copyright (c) 2015 GANJP. All rights reserved.
  */
-package org.ganjp.glib.core;
+package org.ganjp.glib.core.base;
 
 import org.ganjp.glib.R;
 
+import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.Toast;
 
 /**
  * <p>Base Activity</p>
  * 
  * @author GanJianping
- * @version v1.0.0
+ * @since v1.0.0
  */
-public abstract class BaseActionBarActivity extends ActionBarActivity implements OnClickListener {
-	
-	/**
+public abstract class BaseActivity extends Activity implements OnClickListener {
+    /**
 	 * Called when the activity is first created
 	 */
 	@Override
@@ -186,4 +186,19 @@ public abstract class BaseActionBarActivity extends ActionBarActivity implements
 	protected void transitShrinkGrow() {
 		overridePendingTransition(R.anim.grow_from_middle, R.anim.shrink_to_middle);
 	}
+
+    public void showToastFromBackground(final String message) {
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+            if (message.equals(Const.VALUE_FAIL)) {
+                Toast.makeText(getApplicationContext(), getApplicationContext().getString(R.string.fail), Toast.LENGTH_SHORT).show();
+            } else if (message.equals(Const.VALUE_FAIL)) {
+                Toast.makeText(getApplicationContext(), getApplicationContext().getString(R.string.success), Toast.LENGTH_SHORT).show();
+            } else if (message.equals(Const.VALUE_TIMEOUT)) {
+                Toast.makeText(getApplicationContext(), getApplicationContext().getString(R.string.timeout), Toast.LENGTH_SHORT).show();
+            }
+            }
+        });
+    }
 }	

@@ -10,7 +10,7 @@ import java.sql.Timestamp;
 import java.util.LinkedList;
 import java.util.List;
 
-import org.ganjp.glib.core.Const;
+import org.ganjp.glib.core.base.Const;
 import org.ganjp.glib.core.util.StringUtil;
 import sg.lt.obs.common.ObsConst;
 import sg.lt.obs.common.dao.ObsDaoFactory.DAOType;

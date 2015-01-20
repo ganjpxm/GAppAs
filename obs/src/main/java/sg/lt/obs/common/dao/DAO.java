@@ -6,7 +6,7 @@
  */
 package sg.lt.obs.common.dao;
 
-import org.ganjp.glib.core.Const;
+import org.ganjp.glib.core.base.Const;
 
 import android.content.ContentValues;
 import android.content.Context;

@@ -6,7 +6,7 @@
  */
 package sg.lt.obs.common.other;
 
-import org.ganjp.glib.core.BaseApplication;
+import org.ganjp.glib.core.base.BaseApplication;
 import sg.lt.obs.common.dao.SystemDAO;
 import sg.lt.obs.common.dao.ObsDaoFactory;
 import sg.lt.obs.common.dao.ObsDaoFactory.DAOType;

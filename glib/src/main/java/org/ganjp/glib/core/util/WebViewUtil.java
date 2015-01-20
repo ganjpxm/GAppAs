@@ -70,7 +70,7 @@ public class WebViewUtil {
 	public static void doError(Context context, WebView webView, int errorCode, String description) {
 		Log.e("Webview", "Load page error : code : " + errorCode + " Desc : " + description);
 		if (errorCode==WebViewClient.ERROR_CONNECT || errorCode==WebViewClient.ERROR_HOST_LOOKUP) {
-			showErrorInfo(context.getString(R.string.alert), webView);
+			showErrorInfo(context.getString(R.string.error_connect_or_no_network), webView);
 		} else {
 			showErrorInfo(description, webView);
 		}

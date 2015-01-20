@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>   
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:id="@+id/booking_panel"	android:layout_height="@dimen/height_large"
+	android:layout_width="fill_parent" android:orientation="vertical" android:background="@color/white">
+
+    <TextView android:id="@+id/title_tv" android:layout_width="wrap_content" android:layout_height="wrap_content" android:lineSpacingMultiplier="1.1"
+        android:paddingLeft="@dimen/space_xlarger" android:paddingRight="@dimen/space_larger" android:layout_centerVertical="true" android:textColor="@color/black">
+    </TextView>
+
+</RelativeLayout>

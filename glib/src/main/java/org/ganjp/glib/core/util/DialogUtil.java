@@ -45,6 +45,20 @@ public class DialogUtil {
         showAlertDialog(ctx, android.R.drawable.ic_dialog_alert, ctx.getString(R.string.alert), message, null, 
         		ctx.getString(R.string.ok));
     }
+
+    /**
+     * <p>Show Alert Dialog</p>
+     * <pre>
+     *   DialogUtil.showInfoDialog(UiDialogActivity.this, getString(R.string.title));
+     * </pre>
+     *
+     * @param ctx
+     * @param message
+     */
+    public static void showInfoDialog(Context ctx, String message) {
+        showAlertDialog(ctx, android.R.drawable.ic_dialog_info, ctx.getString(R.string.empty), message, null,
+                ctx.getString(R.string.ok));
+    }
  
 	/**
 	 * <p>Show Confirm Dialog</p>

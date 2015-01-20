@@ -8,6 +8,7 @@ import org.ganjp.glib.core.util.StringUtil;
 import org.ganjp.glib.core.util.WebViewUtil;
 import sg.lt.obs.R;
 import sg.lt.obs.common.ObsConst;
+import sg.lt.obs.common.other.ObsUtil;
 import sg.lt.obs.common.other.PreferenceUtil;
 import sg.lt.obs.common.view.TitleView;
 import org.json.JSONObject;
@@ -39,6 +40,7 @@ public class MyProfileFragment extends Fragment {
 	private FragmentActivity mActivity;
 	private TitleView mTitleView;
 	protected WebView mWebView;
+    private boolean isFirst = true;
 	
 	/**
 	 * Create a new instance of DetailsFragment, initialized to show the text at 'index'.
@@ -82,13 +84,19 @@ public class MyProfileFragment extends Fragment {
         noCacheHeaders.put("Cache-Control", "no-cache");
         mWebView.setWebViewClient(new WebViewClientEx(mActivity));
         mWebView.setWebChromeClient(new WebChromeClientEx());
-        mWebView.loadUrl("file:///android_asset/www/page/obsdMyProfile.html");
 	}
-	
-	private void goSignInActivity() {
-//		Intent intent = new Intent(mActivity, HelpActivity.class);
-//		startActivity(intent);
-	}
+    @Override
+    public void onResume() {
+        super.onResume();
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        isFirst = true;
+        mWebView.loadUrl(ObsConst.URL_GET_DRIVER_PROFILE + PreferenceUtil.getString(ObsConst.KEY_USER_ID_OBS));
+    }
+
 
 	@Override
 	public void onHiddenChanged(boolean hidden) {
@@ -119,7 +127,11 @@ public class MyProfileFragment extends Fragment {
     	 */
         @Override
         public void onPageStarted(WebView view, String url, Bitmap favicon) {
-        	DialogUtil.showLoadingDialog(mActivity);
+            if (isFirst==false) {
+                DialogUtil.showProcessingDialog(mActivity);
+            } else {
+                isFirst = false;
+            }
         }
         
         @Override
@@ -130,45 +142,25 @@ public class MyProfileFragment extends Fragment {
         	
     		//set person name
         	try {
-	        	JSONObject jsonObject = null;
-	        	String userCd = PreferenceUtil.getString(ObsConst.KEY_USER_CD_OBS);
-	        	if (StringUtil.isNotEmpty(userCd)) {
-	        		String jsonData = PreferenceUtil.getString(userCd);
-	        		if (StringUtil.isNotEmpty(jsonData)) {
-	        			jsonObject = new JSONObject(jsonData);
-	        		}
-	        	}
-	        	if (jsonObject!=null) {
-	        		StringBuffer jsSb = new StringBuffer("javascript:(function() { ");
-	        		jsSb.append("document.getElementById('myName').innerHTML='").append(jsonObject.getString(ObsConst.KEY_USER_NAME_OBS)).append("';");
-	        		jsSb.append("document.getElementById('mobileNumber').innerHTML='").append(jsonObject.getString(ObsConst.KEY_USER_MOBILE_NUMBER_OBS)).append("';");
-	        		jsSb.append("document.getElementById('email').innerHTML='").append(jsonObject.getString(ObsConst.KEY_USER_EMAIL_OBS)).append("';");
-	        		//vehicleMake:Mercedes Benz\t;vehicleModel:Viano;vehicleNo:PC1206L;vehicleColor:Black
-	        		//ObsdUserExtendItems
-	        		String userExtendItems = jsonObject.getString("ObsdUserExtendItems");
-	        		if (StringUtil.isNotEmpty(userExtendItems) && !jsonObject.has("vehicleMake")) {
-	        			String[] arry1 = userExtendItems.split(";");
-	        			for (String str : arry1) {
-	        				String[] arry2 =  str.split(":");
-	        				if (arry2[0].equalsIgnoreCase("vehicleMake")) {
-	        					jsSb.append("document.getElementById('make').innerHTML='").append(arry2[1]).append("';");
-	        				} else if (arry2[0].equalsIgnoreCase("vehicleModel")) {
-	        					jsSb.append("document.getElementById('model').innerHTML='").append(arry2[1]).append("';");
-	        				} else if (arry2[0].equalsIgnoreCase("vehicleNo")) {
-	        					jsSb.append("document.getElementById('vehicleNumber').innerHTML='").append(arry2[1]).append("';");
-	        				} else if (arry2[0].equalsIgnoreCase("vehicleColor")) {
-	        					jsSb.append("document.getElementById('color').innerHTML='").append(arry2[1]).append("';");
-	        				}
-	        			}
-	        		} else {
-	        			jsSb.append("document.getElementById('make').innerHTML='").append(jsonObject.getString("vehicleMake")).append("';");
-		        		jsSb.append("document.getElementById('model').innerHTML='").append(jsonObject.getString("vehicleModel")).append("';");
-		        		jsSb.append("document.getElementById('vehicleNumber').innerHTML='").append(jsonObject.getString("vehicleNo")).append("';");
-		        		jsSb.append("document.getElementById('color').innerHTML='").append(jsonObject.getString("vehicleColor")).append("';");
-	        		}
-	        		jsSb.append("})()");
-	        		webView.loadUrl(jsSb.toString());
-	        	}
+                //StringBuffer jsSb = new StringBuffer("javascript:(function() { ");
+                //jsSb.append("document.getElementById('myName').innerHTML='").append(jsonObject.getString(ObsConst.KEY_USER_NAME_OBS)).append("';");
+                //jsSb.append("})()");
+                //webView.loadUrl(jsSb.toString());
+                if (StringUtil.hasText(url) && url.indexOf("editDriverVehicle")!=-1) {
+                    mTitleView.setTitle(R.string.edit_profile);
+                    mTitleView.setLeftButton(R.string.back, new TitleView.OnLeftButtonClickListener() {
+                        @Override
+                        public void onClick(View button) {
+                            if (mWebView.canGoBack()) {
+                                mWebView.goBack();
+                                mTitleView.removeLeftButton();
+                            }
+                        }
+                    });
+                } else {
+                    mTitleView.hiddenLeftButton();
+                    mTitleView.setTitle(R.string.my_profile_title);
+                }
         	} catch(Exception ex) {
         		ex.printStackTrace();
         	}

@@ -19,7 +19,7 @@ import org.codehaus.jackson.map.ObjectMapper;
 import org.ganjp.glib.core.util.DateUtil;
 import org.ganjp.glib.core.util.HttpConnection;
 import org.ganjp.glib.core.util.StringUtil;
-import org.ganjp.glib.core.Const;
+import org.ganjp.glib.core.base.Const;
 import sg.lt.obs.common.ObsConst;
 import sg.lt.obs.common.dao.ObmBookingVehicleItemDAO;
 import sg.lt.obs.common.entity.ObmBookingVehicleItem;
@@ -85,6 +85,9 @@ public abstract class ObsUtil {
 		    	ObjectMapper mapper = new ObjectMapper();
 		    	obmBookingVehicleItems = mapper.readValue(data, ObmBookingVehicleItem[].class);
                 resultMap.put("updateSize", String.valueOf(obmBookingVehicleItems.length));
+                if (pIsUpdate==false) {
+                    ObmBookingVehicleItemDAO.getInstance().delete();
+                }
 				long lastTime = ObmBookingVehicleItemDAO.getInstance().insertOrUpdate(obmBookingVehicleItems);
 				PreferenceUtil.saveLong(ObsConst.KEY_PREFERENCE_BOOKING_VEHICLE_UPDATE_ITEM_LAST_TIME, lastTime);
                 if (StringUtil.hasText(bookingVehicleItemLastUpdateDatetime) && pIsUpdate) {

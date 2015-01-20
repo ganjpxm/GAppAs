@@ -7,10 +7,8 @@ import android.os.Handler;
 import android.os.Message;
 import android.view.View;
 import android.widget.ListView;
-import android.widget.Toast;
 
-import org.ganjp.glib.core.ActivityStack;
-import org.ganjp.glib.core.Const;
+import org.ganjp.glib.core.base.ActivityStack;
 import org.ganjp.glib.core.util.DialogUtil;
 import org.ganjp.glib.core.util.HttpConnection;
 import org.ganjp.glib.core.util.StringUtil;
@@ -24,7 +22,6 @@ import sg.lt.obs.common.adapt.BookingVehicleAlarmListAdapter;
 import sg.lt.obs.common.dao.ObmBookingVehicleItemDAO;
 import sg.lt.obs.common.entity.ObmBookingVehicleItem;
 import sg.lt.obs.common.other.ObsUtil;
-import sg.lt.obs.common.other.PreferenceUtil;
 import sg.lt.obs.common.view.TitleView;
 
 

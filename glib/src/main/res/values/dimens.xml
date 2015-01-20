@@ -1,0 +1,13 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="space_small">4dp</dimen>
+    <dimen name="space_media">8dp</dimen>
+    <dimen name="space_larger">12dp</dimen>
+    <dimen name="space_xlarger">16dp</dimen>
+
+    <dimen name="height_small">24dp</dimen>
+    <dimen name="height_media">32dp</dimen>
+    <dimen name="height_large">48dp</dimen>
+    <dimen name="height_xlarge">56dp</dimen>
+    <dimen name="height_xxlarge">72dp</dimen>
+</resources>

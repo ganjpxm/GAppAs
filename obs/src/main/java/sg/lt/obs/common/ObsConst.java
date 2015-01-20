@@ -22,6 +22,7 @@ public abstract class ObsConst {
 	public static final String URL_GET_DRIVER_BOOKING = SERVER_IP + "/free/driver/booking/";
 	public static final String URL_REGISTE_DEVICE = SERVER_IP + "/free/device/regist";
 	public static final String URL_RESPONSE_BROADCAST_BOOKING = SERVER_IP + "/web/responseBroadcastBooking";
+    public static final String URL_GET_DRIVER_PROFILE = SERVER_IP + "/free/01/driver/profile?isApp=yes&driverUserId=";
 
     public static final String BOOKING_STATUS_CD_PENDING = "0800";
     public static final String BOOKING_STATUS_CD_PROCESSING = "0801";

@@ -11,9 +11,11 @@
     <string name="booking_history_title">Booking History</string>
     <string name="my_profile_tab">Me</string>
     <string name="my_profile_title">My Profile</string>
+    <string name="edit_profile">Edit Profile</string>
     <string name="more">More</string>
     <string name="push_notification">Push Notification</string>
-    <string name="clear_data">Clear All Data</string>
+    <string name="open_website">Open booking system website</string>
+    <string name="reload_data">Reload data from server</string>
     <string name="logout">Logout</string>
     <string name="from">Pick-up Address</string>
     <string name="to">Drop-off Address</string>
@@ -35,4 +37,5 @@
     <string name="error_connect_fail"><![CDATA[Sorry for connection exception. Please try again.]]></string>
     <string name="title_activity_alarm_list">AlarmListActivity</string>
 
+    <string name="version_info">Version 1.0</string>
 </resources>

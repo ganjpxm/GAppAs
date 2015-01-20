@@ -16,16 +16,13 @@
 
 package sg.lt.obs.common.gcm;
 
-import org.ganjp.glib.core.ActivityStack;
+import org.ganjp.glib.core.base.ActivityStack;
 import org.ganjp.glib.core.util.DialogUtil;
-import org.ganjp.glib.core.util.HttpConnection;
 import org.ganjp.glib.core.util.StringUtil;
 
 import sg.lt.obs.BookingVehicleAlarmListActivity;
-import sg.lt.obs.ObsBottomTabFragmentActivity;
 import sg.lt.obs.R;
 import sg.lt.obs.common.ObsConst;
-import sg.lt.obs.common.other.ObsUtil;
 
 import android.app.Activity;
 import android.app.IntentService;

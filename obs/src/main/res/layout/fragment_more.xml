@@ -10,27 +10,34 @@
         <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"  android:orientation="vertical">
             
             <RelativeLayout android:id="@+id/push_notification_rl" android:layout_width="match_parent" android:layout_height="50dip" android:background="@color/white" 
-                android:layout_marginLeft="5dip" android:layout_marginRight="5dip" android:layout_marginTop="25dip">
+                android:layout_marginLeft="5dip" android:layout_marginRight="5dip" android:layout_marginTop="25dip" android:visibility="gone">
 			    <TextView android:id="@+id/push_notification_tv" android:layout_width="fill_parent" android:layout_height="wrap_content"
 		                android:textSize="15sp" android:textColor="@color/black" android:paddingLeft="10dip"
 		                android:text="@string/push_notification" android:layout_centerVertical="true"/>
-			    <!-- <Button android:layout_width="20dip" android:layout_height="25dip" android:layout_centerVertical="true"
-			        android:layout_marginRight="5dip" android:layout_marginBottom="10dip" android:layout_marginTop="10dip" 
-			        android:background ="@drawable/icon_arrow_right_black" android:layout_alignParentRight="true" 
-			        android:contentDescription="@string/empty" /> -->
 			    <ToggleButton android:id="@+id/push_notification_tb" android:layout_width="wrap_content" android:layout_height="wrap_content"
 			        android:layout_centerVertical="true" android:layout_marginRight="5dip" android:layout_alignParentRight="true" 
-			        android:textOn="On" android:textOff="Off"/>
+			        android:textOn="On" android:textOff="Off" />
 			</RelativeLayout>
-			
-			<RelativeLayout android:id="@+id/clear_data_rl" android:layout_width="match_parent" android:layout_height="50dip" android:background="@color/white" 
+
+            <RelativeLayout android:id="@+id/open_website_rl" android:layout_width="match_parent" android:layout_height="50dip" android:background="@color/white"
+                android:layout_marginLeft="5dip" android:layout_marginRight="5dip" android:layout_marginTop="25dip">
+                <TextView android:id="@+id/open_website_tv" android:layout_width="fill_parent" android:layout_height="wrap_content"
+                    android:textSize="15sp" android:textColor="@color/black" android:paddingLeft="10dip"
+                    android:text="@string/open_website" android:layout_centerVertical="true"/>
+                <Button android:layout_width="20dip" android:layout_height="25dip" android:layout_centerVertical="true"
+                    android:layout_marginRight="5dip" android:layout_marginBottom="10dip"
+                    android:background ="@drawable/icon_arrow_right_gray" android:layout_alignParentRight="true"
+                    android:contentDescription="@string/empty" />
+            </RelativeLayout>
+
+			<RelativeLayout android:id="@+id/reload_data_rl" android:layout_width="match_parent" android:layout_height="50dip" android:background="@color/white"
                 android:layout_marginLeft="5dip" android:layout_marginRight="5dip" android:layout_marginTop="1dip">
-			    <TextView android:id="@+id/clear_data_tv" android:layout_width="fill_parent" android:layout_height="wrap_content" 
+			    <TextView android:id="@+id/reload_data_tv" android:layout_width="fill_parent" android:layout_height="wrap_content"
 		                android:textSize="15sp" android:textColor="@color/black"  android:paddingLeft="10dip"
-		                android:text="@string/clear_data" android:layout_centerVertical="true"/>
+		                android:text="@string/reload_data" android:layout_centerVertical="true"/>
 			    <Button android:layout_width="20dip" android:layout_height="25dip" android:layout_centerVertical="true"
 			        android:layout_marginRight="5dip" android:layout_marginBottom="10dip"
-			        android:background ="@drawable/icon_arrow_right_black" android:layout_alignParentRight="true" 
+			        android:background ="@drawable/icon_arrow_right_gray" android:layout_alignParentRight="true"
 			        android:contentDescription="@string/empty" />
 			</RelativeLayout>
 			
@@ -41,7 +48,7 @@
 		                android:text="@string/about" android:layout_centerVertical="true"/>
 			    <Button android:layout_width="20dip" android:layout_height="25dip" android:layout_centerVertical="true"
 			        android:layout_marginRight="5dip" android:layout_marginBottom="10dip"
-			        android:background ="@drawable/icon_arrow_right_black" android:layout_alignParentRight="true" 
+			        android:background ="@drawable/icon_arrow_right_gray" android:layout_alignParentRight="true"
 			        android:contentDescription="@string/empty" />
 			</RelativeLayout>
             
@@ -52,7 +59,7 @@
 		                android:text="@string/logout" android:layout_centerVertical="true"/>
 			    <Button android:layout_width="20dip" android:layout_height="25dip" android:layout_centerVertical="true"
 			        android:layout_marginRight="5dip" android:layout_marginBottom="10dip"
-			        android:background ="@drawable/icon_arrow_right_black" android:layout_alignParentRight="true" 
+			        android:background ="@drawable/icon_arrow_right_gray" android:layout_alignParentRight="true"
 			        android:contentDescription="@string/empty" />
 			</RelativeLayout>
 		</LinearLayout>
