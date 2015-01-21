@@ -10,7 +10,7 @@
     <org.ganjp.glib.core.view.RefreshableView android:id="@+id/refreshable_view"
         android:layout_width="fill_parent" android:layout_height="fill_parent">
 		<org.ganjp.glib.thirdparty.astickyheader.ui.PinnedSectionListView
-	        android:id="@+id/list"
+	        android:id="@+id/booking_upcoming_list"
 	        android:layout_width="match_parent"
 	        android:layout_height="match_parent"
 	        android:background="@android:color/white"

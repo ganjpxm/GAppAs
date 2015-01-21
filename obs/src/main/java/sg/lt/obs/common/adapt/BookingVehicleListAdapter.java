@@ -48,6 +48,11 @@ public class BookingVehicleListAdapter extends BaseAdapter {
         notifyDataSetChanged();
     }
 
+    public void resetItems(List<ObmBookingVehicleItem> items) {
+        mObmBookingVehicleItems = items;
+        notifyDataSetChanged();
+    }
+
 	public BookingVehicleListAdapter(Context context) {
         super();
 //        this.mInflater = LayoutInflater.from(context);

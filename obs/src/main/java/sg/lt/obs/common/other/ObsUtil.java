@@ -74,6 +74,7 @@ public abstract class ObsUtil {
                 url += "?" + ObsConst.KEY_START_DATE + "=" + java.net.URLEncoder.encode(bookingVehicleItemLastUpdateDatetime);
             }
 		}
+        System.out.println(url);
 		pHttpConnection.get(url);
 		if (pHttpConnection.getResponse()!=null) {
 			String jsonData = HttpConnection.processEntity(pHttpConnection.getResponse().getEntity());

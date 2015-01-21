@@ -14,6 +14,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
+import org.ganjp.glib.core.util.DateUtil;
 import org.ganjp.glib.core.util.StringUtil;
 import sg.lt.obs.common.ObsConst;
 import sg.lt.obs.common.dao.ObsDaoFactory.DAOType;
@@ -281,7 +282,8 @@ public class ObmBookingVehicleItemDAO extends DAO {
 		if (StringUtil.isNotEmpty(driverUserId)) {
 			Date currentDate = new Date();
 			long currentMilliseconds = currentDate.getTime();
-            sql += " where driverLoginUserId = '" + driverUserId + "' ";
+            System.out.println(DateUtil.getDdMmYYYYHhMmSsFormate(currentMilliseconds));
+            sql += " where (driverLoginUserId = '" + driverUserId + "' or assignDriverUserId = '" + driverUserId + "') ";
             if (FLAG_UPCOMING.equalsIgnoreCase(flag)) {
 				sql += " and " + COLUMN_PICKUP_DATE_TIME + " >=  " + currentMilliseconds + " order by " + COLUMN_PICKUP_DATE + " asc," + COLUMN_PICKUP_TIME + " asc";
 			} else if (FLAG_PAST.equalsIgnoreCase(flag)) {

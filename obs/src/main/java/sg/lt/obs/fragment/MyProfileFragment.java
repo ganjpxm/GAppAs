@@ -40,7 +40,7 @@ public class MyProfileFragment extends Fragment {
 	private FragmentActivity mActivity;
 	private TitleView mTitleView;
 	protected WebView mWebView;
-    private boolean isFirst = true;
+    private boolean isReload = true;
 	
 	/**
 	 * Create a new instance of DetailsFragment, initialized to show the text at 'index'.
@@ -93,15 +93,23 @@ public class MyProfileFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-        isFirst = true;
-        mWebView.loadUrl(ObsConst.URL_GET_DRIVER_PROFILE + PreferenceUtil.getString(ObsConst.KEY_USER_ID_OBS));
     }
 
 
 	@Override
 	public void onHiddenChanged(boolean hidden) {
 		super.onHiddenChanged(hidden);
+        if (hidden==false && isReload==true) {
+            mWebView.loadUrl(ObsConst.URL_GET_DRIVER_PROFILE + PreferenceUtil.getString(ObsConst.KEY_USER_ID_OBS));
+            isReload = false;
+        }
 	}
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        isReload = true;
+    }
 
 	@Override
 	public void onDestroy() {
@@ -127,11 +135,7 @@ public class MyProfileFragment extends Fragment {
     	 */
         @Override
         public void onPageStarted(WebView view, String url, Bitmap favicon) {
-            if (isFirst==false) {
-                DialogUtil.showProcessingDialog(mActivity);
-            } else {
-                isFirst = false;
-            }
+            DialogUtil.showProcessingDialog(mActivity);
         }
         
         @Override

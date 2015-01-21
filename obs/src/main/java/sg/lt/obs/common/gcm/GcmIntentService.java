@@ -18,11 +18,13 @@ package sg.lt.obs.common.gcm;
 
 import org.ganjp.glib.core.base.ActivityStack;
 import org.ganjp.glib.core.util.DialogUtil;
+import org.ganjp.glib.core.util.HttpConnection;
 import org.ganjp.glib.core.util.StringUtil;
 
 import sg.lt.obs.BookingVehicleAlarmListActivity;
 import sg.lt.obs.R;
 import sg.lt.obs.common.ObsConst;
+import sg.lt.obs.common.other.ObsUtil;
 
 import android.app.Activity;
 import android.app.IntentService;
@@ -155,11 +157,15 @@ public class GcmIntentService extends IntentService {
         mBuilder.setContentIntent(contentIntent);
         mNotificationManager.notify(NOTIFICATION_ID, mBuilder.build());
 
-//        new Thread(new Runnable() {
-//            public void run() {
-//            ObsUtil.getBookingVehicleItemsFromWeb(new HttpConnection(false), true);
-//            }
-//        }).start();
+        new Thread(new Runnable() {
+            public void run() {
+                try {
+                    ObsUtil.getBookingVehicleItemsFromWeb(new HttpConnection(false), true);
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+            }
+        }).start();
     }
     
 //    public boolean isAppOnForeground() { 

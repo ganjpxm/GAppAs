@@ -3,17 +3,23 @@ package sg.lt.obs.fragment;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 import org.ganjp.glib.core.util.DateUtil;
+import org.ganjp.glib.core.util.HttpConnection;
+import org.ganjp.glib.core.util.NetworkUtil;
+import org.ganjp.glib.core.util.StringUtil;
 import org.ganjp.glib.core.view.RefreshableView;
 import org.ganjp.glib.core.view.RefreshableView.PullToRefreshListener;
 import org.ganjp.glib.thirdparty.astickyheader.SimpleSectionedListAdapter;
 import org.ganjp.glib.thirdparty.astickyheader.SimpleSectionedListAdapter.Section;
 import sg.lt.obs.BookingDetailFragmentActivity;
+import sg.lt.obs.BookingVehicleAlarmListActivity;
 import sg.lt.obs.common.ObsConst;
 import sg.lt.obs.common.adapt.BookingVehicleListAdapter;
 import sg.lt.obs.common.dao.ObmBookingVehicleItemDAO;
 import sg.lt.obs.common.entity.ObmBookingVehicleItem;
+import sg.lt.obs.common.other.ObsUtil;
 import sg.lt.obs.common.other.PreferenceUtil;
 import sg.lt.obs.common.view.TitleView;
 import sg.lt.obs.R;
@@ -24,6 +30,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,7 +45,7 @@ public class BookingHistoryFragment extends Fragment implements OnItemClickListe
 	private BookingVehicleListAdapter mAdapter;
 	private List<ObmBookingVehicleItem> mObmBookingVehicleItems;
 	private List<ObmBookingVehicleItem> mNewObmBookingVehicleItems;
-	private ArrayList<Section> sections = new ArrayList<Section>();
+	private ArrayList<Section> mSections = new ArrayList<Section>();
 	
 	private ListView mListView;
 	private View mParent;
@@ -46,10 +53,9 @@ public class BookingHistoryFragment extends Fragment implements OnItemClickListe
 	private TitleView mTitleView;
 	
 	private RefreshableView refreshableView;
-	private long mLastFetchTime;
-	private String driverUserId;
 	private SimpleSectionedListAdapter mSimpleSectionedListAdapter;
-	
+
+    private boolean isFirstTime = true;
 	
 	/**
 	 * Create a new instance of DetailsFragment, initialized to show the text at 'index'.
@@ -84,94 +90,101 @@ public class BookingHistoryFragment extends Fragment implements OnItemClickListe
 		mTitleView.setTitle(R.string.booking_history_title);
 		mTitleView.hiddenLeftButton();
 		mTitleView.hiddenRightButton();
-		
-		initControls();
+
+        mListView = (ListView)mActivity.findViewById(R.id.booking_history_list);
+        resetListWithSectionValue();
+        mListView.setAdapter(mSimpleSectionedListAdapter);
+        mListView.setOnItemClickListener(this);
 		
 		refreshableView = (RefreshableView) mParent.findViewById(R.id.refreshable_view);
 		refreshableView.setOnRefreshListener(new PullToRefreshListener() {
 			@Override
 			public void onRefresh() {
 				try {
-					mHandler.obtainMessage(1).sendToTarget();
+                    if (NetworkUtil.isNetworkAvailable(mActivity)) {
+                        Map<String,String> resultMap = ObsUtil.getBookingVehicleItemsFromWeb(new HttpConnection(false), true);
+                        String updateSize = resultMap.get("updateSize");
+                        String broadcastBookingVehicleItemIds = resultMap.get("broadcastBookingVehicleItemIds");
+                        if (StringUtil.hasText(broadcastBookingVehicleItemIds)) {
+                            mActivity.finish();
+                            Intent intent = new Intent(mActivity, BookingVehicleAlarmListActivity.class);
+                            mActivity.startActivity(intent);
+                        }
+                        if (StringUtil.hasText(updateSize)) {
+                            mHandler.obtainMessage(0).sendToTarget();
+                        }
+                    } else {
+                        Thread.sleep(2000);
+                    }
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
 				refreshableView.finishRefreshing();
 			}
 		}, 1);
+
+        refreshableView.clearFocus();
 	}
-	
-	private void initControls() {
-		driverUserId = PreferenceUtil.getString(ObsConst.KEY_USER_ID_OBS);
-		mObmBookingVehicleItems = ObmBookingVehicleItemDAO.getInstance().getObmBookingVehicleItems(driverUserId, ObmBookingVehicleItemDAO.FLAG_PAST);
-		mLastFetchTime = new Date().getTime();
-				
-		for (int i=0; i<mObmBookingVehicleItems.size(); i++) {
-			ObmBookingVehicleItem obmBookingVehicleItem = mObmBookingVehicleItems.get(i);
-			Date pickupDate = obmBookingVehicleItem.getPickupDate();
-			String date = "";
-			if (DateUtil.isCurrentDate(pickupDate)) {
-				date = DateUtil.formateDate(pickupDate, "EEE, dd MMM");
-			} else {
-				date = DateUtil.formateDate(pickupDate, "EEE, dd MMM yyyy");
-			}
-			if (mHeaderNames.indexOf(date)==-1) {
-				mHeaderNames.add(date);
-				mHeaderPositions.add(i);
-			}
-		}
-		mListView = (ListView)mActivity.findViewById(R.id.booking_history_list);
-		mAdapter = new BookingVehicleListAdapter(mActivity, mObmBookingVehicleItems);
-		for (int i = 0; i < mHeaderPositions.size(); i++) {
-			sections.add(new Section(mHeaderPositions.get(i), mHeaderNames.get(i)));
-		}
-		mSimpleSectionedListAdapter = new SimpleSectionedListAdapter(mActivity, mAdapter, R.layout.booking_vehicle_list_item_header, R.id.header);
-		mSimpleSectionedListAdapter.setSections(sections.toArray(new Section[0]));
-		mListView.setAdapter(mSimpleSectionedListAdapter);
-		mListView.setOnItemClickListener(this);
-	}
+
+    private void resetListWithSectionValue() {
+        mHeaderNames = new ArrayList<String>();
+        mHeaderPositions = new ArrayList<Integer>();
+        mSections = new ArrayList<Section>();
+        String driverUserId = PreferenceUtil.getString(ObsConst.KEY_USER_ID_OBS);
+        mObmBookingVehicleItems = ObmBookingVehicleItemDAO.getInstance().getObmBookingVehicleItems(driverUserId, ObmBookingVehicleItemDAO.FLAG_PAST);
+        for (int i=0; i<mObmBookingVehicleItems.size(); i++) {
+            ObmBookingVehicleItem obmBookingVehicleItem = mObmBookingVehicleItems.get(i);
+            Date pickupDate = obmBookingVehicleItem.getPickupDate();
+            String date = "";
+            if (DateUtil.isCurrentDate(pickupDate)) {
+                date = DateUtil.formateDate(pickupDate, "EEE, dd MMM");
+            } else {
+                date = DateUtil.formateDate(pickupDate, "EEE, dd MMM yyyy");
+            }
+            if (mHeaderNames.indexOf(date)==-1) {
+                mHeaderNames.add(date);
+                mHeaderPositions.add(i);
+            }
+        }
+        if (mAdapter == null) {
+            mAdapter = new BookingVehicleListAdapter(mActivity, mObmBookingVehicleItems);
+        } else {
+            mAdapter.resetItems(mObmBookingVehicleItems);
+        }
+        for (int i = 0; i < mHeaderPositions.size(); i++) {
+            mSections.add(new Section(mHeaderPositions.get(i), mHeaderNames.get(i)));
+        }
+        if (mSimpleSectionedListAdapter==null) {
+            mSimpleSectionedListAdapter = new SimpleSectionedListAdapter(mActivity, mAdapter, R.layout.booking_vehicle_list_item_header, R.id.header);
+        }
+        mSimpleSectionedListAdapter.setSections(mSections.toArray(new Section[0]));
+    }
 
 
 	private Handler mHandler = new Handler() {  
-    	public void handleMessage (Message msg) { 
-    		if (msg.what==0) {
-    			refreshableView.finishRefreshing();
-    		} else if (msg.what==1) {
-    			Date currentDate = new Date();
-    			mNewObmBookingVehicleItems = ObmBookingVehicleItemDAO.getInstance().getObmBookingVehicleItems(driverUserId, mLastFetchTime, currentDate.getTime());
-    			mLastFetchTime = currentDate.getTime();
-				if (mNewObmBookingVehicleItems!=null && !mNewObmBookingVehicleItems.isEmpty()) {
-					int newLength = mNewObmBookingVehicleItems.size();
-					
-					for (ObmBookingVehicleItem obmBookingVehicleItem : mNewObmBookingVehicleItems) {
-						obmBookingVehicleItem.setNew(true);
-					}
-					for (int i=0; i<mHeaderPositions.size(); i++) {
-						mHeaderPositions.set(i, mHeaderPositions.get(i)+newLength);
-					}
-					
-					if (!mHeaderNames.contains("New Item")) {
-						mHeaderNames.add(0, "New Item");
-						mHeaderPositions.add(0, 0);
-					}
-
-					sections = new ArrayList<Section>();
-					for (int i = 0; i < mHeaderPositions.size(); i++) {
-						sections.add(new Section(mHeaderPositions.get(i), mHeaderNames.get(i)));
-					}
-					mAdapter.addItems(mNewObmBookingVehicleItems);
-		    		mSimpleSectionedListAdapter.setSections(sections.toArray(new Section[0]));
-				}
-    		}
+    	public void handleMessage (Message msg) {
+            if (msg.what==0) {
+                resetListWithSectionValue();
+            }
     	}  
     }; 
     
 	@Override
 	public void onHiddenChanged(boolean hidden) {
 		super.onHiddenChanged(hidden);
-		if (hidden==false && refreshableView!=null) {
-			mHandler.obtainMessage(0).sendToTarget();
-		}
+        if (hidden==false) {
+            if (isFirstTime==true) {
+                if (NetworkUtil.isNetworkAvailable(mActivity)) {
+                    new Thread(new Runnable() {
+                        public void run() {
+                            mHandler.obtainMessage(0).sendToTarget();
+                        }
+                    }).start();
+                }
+            } else {
+                isFirstTime = false;
+            }
+        }
 	}
 
 	@Override

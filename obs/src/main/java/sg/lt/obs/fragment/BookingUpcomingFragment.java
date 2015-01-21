@@ -30,7 +30,6 @@ import android.os.Handler;
 import android.os.Message;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -40,13 +39,11 @@ import android.widget.ListView;
 
 public class BookingUpcomingFragment extends Fragment implements OnItemClickListener {
 
-	private List<String> mHeaderNames = new ArrayList<String>();
-	private List<Integer> mHeaderPositions = new ArrayList<Integer>();
-    private List<String> mBookingVehilceItemIds = new ArrayList<String>();
+	private List<String> mHeaderNames;
+	private List<Integer> mHeaderPositions;
 	private BookingVehicleListAdapter mAdapter;
 	private List<ObmBookingVehicleItem> mObmBookingVehicleItems;
-	private List<ObmBookingVehicleItem> mNewObmBookingVehicleItems;
-	private List<Section> mSections = new ArrayList<Section>();
+	private List<Section> mSections;
 	private SimpleSectionedListAdapter mSimpleSectionedListAdapter;
 	
 	private ListView mListView;
@@ -55,8 +52,8 @@ public class BookingUpcomingFragment extends Fragment implements OnItemClickList
 	private TitleView mTitleView;
 	
 	private RefreshableView refreshableView;
-	
-	
+    private boolean isFirstTime = true;
+
 	/**
 	 * Create a new instance of DetailsFragment, initialized to show the text at 'index'.
 	 */
@@ -91,15 +88,9 @@ public class BookingUpcomingFragment extends Fragment implements OnItemClickList
         mTitleView.setTitle(R.string.booking_upcoming_title);
         mTitleView.hiddenLeftButton();
         mTitleView.hiddenRightButton();
-		
-//		mTitleView.setRightButton(R.string.sign_in, new OnRightButtonClickListener() {
-//			@Override
-//			public void onClick(View button) {
-//				goSignInActivity();
-//			}
-//		});
-		mListView = (ListView)mActivity.findViewById(R.id.list);
-		initControls();
+
+		mListView = (ListView)mActivity.findViewById(R.id.booking_upcoming_list);
+		resetListWithSectionValue();
 		mListView.setAdapter(mSimpleSectionedListAdapter);
 		mListView.setOnItemClickListener(this);
 		
@@ -118,11 +109,12 @@ public class BookingUpcomingFragment extends Fragment implements OnItemClickList
                             mActivity.startActivity(intent);
 						}
                         if (StringUtil.hasText(updateSize)) {
-                            Fragment frg = mActivity.getSupportFragmentManager().findFragmentById(R.id.fragment_booking_add);
-                            FragmentTransaction ft = mActivity.getSupportFragmentManager().beginTransaction();
-                            ft.detach(frg);
-                            ft.attach(frg);
-                            ft.commit();
+//                            Fragment frg = mActivity.getSupportFragmentManager().findFragmentById(R.id.fragment_booking_add);
+//                            FragmentTransaction ft = mActivity.getSupportFragmentManager().beginTransaction();
+//                            ft.detach(frg);
+//                            ft.attach(frg);
+//                            ft.commit();
+                            mHandler.obtainMessage(0).sendToTarget();
                         }
 					} else {
 						Thread.sleep(2000);
@@ -136,47 +128,63 @@ public class BookingUpcomingFragment extends Fragment implements OnItemClickList
 	}
 
 	private Handler mHandler = new Handler() {  
-    	public void handleMessage (Message msg) { 
-//    		initValue();
-    		mAdapter.addItems(mNewObmBookingVehicleItems);
-    		mSimpleSectionedListAdapter.setSections(mSections.toArray(new Section[0]));
+    	public void handleMessage (Message msg) {
+            if (msg.what==0) {
+                resetListWithSectionValue();
+            }
     	}  
     }; 
 	
-	private void initControls() {
-		initValue();
+	private void resetListWithSectionValue() {
+        mHeaderNames = new ArrayList<String>();
+        mHeaderPositions = new ArrayList<Integer>();
         mSections = new ArrayList<Section>();
-		mAdapter = new BookingVehicleListAdapter(mActivity, mObmBookingVehicleItems);
+        String driverUserId = PreferenceUtil.getString(ObsConst.KEY_USER_ID_OBS);
+        mObmBookingVehicleItems = ObmBookingVehicleItemDAO.getInstance().getObmBookingVehicleItems(driverUserId, ObmBookingVehicleItemDAO.FLAG_UPCOMING);
+        for (int i=0; i<mObmBookingVehicleItems.size(); i++) {
+            ObmBookingVehicleItem obmBookingVehicleItem = mObmBookingVehicleItems.get(i);
+            Date pickupDate = obmBookingVehicleItem.getPickupDate();
+            String date = "";
+            if (DateUtil.isCurrentDate(pickupDate)) {
+                date = DateUtil.formateDate(pickupDate, "EEE, dd MMM");
+            } else {
+                date = DateUtil.formateDate(pickupDate, "EEE, dd MMM yyyy");
+            }
+            if (mHeaderNames.indexOf(date)==-1) {
+                mHeaderNames.add(date);
+                mHeaderPositions.add(i);
+            }
+        }
+        if (mAdapter == null) {
+            mAdapter = new BookingVehicleListAdapter(mActivity, mObmBookingVehicleItems);
+        } else {
+            mAdapter.resetItems(mObmBookingVehicleItems);
+        }
 		for (int i = 0; i < mHeaderPositions.size(); i++) {
 			mSections.add(new Section(mHeaderPositions.get(i), mHeaderNames.get(i)));
 		}
-		mSimpleSectionedListAdapter = new SimpleSectionedListAdapter(mActivity, mAdapter, R.layout.booking_vehicle_list_item_header, R.id.header);
-		mSimpleSectionedListAdapter.setSections(mSections.toArray(new Section[0]));
-	}
-	
-	private void initValue() {
-		String driverUserId = PreferenceUtil.getString(ObsConst.KEY_USER_ID_OBS);
-		mObmBookingVehicleItems = ObmBookingVehicleItemDAO.getInstance().getObmBookingVehicleItems(driverUserId, ObmBookingVehicleItemDAO.FLAG_UPCOMING);
-		for (int i=0; i<mObmBookingVehicleItems.size(); i++) {
-			ObmBookingVehicleItem obmBookingVehicleItem = mObmBookingVehicleItems.get(i);
-			Date pickupDate = obmBookingVehicleItem.getPickupDate();
-			String date = "";
-			if (DateUtil.isCurrentDate(pickupDate)) {
-				date = DateUtil.formateDate(pickupDate, "EEE, dd MMM");
-			} else {
-				date = DateUtil.formateDate(pickupDate, "EEE, dd MMM yyyy");
-			}
-			if (mHeaderNames.indexOf(date)==-1) {
-				mHeaderNames.add(date);
-				mHeaderPositions.add(i);
-			}
-            mBookingVehilceItemIds.add(obmBookingVehicleItem.getBookingVehicleItemId());
-		}
+        if (mSimpleSectionedListAdapter==null) {
+            mSimpleSectionedListAdapter = new SimpleSectionedListAdapter(mActivity, mAdapter, R.layout.booking_vehicle_list_item_header, R.id.header);
+        }
+        mSimpleSectionedListAdapter.setSections(mSections.toArray(new Section[0]));
 	}
 
 	@Override
 	public void onHiddenChanged(boolean hidden) {
 		super.onHiddenChanged(hidden);
+        if (hidden==false) {
+            if (isFirstTime==true) {
+                if (NetworkUtil.isNetworkAvailable(mActivity)) {
+                    new Thread(new Runnable() {
+                        public void run() {
+                            mHandler.obtainMessage(0).sendToTarget();
+                        }
+                    }).start();
+                }
+            } else {
+                isFirstTime = false;
+            }
+        }
 	}
 
 	@Override

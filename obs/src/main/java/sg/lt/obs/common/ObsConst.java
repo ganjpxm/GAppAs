@@ -15,8 +15,8 @@ public abstract class ObsConst {
 	//----------------------------- Obs -----------------
     public static final String DATABASE_NAME = "ltobs.db";
     public static final int DATABASE_VERSION = 1;
-//	public static final String SERVER_IP = "http://119.9.74.121";
-	public static final String SERVER_IP = "http://192.168.1.5:8080/obs";
+	public static final String SERVER_IP = "http://119.9.74.121";
+//	public static final String SERVER_IP = "http://192.168.1.5:8080/obs";
 	public static final String URL_LOGIN = SERVER_IP + "/allOrg/login";
 	public static final String URL_GET_BM_CONFIGS = SERVER_IP + "/mobile/getBmConfigs";
 	public static final String URL_GET_DRIVER_BOOKING = SERVER_IP + "/free/driver/booking/";
