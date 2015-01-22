@@ -147,26 +147,36 @@ public abstract class ObsUtil {
 		return Const.VALUE_FAIL;
 	}
 
+    /**
+     * <p>Regist device to server</p>
+     *
+     * @param regId PreferenceUtil.getString(ObsConst.KEY_REG_ID_OBS);
+     * @param state ObsConst.VALUE_NO
+     * @return ObsConst.VALUE_FAIL ObsConst.VALUE_SUCCESS
+     */
+    public static String registDevice(String regId, String state) {
+        return registDevice(regId, PreferenceUtil.getString(ObsConst.KEY_USER_ID_OBS), state);
+    }
 	/**
 	 * <p>Regist device to server</p>
 	 * 
 	 * @param regId PreferenceUtil.getString(ObsConst.KEY_REG_ID_OBS);
+     * @param userId PreferenceUtil.getString(ObsConst.KEY_USER_ID_OBS));
 	 * @param state ObsConst.VALUE_NO
 	 * @return ObsConst.VALUE_FAIL ObsConst.VALUE_SUCCESS 
 	 */
-	public static String registDevice(String regId, String state) {
+	public static String registDevice(String regId, String userId, String state) {
 		String result = Const.VALUE_FAIL;
 		try {
 			HttpConnection httpConnection = new HttpConnection(false);
 	        ArrayList<NameValuePair> pairs = new ArrayList<NameValuePair>();
-	    	pairs.add(new BasicNameValuePair(ObsConst.KEY_USER_ID, PreferenceUtil.getString(ObsConst.KEY_USER_ID_OBS)));
+	    	pairs.add(new BasicNameValuePair(ObsConst.KEY_USER_ID, userId));
 	    	pairs.add(new BasicNameValuePair(ObsConst.KEY_PLATFORM, "android"));
 	    	pairs.add(new BasicNameValuePair(ObsConst.KEY_USE_PUSH_NOTIFICATION, state));
 	    	pairs.add(new BasicNameValuePair(ObsConst.KEY_DEVICE_TOKEN, regId));
 	    	httpConnection.post(ObsConst.URL_REGISTE_DEVICE, new UrlEncodedFormEntity(pairs, HTTP.UTF_8));
 	    	String jsonData = HttpConnection.processEntity(httpConnection.getResponse().getEntity());
 	    	JSONObject jsonObject = new JSONObject(jsonData);
-	    	//result:success/error
 	    	result = jsonObject.getString("result");
 		} catch (Exception ex) {
 			ex.printStackTrace();

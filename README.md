@@ -8,6 +8,10 @@ Public API access
 Server API KEY : AIzaSyCMvRdqelCTKt05MpMDvi0RSTmz9GXUuDY
 Android API KEY : AIzaSyADI3crYY0xVbiokPiksnthz-XdwLCS_kM
 
+Tracking ID : UA-52110558-2
+
 Note
 Get SHA-1 fingerprint of keystore certificate :
 keytool -list -v -keystore ~/.android/debug.keystore -alias androiddebugkey -storepass android -keypass android
+
+

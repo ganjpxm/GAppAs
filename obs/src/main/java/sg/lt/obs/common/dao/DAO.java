@@ -66,6 +66,28 @@ public abstract class DAO {
 		}
 		this.createTable();
 	}
+
+
+    /**
+     * <p>drop table</p>
+     *
+     */
+    protected boolean dropTable() {
+        boolean result = false;
+        String query = "DROP TABLE " + this.mTableName + ";";
+        SQLiteDatabase db = null;
+        try {
+            db = this.getDatabase();
+            db.execSQL(query);
+            result = true;
+        } catch( Exception ex ) {
+            Log.e(TAG, ex.getMessage());
+        } finally {
+            if (db!=null) db.close();
+        }
+        return result;
+    }
+
 	
 	/**
 	 * <p>Get the database instance</p>

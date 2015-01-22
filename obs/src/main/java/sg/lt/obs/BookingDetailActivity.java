@@ -34,7 +34,7 @@ public class BookingDetailActivity extends ObsActivity {
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
-		setContentView(R.layout.activity_booking_detail);
+		setContentView(R.layout.activity_booking_detail_upcoming);
 		super.onCreate(savedInstanceState);
 		
 		mNextBtn.setVisibility(View.INVISIBLE);

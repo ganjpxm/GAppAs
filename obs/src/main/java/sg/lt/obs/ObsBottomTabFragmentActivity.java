@@ -1,20 +1,5 @@
 package sg.lt.obs;
 
-import java.io.IOException;
-import java.util.Date;
-import java.text.DateFormat;
-
-import org.ganjp.glib.core.base.ActivityStack;
-import org.ganjp.glib.core.util.DialogUtil;
-import org.ganjp.glib.core.util.StringUtil;
-import org.ganjp.glib.core.base.Const;
-import sg.lt.obs.common.ObsConst;
-import sg.lt.obs.common.gcm.GcmUtil;
-import sg.lt.obs.common.other.ObsUtil;
-import sg.lt.obs.common.other.PreferenceUtil;
-import sg.lt.obs.fragment.FragmentIndicator;
-import sg.lt.obs.fragment.FragmentIndicator.OnIndicateListener;
-
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -30,14 +15,30 @@ import android.view.View;
 import android.view.Window;
 
 import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.GoogleApiClient.ConnectionCallbacks;
 import com.google.android.gms.common.api.GoogleApiClient.OnConnectionFailedListener;
-import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.android.gms.gcm.GoogleCloudMessaging;
 import com.google.android.gms.location.LocationListener;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationServices;
+
+import org.ganjp.glib.core.base.ActivityStack;
+import org.ganjp.glib.core.base.Const;
+import org.ganjp.glib.core.util.DialogUtil;
+import org.ganjp.glib.core.util.StringUtil;
+
+import java.io.IOException;
+import java.text.DateFormat;
+import java.util.Date;
+
+import sg.lt.obs.common.ObsConst;
+import sg.lt.obs.common.gcm.GcmUtil;
+import sg.lt.obs.common.other.ObsUtil;
+import sg.lt.obs.common.other.PreferenceUtil;
+import sg.lt.obs.fragment.FragmentIndicator;
+import sg.lt.obs.fragment.FragmentIndicator.OnIndicateListener;
 
 public class ObsBottomTabFragmentActivity extends FragmentActivity implements ConnectionCallbacks, OnConnectionFailedListener, LocationListener {
 
@@ -62,8 +63,8 @@ public class ObsBottomTabFragmentActivity extends FragmentActivity implements Co
     @Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		
-		requestWindowFeature(Window.FEATURE_NO_TITLE);
+
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.activity_main_fragment);
 
 		setFragmentIndicator(0);

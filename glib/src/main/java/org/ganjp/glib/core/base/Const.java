@@ -35,9 +35,8 @@ public class Const {
 	public static final String KEY_RESULT                 = "result";
     public static final String VALUE_SUCCESS = "success";
     public static final String VALUE_FAIL                 = "fail";
-    public static final String VALUE_NEW_ITEMS            = "New Items";
-    public static final String VALUE_YES                  = "YES";
-    public static final String VALUE_NO                   = "NO";
+    public static final String VALUE_YES                  = "yes";
+    public static final String VALUE_NO                   = "no";
     public static final String VALUE_ACCEPTED             = "accepted";
     public static final String VALUE_TIMEOUT              = "timeout";
 

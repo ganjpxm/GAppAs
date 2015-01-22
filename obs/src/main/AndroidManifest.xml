@@ -62,11 +62,16 @@
             android:screenOrientation="portrait" />
 
         <activity
+            android:name=".BookingHistoryDetailFragmentActivity"
+            android:screenOrientation="portrait" />
+
+
+        <activity
             android:name=".ObsBottomTabFragmentActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".BookingDetailFragmentActivity"
+            android:name=".BookingUpcomingDetailFragmentActivity"
             android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />

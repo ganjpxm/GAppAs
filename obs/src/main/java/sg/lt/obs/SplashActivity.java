@@ -6,20 +6,25 @@
  */
 package sg.lt.obs;
 
+import android.content.Intent;
+import android.os.Bundle;
+
+import com.google.android.gms.analytics.HitBuilders;
+import com.google.android.gms.analytics.Tracker;
+
 import org.ganjp.glib.core.base.Const;
 import org.ganjp.glib.core.util.HttpConnection;
 import org.ganjp.glib.core.util.NetworkUtil;
 import org.ganjp.glib.core.util.StringUtil;
 import org.ganjp.glib.core.util.ThreadUtil;
-import sg.lt.obs.common.ObsConst;
-import sg.lt.obs.common.activity.ObsActivity;
-import sg.lt.obs.common.other.ObsUtil;
-import sg.lt.obs.common.other.PreferenceUtil;
-
-import android.content.Intent;
-import android.os.Bundle;
 
 import java.util.Map;
+
+import sg.lt.obs.common.ObsConst;
+import sg.lt.obs.common.activity.ObsActivity;
+import sg.lt.obs.common.other.ObsApplication;
+import sg.lt.obs.common.other.ObsUtil;
+import sg.lt.obs.common.other.PreferenceUtil;
 
 /**
  * <p>Splash screen activity</p>
@@ -36,7 +41,12 @@ public class SplashActivity extends ObsActivity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.common_activity_splash);
+
+        Tracker t = ((ObsApplication) getApplication()).getTracker(ObsApplication.TrackerName.APP_TRACKER);
+        t.setScreenName("Splash");
+        t.send(new HitBuilders.AppViewBuilder().build());
+
+        setContentView(R.layout.common_activity_splash);
 		userId = PreferenceUtil.getString(ObsConst.KEY_USER_ID_OBS);
 		if (NetworkUtil.isNetworkAvailable(this) && StringUtil.isNotEmpty(userId)) {
             showProgressBar();

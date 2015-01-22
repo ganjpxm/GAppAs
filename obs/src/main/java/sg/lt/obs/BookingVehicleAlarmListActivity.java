@@ -8,6 +8,9 @@ import android.os.Message;
 import android.view.View;
 import android.widget.ListView;
 
+import com.google.android.gms.analytics.HitBuilders;
+import com.google.android.gms.analytics.Tracker;
+
 import org.ganjp.glib.core.base.ActivityStack;
 import org.ganjp.glib.core.util.DialogUtil;
 import org.ganjp.glib.core.util.HttpConnection;
@@ -21,6 +24,7 @@ import sg.lt.obs.common.activity.ObsActivity;
 import sg.lt.obs.common.adapt.BookingVehicleAlarmListAdapter;
 import sg.lt.obs.common.dao.ObmBookingVehicleItemDAO;
 import sg.lt.obs.common.entity.ObmBookingVehicleItem;
+import sg.lt.obs.common.other.ObsApplication;
 import sg.lt.obs.common.other.ObsUtil;
 import sg.lt.obs.common.view.TitleView;
 
@@ -37,6 +41,10 @@ public class BookingVehicleAlarmListActivity extends ObsActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Tracker t = ((ObsApplication) getApplication()).getTracker(ObsApplication.TrackerName.APP_TRACKER);
+        t.setScreenName("Broadcast");
+        t.send(new HitBuilders.AppViewBuilder().build());
+
         setContentView(R.layout.booking_vehicle_alarm_list);
 
         mTitleView = (TitleView)findViewById(R.id.title);
@@ -105,7 +113,7 @@ public class BookingVehicleAlarmListActivity extends ObsActivity {
     private Handler mHandler = new Handler() {
         public void handleMessage (Message msg) {
             if (msg.what==0) {
-                showEmptyAlertDialog("Thank your for all your broadcast bookings have been accepted or rejected by you.");
+                showEmptyAlertDialog("Thank you for all your broadcast bookings have been accepted or rejected.");
             }
         }
     };

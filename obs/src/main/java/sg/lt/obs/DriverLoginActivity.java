@@ -16,6 +16,7 @@ import org.ganjp.glib.core.util.NetworkUtil;
 import org.ganjp.glib.core.util.WebViewUtil;
 import sg.lt.obs.common.ObsConst;
 import sg.lt.obs.common.activity.ObsActivity;
+import sg.lt.obs.common.other.ObsApplication;
 import sg.lt.obs.common.other.ObsUtil;
 import sg.lt.obs.common.other.PreferenceUtil;
 
@@ -44,6 +45,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.analytics.HitBuilders;
+import com.google.android.gms.analytics.Tracker;
+
 public class DriverLoginActivity extends ObsActivity {
 
 	private boolean mHasReload = false;
@@ -59,6 +63,10 @@ public class DriverLoginActivity extends ObsActivity {
     public void onCreate(Bundle savedInstanceState) {
     	setContentView(R.layout.activity_main);
         super.onCreate(savedInstanceState);
+
+        Tracker t = ((ObsApplication) getApplication()).getTracker(ObsApplication.TrackerName.APP_TRACKER);
+        t.setScreenName("Driver Login");
+        t.send(new HitBuilders.AppViewBuilder().build());
         
         mNextBtn.setVisibility(View.INVISIBLE);
         mBackBtn.setVisibility(View.INVISIBLE);
@@ -218,7 +226,7 @@ public class DriverLoginActivity extends ObsActivity {
     	                if (isTimeout) {
 	    	        		mHandlerDialog.obtainMessage(0).sendToTarget();
     	                }
-    	            }
+    	               }
 	    	    });
 				mTimeoutThread.start();
 		        new Thread(new Runnable() {

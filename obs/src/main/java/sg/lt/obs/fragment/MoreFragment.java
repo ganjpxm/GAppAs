@@ -3,10 +3,12 @@ package sg.lt.obs.fragment;
 import org.ganjp.glib.core.base.Const;
 import org.ganjp.glib.core.util.DialogUtil;
 import org.ganjp.glib.core.util.HttpConnection;
+import org.ganjp.glib.core.util.NetworkUtil;
 
 import sg.lt.obs.DriverLoginActivity;
 import sg.lt.obs.common.ObsConst;
 import sg.lt.obs.common.dao.ObmBookingVehicleItemDAO;
+import sg.lt.obs.common.other.ObsApplication;
 import sg.lt.obs.common.other.ObsUtil;
 import sg.lt.obs.common.other.PreferenceUtil;
 import sg.lt.obs.common.view.TitleView;
@@ -26,6 +28,9 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 
+import com.google.android.gms.analytics.HitBuilders;
+import com.google.android.gms.analytics.Tracker;
+
 public class MoreFragment extends Fragment implements OnClickListener {
 
 	private View mParent;
@@ -36,8 +41,7 @@ public class MoreFragment extends Fragment implements OnClickListener {
 	private RelativeLayout clearDataRl;
 	private RelativeLayout aboutRl;
 	private RelativeLayout logoutRl;
-	
-	private String regId;
+
 	/**
 	 * Create a new instance of DetailsFragment, initialized to show the text at 'index'.
 	 */
@@ -98,10 +102,18 @@ public class MoreFragment extends Fragment implements OnClickListener {
     			@Override
     			public void onClick(DialogInterface dialog, int which) {
     				if (which==-1) {
+                        final String regId = PreferenceUtil.getString(ObsConst.KEY_REG_ID_OBS);
+                        final String userId = PreferenceUtil.getString(ObsConst.KEY_USER_ID_OBS);
                         PreferenceUtil.clear();
                         ObmBookingVehicleItemDAO.getInstance().delete();
+                        if (NetworkUtil.isNetworkAvailable(mActivity)) {
+                            new Thread(new Runnable() {
+                                public void run() {
+                                    ObsUtil.registDevice(regId, userId, Const.VALUE_NO);
+                                }
+                            }).start();
+                        }
     					startActivity(new Intent(mActivity, DriverLoginActivity.class));
-                        mActivity.finish();
     				}
     			}
     		});
@@ -135,6 +147,11 @@ public class MoreFragment extends Fragment implements OnClickListener {
 	@Override
 	public void onHiddenChanged(boolean hidden) {
 		super.onHiddenChanged(hidden);
+        if (hidden==false) {
+            Tracker t = ((ObsApplication) mActivity.getApplication()).getTracker(ObsApplication.TrackerName.APP_TRACKER);
+            t.setScreenName("More");
+            t.send(new HitBuilders.AppViewBuilder().build());
+        }
 	}
 
 	private Handler mHandlerDialog = new Handler() {  
@@ -147,13 +164,13 @@ public class MoreFragment extends Fragment implements OnClickListener {
     			DialogUtil.showInfoDialog(mActivity, getResources().getString(R.string.fail));
     		}
     	}  
-    }; 
-    
+    };
+
+
 	@Override
 	public void onDestroy() {
 		super.onDestroy();
 	}
-
 
 //    pushNotificationTb = (ToggleButton) mParent.findViewById(R.id.push_notification_tb);
 

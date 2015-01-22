@@ -9,6 +9,7 @@ package sg.lt.obs.common.activity;
 
 import org.ganjp.glib.core.base.BaseActivity;
 import sg.lt.obs.R;
+import sg.lt.obs.common.other.ObsApplication;
 
 import android.os.Bundle;
 import android.view.Menu;
@@ -18,6 +19,10 @@ import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+
+import com.google.android.gms.analytics.GoogleAnalytics;
+import com.google.android.gms.analytics.HitBuilders;
+import com.google.android.gms.analytics.Tracker;
 
 /**
  * <p>The activity will be extended by all the Activity</p>
@@ -42,8 +47,18 @@ public abstract class ObsActivity extends BaseActivity {
 		super.onCreate(savedInstanceState);
 		initHeaderButton();
 	}
-	
-	/**
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+    }
+
+    /**
 	 * <p>Click event : logo button, call button, info button</p>
 	 * 
 	 * @param view

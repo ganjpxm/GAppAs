@@ -1,9 +1,20 @@
 package sg.lt.obs.fragment;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Map;
+import android.content.Intent;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.ListView;
+
+import com.google.android.gms.analytics.HitBuilders;
+import com.google.android.gms.analytics.Tracker;
 
 import org.ganjp.glib.core.util.DateUtil;
 import org.ganjp.glib.core.util.HttpConnection;
@@ -13,38 +24,30 @@ import org.ganjp.glib.core.view.RefreshableView;
 import org.ganjp.glib.core.view.RefreshableView.PullToRefreshListener;
 import org.ganjp.glib.thirdparty.astickyheader.SimpleSectionedListAdapter;
 import org.ganjp.glib.thirdparty.astickyheader.SimpleSectionedListAdapter.Section;
-import sg.lt.obs.BookingDetailFragmentActivity;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import java.util.Map;
+
+import sg.lt.obs.BookingHistoryDetailFragmentActivity;
 import sg.lt.obs.BookingVehicleAlarmListActivity;
+import sg.lt.obs.R;
 import sg.lt.obs.common.ObsConst;
-import sg.lt.obs.common.adapt.BookingVehicleListAdapter;
+import sg.lt.obs.common.adapt.BookingVehicleHistoryListAdapter;
 import sg.lt.obs.common.dao.ObmBookingVehicleItemDAO;
 import sg.lt.obs.common.entity.ObmBookingVehicleItem;
+import sg.lt.obs.common.other.ObsApplication;
 import sg.lt.obs.common.other.ObsUtil;
 import sg.lt.obs.common.other.PreferenceUtil;
 import sg.lt.obs.common.view.TitleView;
-import sg.lt.obs.R;
-
-import android.content.Intent;
-import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentTransaction;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
-import android.widget.ListView;
 
 public class BookingHistoryFragment extends Fragment implements OnItemClickListener {
 
 	private ArrayList<String> mHeaderNames = new ArrayList<String>();
 	private ArrayList<Integer> mHeaderPositions = new ArrayList<Integer>();
-	private BookingVehicleListAdapter mAdapter;
+	private BookingVehicleHistoryListAdapter mAdapter;
 	private List<ObmBookingVehicleItem> mObmBookingVehicleItems;
-	private List<ObmBookingVehicleItem> mNewObmBookingVehicleItems;
 	private ArrayList<Section> mSections = new ArrayList<Section>();
 	
 	private ListView mListView;
@@ -98,11 +101,11 @@ public class BookingHistoryFragment extends Fragment implements OnItemClickListe
 		
 		refreshableView = (RefreshableView) mParent.findViewById(R.id.refreshable_view);
 		refreshableView.setOnRefreshListener(new PullToRefreshListener() {
-			@Override
-			public void onRefresh() {
-				try {
+            @Override
+            public void onRefresh() {
+                try {
                     if (NetworkUtil.isNetworkAvailable(mActivity)) {
-                        Map<String,String> resultMap = ObsUtil.getBookingVehicleItemsFromWeb(new HttpConnection(false), true);
+                        Map<String, String> resultMap = ObsUtil.getBookingVehicleItemsFromWeb(new HttpConnection(false), true);
                         String updateSize = resultMap.get("updateSize");
                         String broadcastBookingVehicleItemIds = resultMap.get("broadcastBookingVehicleItemIds");
                         if (StringUtil.hasText(broadcastBookingVehicleItemIds)) {
@@ -116,12 +119,12 @@ public class BookingHistoryFragment extends Fragment implements OnItemClickListe
                     } else {
                         Thread.sleep(2000);
                     }
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-				refreshableView.finishRefreshing();
-			}
-		}, 1);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                refreshableView.finishRefreshing();
+            }
+        }, 1);
 
         refreshableView.clearFocus();
 	}
@@ -147,7 +150,7 @@ public class BookingHistoryFragment extends Fragment implements OnItemClickListe
             }
         }
         if (mAdapter == null) {
-            mAdapter = new BookingVehicleListAdapter(mActivity, mObmBookingVehicleItems);
+            mAdapter = new BookingVehicleHistoryListAdapter(mActivity, mObmBookingVehicleItems);
         } else {
             mAdapter.resetItems(mObmBookingVehicleItems);
         }
@@ -184,6 +187,9 @@ public class BookingHistoryFragment extends Fragment implements OnItemClickListe
             } else {
                 isFirstTime = false;
             }
+            Tracker t = ((ObsApplication) mActivity.getApplication()).getTracker(ObsApplication.TrackerName.APP_TRACKER);
+            t.setScreenName("History Booking");
+            t.send(new HitBuilders.AppViewBuilder().build());
         }
 	}
 
@@ -204,7 +210,7 @@ public class BookingHistoryFragment extends Fragment implements OnItemClickListe
 		}
 		ObmBookingVehicleItem obmBookingVehicleItem = mAdapter.getItem(actPosition);
         if (obmBookingVehicleItem!=null) {
-        	Intent intent = new Intent(getActivity(), BookingDetailFragmentActivity.class);
+        	Intent intent = new Intent(getActivity(), BookingHistoryDetailFragmentActivity.class);
         	intent.putExtra(ObsConst.KEY_BOOKING_VEHICLE_ITEM_OBS, obmBookingVehicleItem);
         	getActivity().startActivity(intent);
         	getActivity().overridePendingTransition(R.anim.in_from_right, R.anim.out_to_left);

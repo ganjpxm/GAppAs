@@ -39,6 +39,7 @@ public class ObmBookingVehicleItem extends BaseModel implements Serializable {
     public String remark;
 
     public String vehicle;
+    public String priceUnit;
     public Float price;
     public String paymentStatus;
     public String paymentMode;
@@ -454,5 +455,13 @@ public class ObmBookingVehicleItem extends BaseModel implements Serializable {
 
     public void setBookingStatusCd(String bookingStatusCd) {
         this.bookingStatusCd = bookingStatusCd;
+    }
+
+    public String getPriceUnit() {
+        return priceUnit;
+    }
+
+    public void setPriceUnit(String priceUnit) {
+        this.priceUnit = priceUnit;
     }
 }

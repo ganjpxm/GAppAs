@@ -14,6 +14,8 @@ import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.google.android.gms.analytics.HitBuilders;
+import com.google.android.gms.analytics.Tracker;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -26,6 +28,7 @@ import com.google.android.gms.maps.model.PolylineOptions;
 import org.ganjp.glib.core.base.ActivityStack;
 import org.ganjp.glib.core.util.DateUtil;
 import org.ganjp.glib.core.util.DialogUtil;
+import org.ganjp.glib.core.util.NetworkUtil;
 import org.ganjp.glib.core.util.StringUtil;
 
 import java.util.Date;
@@ -34,6 +37,7 @@ import java.util.Locale;
 
 import sg.lt.obs.common.ObsConst;
 import sg.lt.obs.common.entity.ObmBookingVehicleItem;
+import sg.lt.obs.common.other.ObsApplication;
 import sg.lt.obs.common.other.ObsUtil;
 
 /**
@@ -42,7 +46,7 @@ import sg.lt.obs.common.other.ObsUtil;
  * @author ganjianping
  *
  */
-public class BookingDetailFragmentActivity extends FragmentActivity implements OnClickListener, OnMapReadyCallback {
+public class BookingUpcomingDetailFragmentActivity extends FragmentActivity implements OnClickListener, OnMapReadyCallback {
 	protected Button mBackBtn = null;
 	protected TextView mTitleTv = null;
 	protected Button mNextBtn = null;
@@ -74,7 +78,12 @@ public class BookingDetailFragmentActivity extends FragmentActivity implements O
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_booking_detail);
+
+        Tracker t = ((ObsApplication) getApplication()).getTracker(ObsApplication.TrackerName.APP_TRACKER);
+        t.setScreenName("Upcoming Booking Detail");
+        t.send(new HitBuilders.AppViewBuilder().build());
+
+		setContentView(R.layout.activity_booking_detail_upcoming);
 		
 		mBackBtn = (Button)findViewById(R.id.back_btn);
 	    mBackBtn.setOnClickListener(this);
@@ -166,8 +175,10 @@ public class BookingDetailFragmentActivity extends FragmentActivity implements O
 			remarkTv.setText(Html.fromHtml(remark, new ImageGetter(), null));
 		}
 
-        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
-        mapFragment.getMapAsync(this);
+        if (NetworkUtil.isNetworkAvailable(this)) {
+            SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
+            mapFragment.getMapAsync(this);
+        }
 	}
 
 	@Override
@@ -239,6 +250,22 @@ public class BookingDetailFragmentActivity extends FragmentActivity implements O
     @Override
     protected void onStart() {
         super.onStart();
+//        try {
+//            ((ObsApplication) getApplication()).getTracker(ObsApplication.TrackerName.APP_TRACKER);
+//            GoogleAnalytics.getInstance(this).reportActivityStart(this);
+//        } catch (Exception ex) {
+//            ex.printStackTrace();
+//        }
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+//        try {
+//            GoogleAnalytics.getInstance(this).reportActivityStop(this);
+//        } catch (Exception ex) {
+//            ex.printStackTrace();
+//        }
     }
 
     @Override
@@ -251,11 +278,6 @@ public class BookingDetailFragmentActivity extends FragmentActivity implements O
 	protected void onPause() {
         super.onPause();
         ActivityStack.setActiveActivity(null);
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
     }
 
     @Override
@@ -355,5 +377,6 @@ public class BookingDetailFragmentActivity extends FragmentActivity implements O
         }
 
     }
+
 
 }

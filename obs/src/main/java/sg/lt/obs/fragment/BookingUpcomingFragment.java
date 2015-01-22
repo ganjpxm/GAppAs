@@ -1,29 +1,5 @@
 package sg.lt.obs.fragment;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Map;
-
-import org.ganjp.glib.core.util.DateUtil;
-import org.ganjp.glib.core.util.HttpConnection;
-import org.ganjp.glib.core.util.NetworkUtil;
-import org.ganjp.glib.core.util.StringUtil;
-import org.ganjp.glib.core.view.RefreshableView;
-import org.ganjp.glib.core.view.RefreshableView.PullToRefreshListener;
-import org.ganjp.glib.thirdparty.astickyheader.SimpleSectionedListAdapter;
-import org.ganjp.glib.thirdparty.astickyheader.SimpleSectionedListAdapter.Section;
-import sg.lt.obs.BookingDetailFragmentActivity;
-import sg.lt.obs.BookingVehicleAlarmListActivity;
-import sg.lt.obs.common.ObsConst;
-import sg.lt.obs.common.adapt.BookingVehicleListAdapter;
-import sg.lt.obs.common.dao.ObmBookingVehicleItemDAO;
-import sg.lt.obs.common.entity.ObmBookingVehicleItem;
-import sg.lt.obs.common.other.ObsUtil;
-import sg.lt.obs.common.other.PreferenceUtil;
-import sg.lt.obs.common.view.TitleView;
-import sg.lt.obs.R;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -37,11 +13,40 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 
+import com.google.android.gms.analytics.HitBuilders;
+import com.google.android.gms.analytics.Tracker;
+
+import org.ganjp.glib.core.util.DateUtil;
+import org.ganjp.glib.core.util.HttpConnection;
+import org.ganjp.glib.core.util.NetworkUtil;
+import org.ganjp.glib.core.util.StringUtil;
+import org.ganjp.glib.core.view.RefreshableView;
+import org.ganjp.glib.core.view.RefreshableView.PullToRefreshListener;
+import org.ganjp.glib.thirdparty.astickyheader.SimpleSectionedListAdapter;
+import org.ganjp.glib.thirdparty.astickyheader.SimpleSectionedListAdapter.Section;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import java.util.Map;
+
+import sg.lt.obs.BookingUpcomingDetailFragmentActivity;
+import sg.lt.obs.BookingVehicleAlarmListActivity;
+import sg.lt.obs.R;
+import sg.lt.obs.common.ObsConst;
+import sg.lt.obs.common.adapt.BookingVehicleUpcomingListAdapter;
+import sg.lt.obs.common.dao.ObmBookingVehicleItemDAO;
+import sg.lt.obs.common.entity.ObmBookingVehicleItem;
+import sg.lt.obs.common.other.ObsApplication;
+import sg.lt.obs.common.other.ObsUtil;
+import sg.lt.obs.common.other.PreferenceUtil;
+import sg.lt.obs.common.view.TitleView;
+
 public class BookingUpcomingFragment extends Fragment implements OnItemClickListener {
 
 	private List<String> mHeaderNames;
 	private List<Integer> mHeaderPositions;
-	private BookingVehicleListAdapter mAdapter;
+	private BookingVehicleUpcomingListAdapter mAdapter;
 	private List<ObmBookingVehicleItem> mObmBookingVehicleItems;
 	private List<Section> mSections;
 	private SimpleSectionedListAdapter mSimpleSectionedListAdapter;
@@ -156,7 +161,7 @@ public class BookingUpcomingFragment extends Fragment implements OnItemClickList
             }
         }
         if (mAdapter == null) {
-            mAdapter = new BookingVehicleListAdapter(mActivity, mObmBookingVehicleItems);
+            mAdapter = new BookingVehicleUpcomingListAdapter(mActivity, mObmBookingVehicleItems);
         } else {
             mAdapter.resetItems(mObmBookingVehicleItems);
         }
@@ -168,6 +173,7 @@ public class BookingUpcomingFragment extends Fragment implements OnItemClickList
         }
         mSimpleSectionedListAdapter.setSections(mSections.toArray(new Section[0]));
 	}
+
 
 	@Override
 	public void onHiddenChanged(boolean hidden) {
@@ -184,6 +190,9 @@ public class BookingUpcomingFragment extends Fragment implements OnItemClickList
             } else {
                 isFirstTime = false;
             }
+            Tracker t = ((ObsApplication) mActivity.getApplication()).getTracker(ObsApplication.TrackerName.APP_TRACKER);
+            t.setScreenName("Upcoming Booking");
+            t.send(new HitBuilders.AppViewBuilder().build());
         }
 	}
 
@@ -204,7 +213,7 @@ public class BookingUpcomingFragment extends Fragment implements OnItemClickList
 		}
 		ObmBookingVehicleItem obmBookingVehicleItem = mAdapter.getItem(actPosition);
         if (obmBookingVehicleItem!=null) {
-        	Intent intent = new Intent(getActivity(), BookingDetailFragmentActivity.class);
+        	Intent intent = new Intent(getActivity(), BookingUpcomingDetailFragmentActivity.class);
         	intent.putExtra(ObsConst.KEY_BOOKING_VEHICLE_ITEM_OBS, obmBookingVehicleItem);
         	getActivity().startActivity(intent);
         	getActivity().overridePendingTransition(R.anim.in_from_right, R.anim.out_to_left);

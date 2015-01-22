@@ -8,6 +8,7 @@ import org.ganjp.glib.core.util.StringUtil;
 import org.ganjp.glib.core.util.WebViewUtil;
 import sg.lt.obs.R;
 import sg.lt.obs.common.ObsConst;
+import sg.lt.obs.common.other.ObsApplication;
 import sg.lt.obs.common.other.ObsUtil;
 import sg.lt.obs.common.other.PreferenceUtil;
 import sg.lt.obs.common.view.TitleView;
@@ -33,6 +34,9 @@ import android.webkit.WebViewClient;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.android.gms.analytics.HitBuilders;
+import com.google.android.gms.analytics.Tracker;
 
 public class MyProfileFragment extends Fragment {
 
@@ -102,6 +106,11 @@ public class MyProfileFragment extends Fragment {
         if (hidden==false && isReload==true) {
             mWebView.loadUrl(ObsConst.URL_GET_DRIVER_PROFILE + PreferenceUtil.getString(ObsConst.KEY_USER_ID_OBS));
             isReload = false;
+        }
+        if (hidden==false) {
+            Tracker t = ((ObsApplication) mActivity.getApplication()).getTracker(ObsApplication.TrackerName.APP_TRACKER);
+            t.setScreenName("My Profile");
+            t.send(new HitBuilders.AppViewBuilder().build());
         }
 	}
 

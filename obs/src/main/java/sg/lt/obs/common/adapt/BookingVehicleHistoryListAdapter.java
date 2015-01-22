@@ -6,18 +6,7 @@
  */
 package sg.lt.obs.common.adapt;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import org.ganjp.glib.core.util.DialogUtil;
-import org.ganjp.glib.core.util.StringUtil;
-
-import sg.lt.obs.common.ObsConst;
-import sg.lt.obs.common.entity.ObmBookingVehicleItem;
-import sg.lt.obs.R;
-
 import android.content.Context;
-import android.content.DialogInterface;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.text.Html;
@@ -26,10 +15,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import org.ganjp.glib.core.util.StringUtil;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import sg.lt.obs.R;
+import sg.lt.obs.common.ObsConst;
+import sg.lt.obs.common.entity.ObmBookingVehicleItem;
 
 /**
  * <p>Knowledge list adapter</p>
@@ -37,8 +33,8 @@ import android.widget.Toast;
  * @author Gan Jianping
  * @since 1.0.0
  */
-public class BookingVehicleListAdapter extends BaseAdapter {
-	
+public class BookingVehicleHistoryListAdapter extends BaseAdapter {
+
 	private LayoutInflater mInflater;
     private List<ObmBookingVehicleItem> mObmBookingVehicleItems = null;
     private Context mContext;
@@ -53,15 +49,15 @@ public class BookingVehicleListAdapter extends BaseAdapter {
         notifyDataSetChanged();
     }
 
-	public BookingVehicleListAdapter(Context context) {
+	public BookingVehicleHistoryListAdapter(Context context) {
         super();
 //        this.mInflater = LayoutInflater.from(context);
         mContext = context;
         mInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         mObmBookingVehicleItems = new ArrayList<ObmBookingVehicleItem>();
     }
-	
-	public BookingVehicleListAdapter(Context context, List<ObmBookingVehicleItem> items) {
+
+	public BookingVehicleHistoryListAdapter(Context context, List<ObmBookingVehicleItem> items) {
         super();
 //        this.mInflater = LayoutInflater.from(context);
         mContext = context;
@@ -105,16 +101,28 @@ public class BookingVehicleListAdapter extends BaseAdapter {
         String pickupTime = obmBookingVehicleItem.getPickupTime();
         pickupTimeTv.setText(pickupTime);
 
-		String paymentStatus = obmBookingVehicleItem.getPaymentStatus();
-		if (StringUtil.isNotEmpty(paymentStatus)) {
-			TextView paymentStateTv = ViewHolder.get(view, R.id.payment_state_tv);
-			paymentStateTv.setText(paymentStatus);
-			if ("Paid".equalsIgnoreCase(paymentStatus)) {
-				paymentStateTv.setTextColor(Color.BLACK);
-			} else {
-				paymentStateTv.setTextColor(Color.RED);
-			}
-		}
+        String paymentMode = obmBookingVehicleItem.getPaymentMode();
+        if (StringUtil.hasText(paymentMode) && "Cash".equalsIgnoreCase(paymentMode)) {
+            TextView paymentStateTv = ViewHolder.get(view, R.id.payment_state_tv);
+            paymentStateTv.setText(obmBookingVehicleItem.getPriceUnit() + " " + obmBookingVehicleItem.getPrice() + "\nCash");
+            paymentStateTv.setTextColor(Color.RED);
+        } else {
+            String paymentStatus = obmBookingVehicleItem.getPaymentStatus();
+            if (StringUtil.isNotEmpty(paymentStatus)) {
+                TextView paymentStateTv = ViewHolder.get(view, R.id.payment_state_tv);
+                if (StringUtil.hasText(paymentMode) && "Invoice".equalsIgnoreCase(paymentMode)) {
+                    paymentStateTv.setText(paymentStatus + "\nInvoice");
+                    paymentStateTv.setTextColor(Color.RED);
+                } else {
+                    paymentStateTv.setText(paymentStatus);
+                    if ("Paid".equalsIgnoreCase(paymentStatus)) {
+                        paymentStateTv.setTextColor(Color.BLACK);
+                    } else {
+                        paymentStateTv.setTextColor(Color.RED);
+                    }
+                }
+            }
+        }
 		
 		TextView bookingNumberTv = ViewHolder.get(view, R.id.booking_number_tv);
         if (ObsConst.BOOKING_STATUS_CD_ENQUIRY.equals(obmBookingVehicleItem.getBookingStatusCd()) ||
