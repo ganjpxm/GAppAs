@@ -2,8 +2,6 @@ package sg.lt.obs;
 
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
-import android.location.Address;
-import android.location.Geocoder;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
@@ -16,14 +14,6 @@ import android.widget.TextView;
 
 import com.google.android.gms.analytics.HitBuilders;
 import com.google.android.gms.analytics.Tracker;
-import com.google.android.gms.maps.CameraUpdateFactory;
-import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.OnMapReadyCallback;
-import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.model.BitmapDescriptorFactory;
-import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.MarkerOptions;
-import com.google.android.gms.maps.model.PolylineOptions;
 
 import org.ganjp.glib.core.base.ActivityStack;
 import org.ganjp.glib.core.util.DateUtil;
@@ -31,7 +21,6 @@ import org.ganjp.glib.core.util.DialogUtil;
 import org.ganjp.glib.core.util.StringUtil;
 
 import java.util.Date;
-import java.util.List;
 import java.util.Locale;
 
 import sg.lt.obs.common.ObsConst;
@@ -187,9 +176,9 @@ public class BookingHistoryDetailFragmentActivity extends FragmentActivity imple
 			DialogUtil.showCallDialog(this, "Call Booker", obmBookingVehicleItem.getBookingUserMobileNumber(), 
 					obmBookingVehicleItem.getBookingUserMobileNumber());
 		} else if (view == directionBtn) {
-			if (ObsUtil.sCurrentLocation!=null) {
+			if (ObsUtil.sLastLocation !=null) {
 				String uri = String.format(Locale.ENGLISH, "http://maps.google.com/maps?saddr=%f,%f&daddr=%s",
-                        ObsUtil.sCurrentLocation.getLatitude(),  ObsUtil.sCurrentLocation.getLongitude(), obmBookingVehicleItem.getPickupMapAddress());
+                        ObsUtil.sLastLocation.getLatitude(),  ObsUtil.sLastLocation.getLongitude(), obmBookingVehicleItem.getPickupMapAddress());
 				Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
 				intent.setClassName("com.google.android.apps.maps", "com.google.android.maps.MapsActivity");
 				startActivity(intent);

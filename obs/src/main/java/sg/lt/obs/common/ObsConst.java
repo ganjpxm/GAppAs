@@ -15,14 +15,16 @@ public abstract class ObsConst {
 	//----------------------------- Obs -----------------
     public static final String DATABASE_NAME = "ltobs.db";
     public static final int DATABASE_VERSION = 1;
-	public static final String SERVER_IP = "http://119.9.74.121";
-//	public static final String SERVER_IP = "http://192.168.1.4:8080/obs";
+//	public static final String SERVER_IP = "http://119.9.74.121";
+	public static final String SERVER_IP = "http://192.168.1.4:8080/obs";
 	public static final String URL_LOGIN = SERVER_IP + "/allOrg/login";
 	public static final String URL_GET_BM_CONFIGS = SERVER_IP + "/mobile/getBmConfigs";
 	public static final String URL_GET_DRIVER_BOOKING = SERVER_IP + "/free/driver/booking/";
 	public static final String URL_REGISTE_DEVICE = SERVER_IP + "/free/device/regist";
 	public static final String URL_RESPONSE_BROADCAST_BOOKING = SERVER_IP + "/web/responseBroadcastBooking";
     public static final String URL_GET_DRIVER_PROFILE = SERVER_IP + "/free/01/driver/profile?isApp=yes&driverUserId=";
+    public static final String URL_TRACK_LOCATION = SERVER_IP + "/web/01/track/location";
+
 
     public static final String BOOKING_STATUS_CD_PENDING = "0800";
     public static final String BOOKING_STATUS_CD_PROCESSING = "0801";
@@ -67,11 +69,18 @@ public abstract class ObsConst {
 	public static final String KEY_DATA                   = "data";
 	public static final String KEY_START_DATE             = "startDate";
 	public static final String KEY_USER_ID                = "userId";
+    public static final String KEY_USER_NAME              = "userName";
 	public static final String KEY_DEVICE_TOKEN           = "deviceToken";
+    public static final String KEY_OS_VERSION             = "osVersion";
+    public static final String KEY_DEVICE_BRAND           = "deviceBrand";
+    public static final String KEY_DEVICE_MODEL           = "deviceModel";
 	public static final String KEY_USE_PUSH_NOTIFICATION  = "usePushNotification";
 	public static final String KEY_PLATFORM          	  = "platform";
     public static final String KEY_BOOKING_VEHICLE_ITEM_ID = "bookingVehicleItemId";
     public static final String KEY_ACTION                 = "action";
+
+    public static final String KEY_TRACK_DATE             = "trackDate";
+    public static final String KEY_TRACK_CONTENT          = "trackContent";
 
 	public static final String VALUE_BOOKING_SERVICE_CD_ARRIVAL   = "0101";
 	public static final String VALUE_BOOKING_SERVICE_CD_DEPARTURE = "0102";

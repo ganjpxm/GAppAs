@@ -5,6 +5,7 @@
 package sg.lt.obs.common.other;
 
 import android.location.Location;
+import android.os.Build;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -27,7 +28,9 @@ import org.json.JSONObject;
 
 public abstract class ObsUtil {
 
-    public static Location sCurrentLocation;
+    public static Location sLastLocation;
+    public static String sLastAddress;
+    public static String sLastDateTime;
 	/**
 	 * <p>getDataFromWeb</p>
 	 * 
@@ -174,6 +177,10 @@ public abstract class ObsUtil {
 	    	pairs.add(new BasicNameValuePair(ObsConst.KEY_PLATFORM, "android"));
 	    	pairs.add(new BasicNameValuePair(ObsConst.KEY_USE_PUSH_NOTIFICATION, state));
 	    	pairs.add(new BasicNameValuePair(ObsConst.KEY_DEVICE_TOKEN, regId));
+            pairs.add(new BasicNameValuePair(ObsConst.KEY_OS_VERSION, Build.VERSION.RELEASE));
+            pairs.add(new BasicNameValuePair(ObsConst.KEY_DEVICE_BRAND, Build.BRAND));
+            pairs.add(new BasicNameValuePair(ObsConst.KEY_DEVICE_MODEL, Build.MODEL));
+
 	    	httpConnection.post(ObsConst.URL_REGISTE_DEVICE, new UrlEncodedFormEntity(pairs, HTTP.UTF_8));
 	    	String jsonData = HttpConnection.processEntity(httpConnection.getResponse().getEntity());
 	    	JSONObject jsonObject = new JSONObject(jsonData);
@@ -183,4 +190,30 @@ public abstract class ObsUtil {
 		}
     	return result;
 	}
+
+    public static String trackLocation() {
+        String result = Const.VALUE_FAIL;
+        try {
+            String lastDateTime = ObsUtil.sLastDateTime;
+            if (StringUtil.hasText(lastDateTime) && lastDateTime.indexOf(" ")!=-1) {
+                String[] arr = lastDateTime.split(" ");
+                String trackDate = arr[0];
+                String address = ObsUtil.sLastAddress.replaceAll("_", "-").replaceAll(";", ".");
+                String trackContent = arr[1] + "_" + ObsUtil.sLastLocation.getLatitude() + "_" + ObsUtil.sLastLocation.getLongitude() + "_" + address + ";";
+                HttpConnection httpConnection = new HttpConnection(false);
+                ArrayList<NameValuePair> pairs = new ArrayList<NameValuePair>();
+                pairs.add(new BasicNameValuePair(ObsConst.KEY_USER_ID, PreferenceUtil.getString(ObsConst.KEY_USER_ID_OBS)));
+                pairs.add(new BasicNameValuePair(ObsConst.KEY_USER_NAME, PreferenceUtil.getString(ObsConst.KEY_USER_NAME_OBS)));
+                pairs.add(new BasicNameValuePair(ObsConst.KEY_TRACK_DATE, trackDate));
+                pairs.add(new BasicNameValuePair(ObsConst.KEY_TRACK_CONTENT, trackContent));
+                httpConnection.post(ObsConst.URL_TRACK_LOCATION, new UrlEncodedFormEntity(pairs, HTTP.UTF_8));
+                String jsonData = HttpConnection.processEntity(httpConnection.getResponse().getEntity());
+                JSONObject jsonObject = new JSONObject(jsonData);
+                result = jsonObject.getString("result");
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return result;
+    }
 }

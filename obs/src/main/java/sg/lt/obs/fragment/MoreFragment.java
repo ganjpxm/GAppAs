@@ -114,6 +114,7 @@ public class MoreFragment extends Fragment implements OnClickListener {
                             }).start();
                         }
     					startActivity(new Intent(mActivity, DriverLoginActivity.class));
+                        mActivity.finish();
     				}
     			}
     		});

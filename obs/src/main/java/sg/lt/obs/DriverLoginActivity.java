@@ -249,6 +249,7 @@ public class DriverLoginActivity extends ObsActivity {
                             if ("success".equalsIgnoreCase(result)) {
                                 String userId = jsonObject.getString(ObsConst.KEY_USER_ID_OBS);
                                 PreferenceUtil.saveString(ObsConst.KEY_USER_ID_OBS, userId);
+                                PreferenceUtil.saveString(ObsConst.KEY_USER_NAME_OBS, jsonObject.getString(ObsConst.KEY_USER_NAME_OBS));
                                 PreferenceUtil.saveString(userId, jsonData);
 
                                 //Get driver booking information

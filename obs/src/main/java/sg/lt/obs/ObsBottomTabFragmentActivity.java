@@ -3,6 +3,8 @@ package sg.lt.obs;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.location.Address;
+import android.location.Geocoder;
 import android.location.Location;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -26,12 +28,15 @@ import com.google.android.gms.location.LocationServices;
 
 import org.ganjp.glib.core.base.ActivityStack;
 import org.ganjp.glib.core.base.Const;
+import org.ganjp.glib.core.util.DateUtil;
 import org.ganjp.glib.core.util.DialogUtil;
 import org.ganjp.glib.core.util.StringUtil;
 
 import java.io.IOException;
 import java.text.DateFormat;
 import java.util.Date;
+import java.util.List;
+import java.util.Locale;
 
 import sg.lt.obs.common.ObsConst;
 import sg.lt.obs.common.gcm.GcmUtil;
@@ -53,7 +58,6 @@ public class ObsBottomTabFragmentActivity extends FragmentActivity implements Co
     private String mRegistrationId;
 
     //Location
-    protected String mLastUpdateTime;
     protected GoogleApiClient mGoogleApiClient;
     protected LocationRequest mLocationRequest;
     protected Boolean mRequestingLocationUpdates = true;
@@ -137,6 +141,22 @@ public class ObsBottomTabFragmentActivity extends FragmentActivity implements Co
 		ActivityStack.setActiveActivity(null);
 		super.onPause();
 	}
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        if (mGoogleApiClient!=null) {
+            mGoogleApiClient.connect();
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (mGoogleApiClient!=null) {
+            mGoogleApiClient.connect();
+        }
+    }
 	
 	/**
 	 * Check the device to make sure it has the Google Play Services APK. If
@@ -217,20 +237,34 @@ public class ObsBottomTabFragmentActivity extends FragmentActivity implements Co
     	}
     }
 
-
-
     /**
      * Runs when a GoogleApiClient object successfully connects.
      */
     @Override
     public void onConnected(Bundle connectionHint) {
         Log.i(TAG, "Connected to GoogleApiClient");
-        if (ObsUtil.sCurrentLocation == null) {
-            ObsUtil.sCurrentLocation = LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient);
-            mLastUpdateTime = DateFormat.getTimeInstance().format(new Date());
+        if (ObsUtil.sLastLocation == null) {
+            ObsUtil.sLastLocation = LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient);
         }
         if (mRequestingLocationUpdates) {
             startLocationUpdates();
+        }
+    }
+
+    public void updateLastLocationInfo() {
+        Geocoder geocoder = new Geocoder(mContext, Locale.getDefault());
+        try {
+            List<Address> addresses = geocoder.getFromLocation(ObsUtil.sLastLocation.getLatitude(), ObsUtil.sLastLocation.getLongitude(), 1);
+            Address address = addresses.get(0);
+            ObsUtil.sLastAddress = (address.getAddressLine(0) + ", " + address.getCountryName());
+            ObsUtil.sLastDateTime = DateUtil.formateDate(new Date(), "dd/MM/yyyy HH:mm:ss");
+            new Thread(new Runnable() {
+                public void run() {
+                    ObsUtil.trackLocation();
+                }
+            }).start();
+        } catch(Exception ex) {
+            ex.printStackTrace();
         }
     }
 
@@ -239,8 +273,8 @@ public class ObsBottomTabFragmentActivity extends FragmentActivity implements Co
      */
     @Override
     public void onLocationChanged(Location location) {
-        ObsUtil.sCurrentLocation = location;
-        System.out.println(ObsUtil.sCurrentLocation);
+        ObsUtil.sLastLocation = location;
+        updateLastLocationInfo();
     }
 
     @Override
@@ -294,8 +328,7 @@ public class ObsBottomTabFragmentActivity extends FragmentActivity implements Co
         // requested if other applications are requesting location at a faster interval.
         mLocationRequest.setInterval(UPDATE_INTERVAL_IN_MILLISECONDS);
 
-        // Sets the fastest rate for active location updates. This interval is exact, and your
-        // application will never receive updates faster than this value.
+        // Sets the fastest rate for active location updates. This interval is exact, and your application will never receive updates faster than this value.
         mLocationRequest.setFastestInterval(FASTEST_UPDATE_INTERVAL_IN_MILLISECONDS);
 
         mLocationRequest.setPriority(LocationRequest.PRIORITY_BALANCED_POWER_ACCURACY);

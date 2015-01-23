@@ -193,9 +193,9 @@ public class BookingUpcomingDetailFragmentActivity extends FragmentActivity impl
 			DialogUtil.showCallDialog(this, "Call Booker", obmBookingVehicleItem.getBookingUserMobileNumber(), 
 					obmBookingVehicleItem.getBookingUserMobileNumber());
 		} else if (view == directionBtn) {
-			if (ObsUtil.sCurrentLocation!=null) {
+			if (ObsUtil.sLastLocation !=null) {
 				String uri = String.format(Locale.ENGLISH, "http://maps.google.com/maps?saddr=%f,%f&daddr=%s",
-                        ObsUtil.sCurrentLocation.getLatitude(),  ObsUtil.sCurrentLocation.getLongitude(), obmBookingVehicleItem.getPickupMapAddress());
+                        ObsUtil.sLastLocation.getLatitude(),  ObsUtil.sLastLocation.getLongitude(), obmBookingVehicleItem.getPickupMapAddress());
 				Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
 				intent.setClassName("com.google.android.apps.maps", "com.google.android.maps.MapsActivity");
 				startActivity(intent);
@@ -237,35 +237,17 @@ public class BookingUpcomingDetailFragmentActivity extends FragmentActivity impl
 			Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
 			intent.setClassName("com.google.android.apps.maps", "com.google.android.maps.MapsActivity");
 			startActivity(intent);
-			
-//			Uri geoLocation = Uri.parse("geo:latitude,longitude" + mCurrentLatLng.latitude + "," + mCurrentLatLng.longitude + "?z=15&q="+obmBookingVehicleItem.getDestination());
-//			Intent intent = new Intent(Intent.ACTION_VIEW);
-//		    intent.setData(geoLocation);
-//		    if (intent.resolveActivity(getPackageManager()) != null) {
-//		        startActivity(intent);
-//		    }
 		}
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-//        try {
-//            ((ObsApplication) getApplication()).getTracker(ObsApplication.TrackerName.APP_TRACKER);
-//            GoogleAnalytics.getInstance(this).reportActivityStart(this);
-//        } catch (Exception ex) {
-//            ex.printStackTrace();
-//        }
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-//        try {
-//            GoogleAnalytics.getInstance(this).reportActivityStop(this);
-//        } catch (Exception ex) {
-//            ex.printStackTrace();
-//        }
     }
 
     @Override
