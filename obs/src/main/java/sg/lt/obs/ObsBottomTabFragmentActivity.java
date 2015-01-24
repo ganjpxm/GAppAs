@@ -3,9 +3,6 @@ package sg.lt.obs;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.location.Address;
-import android.location.Geocoder;
-import android.location.Location;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
@@ -18,25 +15,14 @@ import android.view.Window;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
-import com.google.android.gms.common.api.GoogleApiClient;
-import com.google.android.gms.common.api.GoogleApiClient.ConnectionCallbacks;
-import com.google.android.gms.common.api.GoogleApiClient.OnConnectionFailedListener;
 import com.google.android.gms.gcm.GoogleCloudMessaging;
-import com.google.android.gms.location.LocationListener;
-import com.google.android.gms.location.LocationRequest;
-import com.google.android.gms.location.LocationServices;
 
 import org.ganjp.glib.core.base.ActivityStack;
 import org.ganjp.glib.core.base.Const;
-import org.ganjp.glib.core.util.DateUtil;
 import org.ganjp.glib.core.util.DialogUtil;
 import org.ganjp.glib.core.util.StringUtil;
 
 import java.io.IOException;
-import java.text.DateFormat;
-import java.util.Date;
-import java.util.List;
-import java.util.Locale;
 
 import sg.lt.obs.common.ObsConst;
 import sg.lt.obs.common.gcm.GcmUtil;
@@ -44,8 +30,9 @@ import sg.lt.obs.common.other.ObsUtil;
 import sg.lt.obs.common.other.PreferenceUtil;
 import sg.lt.obs.fragment.FragmentIndicator;
 import sg.lt.obs.fragment.FragmentIndicator.OnIndicateListener;
+import sg.lt.obs.service.LocationUpdateService;
 
-public class ObsBottomTabFragmentActivity extends FragmentActivity implements ConnectionCallbacks, OnConnectionFailedListener, LocationListener {
+public class ObsBottomTabFragmentActivity extends FragmentActivity { //implements ConnectionCallbacks, OnConnectionFailedListener, LocationListener
 
 	public static Fragment[] mFragments;
 	static final String TAG = "ObsBottomTabFragmentActivity";
@@ -58,11 +45,11 @@ public class ObsBottomTabFragmentActivity extends FragmentActivity implements Co
     private String mRegistrationId;
 
     //Location
-    protected GoogleApiClient mGoogleApiClient;
-    protected LocationRequest mLocationRequest;
-    protected Boolean mRequestingLocationUpdates = true;
-    public static final long UPDATE_INTERVAL_IN_MILLISECONDS = 60000;
-    public static final long FASTEST_UPDATE_INTERVAL_IN_MILLISECONDS = UPDATE_INTERVAL_IN_MILLISECONDS / 2;
+//    protected GoogleApiClient mGoogleApiClient;
+//    protected LocationRequest mLocationRequest;
+//    protected Boolean mRequestingLocationUpdates = true;
+//    public static final long UPDATE_INTERVAL_IN_MILLISECONDS = 60000;
+//    public static final long FASTEST_UPDATE_INTERVAL_IN_MILLISECONDS = UPDATE_INTERVAL_IN_MILLISECONDS / 2;
 
     @Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -87,10 +74,11 @@ public class ObsBottomTabFragmentActivity extends FragmentActivity implements Co
         	mHandler.obtainMessage(0).sendToTarget();
         }
 
-        buildGoogleApiClient();
-        if (mGoogleApiClient!=null) {
-            mGoogleApiClient.connect();
-        }
+        startService(new Intent(this, LocationUpdateService.class));
+//        buildGoogleApiClient();
+//        if (mGoogleApiClient!=null) {
+//            mGoogleApiClient.connect();
+//        }
 	}
 	
 	private Handler mHandler = new Handler() {  
@@ -145,17 +133,17 @@ public class ObsBottomTabFragmentActivity extends FragmentActivity implements Co
     @Override
     protected void onStop() {
         super.onStop();
-        if (mGoogleApiClient!=null) {
-            mGoogleApiClient.connect();
-        }
+//        if (mGoogleApiClient!=null) {
+//            mGoogleApiClient.connect();
+//        }
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        if (mGoogleApiClient!=null) {
-            mGoogleApiClient.connect();
-        }
+//        if (mGoogleApiClient!=null) {
+//            mGoogleApiClient.connect();
+//        }
     }
 	
 	/**
@@ -237,109 +225,131 @@ public class ObsBottomTabFragmentActivity extends FragmentActivity implements Co
     	}
     }
 
-    /**
-     * Runs when a GoogleApiClient object successfully connects.
-     */
-    @Override
-    public void onConnected(Bundle connectionHint) {
-        Log.i(TAG, "Connected to GoogleApiClient");
-        if (ObsUtil.sLastLocation == null) {
-            ObsUtil.sLastLocation = LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient);
-        }
-        if (mRequestingLocationUpdates) {
-            startLocationUpdates();
-        }
-    }
-
-    public void updateLastLocationInfo() {
-        Geocoder geocoder = new Geocoder(mContext, Locale.getDefault());
-        try {
-            List<Address> addresses = geocoder.getFromLocation(ObsUtil.sLastLocation.getLatitude(), ObsUtil.sLastLocation.getLongitude(), 1);
-            Address address = addresses.get(0);
-            ObsUtil.sLastAddress = (address.getAddressLine(0) + ", " + address.getCountryName());
-            ObsUtil.sLastDateTime = DateUtil.formateDate(new Date(), "dd/MM/yyyy HH:mm:ss");
-            new Thread(new Runnable() {
-                public void run() {
-                    ObsUtil.trackLocation();
-                }
-            }).start();
-        } catch(Exception ex) {
-            ex.printStackTrace();
-        }
-    }
-
-    /**
-     * Callback that fires when the location changes.
-     */
-    @Override
-    public void onLocationChanged(Location location) {
-        ObsUtil.sLastLocation = location;
-        updateLastLocationInfo();
-    }
-
-    @Override
-    public void onConnectionSuspended(int cause) {
-        // The connection to Google Play services was lost for some reason. We call connect() to attempt to re-establish the connection.
-        Log.i(TAG, "Connection suspended");
-        mGoogleApiClient.connect();
-    }
-
-
-    @Override
-    public void onConnectionFailed(ConnectionResult result) {
-        // Refer to the javadoc for ConnectionResult to see what error codes might be returned in
-        // onConnectionFailed.
-        Log.i(TAG, "Connection failed: ConnectionResult.getErrorCode() = " + result.getErrorCode());
-    }
-
-    /**
-     * Builds a GoogleApiClient. Uses the {@code #addApi} method to request the
-     * LocationServices API.
-     */
-    protected synchronized void buildGoogleApiClient() {
-        Log.i(TAG, "Building GoogleApiClient");
-        mGoogleApiClient = new GoogleApiClient.Builder(this)
-                .addConnectionCallbacks(this)
-                .addOnConnectionFailedListener(this)
-                .addApi(LocationServices.API)
-                .build();
-        createLocationRequest();
-    }
-
-    /**
-     * Sets up the location request. Android has two location request settings:
-     * {@code ACCESS_COARSE_LOCATION} and {@code ACCESS_FINE_LOCATION}. These settings control
-     * the accuracy of the current location. This sample uses ACCESS_FINE_LOCATION, as defined in
-     * the AndroidManifest.xml.
-     * <p/>
-     * When the ACCESS_FINE_LOCATION setting is specified, combined with a fast update
-     * interval (5 seconds), the Fused Location Provider API returns location updates that are
-     * accurate to within a few feet.
-     * <p/>
-     * These settings are appropriate for mapping applications that show real-time location
-     * updates.
-     */
-    protected void createLocationRequest() {
-        mLocationRequest = new LocationRequest();
-
-        // Sets the desired interval for active location updates. This interval is
-        // inexact. You may not receive updates at all if no location sources are available, or
-        // you may receive them slower than requested. You may also receive updates faster than
-        // requested if other applications are requesting location at a faster interval.
-        mLocationRequest.setInterval(UPDATE_INTERVAL_IN_MILLISECONDS);
-
-        // Sets the fastest rate for active location updates. This interval is exact, and your application will never receive updates faster than this value.
-        mLocationRequest.setFastestInterval(FASTEST_UPDATE_INTERVAL_IN_MILLISECONDS);
-
-        mLocationRequest.setPriority(LocationRequest.PRIORITY_BALANCED_POWER_ACCURACY);
-    }
-
-    /**
-     * Requests location updates from the FusedLocationApi.
-     */
-    protected void startLocationUpdates() {
-        // The final argument to {@code requestLocationUpdates()} is a LocationListener
-        // (http://developer.android.com/reference/com/google/android/gms/location/LocationListener.html).
-        LocationServices.FusedLocationApi.requestLocationUpdates(mGoogleApiClient, mLocationRequest, this);
-    }
+//    /**
+//     * Runs when a GoogleApiClient object successfully connects.
+//     */
+//    @Override
+//    public void onConnected(Bundle connectionHint) {
+//        Log.i(TAG, "Connected to GoogleApiClient");
+//        if (ObsUtil.sLastLocation == null) {
+//            ObsUtil.sLastLocation = LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient);
+//        }
+//        if (mRequestingLocationUpdates) {
+//            startLocationUpdates();
+//        }
+//    }
+//
+//    public void updateLastLocationInfo() {
+//        Geocoder geocoder = new Geocoder(mContext, Locale.getDefault());
+//        try {
+//            List<Address> addresses = geocoder.getFromLocation(ObsUtil.sLastLocation.getLatitude(), ObsUtil.sLastLocation.getLongitude(), 1);
+//            Address address = addresses.get(0);
+//            String addressLine = address.getAddressLine(0);
+//            if (StringUtil.hasText(addressLine)) {
+//                if (addressLine.indexOf(address.getCountryName())==-1) {
+//                    addressLine += ", " + address.getCountryName();
+//                }
+//
+//                if (StringUtil.isEmpty(ObsUtil.sLastAddress) || !addressLine.equals(ObsUtil.sLastAddress)) {
+//                    ObsUtil.sLastAddress = addressLine;
+//                    ObsUtil.sLastDateTime = DateUtil.formateDate(new Date(), "dd/MM/yyyy HH:mm:ss");
+//                    new Thread(new Runnable() {
+//                        public void run() {
+//                            ObsUtil.trackLocation();
+//                        }
+//                    }).start();
+//                } else if (StringUtil.hasText(ObsUtil.sLastAddress) && addressLine.equals(ObsUtil.sLastAddress)) {
+//                    String nowHours = DateUtil.formateDate(new Date(), "HH");
+//                    String lastHours = DateUtil.formateDate(DateUtil.parseDateOrDateTime(ObsUtil.sLastDateTime), "HH");
+//                    if (!nowHours.equals(lastHours)) {
+//                        ObsUtil.sLastDateTime = DateUtil.formateDate(new Date(), "dd/MM/yyyy HH:mm:ss");
+//                        new Thread(new Runnable() {
+//                            public void run() {
+//                                ObsUtil.trackLocation();
+//                            }
+//                        }).start();
+//                    }
+//                }
+//            }
+//
+//
+//        } catch(Exception ex) {
+//            ex.printStackTrace();
+//        }
+//    }
+//
+//    /**
+//     * Callback that fires when the location changes.
+//     */
+//    @Override
+//    public void onLocationChanged(Location location) {
+//        ObsUtil.sLastLocation = location;
+//        updateLastLocationInfo();
+//    }
+//
+//    @Override
+//    public void onConnectionSuspended(int cause) {
+//        // The connection to Google Play services was lost for some reason. We call connect() to attempt to re-establish the connection.
+//        Log.i(TAG, "Connection suspended");
+//        mGoogleApiClient.connect();
+//    }
+//
+//
+//    @Override
+//    public void onConnectionFailed(ConnectionResult result) {
+//        // Refer to the javadoc for ConnectionResult to see what error codes might be returned in
+//        // onConnectionFailed.
+//        Log.i(TAG, "Connection failed: ConnectionResult.getErrorCode() = " + result.getErrorCode());
+//    }
+//
+//    /**
+//     * Builds a GoogleApiClient. Uses the {@code #addApi} method to request the
+//     * LocationServices API.
+//     */
+//    protected synchronized void buildGoogleApiClient() {
+//        Log.i(TAG, "Building GoogleApiClient");
+//        mGoogleApiClient = new GoogleApiClient.Builder(this)
+//                .addConnectionCallbacks(this)
+//                .addOnConnectionFailedListener(this)
+//                .addApi(LocationServices.API)
+//                .build();
+//        createLocationRequest();
+//    }
+//
+//    /**
+//     * Sets up the location request. Android has two location request settings:
+//     * {@code ACCESS_COARSE_LOCATION} and {@code ACCESS_FINE_LOCATION}. These settings control
+//     * the accuracy of the current location. This sample uses ACCESS_FINE_LOCATION, as defined in
+//     * the AndroidManifest.xml.
+//     * <p/>
+//     * When the ACCESS_FINE_LOCATION setting is specified, combined with a fast update
+//     * interval (5 seconds), the Fused Location Provider API returns location updates that are
+//     * accurate to within a few feet.
+//     * <p/>
+//     * These settings are appropriate for mapping applications that show real-time location
+//     * updates.
+//     */
+//    protected void createLocationRequest() {
+//        mLocationRequest = new LocationRequest();
+//
+//        // Sets the desired interval for active location updates. This interval is
+//        // inexact. You may not receive updates at all if no location sources are available, or
+//        // you may receive them slower than requested. You may also receive updates faster than
+//        // requested if other applications are requesting location at a faster interval.
+//        mLocationRequest.setInterval(UPDATE_INTERVAL_IN_MILLISECONDS);
+//
+//        // Sets the fastest rate for active location updates. This interval is exact, and your application will never receive updates faster than this value.
+//        mLocationRequest.setFastestInterval(FASTEST_UPDATE_INTERVAL_IN_MILLISECONDS);
+//
+//        mLocationRequest.setPriority(LocationRequest.PRIORITY_BALANCED_POWER_ACCURACY);
+//    }
+//
+//    /**
+//     * Requests location updates from the FusedLocationApi.
+//     */
+//    protected void startLocationUpdates() {
+//        // The final argument to {@code requestLocationUpdates()} is a LocationListener
+//        // (http://developer.android.com/reference/com/google/android/gms/location/LocationListener.html).
+//        LocationServices.FusedLocationApi.requestLocationUpdates(mGoogleApiClient, mLocationRequest, this);
+//    }
 }

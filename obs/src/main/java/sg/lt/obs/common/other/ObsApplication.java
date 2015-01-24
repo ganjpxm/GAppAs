@@ -44,6 +44,11 @@ public class ObsApplication extends BaseApplication {
         super();
     }
 
+    @Override
+    public void onCreate() {
+        super.onCreate();
+    }
+
     synchronized public Tracker getTracker(TrackerName trackerId) {
         if (!mTrackers.containsKey(trackerId)) {
             GoogleAnalytics analytics = GoogleAnalytics.getInstance(this);

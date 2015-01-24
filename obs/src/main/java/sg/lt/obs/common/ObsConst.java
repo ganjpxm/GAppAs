@@ -15,8 +15,8 @@ public abstract class ObsConst {
 	//----------------------------- Obs -----------------
     public static final String DATABASE_NAME = "ltobs.db";
     public static final int DATABASE_VERSION = 1;
-//	public static final String SERVER_IP = "http://119.9.74.121";
-	public static final String SERVER_IP = "http://192.168.1.4:8080/obs";
+	public static final String SERVER_IP = "http://119.9.74.121";
+//	public static final String SERVER_IP = "http://192.168.1.4:8080/obs";
 	public static final String URL_LOGIN = SERVER_IP + "/allOrg/login";
 	public static final String URL_GET_BM_CONFIGS = SERVER_IP + "/mobile/getBmConfigs";
 	public static final String URL_GET_DRIVER_BOOKING = SERVER_IP + "/free/driver/booking/";
@@ -97,4 +97,20 @@ public abstract class ObsConst {
 	public static final int PROGRAM_ANDROID = 1;
 	public static final int PROGRAM_IOS = 2;
 	public static final int NEWS_MOBILE_APP = 11;
+
+    // Milliseconds per second
+    private static final int MILLISECONDS_PER_SECOND = 1000;
+    // Update frequency in seconds
+    private static final int UPDATE_INTERVAL_IN_SECONDS = 30;
+    // Update frequency in milliseconds
+    public static final long UPDATE_INTERVAL = MILLISECONDS_PER_SECOND * UPDATE_INTERVAL_IN_SECONDS;
+    // The fastest update frequency, in seconds
+    private static final int FASTEST_INTERVAL_IN_SECONDS = 30;
+    // A fast frequency ceiling in milliseconds
+    public static final long FASTEST_INTERVAL = MILLISECONDS_PER_SECOND * FASTEST_INTERVAL_IN_SECONDS;
+    // Stores the lat / long pairs in a text file
+    public static final String LOCATION_FILE = "sdcard/location.txt";
+    // Stores the connect / disconnect data in a text file
+    public static final String LOG_FILE = "sdcard/log.txt";
+
 }
