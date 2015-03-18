@@ -24,7 +24,14 @@
     <string name="lead_passenger">Lead Passenger</string>
     <string name="book_by">Book by</string>
     <string name="assign_by">Assign by</string>
+    <string name="driver">Driver</string>
     <string name="broadcast">Broadcast</string>
+    <string name="reassign_driver">Reassign</string>
+    <string name="complete">Complete</string>
+
+    <string name="complete_job_tile">Have completed the job?</string>
+    <string name="complete_job_tip">Please enter your claim amount : </string>
+    <string name="reassign_driver_title">Please assign a driver.</string>
 
     <!-- Common -->
     <string name="sample">Sample</string>

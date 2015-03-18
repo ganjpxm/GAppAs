@@ -115,6 +115,22 @@
 			        android:layout_alignParentRight="true" android:contentDescription="@string/empty" />
 			</RelativeLayout>
 
+            <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@color/white"
+                android:layout_marginLeft="5dip" android:layout_marginRight="5dip" android:layout_marginTop="5dip">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical"
+                    android:layout_marginLeft="5dip" android:layout_marginRight="50dip" android:layout_marginTop="5dip"
+                    android:layout_alignParentLeft="true">
+                    <TextView android:layout_width="fill_parent" android:layout_height="wrap_content"
+                        android:textSize="14sp" android:textColor="@color/secondary_text" android:text="@string/driver"/>
+                    <TextView android:id="@+id/driver_tv" android:layout_width="fill_parent" android:layout_height="wrap_content"
+                        android:paddingTop="1dip"  android:paddingBottom="5dip" android:textSize="16sp" android:textColor="@color/black"/>
+                </LinearLayout>
+                <Button android:id="@+id/reassign_driver_btn" android:layout_width="80dip" android:layout_height="40dip" android:layout_centerVertical="true"
+                    android:layout_marginBottom="5dip" android:layout_marginRight="5dip" android:layout_marginTop="5dip"
+                    android:text="@string/reassign_driver" android:textSize="16sp"  style="@style/btn_haiti"
+                    android:layout_alignParentRight="true" android:contentDescription="@string/empty" />
+            </RelativeLayout>
+
             <TextView android:id="@+id/vehicle_tv" android:layout_width="fill_parent" android:layout_height="wrap_content"
                 android:layout_marginLeft="5dip" android:layout_marginRight="5dip" android:layout_marginTop="5dip" android:layout_marginBottom="5dp"
                 android:paddingLeft="5dip" android:paddingRight="5dip" android:paddingTop="10dip" android:paddingBottom="10dip"
@@ -124,6 +140,10 @@
                 android:layout_marginLeft="5dip" android:layout_marginRight="5dip" android:layout_marginTop="5dip" android:layout_marginBottom="10dp"
                 android:paddingLeft="5dip" android:paddingRight="5dip" android:paddingTop="10dip" android:paddingBottom="10dip"
                 android:background="@color/white" android:textSize="16sp" android:textColor="@color/black" android:visibility="gone"/>
+
+            <Button android:id="@+id/booking_complete_btn" android:layout_width="fill_parent" android:layout_height="40dp"
+                android:layout_marginLeft="5dip" android:layout_marginRight="5dip" android:layout_marginTop="5dip" android:layout_marginBottom="10dp"
+                android:text="@string/complete" android:textSize="16sp" android:visibility="gone" style="@style/btn_haiti"  />
 		</LinearLayout>
     </ScrollView>
 

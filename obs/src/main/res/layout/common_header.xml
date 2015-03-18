@@ -21,6 +21,8 @@
 	<LinearLayout android:layout_width="0dp" android:layout_weight="1" android:layout_height="match_parent" android:gravity="right" android:orientation="vertical">
 		<Button android:id="@+id/next_btn" android:layout_width="wrap_content" android:layout_height="40dp" android:paddingRight="20dp"
 		    android:layout_marginTop="1dp" android:paddingLeft="5dp" android:text="@string/empty" android:drawableRight="@drawable/style_btn_next"  
-		    style="@style/txt_navigation" android:background="@color/transparent"/>
+		    style="@style/txt_navigation" android:background="@color/transparent" android:visibility="gone"/>
+        <Button android:id="@+id/fn_btn" android:layout_width="wrap_content" android:layout_height="40dp" android:layout_marginRight="16dp"
+            android:layout_marginTop="1dp" android:paddingLeft="5dp" style="@style/btn_haiti" android:background="@color/transparent" android:visibility="gone"/>
 	</LinearLayout>
 </LinearLayout>

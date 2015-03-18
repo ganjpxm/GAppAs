@@ -1,12 +1,17 @@
 package sg.lt.obs;
 
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.location.Address;
 import android.location.Geocoder;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v4.app.FragmentActivity;
+import android.text.ClipboardManager;
 import android.text.Html;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -26,8 +31,10 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.PolylineOptions;
 
 import org.ganjp.glib.core.base.ActivityStack;
+import org.ganjp.glib.core.base.Const;
 import org.ganjp.glib.core.util.DateUtil;
 import org.ganjp.glib.core.util.DialogUtil;
+import org.ganjp.glib.core.util.HttpConnection;
 import org.ganjp.glib.core.util.NetworkUtil;
 import org.ganjp.glib.core.util.StringUtil;
 
@@ -36,9 +43,11 @@ import java.util.List;
 import java.util.Locale;
 
 import sg.lt.obs.common.ObsConst;
+import sg.lt.obs.common.dao.ObmBookingVehicleItemDAO;
 import sg.lt.obs.common.entity.ObmBookingVehicleItem;
 import sg.lt.obs.common.other.ObsApplication;
 import sg.lt.obs.common.other.ObsUtil;
+import sg.lt.obs.common.other.PreferenceUtil;
 
 /**
  * http://www.androidhive.info/2013/08/android-working-with-google-maps-v2
@@ -49,7 +58,7 @@ import sg.lt.obs.common.other.ObsUtil;
 public class BookingUpcomingDetailFragmentActivity extends FragmentActivity implements OnClickListener, OnMapReadyCallback {
 	protected Button mBackBtn = null;
 	protected TextView mTitleTv = null;
-	protected Button mNextBtn = null;
+	protected Button mCopyBtn = null;
 	
 	private TextView bookingServiceTv;
 	private TextView pickupDateTimeTv;
@@ -60,6 +69,7 @@ public class BookingUpcomingDetailFragmentActivity extends FragmentActivity impl
 	private TextView destinationTv;
 	private TextView leadPassengerTv;
 	private TextView bookByTv;
+    private TextView driverTv;
 	private TextView vehicleTv;
 	private TextView remarkTv;
 
@@ -72,12 +82,20 @@ public class BookingUpcomingDetailFragmentActivity extends FragmentActivity impl
 	private Button routerBtn;
 	private Button callLeadPassengerBtn;
 	private Button callBookByBtn;
+
+    private Button okBtn;
+    private Button reassignDriverBtn;
 	
 	private ObmBookingVehicleItem obmBookingVehicleItem;
 
+    private FragmentActivity mActivity;
+    private boolean isRefreshUpcomingTab = false;
+
+    private String driverInfos;
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+        mActivity = this;
 
         Tracker t = ((ObsApplication) getApplication()).getTracker(ObsApplication.TrackerName.APP_TRACKER);
         t.setScreenName("Upcoming Booking Detail");
@@ -89,17 +107,19 @@ public class BookingUpcomingDetailFragmentActivity extends FragmentActivity impl
 	    mBackBtn.setOnClickListener(this);
 	    
 	    mTitleTv = (TextView)findViewById(R.id.title_tv);
-	    mNextBtn = (Button)findViewById(R.id.next_btn);
-	    mNextBtn.setVisibility(View.INVISIBLE);
-	   
-		obmBookingVehicleItem = (ObmBookingVehicleItem)getIntent().getExtras().getSerializable(ObsConst.KEY_BOOKING_VEHICLE_ITEM_OBS);
+        mCopyBtn = (Button)findViewById(R.id.fn_btn);
+        mCopyBtn.setText("Copy");
+        mCopyBtn.setOnClickListener(this);
+        mCopyBtn.setVisibility(View.VISIBLE);
+
+        obmBookingVehicleItem = (ObmBookingVehicleItem)getIntent().getExtras().getSerializable(ObsConst.KEY_BOOKING_VEHICLE_ITEM_OBS);
 		mTitleTv.setText(obmBookingVehicleItem.getBookingNumber());
 		
 		bookingServiceTv = (TextView) findViewById(R.id.booking_service_tv);
 		bookingServiceTv.setText(obmBookingVehicleItem.getBookingService());
 		
 		pickupDateTimeTv = (TextView) findViewById(R.id.pickup_datetime_tv);
-		pickupDateTimeTv.setText(DateUtil.formateDate(new Date(obmBookingVehicleItem.getPickupDateTime().getTime()), "EEE, dd MMM yyyy, HH:mm"));
+		pickupDateTimeTv.setText(DateUtil.formateDate(new Date(obmBookingVehicleItem.getPickupDateTime().getTime()), "EEE, dd MMM yyyy, HH:mm a"));
 		
 		String address = "";
 		if ("0101".equalsIgnoreCase(obmBookingVehicleItem.getBookingServiceCd())) {
@@ -158,6 +178,11 @@ public class BookingUpcomingDetailFragmentActivity extends FragmentActivity impl
 		callBookByBtn = (Button) findViewById(R.id.call_book_by_btn);
 		callBookByBtn.setOnClickListener(this);
 
+        driverTv = (TextView) findViewById(R.id.driver_tv);
+        driverTv.setText(obmBookingVehicleItem.getDriverUserName());
+        reassignDriverBtn = (Button) findViewById(R.id.reassign_driver_btn);
+        reassignDriverBtn.setOnClickListener(this);
+
         String vehicle = "<img src='icon_vehicle_black'/> ";
 		if (StringUtil.isNotEmpty(obmBookingVehicleItem.getVehicle())) {
             vehicle += obmBookingVehicleItem.getVehicle();
@@ -175,6 +200,16 @@ public class BookingUpcomingDetailFragmentActivity extends FragmentActivity impl
 			remarkTv.setText(Html.fromHtml(remark, new ImageGetter(), null));
 		}
 
+        okBtn = (Button) findViewById(R.id.ok_btn);
+        String today = DateUtil.getDateString(new Date());
+        String tomorrowDateStr = DateUtil.getTomorrowDateStr();
+        String pickupDate = DateUtil.getDateString(obmBookingVehicleItem.getPickupDate());
+        if ((today.equalsIgnoreCase(pickupDate) || tomorrowDateStr.equalsIgnoreCase(pickupDate))
+                && !ObsConst.DRIVER_ACTION_OK.equalsIgnoreCase(obmBookingVehicleItem.getDriverAction())) {
+            okBtn.setOnClickListener(this);
+            okBtn.setVisibility(View.VISIBLE);
+        }
+
         if (NetworkUtil.isNetworkAvailable(this)) {
             SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
             mapFragment.getMapAsync(this);
@@ -184,9 +219,39 @@ public class BookingUpcomingDetailFragmentActivity extends FragmentActivity impl
 	@Override
     public void onClick(View view) {
     	if (view == mBackBtn) {
-    		startActivity(new Intent(this, ObsBottomTabFragmentActivity.class));
-    		overridePendingTransition(org.ganjp.glib.R.anim.in_from_left, org.ganjp.glib.R.anim.out_to_right);
-		} else if (view == callLeadPassengerBtn) {
+            startActivity(new Intent(this, ObsBottomTabFragmentActivity.class));
+            Intent intent = new Intent(this, ObsBottomTabFragmentActivity.class);
+            if (isRefreshUpcomingTab) {
+                intent.putExtra("isRefresh", true);
+            }
+            startActivity(intent);
+            overridePendingTransition(org.ganjp.glib.R.anim.in_from_left, org.ganjp.glib.R.anim.out_to_right);
+		} else if (view == mCopyBtn) {
+            String bookingInfo = obmBookingVehicleItem.getBookingNumber();
+            if ("Cash".equalsIgnoreCase(obmBookingVehicleItem.getPaymentMode())) {
+                bookingInfo += "\n" +  "collect " + obmBookingVehicleItem.getPriceUnit() + obmBookingVehicleItem.getPrice() + " Cash";
+            } else if ("Paid".equalsIgnoreCase(obmBookingVehicleItem.getPaymentStatus())) {
+                bookingInfo += "\nPaid";
+            } else {
+                bookingInfo += "\nNot Paid";
+            }
+            bookingInfo += "\n\n" + DateUtil.formateDate(new Date(obmBookingVehicleItem.getPickupDateTime().getTime()), "EEE, dd MMM yyyy, HH:mm a");
+            bookingInfo += "\n" + obmBookingVehicleItem.getPickupAddress();
+            bookingInfo += "\nto" + obmBookingVehicleItem.getDestination();
+            if (StringUtil.hasText(obmBookingVehicleItem.getStop1Address())) {
+                bookingInfo += "\nStop1 " + obmBookingVehicleItem.getStop1Address();
+            }
+            if (StringUtil.hasText(obmBookingVehicleItem.getStop2Address())) {
+                bookingInfo += "\nStop2 " + obmBookingVehicleItem.getStop2Address();
+            }
+            bookingInfo += "\n\n" + obmBookingVehicleItem.getVehicle() + " - " + obmBookingVehicleItem.getNumberOfPassenger() + " pax";
+            bookingInfo += "\nPassenger : " +  obmBookingVehicleItem.getLeadPassengerGender() + " " + obmBookingVehicleItem.getLeadPassengerName()
+                        + " " + obmBookingVehicleItem.getLeadPassengerMobileNumber();
+            bookingInfo += "\n\nFrom " + PreferenceUtil.getString(ObsConst.KEY_USER_NAME_OBS);
+            ClipboardManager clipboardManager = (ClipboardManager)getSystemService(Context.CLIPBOARD_SERVICE);
+            clipboardManager.setText(bookingInfo);
+            DialogUtil.showInfoDialog(this, "Copy Success");
+        } else if (view == callLeadPassengerBtn) {
 			DialogUtil.showCallDialog(this, "Call Lead Passenger", obmBookingVehicleItem.getLeadPassengerMobileNumber(), 
 					obmBookingVehicleItem.getLeadPassengerMobileNumber());
 		} else if (view == callBookByBtn) {
@@ -202,7 +267,7 @@ public class BookingUpcomingDetailFragmentActivity extends FragmentActivity impl
 			} else {
 				DialogUtil.showAlertDialog(this, "Sorry can't get current postion");
 			}
-			
+
 //			Uri geoLocation = Uri.parse("geo:latitude,longitude" + mCurrentLatLng.latitude + "," + mCurrentLatLng.longitude + "?z=15&q="+obmBookingVehicleItem.getPickupAddress());
 //			Intent intent = new Intent(Intent.ACTION_VIEW);
 //		    intent.setData(geoLocation);
@@ -237,8 +302,79 @@ public class BookingUpcomingDetailFragmentActivity extends FragmentActivity impl
 			Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
 			intent.setClassName("com.google.android.apps.maps", "com.google.android.maps.MapsActivity");
 			startActivity(intent);
-		}
+		} else if (view == okBtn) {
+            DialogUtil.showConfirmDialog(this, "", "Are you ok for the job (" + obmBookingVehicleItem.getBookingNumber() + ")?",
+                    new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            if (which == -1) {
+                                DialogUtil.showProcessingDialog(mActivity);
+                                new Thread(new Runnable() {
+                                    public void run() {
+                                        try {
+                                            String result = ObsUtil.driverOk(obmBookingVehicleItem.getBookingVehicleItemId());
+                                            if (Const.VALUE_SUCCESS.equalsIgnoreCase(result)) {
+                                                mHandlerDialog.obtainMessage(0).sendToTarget();
+                                                ObsUtil.getBookingVehicleItemsFromWeb(new HttpConnection(false), true);
+                                            } else {
+                                                mHandlerDialog.obtainMessage(1).sendToTarget();
+                                            }
+                                        } catch (Exception e) {
+                                            e.printStackTrace();
+                                            mHandlerDialog.obtainMessage(1).sendToTarget();
+                                        }
+                                    }
+                                }).start();
+                            }
+                        }
+                    });
+        } else if (view == reassignDriverBtn) {
+            DialogUtil.showProcessingDialog(mActivity);
+            new Thread(new Runnable() {
+                public void run() {
+                    try {
+                        String result = ObsUtil.getRelateDriverInfos(obmBookingVehicleItem.getVehicleCd());
+                        if (!Const.VALUE_FAIL.equalsIgnoreCase(result)) {
+                            driverInfos = result;
+                            mHandlerDialog.obtainMessage(2).sendToTarget();
+                        } else {
+                            mHandlerDialog.obtainMessage(3).sendToTarget();
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        mHandlerDialog.obtainMessage(3).sendToTarget();
+                    }
+                }
+            }).start();
+
+        }
     }
+
+    private Handler mHandlerDialog = new Handler() {
+        public void handleMessage (Message msg) {
+            if (msg.what==0) {
+                DialogUtil.dismissProgressDialog();
+                DialogUtil.showInfoDialog(mActivity, getResources().getString(R.string.success));
+                okBtn.setVisibility(View.GONE);
+                isRefreshUpcomingTab = true;
+            } else if (msg.what==1) {
+                DialogUtil.dismissProgressDialog();
+                DialogUtil.showInfoDialog(mActivity, getResources().getString(R.string.fail));
+            } else if (msg.what==2) {
+                DialogUtil.dismissProgressDialog();
+                Intent intent = new Intent(mActivity, BookingAssignDriverActivity.class);
+                intent.putExtra(ObsConst.KEY_BOOKING_VEHICLE_ITEM_OBS, obmBookingVehicleItem);
+                intent.putExtra(ObsConst.KEY_DRIVER_INFO_OBS, driverInfos);
+                intent.putExtra(ObsConst.KEY_IS_PAST, Const.VALUE_NO);
+
+                startActivity(intent);
+                overridePendingTransition(R.anim.abc_slide_in_top, R.anim.abc_slide_in_bottom);
+            } else if (msg.what==3) {
+                DialogUtil.dismissProgressDialog();
+                DialogUtil.showInfoDialog(mActivity, "Sorry for getting drivers fail.");
+            }
+        }
+    };
 
     @Override
     protected void onStart() {
@@ -253,7 +389,15 @@ public class BookingUpcomingDetailFragmentActivity extends FragmentActivity impl
     @Override
     protected void onResume() {
         super.onResume();
+        String isNeedRefresh = PreferenceUtil.getString(ObsConst.KEY_DETAIL_NEEED_REFRESH);
+        if (StringUtil.hasText(isNeedRefresh) && Const.VALUE_YES.equalsIgnoreCase(isNeedRefresh)) {
+            String bookingVehicleItemId = obmBookingVehicleItem.getBookingVehicleItemId();
+            obmBookingVehicleItem = ObmBookingVehicleItemDAO.getInstance().getObmBookingVehicleItem(bookingVehicleItemId);
+            driverTv.setText(obmBookingVehicleItem.getDriverUserName());
+            PreferenceUtil.saveString(ObsConst.KEY_DETAIL_NEEED_REFRESH, Const.VALUE_NO);
+        }
         ActivityStack.setActiveActivity(this);
+        isRefreshUpcomingTab = false;
     }
 	
 	@Override

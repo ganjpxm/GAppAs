@@ -39,25 +39,33 @@ public class SimpleSectionedListAdapter extends BaseAdapter implements PinnedSec
     private ListAdapter mBaseAdapter;
     private SparseArray<Section> mSections = new SparseArray<Section>();
 	private int mHeaderTextViewResId;
+    private int mItemSizeTextViewResId;
 
     public static class Section {
         int firstPosition;
         int sectionedPosition;
+        int itemSize;
         CharSequence title;
-        public Section(int firstPosition, CharSequence title) {
+        public Section(int firstPosition, CharSequence title, int itemSize) {
             this.firstPosition = firstPosition;
             this.title = title;
+            this.itemSize = itemSize;
         }
 
         public CharSequence getTitle() {
             return title;
         }
+
+        public int getItemSize() {
+            return itemSize;
+        }
     }
 
-    public SimpleSectionedListAdapter(Context context, BaseAdapter baseAdapter, int sectionResourceId, int headerTextViewResId) {
+    public SimpleSectionedListAdapter(Context context, BaseAdapter baseAdapter, int sectionResourceId, int headerTextViewResId, int itemSizeTextViewResId) {
         mLayoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         mSectionResourceId = sectionResourceId;
         mHeaderTextViewResId = headerTextViewResId;
+        mItemSizeTextViewResId = itemSizeTextViewResId;
         mBaseAdapter = baseAdapter;
         mBaseAdapter.registerDataSetObserver(new DataSetObserver() {
             @Override
@@ -184,6 +192,7 @@ public class SimpleSectionedListAdapter extends BaseAdapter implements PinnedSec
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         if (isSectionHeaderPosition(position)) {
+
         	TextView view;
         	if(null == convertView){
         		convertView = mLayoutInflater.inflate(mSectionResourceId, parent, false);
@@ -194,6 +203,10 @@ public class SimpleSectionedListAdapter extends BaseAdapter implements PinnedSec
         	}
             view = (TextView) convertView.findViewById(mHeaderTextViewResId);
             view.setText(mSections.get(position).title);
+
+            TextView itemSizeTV = (TextView) convertView.findViewById(mItemSizeTextViewResId);
+            itemSizeTV.setText(mSections.get(position).itemSize+"");
+
             return convertView;
         } else {
             return mBaseAdapter.getView(sectionedPositionToPosition(position), convertView, parent);

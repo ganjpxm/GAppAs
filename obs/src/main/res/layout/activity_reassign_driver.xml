@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:background="@color/gray_bg" android:orientation="vertical" android:minWidth="300dp" >
+
+    <TextView android:id="@+id/title" android:layout_width="fill_parent" android:layout_height="wrap_content" android:gravity="center"
+        android:layout_marginLeft="16dp" android:layout_marginRight="16dp" android:layout_marginBottom="12dp" android:layout_marginTop="24dp"
+        android:textStyle="bold"
+        android:textSize="25sp" android:textColor="@color/primary_text" android:text="@string/reassign_driver_title"/>
+
+    <Spinner android:id="@+id/driver_spinner" android:layout_width="fill_parent" android:layout_height="50dp"
+        android:layout_marginLeft="16dp" android:layout_marginRight="16dp" android:layout_marginBottom="8dp"></Spinner>
+
+    <Button android:id="@+id/booking_complete_btn" android:layout_width="fill_parent" android:layout_height="40dp"
+        android:layout_marginLeft="16dp" android:layout_marginRight="16dp" android:layout_marginBottom="8dp" android:layout_marginTop="8dp"
+        android:text="@string/submit" android:textSize="16sp" style="@style/btn_haiti"  />
+
+    <Button android:id="@+id/cancel_btn" android:layout_width="fill_parent" android:layout_height="40dp"
+        android:layout_marginLeft="16dp" android:layout_marginRight="16dp" android:layout_marginBottom="24dp" android:layout_marginTop="8dp"
+        android:text="@string/cancel" android:textSize="16sp" style="@style/btn_haiti"  />
+</LinearLayout>

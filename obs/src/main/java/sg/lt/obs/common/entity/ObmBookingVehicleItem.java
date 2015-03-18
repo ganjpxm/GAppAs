@@ -24,6 +24,7 @@ public class ObmBookingVehicleItem extends BaseModel implements Serializable {
 	private static final long serialVersionUID = 1L;
 
     public String bookingVehicleItemId;
+    public String bookingVehicleId;
     public String bookingNumber;
     public Date pickupDate;
     public String pickupTime;
@@ -39,6 +40,7 @@ public class ObmBookingVehicleItem extends BaseModel implements Serializable {
     public String remark;
 
     public String vehicle;
+    public String vehicleCd;
     public String priceUnit;
     public Float price;
     public String paymentStatus;
@@ -65,6 +67,7 @@ public class ObmBookingVehicleItem extends BaseModel implements Serializable {
     public String driverVehicle;
     public String driverClaimCurrency;
     public Float driverClaimPrice;
+    public String driverClaimStatus;
     public String driverAction;
 
     public String assignDriverUserId;
@@ -321,6 +324,17 @@ public class ObmBookingVehicleItem extends BaseModel implements Serializable {
         this.leadPassengerLastName = leadPassengerLastName;
     }
 
+    public String getLeadPassengerName() {
+        String name = this.leadPassengerFirstName;
+        if (!StringUtil.hasText(name)) {
+            name = "";
+        }
+        if (StringUtil.hasText(this.leadPassengerLastName)) {
+            name += " " + this.leadPassengerLastName;
+        }
+        return name;
+    }
+
     public String getLeadPassengerGender() {
         return leadPassengerGender;
     }
@@ -384,6 +398,7 @@ public class ObmBookingVehicleItem extends BaseModel implements Serializable {
     public void setDriverVehicle(String driverVehicle) {
         this.driverVehicle = driverVehicle;
     }
+
 
     public String getDriverClaimCurrency() {
         return driverClaimCurrency;
@@ -463,5 +478,29 @@ public class ObmBookingVehicleItem extends BaseModel implements Serializable {
 
     public void setPriceUnit(String priceUnit) {
         this.priceUnit = priceUnit;
+    }
+
+    public String getBookingVehicleId() {
+        return bookingVehicleId;
+    }
+
+    public void setBookingVehicleId(String bookingVehicleId) {
+        this.bookingVehicleId = bookingVehicleId;
+    }
+
+    public String getDriverClaimStatus() {
+        return driverClaimStatus;
+    }
+
+    public void setDriverClaimStatus(String driverClaimStatus) {
+        this.driverClaimStatus = driverClaimStatus;
+    }
+
+    public String getVehicleCd() {
+        return vehicleCd;
+    }
+
+    public void setVehicleCd(String vehicleCd) {
+        this.vehicleCd = vehicleCd;
     }
 }

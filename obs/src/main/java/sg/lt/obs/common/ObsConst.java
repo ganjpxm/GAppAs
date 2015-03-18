@@ -48,6 +48,9 @@ public abstract class ObsConst {
     public static final String ACTION_ACCEPT_CANCEL_BOOKING = "AcceptCancelBooking";
     public static final String ACTION_REJECT_CANCEL_BOOKING = "RejectCancelBooking";
 
+    public static final String DRIVER_ACTION_VIEWED = "Viewed";
+    public static final String DRIVER_ACTION_OK = "OK";
+
 	public static final String KEY_LOGIN_USER_CD_OR_EMAIL_OR_MOBILE_NUMBER = "userCdOrEmailOrMobileNumber";
 	public static final String KEY_LOGIN_USER_PASSWORD    = "userPassword";
 	public static final String KEY_OBS                    = "OBS";
@@ -61,6 +64,8 @@ public abstract class ObsConst {
 	public static final String KEY_USER_EMAIL_OBS         = "ObsUserEmail";
 	public static final String KEY_BOOKING_VEHICLE_ITEM_OBS = "ObsBookingVehicleItem";
     public static final String KEY_BROADCAST_BOOKING_VEHICLE_ITEM_IDS = "broadcastBookingVehicleItemIds";
+    public static final String KEY_DRIVER_INFO_OBS        = "ObsDriverInfos";
+    public static final String KEY_IS_PAST                = "isPast";
 
 	public static final String KEY_REG_ID_OBS             = "ObsRegistrationId";
 	public static final String KEY_APP_VERSION_OBS        = "ObsAppVersion";
@@ -78,6 +83,9 @@ public abstract class ObsConst {
 	public static final String KEY_PLATFORM          	  = "platform";
     public static final String KEY_BOOKING_VEHICLE_ITEM_ID = "bookingVehicleItemId";
     public static final String KEY_ACTION                 = "action";
+    public static final String KEY_DETAIL_NEEED_REFRESH   = "detailNeedRefresh";
+    public static final String KEY_UPCOMING_LIST_NEEED_REFRESH   = "upcomingListNeedRefresh";
+    public static final String KEY_HISTORY_LIST_NEEED_REFRESH   = "historyListNeedRefresh";
 
     public static final String KEY_TRACK_DATE             = "trackDate";
     public static final String KEY_TRACK_CONTENT          = "trackContent";

@@ -131,6 +131,20 @@ public class BookingVehicleHistoryListAdapter extends BaseAdapter {
             bookingNumberTv.setText(Html.fromHtml("<big><font color='#ff0000'>Booking Enquiry</font></big>"));
         } else {
             String firstLine = obmBookingVehicleItem.getBookingNumber() + "<font color='gray'> - " + obmBookingVehicleItem.getBookingService() + "</font>";
+            if (obmBookingVehicleItem.getDriverClaimPrice()!=null && obmBookingVehicleItem.getDriverClaimPrice()>0) {
+                String currency = obmBookingVehicleItem.getDriverClaimCurrency();
+                if ("SGD".equalsIgnoreCase(currency)) {
+                    currency = "S$";
+                } else if ("MYR".equalsIgnoreCase(currency)) {
+                    currency = "RM";
+                }
+
+                if (StringUtil.hasText(obmBookingVehicleItem.getDriverClaimStatus()) && "Paid".equalsIgnoreCase(obmBookingVehicleItem.getDriverClaimStatus())) {
+                    firstLine += " " + currency + obmBookingVehicleItem.getDriverClaimPrice();
+                } else {
+                    firstLine += " <font color='red'>" + currency + obmBookingVehicleItem.getDriverClaimPrice() + "</font>";
+                }
+            }
             bookingNumberTv.setText(Html.fromHtml(firstLine));
         }
 

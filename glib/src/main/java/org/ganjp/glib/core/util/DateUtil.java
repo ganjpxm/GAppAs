@@ -224,5 +224,17 @@ public class DateUtil {
         }
         return dmys;
     }
+
+    public static final String getTomorrowDateStr() {
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(new Date());
+        cal.add(Calendar.DATE, 1);
+        String yearStr = cal.get(Calendar.YEAR) + "";
+        int month = cal.get(Calendar.MONTH) + 1;
+        String monthStr = month<10?"0"+month:month+"";
+        int day = cal.get(Calendar.DAY_OF_MONTH);
+        String dayStr = day<10 ? "0"+day : day+"";
+        return dayStr + "/" + monthStr + "/" + yearStr;
+    }
     
 }

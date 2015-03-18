@@ -7,8 +7,10 @@
 package sg.lt.obs.common.adapt;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
+import org.ganjp.glib.core.util.DateUtil;
 import org.ganjp.glib.core.util.DialogUtil;
 import org.ganjp.glib.core.util.StringUtil;
 
@@ -150,6 +152,12 @@ public class BookingVehicleUpcomingListAdapter extends BaseAdapter {
         } else {
             stopIv.setVisibility(View.GONE);
         }
+        ImageView okIv = ViewHolder.get(view, R.id.ok_iv);
+        if (StringUtil.hasText(obmBookingVehicleItem.getDriverAction()) || ObsConst.DRIVER_ACTION_OK.equalsIgnoreCase(obmBookingVehicleItem.getDriverAction())) {
+            okIv.setVisibility(View.VISIBLE);
+        } else {
+            okIv.setVisibility(View.GONE);
+        }
 
 		TextView bookingAddressTv = ViewHolder.get(view, R.id.booking_address_tv);
 		String address = "<b>";
@@ -182,6 +190,15 @@ public class BookingVehicleUpcomingListAdapter extends BaseAdapter {
         bookingStatus = "<font color='gray'>" + bookingStatus + " - " + obmBookingVehicleItem.getDriverUserName() + "</font>";
 		bookingStateTv.setText(Html.fromHtml(bookingStatus));
 
+        String today = DateUtil.getDateString(new Date());
+        String tomorrowDateStr = DateUtil.getTomorrowDateStr();
+        String pickupDate = DateUtil.getDateString(obmBookingVehicleItem.getPickupDate());
+        if ((today.equalsIgnoreCase(pickupDate) || tomorrowDateStr.equalsIgnoreCase(pickupDate))
+                && !ObsConst.DRIVER_ACTION_OK.equalsIgnoreCase(obmBookingVehicleItem.getDriverAction())) {
+            view.setBackgroundColor(0x22FF0000);
+        } else {
+            view.setBackgroundColor(Color.WHITE);
+        }
         return view;
     }
 

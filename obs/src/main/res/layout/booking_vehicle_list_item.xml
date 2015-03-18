@@ -29,6 +29,8 @@
                     android:layout_marginRight="6dp" android:layout_marginTop="5dp" android:background="@drawable/icon_stop_red" android:adjustViewBounds="true" />
                 <ImageView android:id="@+id/remark_iv" android:layout_width="15dp" android:layout_height="13dp" android:visibility="gone"
                     android:layout_marginRight="6dp" android:layout_marginTop="5dp" android:background="@drawable/icon_comment_red" android:adjustViewBounds="true" />
+                <ImageView android:id="@+id/ok_iv" android:layout_width="15dp" android:layout_height="15dp" android:visibility="gone"
+                    android:layout_marginRight="6dp" android:layout_marginTop="3dp" android:background="@drawable/icon_ok_black" android:adjustViewBounds="true" />
             </LinearLayout>
         </RelativeLayout>
 

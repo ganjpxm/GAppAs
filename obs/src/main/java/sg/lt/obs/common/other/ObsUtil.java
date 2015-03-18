@@ -24,6 +24,8 @@ import org.ganjp.glib.core.base.Const;
 import sg.lt.obs.common.ObsConst;
 import sg.lt.obs.common.dao.ObmBookingVehicleItemDAO;
 import sg.lt.obs.common.entity.ObmBookingVehicleItem;
+
+import org.ganjp.glib.core.util.SystemUtil;
 import org.json.JSONObject;
 
 public abstract class ObsUtil {
@@ -77,7 +79,11 @@ public abstract class ObsUtil {
                 url += "?" + ObsConst.KEY_START_DATE + "=" + java.net.URLEncoder.encode(bookingVehicleItemLastUpdateDatetime);
             }
 		}
-        System.out.println(url);
+        if (url.indexOf("?")!=-1) {
+            url += "&version=1.1";
+        } else {
+            url += "?version=1.1";
+        }
 		pHttpConnection.get(url);
 		if (pHttpConnection.getResponse()!=null) {
 			String jsonData = HttpConnection.processEntity(pHttpConnection.getResponse().getEntity());
@@ -90,7 +96,8 @@ public abstract class ObsUtil {
 		    	obmBookingVehicleItems = mapper.readValue(data, ObmBookingVehicleItem[].class);
                 resultMap.put("updateSize", String.valueOf(obmBookingVehicleItems.length));
                 if (pIsUpdate==false) {
-                    ObmBookingVehicleItemDAO.getInstance().delete();
+                    ObmBookingVehicleItemDAO.getInstance().dropTable();
+                    ObmBookingVehicleItemDAO.getInstance().createTable();
                 }
 				long lastTime = ObmBookingVehicleItemDAO.getInstance().insertOrUpdate(obmBookingVehicleItems);
 				PreferenceUtil.saveLong(ObsConst.KEY_PREFERENCE_BOOKING_VEHICLE_UPDATE_ITEM_LAST_TIME, lastTime);
@@ -191,6 +198,52 @@ public abstract class ObsUtil {
     	return result;
 	}
 
+    public static String driverOk(String bookingVehicleItemId) {
+        String result = Const.VALUE_FAIL;
+        try {
+            String userId = PreferenceUtil.getString(ObsConst.KEY_USER_ID_OBS);
+            if (StringUtil.isNotEmpty(userId)) {
+                HttpConnection httpConnection = new HttpConnection(false);
+                ArrayList<NameValuePair> pairs = new ArrayList<NameValuePair>();
+                pairs.add(new BasicNameValuePair(ObsConst.KEY_USER_ID, userId));
+                pairs.add(new BasicNameValuePair(ObsConst.KEY_USER_NAME, PreferenceUtil.getString(ObsConst.KEY_USER_NAME_OBS)));
+
+                httpConnection.post(ObsConst.SERVER_IP + "/web/01/" + bookingVehicleItemId + "/driverOk", new UrlEncodedFormEntity(pairs, HTTP.UTF_8));
+                String jsonData = HttpConnection.processEntity(httpConnection.getResponse().getEntity());
+                JSONObject jsonObject = new JSONObject(jsonData);
+                result = jsonObject.getString("result");
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return result;
+    }
+
+    public static String changeDriverClaim(String bookingVehicleItemId, String driverClaimCurrency, String driverClaimPrice) {
+        String result = Const.VALUE_FAIL;
+        try {
+            String userId = PreferenceUtil.getString(ObsConst.KEY_USER_ID_OBS);
+            if (StringUtil.isNotEmpty(userId)) {
+                HttpConnection httpConnection = new HttpConnection(false);
+                ArrayList<NameValuePair> pairs = new ArrayList<NameValuePair>();
+                pairs.add(new BasicNameValuePair(ObsConst.KEY_USER_ID, userId));
+                pairs.add(new BasicNameValuePair(ObsConst.KEY_USER_NAME, PreferenceUtil.getString(ObsConst.KEY_USER_NAME_OBS)));
+                pairs.add(new BasicNameValuePair(ObsConst.KEY_BOOKING_VEHICLE_ITEM_ID, bookingVehicleItemId));
+                pairs.add(new BasicNameValuePair("driverClaimCurrency", driverClaimCurrency));
+                pairs.add(new BasicNameValuePair("driverClaimPrice", driverClaimPrice));
+                pairs.add(new BasicNameValuePair("deviceName", SystemUtil.getDeviceName()));
+
+                httpConnection.post(ObsConst.SERVER_IP + "/web/01/changeDriverClaim", new UrlEncodedFormEntity(pairs, HTTP.UTF_8));
+                String jsonData = HttpConnection.processEntity(httpConnection.getResponse().getEntity());
+                JSONObject jsonObject = new JSONObject(jsonData);
+                result = jsonObject.getString("result");
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return result;
+    }
+
     public static String trackLocation() {
         String result = Const.VALUE_FAIL;
         try {
@@ -210,6 +263,68 @@ public abstract class ObsUtil {
                 String jsonData = HttpConnection.processEntity(httpConnection.getResponse().getEntity());
                 JSONObject jsonObject = new JSONObject(jsonData);
                 result = jsonObject.getString("result");
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return result;
+    }
+
+    public static String getRelateDriverInfos(String vehicleTypeCd) {
+        String result = Const.VALUE_FAIL;
+        try {
+            String userId = PreferenceUtil.getString(ObsConst.KEY_USER_ID_OBS);
+            if (StringUtil.isNotEmpty(userId)) {
+                HttpConnection httpConnection = new HttpConnection(false);
+                ArrayList<NameValuePair> pairs = new ArrayList<NameValuePair>();
+                pairs.add(new BasicNameValuePair(ObsConst.KEY_USER_ID, userId));
+                pairs.add(new BasicNameValuePair("vehicleTypeCd", vehicleTypeCd));
+
+                httpConnection.post(ObsConst.SERVER_IP + "/web/01/getRelateDriverInfos", new UrlEncodedFormEntity(pairs, HTTP.UTF_8));
+                String jsonData = HttpConnection.processEntity(httpConnection.getResponse().getEntity());
+                JSONObject jsonObject = new JSONObject(jsonData);
+                result = jsonObject.getString("result");
+                if (Const.VALUE_SUCCESS.equalsIgnoreCase(result)) {
+                    return jsonObject.getString("data");
+                }
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return result;
+    }
+
+    public static String reassignDriver(String bookingVehicleItemId, String vehicleId, String driverUserName, String driverMobileNumber,
+                                        String driverVehicle, String driverLoginUserId, String assignDriverUserId, String assignDriverUserName,
+                                        String assignDriverMobilePhone, String isPast) {
+        String result = Const.VALUE_FAIL;
+        try {
+            String userId = PreferenceUtil.getString(ObsConst.KEY_USER_ID_OBS);
+            if (StringUtil.isNotEmpty(userId)) {
+                HttpConnection httpConnection = new HttpConnection(false);
+                ArrayList<NameValuePair> pairs = new ArrayList<NameValuePair>();
+                pairs.add(new BasicNameValuePair(ObsConst.KEY_USER_ID, userId));
+                pairs.add(new BasicNameValuePair(ObsConst.KEY_USER_NAME, PreferenceUtil.getString(ObsConst.KEY_USER_NAME_OBS)));
+                pairs.add(new BasicNameValuePair("driverUserId", vehicleId));
+                pairs.add(new BasicNameValuePair("bookingVehicleItemId", bookingVehicleItemId));
+                pairs.add(new BasicNameValuePair("driverUserName", driverUserName));
+                pairs.add(new BasicNameValuePair("deviceName", SystemUtil.getDeviceName()));
+                pairs.add(new BasicNameValuePair("isDriverAccept", "no"));
+                pairs.add(new BasicNameValuePair("past", isPast));
+                pairs.add(new BasicNameValuePair("driverMobileNumber", driverMobileNumber));
+                pairs.add(new BasicNameValuePair("driverVehicle", driverVehicle));
+                pairs.add(new BasicNameValuePair("driverLoginUserId", driverLoginUserId));
+                pairs.add(new BasicNameValuePair("assignDriverUserId", assignDriverUserId));
+                pairs.add(new BasicNameValuePair("assignDriverUserName", assignDriverUserName));
+                pairs.add(new BasicNameValuePair("assignDriverMobilePhone", assignDriverMobilePhone));
+
+                httpConnection.post(ObsConst.SERVER_IP + "/web/01/assignDriver", new UrlEncodedFormEntity(pairs, HTTP.UTF_8));
+                String jsonData = HttpConnection.processEntity(httpConnection.getResponse().getEntity());
+                JSONObject jsonObject = new JSONObject(jsonData);
+                result = jsonObject.getString("result");
+                if (Const.VALUE_SUCCESS.equalsIgnoreCase(result)) {
+                    return jsonObject.getString("data");
+                }
             }
         } catch (Exception ex) {
             ex.printStackTrace();

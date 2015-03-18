@@ -163,7 +163,9 @@ public class BookingVehicleAlarmListAdapter extends BaseAdapter {
         }
         bookingInfo += " <b>To</b> ";
         if ("0102".equalsIgnoreCase(obmBookingVehicleItem.getBookingServiceCd())) {
-            bookingInfo += "<b>" + obmBookingVehicleItem.getFlightNumber() + "</b> " + obmBookingVehicleItem.getDestination();
+            if (StringUtil.hasText(obmBookingVehicleItem.getFlightNumber())) {
+                bookingInfo += "<b>" + obmBookingVehicleItem.getFlightNumber() + "</b> " + obmBookingVehicleItem.getDestination();
+            }
         } else {
             bookingInfo += obmBookingVehicleItem.getDestination();
         }

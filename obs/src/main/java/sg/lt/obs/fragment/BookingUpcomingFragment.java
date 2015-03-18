@@ -16,6 +16,7 @@ import android.widget.ListView;
 import com.google.android.gms.analytics.HitBuilders;
 import com.google.android.gms.analytics.Tracker;
 
+import org.ganjp.glib.core.base.Const;
 import org.ganjp.glib.core.util.DateUtil;
 import org.ganjp.glib.core.util.HttpConnection;
 import org.ganjp.glib.core.util.NetworkUtil;
@@ -166,14 +167,19 @@ public class BookingUpcomingFragment extends Fragment implements OnItemClickList
             mAdapter.resetItems(mObmBookingVehicleItems);
         }
 		for (int i = 0; i < mHeaderPositions.size(); i++) {
-			mSections.add(new Section(mHeaderPositions.get(i), mHeaderNames.get(i)));
+            int itemSize = 0;
+            if (i == mHeaderPositions.size()-1) {
+                itemSize = mObmBookingVehicleItems.size() -  mHeaderPositions.get(i);
+            } else {
+                itemSize = mHeaderPositions.get(i+1) - mHeaderPositions.get(i);
+            }
+			mSections.add(new Section(mHeaderPositions.get(i), mHeaderNames.get(i), itemSize));
 		}
         if (mSimpleSectionedListAdapter==null) {
-            mSimpleSectionedListAdapter = new SimpleSectionedListAdapter(mActivity, mAdapter, R.layout.booking_vehicle_list_item_header, R.id.header);
+            mSimpleSectionedListAdapter = new SimpleSectionedListAdapter(mActivity, mAdapter, R.layout.booking_vehicle_list_item_header, R.id.header_tv, R.id.item_size_tv);
         }
         mSimpleSectionedListAdapter.setSections(mSections.toArray(new Section[0]));
 	}
-
 
 	@Override
 	public void onHiddenChanged(boolean hidden) {
@@ -219,5 +225,27 @@ public class BookingUpcomingFragment extends Fragment implements OnItemClickList
         	getActivity().overridePendingTransition(R.anim.in_from_right, R.anim.out_to_left);
         }
     }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (mActivity.getIntent().getExtras()!=null) {
+            boolean isRefresh = mActivity.getIntent().getExtras().getBoolean("isRefresh");
+            if (isRefresh) {
+                try {
+                    resetListWithSectionValue();
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+            }
+        } else {
+            String isNeedRefresh = PreferenceUtil.getString(ObsConst.KEY_UPCOMING_LIST_NEEED_REFRESH);
+            if (StringUtil.hasText(isNeedRefresh) && Const.VALUE_YES.equalsIgnoreCase(isNeedRefresh)) {
+                resetListWithSectionValue();
+                PreferenceUtil.saveString(ObsConst.KEY_UPCOMING_LIST_NEEED_REFRESH, Const.VALUE_NO);
+            }
+        }
+    }
+
 
 }

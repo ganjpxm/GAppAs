@@ -26,6 +26,7 @@
     </style>
 
     <color name="section_color">#f0eff5</color>
+    <color name="gray_color">#9e9e9e</color>
 
     <style name="btn_haiti" parent="@android:style/Widget.Button">
         <item name="android:textSize">15sp</item>
@@ -39,4 +40,9 @@
         <item name="android:background">@drawable/style_btn_haiti</item>
         <item name="android:padding">5dip</item>
     </style>
+
+    <style name="obsDialog" parent="android:style/Theme.Dialog">
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
 </resources>

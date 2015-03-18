@@ -45,6 +45,7 @@ public class ObmBookingVehicleItemDAO extends DAO {
 	
 	// BookingVehicleItem Table Columns names
 	public static final String  COLUMN_BOOKING_VEHICLE_ITEM_ID      = "bookingVehicleItemId";
+    public static final String  COLUMN_BOOKING_VEHICLE_ID           = "bookingVehicleId";
 	public static final String  COLUMN_BOOKING_NUMBER               = "bookingNumber";
     public static final String  COLUMN_PICKUP_DATE                  = "pickupDate";
     public static final String  COLUMN_PICKUP_TIME                  = "pickupTime";
@@ -60,6 +61,7 @@ public class ObmBookingVehicleItemDAO extends DAO {
     public static final String  COLUMN_REMARK                       = "remark";
 
     public static final String  COLUMN_VEHICLE                      = "vehicle";
+    public static final String  COLUMN_VEHICLE_CD                   = "vehicleCd";
     public static final String  COLUMN_PRICE_UNIT                   = "priceUnit";
     public static final String  COLUMN_PRICE                        = "price";
     public static final String  COLUMN_PAYMENT_STATUS               = "paymentStatus";
@@ -86,6 +88,7 @@ public class ObmBookingVehicleItemDAO extends DAO {
 	public static final String  COLUMN_DRIVER_VEHICLE              = "driverVehicle";
     public static final String  COLUMN_DRIVER_CLAIM_CURRENCY       = "driverClaimCurrency";
     public static final String  COLUMN_DRIVER_CLAIM_PRICE          = "driverClaimPrice";
+    public static final String  COLUMN_DRIVER_CLAIM_STATUS         = "driverClaimStatus";
     public static final String  COLUMN_DRIVER_ACTION               = "driverAction";
 
     public static final String  COLUMN_ASSIGN_DRIVER_USER_ID       = "assignDriverUserId";
@@ -101,6 +104,7 @@ public class ObmBookingVehicleItemDAO extends DAO {
    	//Field name : NULL, INTEGER, REAL, TEXT, BLOB
 	protected static final String createSQL = new StringBuffer().append("CREATE TABLE IF NOT EXISTS ").append(TABLE_NAME).append(" (")
 			.append(COLUMN_BOOKING_VEHICLE_ITEM_ID).append(" TEXT primary key, ")
+            .append(COLUMN_BOOKING_VEHICLE_ID).append(" TEXT, ")
 			.append(COLUMN_BOOKING_NUMBER).append(" TEXT, ")
             .append(COLUMN_PICKUP_DATE).append(" INTEGER, ")
             .append(COLUMN_PICKUP_TIME).append(" TEXT, ")
@@ -116,6 +120,7 @@ public class ObmBookingVehicleItemDAO extends DAO {
             .append(COLUMN_REMARK).append(" TEXT, ")
 
 			.append(COLUMN_VEHICLE).append(" TEXT, ")
+            .append(COLUMN_VEHICLE_CD).append(" TEXT, ")
             .append(COLUMN_PRICE_UNIT).append(" TEXT, ")
             .append(COLUMN_PRICE).append(" INTEGER, ")
             .append(COLUMN_PAYMENT_STATUS).append(" TEXT, ")
@@ -142,6 +147,7 @@ public class ObmBookingVehicleItemDAO extends DAO {
 			.append(COLUMN_DRIVER_VEHICLE).append(" TEXT, ")
             .append(COLUMN_DRIVER_CLAIM_CURRENCY).append(" TEXT, ")
             .append(COLUMN_DRIVER_CLAIM_PRICE).append(" INTEGER, ")
+            .append(COLUMN_DRIVER_CLAIM_STATUS).append(" TEXT, ")
             .append(COLUMN_DRIVER_ACTION).append(" TEXT, ")
 
             .append(COLUMN_ASSIGN_DRIVER_USER_ID).append(" TEXT, ")
@@ -168,13 +174,13 @@ public class ObmBookingVehicleItemDAO extends DAO {
 	 * <p>Create obm_booking_vehicle_item Table</p>
 	 */
 	@Override
-	protected void createTable() {
+	public void createTable() {
 		SQLiteDatabase db = null;
 		try { 
 			db = this.getDatabase();
 			db.execSQL(createSQL);
 		} catch( Exception ex ) {
-			Log.d("ObmBookingVehicleItemDAO", "createTable:exception:"+ex);
+			ex.printStackTrace();
 		} finally {
 			db.close();
 		}
@@ -187,11 +193,13 @@ public class ObmBookingVehicleItemDAO extends DAO {
 	 * @return
 	 */
 	public long insertOrUpdate(ObmBookingVehicleItem[] ObmBookingVehicleItems) {
+
 		long updateLatestTime = PreferenceUtil.getLong(ObsConst.KEY_PREFERENCE_BOOKING_VEHICLE_UPDATE_ITEM_LAST_TIME);
 		for (ObmBookingVehicleItem obmBookingVehicleItem : ObmBookingVehicleItems) {
 			ContentValues cv = new ContentValues();
 
             cv.put(COLUMN_BOOKING_VEHICLE_ITEM_ID, obmBookingVehicleItem.getBookingVehicleItemId());
+            cv.put(COLUMN_BOOKING_VEHICLE_ID, obmBookingVehicleItem.getBookingVehicleId());
 			cv.put(COLUMN_BOOKING_NUMBER, obmBookingVehicleItem.getBookingNumber());
             cv.put(COLUMN_PICKUP_DATE, obmBookingVehicleItem.getPickupDate().getTime());
             cv.put(COLUMN_PICKUP_TIME, obmBookingVehicleItem.getPickupTime());
@@ -207,6 +215,7 @@ public class ObmBookingVehicleItemDAO extends DAO {
             cv.put(COLUMN_REMARK, obmBookingVehicleItem.getRemark());
 
             cv.put(COLUMN_VEHICLE, obmBookingVehicleItem.getVehicle());
+            cv.put(COLUMN_VEHICLE_CD, obmBookingVehicleItem.getVehicleCd());
             cv.put(COLUMN_PRICE_UNIT, obmBookingVehicleItem.getPriceUnit());
             cv.put(COLUMN_PRICE, obmBookingVehicleItem.getPrice());
             cv.put(COLUMN_PAYMENT_STATUS, obmBookingVehicleItem.getPaymentStatus());
@@ -233,6 +242,7 @@ public class ObmBookingVehicleItemDAO extends DAO {
 			cv.put(COLUMN_DRIVER_VEHICLE, obmBookingVehicleItem.getDriverVehicle());
             cv.put(COLUMN_DRIVER_CLAIM_CURRENCY, obmBookingVehicleItem.getDriverClaimCurrency());
             cv.put(COLUMN_DRIVER_CLAIM_PRICE, obmBookingVehicleItem.getDriverClaimPrice());
+            cv.put(COLUMN_DRIVER_CLAIM_STATUS, obmBookingVehicleItem.getDriverClaimStatus());
             cv.put(COLUMN_DRIVER_ACTION, obmBookingVehicleItem.getDriverAction());
 
             cv.put(COLUMN_ASSIGN_DRIVER_USER_ID, obmBookingVehicleItem.getAssignDriverUserId());
@@ -341,7 +351,7 @@ public class ObmBookingVehicleItemDAO extends DAO {
 				}
 			}
 		} catch( Exception ex ) {
-			Log.e(TAG, ex.getMessage());
+			ex.printStackTrace();
 		}finally{
 			if ( cursor!=null ){
 				cursor.close();	
@@ -382,7 +392,7 @@ public class ObmBookingVehicleItemDAO extends DAO {
                 }
             }
         } catch( Exception ex ) {
-            Log.e(TAG, ex.getMessage());
+            ex.printStackTrace();
         } finally {
             if ( cursor!=null ){
                 cursor.close();
@@ -403,7 +413,6 @@ public class ObmBookingVehicleItemDAO extends DAO {
 	 */
 	public ObmBookingVehicleItem getObmBookingVehicleItem(String bookingVehicleItemId) {
 		String query = "SELECT * FROM " + TABLE_NAME + " where " + COLUMN_BOOKING_VEHICLE_ITEM_ID + "='" + bookingVehicleItemId + "'";
-		Log.d(TAG, "query:"+query);
 		SQLiteDatabase db = null;
 		Cursor cursor = null;
 		ObmBookingVehicleItem ObmBookingVehicleItem = new ObmBookingVehicleItem();
@@ -434,7 +443,6 @@ public class ObmBookingVehicleItemDAO extends DAO {
 	 */
 	public List<String> getBookingVehicleItemIds() {
 		String query = "SELECT " + COLUMN_BOOKING_VEHICLE_ITEM_ID + " FROM " + TABLE_NAME;
-		Log.d(TAG, "query:"+query);
 		SQLiteDatabase db = null;
 		Cursor cursor = null;
 		List<String> articleIds = new ArrayList<String>();
@@ -506,6 +514,7 @@ public class ObmBookingVehicleItemDAO extends DAO {
 		}
 
 		ObmBookingVehicleItem.setBookingVehicleItemId(cursor.getString(cursor.getColumnIndex(COLUMN_BOOKING_VEHICLE_ITEM_ID)));
+        ObmBookingVehicleItem.setBookingVehicleId(cursor.getString(cursor.getColumnIndex(COLUMN_BOOKING_VEHICLE_ID)));
 		ObmBookingVehicleItem.setBookingNumber(cursor.getString(cursor.getColumnIndex(COLUMN_BOOKING_NUMBER)));
         ObmBookingVehicleItem.setPickupDate(new Timestamp(cursor.getLong(cursor.getColumnIndex(COLUMN_PICKUP_DATE))));
         ObmBookingVehicleItem.setPickupTime(cursor.getString(cursor.getColumnIndex(COLUMN_PICKUP_TIME)));
@@ -521,6 +530,7 @@ public class ObmBookingVehicleItemDAO extends DAO {
         ObmBookingVehicleItem.setRemark(cursor.getString(cursor.getColumnIndex(COLUMN_REMARK)));
 
         ObmBookingVehicleItem.setVehicle(cursor.getString(cursor.getColumnIndex(COLUMN_VEHICLE)));
+        ObmBookingVehicleItem.setVehicleCd(cursor.getString(cursor.getColumnIndex(COLUMN_VEHICLE_CD)));
         ObmBookingVehicleItem.setPriceUnit(cursor.getString(cursor.getColumnIndex(COLUMN_PRICE_UNIT)));
         ObmBookingVehicleItem.setPrice(cursor.getFloat(cursor.getColumnIndex(COLUMN_PRICE)));
         ObmBookingVehicleItem.setPaymentStatus(cursor.getString(cursor.getColumnIndex(COLUMN_PAYMENT_STATUS)));
@@ -547,6 +557,7 @@ public class ObmBookingVehicleItemDAO extends DAO {
 		ObmBookingVehicleItem.setDriverVehicle(cursor.getString(cursor.getColumnIndex(COLUMN_DRIVER_VEHICLE)));
         ObmBookingVehicleItem.setDriverClaimCurrency(cursor.getString(cursor.getColumnIndex(COLUMN_DRIVER_CLAIM_CURRENCY)));
         ObmBookingVehicleItem.setDriverClaimPrice(cursor.getFloat(cursor.getColumnIndex(COLUMN_DRIVER_CLAIM_PRICE)));
+        ObmBookingVehicleItem.setDriverClaimStatus(cursor.getString(cursor.getColumnIndex(COLUMN_DRIVER_CLAIM_STATUS)));
         ObmBookingVehicleItem.setDriverAction(cursor.getString(cursor.getColumnIndex(COLUMN_DRIVER_ACTION)));
 
         ObmBookingVehicleItem.setAssignDriverUserId(cursor.getString(cursor.getColumnIndex(COLUMN_ASSIGN_DRIVER_USER_ID)));

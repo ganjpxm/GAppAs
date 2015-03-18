@@ -123,8 +123,8 @@ public class MoreFragment extends Fragment implements OnClickListener {
                     new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            DialogUtil.showProcessingDialog(mActivity);
                             if (which == -1) {
+                                DialogUtil.showProcessingDialog(mActivity);
                                 new Thread(new Runnable() {
                                     public void run() {
                                         try {

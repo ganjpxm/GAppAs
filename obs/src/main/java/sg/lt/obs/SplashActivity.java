@@ -22,6 +22,7 @@ import java.util.Map;
 
 import sg.lt.obs.common.ObsConst;
 import sg.lt.obs.common.activity.ObsActivity;
+import sg.lt.obs.common.dao.ObmBookingVehicleItemDAO;
 import sg.lt.obs.common.other.ObsApplication;
 import sg.lt.obs.common.other.ObsUtil;
 import sg.lt.obs.common.other.PreferenceUtil;

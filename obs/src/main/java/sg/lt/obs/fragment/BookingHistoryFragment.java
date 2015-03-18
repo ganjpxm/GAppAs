@@ -16,6 +16,7 @@ import android.widget.ListView;
 import com.google.android.gms.analytics.HitBuilders;
 import com.google.android.gms.analytics.Tracker;
 
+import org.ganjp.glib.core.base.Const;
 import org.ganjp.glib.core.util.DateUtil;
 import org.ganjp.glib.core.util.HttpConnection;
 import org.ganjp.glib.core.util.NetworkUtil;
@@ -35,6 +36,7 @@ import sg.lt.obs.BookingVehicleAlarmListActivity;
 import sg.lt.obs.R;
 import sg.lt.obs.common.ObsConst;
 import sg.lt.obs.common.adapt.BookingVehicleHistoryListAdapter;
+import sg.lt.obs.common.adapt.BookingVehicleUpcomingListAdapter;
 import sg.lt.obs.common.dao.ObmBookingVehicleItemDAO;
 import sg.lt.obs.common.entity.ObmBookingVehicleItem;
 import sg.lt.obs.common.other.ObsApplication;
@@ -155,10 +157,16 @@ public class BookingHistoryFragment extends Fragment implements OnItemClickListe
             mAdapter.resetItems(mObmBookingVehicleItems);
         }
         for (int i = 0; i < mHeaderPositions.size(); i++) {
-            mSections.add(new Section(mHeaderPositions.get(i), mHeaderNames.get(i)));
+            int itemSize = 0;
+            if (i == mHeaderPositions.size()-1) {
+                itemSize = mObmBookingVehicleItems.size() + mHeaderPositions.size() -  mHeaderPositions.get(i);
+            } else {
+                itemSize = mHeaderPositions.get(i+1) - mHeaderPositions.get(i);
+            }
+            mSections.add(new Section(mHeaderPositions.get(i), mHeaderNames.get(i), itemSize));
         }
         if (mSimpleSectionedListAdapter==null) {
-            mSimpleSectionedListAdapter = new SimpleSectionedListAdapter(mActivity, mAdapter, R.layout.booking_vehicle_list_item_header, R.id.header);
+            mSimpleSectionedListAdapter = new SimpleSectionedListAdapter(mActivity, mAdapter, R.layout.booking_vehicle_list_item_header, R.id.header_tv, R.id.item_size_tv);
         }
         mSimpleSectionedListAdapter.setSections(mSections.toArray(new Section[0]));
     }
@@ -197,6 +205,16 @@ public class BookingHistoryFragment extends Fragment implements OnItemClickListe
 	public void onDestroy() {
 		super.onDestroy();
 	}
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        String isNeedRefresh = PreferenceUtil.getString(ObsConst.KEY_HISTORY_LIST_NEEED_REFRESH);
+        if (StringUtil.hasText(isNeedRefresh) && Const.VALUE_YES.equalsIgnoreCase(isNeedRefresh)) {
+            resetListWithSectionValue();
+            PreferenceUtil.saveString(ObsConst.KEY_HISTORY_LIST_NEEED_REFRESH, Const.VALUE_NO);
+        }
+    }
 	
 	@Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
