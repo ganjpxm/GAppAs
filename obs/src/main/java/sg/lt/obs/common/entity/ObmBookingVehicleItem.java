@@ -77,6 +77,8 @@ public class ObmBookingVehicleItem extends BaseModel implements Serializable {
     public String broadcastTag;
 
     private boolean isNew = false;
+    public boolean isHideAcceptBtn = false;
+    public boolean isHideTitle = false;
 	   
 	//----------------------------------------------- default constructor --------------------------
     public ObmBookingVehicleItem() {
@@ -502,5 +504,21 @@ public class ObmBookingVehicleItem extends BaseModel implements Serializable {
 
     public void setVehicleCd(String vehicleCd) {
         this.vehicleCd = vehicleCd;
+    }
+
+    public boolean isHideAcceptBtn() {
+        return isHideAcceptBtn;
+    }
+
+    public void setHideAcceptBtn(boolean isHideAcceptBtn) {
+        this.isHideAcceptBtn = isHideAcceptBtn;
+    }
+
+    public boolean isHideTitle() {
+        return isHideTitle;
+    }
+
+    public void setHideTitle(boolean isHideTitle) {
+        this.isHideTitle = isHideTitle;
     }
 }

@@ -1,5 +1,6 @@
 package sg.lt.obs;
 
+import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,7 +15,9 @@ import com.google.android.gms.analytics.Tracker;
 import org.ganjp.glib.core.base.ActivityStack;
 import org.ganjp.glib.core.util.DialogUtil;
 import org.ganjp.glib.core.util.HttpConnection;
+import org.ganjp.glib.core.util.NetworkUtil;
 import org.ganjp.glib.core.util.StringUtil;
+import org.ganjp.glib.core.view.RefreshableView;
 
 import java.util.List;
 import java.util.Map;
@@ -36,11 +39,16 @@ public class BookingVehicleAlarmListActivity extends ObsActivity {
 
     private TitleView mTitleView;
     private ListView mListView;
+    private RefreshableView refreshableView;
+
+    private Activity mActivity;
+
     private boolean isFirstTime = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mActivity = this;
         Tracker t = ((ObsApplication) getApplication()).getTracker(ObsApplication.TrackerName.APP_TRACKER);
         t.setScreenName("Broadcast");
         t.send(new HitBuilders.AppViewBuilder().build());
@@ -49,8 +57,8 @@ public class BookingVehicleAlarmListActivity extends ObsActivity {
 
         mTitleView = (TitleView)findViewById(R.id.title);
         mTitleView.setTitle(R.string.broadcast);
-        mTitleView.hiddenLeftButton();
-        mTitleView.setRightButton(R.string.skip, new TitleView.OnRightButtonClickListener() {
+        mTitleView.hiddenRightButton();
+        mTitleView.setLeftButton(R.string.skip, new TitleView.OnLeftButtonClickListener() {
             @Override
             public void onClick(View button) {
                 forward();
@@ -60,14 +68,37 @@ public class BookingVehicleAlarmListActivity extends ObsActivity {
         mListView = (ListView)findViewById(R.id.booking_vehicle_alarm_lv);
         setListAdapterValue();
         mListView.setAdapter(mAdapter);
+
+        refreshableView = (RefreshableView)findViewById(R.id.refreshable_view);
+        refreshableView.setOnRefreshListener(new RefreshableView.PullToRefreshListener() {
+            @Override
+            public void onRefresh() {
+                try {
+                    if (NetworkUtil.isNetworkAvailable(mActivity)) {
+                        Map<String,String> map = ObsUtil.getBookingVehicleItemsFromWeb(new HttpConnection(false), true);
+                        String broadcatBookingVehicleItemIds = map.get(ObsConst.KEY_BROADCAST_BOOKING_VEHICLE_ITEM_IDS);
+                        if (StringUtil.hasText(broadcatBookingVehicleItemIds)) {
+                            mHandler.obtainMessage(1).sendToTarget();
+                        } else {
+                            mHandler.obtainMessage(0).sendToTarget();
+                        }
+                    } else {
+                        Thread.sleep(2000);
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                refreshableView.finishRefreshing();
+            }
+        }, 0);
     }
 
     private void setListAdapterValue() {
         mObmBookingVehicleItems = ObmBookingVehicleItemDAO.getInstance().getBroadcastObmBookingVehicleItems();
-        mAdapter = new BookingVehicleAlarmListAdapter(this, mObmBookingVehicleItems);
         if (mObmBookingVehicleItems==null || mObmBookingVehicleItems.isEmpty()) {
             mHandler.obtainMessage(0).sendToTarget();
         }
+        mAdapter = new BookingVehicleAlarmListAdapter(this, mObmBookingVehicleItems);
     }
 
     @Override
@@ -81,7 +112,7 @@ public class BookingVehicleAlarmListActivity extends ObsActivity {
                         Map<String,String> map = ObsUtil.getBookingVehicleItemsFromWeb(new HttpConnection(false), true);
                         String broadcatBookingVehicleItemIds = map.get(ObsConst.KEY_BROADCAST_BOOKING_VEHICLE_ITEM_IDS);
                         if (StringUtil.hasText(broadcatBookingVehicleItemIds)) {
-                            mAdapter.resetItems(ObmBookingVehicleItemDAO.getInstance().getBroadcastObmBookingVehicleItems());
+                            mHandler.obtainMessage(1).sendToTarget();
                         } else {
                             mHandler.obtainMessage(0).sendToTarget();
                         }
@@ -114,6 +145,8 @@ public class BookingVehicleAlarmListActivity extends ObsActivity {
         public void handleMessage (Message msg) {
             if (msg.what==0) {
                 showEmptyAlertDialog("Thank you for all your broadcast bookings have been accepted or rejected.");
+            } else if (msg.what==1) {
+                mAdapter.resetItems(ObmBookingVehicleItemDAO.getInstance().getBroadcastObmBookingVehicleItems());
             }
         }
     };

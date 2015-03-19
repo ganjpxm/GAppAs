@@ -303,7 +303,7 @@ public class BookingUpcomingDetailFragmentActivity extends FragmentActivity impl
 			intent.setClassName("com.google.android.apps.maps", "com.google.android.maps.MapsActivity");
 			startActivity(intent);
 		} else if (view == okBtn) {
-            DialogUtil.showConfirmDialog(this, "", "Are you ok for the job (" + obmBookingVehicleItem.getBookingNumber() + ")?",
+            DialogUtil.showConfirmDialog(this, getString(R.string.title), "Are you ok for the job (" + obmBookingVehicleItem.getBookingNumber() + ")?",
                     new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {

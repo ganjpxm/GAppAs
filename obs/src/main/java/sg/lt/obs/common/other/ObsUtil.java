@@ -91,6 +91,7 @@ public abstract class ObsUtil {
 			String data = jsonObject.getString("data");
             String broadcastBookingVehicleItemIds = jsonObject.getString("broadcastBookingVehicleItemIds");
             resultMap.put("broadcastBookingVehicleItemIds", broadcastBookingVehicleItemIds);
+            PreferenceUtil.saveString(ObsConst.KEY_BATCH_BROADCAST_BOOKING_VEHICLE_ITEM_IDS, jsonObject.getString("batchBroadcastBookingVehicleItemIds"));
 			if (StringUtil.hasText(data) && !"[]".equalsIgnoreCase(data)) {
 		    	ObjectMapper mapper = new ObjectMapper();
 		    	obmBookingVehicleItems = mapper.readValue(data, ObmBookingVehicleItem[].class);

@@ -137,9 +137,7 @@ public class BookingAssignDriverActivity extends ObsActivity {
         public void handleMessage (Message msg) {
             DialogUtil.dismissProgressDialog();
             if (msg.what==0) {
-                DialogUtil.showInfoDialog(mActivity, getResources().getString(R.string.success));
-
-                DialogUtil.showAlertDialog(mActivity, android.R.drawable.ic_dialog_info, "", getResources().getString(R.string.success),
+                DialogUtil.showAlertDialog(mActivity, android.R.drawable.ic_dialog_info, getString(R.string.title), getResources().getString(R.string.success),
                         new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {

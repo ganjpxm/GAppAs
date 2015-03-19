@@ -27,13 +27,15 @@ public class TitleView extends FrameLayout implements View.OnClickListener {
 		public void onClick(View button);
 	}
 	public void setLeftButton(String text, OnLeftButtonClickListener listener) {
-		mLeftBtn.setText(text);
+		mLeftBtn.setText(" " + text);
 		mLeftBtn.setVisibility(View.VISIBLE);
+        mLeftBtn.setTextSize(16);
 		mOnLeftButtonClickListener = listener;
 	}
 	public void setLeftButton(int stringID, OnLeftButtonClickListener listener) {
 		mLeftBtn.setText(stringID);
 		mLeftBtn.setVisibility(View.VISIBLE);
+        mLeftBtn.setTextSize(16);
 		mOnLeftButtonClickListener = listener;
 	}
 	public void removeLeftButton() {
@@ -49,13 +51,15 @@ public class TitleView extends FrameLayout implements View.OnClickListener {
 	}
 	
 	public void setRightButton(String text, OnRightButtonClickListener listener) {
-		mRightBtn.setText(text);
+		mRightBtn.setText(text + " ");
 		mRightBtn.setVisibility(View.VISIBLE);
+        mLeftBtn.setTextSize(16);
 		mOnRightButtonClickListener = listener;
 	}
 	public void setRightButton(int stringID, OnRightButtonClickListener listener) {
 		mRightBtn.setText(stringID);
 		mRightBtn.setVisibility(View.VISIBLE);
+        mLeftBtn.setTextSize(16);
 		mOnRightButtonClickListener = listener;
 	}
 	public void removeRightButton() {

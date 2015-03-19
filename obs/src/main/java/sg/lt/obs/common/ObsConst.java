@@ -66,6 +66,7 @@ public abstract class ObsConst {
     public static final String KEY_BROADCAST_BOOKING_VEHICLE_ITEM_IDS = "broadcastBookingVehicleItemIds";
     public static final String KEY_DRIVER_INFO_OBS        = "ObsDriverInfos";
     public static final String KEY_IS_PAST                = "isPast";
+    public static final String KEY_BATCH_BROADCAST_BOOKING_VEHICLE_ITEM_IDS = "broadcastBookingVehicleItemIds";
 
 	public static final String KEY_REG_ID_OBS             = "ObsRegistrationId";
 	public static final String KEY_APP_VERSION_OBS        = "ObsAppVersion";

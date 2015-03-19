@@ -35,6 +35,7 @@ import java.util.Map;
 import sg.lt.obs.ObsBottomTabFragmentActivity;
 import sg.lt.obs.R;
 import sg.lt.obs.common.ObsConst;
+import sg.lt.obs.common.dao.ObmBookingVehicleItemDAO;
 import sg.lt.obs.common.entity.ObmBookingVehicleItem;
 import sg.lt.obs.common.other.ObsUtil;
 import sg.lt.obs.common.other.PreferenceUtil;
@@ -59,8 +60,8 @@ public class BookingVehicleAlarmListAdapter extends BaseAdapter {
         notifyDataSetChanged();
     }
 
-    public void resetItems(List<ObmBookingVehicleItem> items) {
-        mObmBookingVehicleItems = items;
+    public void resetItems(List<ObmBookingVehicleItem> obmBookingVehicleItems) {
+        setValue(obmBookingVehicleItems);
         notifyDataSetChanged();
     }
 
@@ -72,14 +73,46 @@ public class BookingVehicleAlarmListAdapter extends BaseAdapter {
         mObmBookingVehicleItems = new ArrayList<ObmBookingVehicleItem>();
     }
 
-	public BookingVehicleAlarmListAdapter(Context context, List<ObmBookingVehicleItem> items) {
+	public BookingVehicleAlarmListAdapter(Context context, List<ObmBookingVehicleItem> obmBookingVehicleItems) {
         super();
 //        this.mInflater = LayoutInflater.from(context);
         mContext = context;
         mInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        mObmBookingVehicleItems = items;
+        setValue(obmBookingVehicleItems);
     }
 
+    private void setValue(List<ObmBookingVehicleItem> obmBookingVehicleItems) {
+        String batchIds = PreferenceUtil.getString(ObsConst.KEY_BATCH_BROADCAST_BOOKING_VEHICLE_ITEM_IDS);
+        if (StringUtil.hasText(batchIds)) {
+            List<ObmBookingVehicleItem> newOmBookingVehicleItems = new ArrayList<ObmBookingVehicleItem>();
+            String[] batchIdsArr = batchIds.split(";");
+            for (String bookingVehicleItemIdsStr : batchIdsArr) {
+                String[] bookingVehicleItemIdArr = bookingVehicleItemIdsStr.split(",");
+                for (int i=0; i<bookingVehicleItemIdArr.length; i++) {
+                    for (ObmBookingVehicleItem obmBookingVehicleItem : obmBookingVehicleItems) {
+                        if (bookingVehicleItemIdArr[i].equals(obmBookingVehicleItem.getBookingVehicleItemId())) {
+                            obmBookingVehicleItem.setBookingVehicleItemId(bookingVehicleItemIdsStr);
+                            if (i!=bookingVehicleItemIdArr.length-1) {
+                                obmBookingVehicleItem.setHideAcceptBtn(true);
+                            }
+                            if (i>0) {
+                                obmBookingVehicleItem.setHideTitle(true);
+                            }
+                            newOmBookingVehicleItems.add(obmBookingVehicleItem);
+                            obmBookingVehicleItems.remove(obmBookingVehicleItem);
+                            break;
+                        }
+                    }
+                }
+            }
+            if (!obmBookingVehicleItems.isEmpty()) {
+                newOmBookingVehicleItems.addAll(obmBookingVehicleItems);
+            }
+            mObmBookingVehicleItems = newOmBookingVehicleItems;
+        } else {
+            mObmBookingVehicleItems = obmBookingVehicleItems;
+        }
+    }
 	@Override
 	public int getCount() {
 		return mObmBookingVehicleItems.size();
@@ -110,6 +143,7 @@ public class BookingVehicleAlarmListAdapter extends BaseAdapter {
 		if (view == null) {
 			view = mInflater.inflate(R.layout.booking_vehicle_alarm_list_item, parent, false);
 		}
+
 		final ObmBookingVehicleItem obmBookingVehicleItem = mObmBookingVehicleItems.get(position);
 
         TextView bookingInfoTv = ViewHolder.get(view, R.id.booking_info_tv);
@@ -139,6 +173,12 @@ public class BookingVehicleAlarmListAdapter extends BaseAdapter {
                 mAcceptAction = ObsConst.ACTION_ACCEPT_NEW_BOOKING;
                 mRejectAction = ObsConst.ACTION_REJECT_NEW_BOOKING;
             }
+        }
+
+        if (obmBookingVehicleItem.isHideTitle()) {
+            bookingInfo = "";
+        } else if (obmBookingVehicleItem.getBookingVehicleItemId().indexOf(",")!=-1) {
+            bookingInfo = "<b><big><font color='#ff0000'>" + obmBookingVehicleItem.getBookingVehicleItemId().split(",").length + " </font></big></b>" + bookingInfo;
         }
 
         bookingInfo += obmBookingVehicleItem.getBookingService() + " (" + obmBookingVehicleItem.getBookingNumber() + ") - ";
@@ -224,6 +264,13 @@ public class BookingVehicleAlarmListAdapter extends BaseAdapter {
             }
         });
 
+        if (obmBookingVehicleItem.isHideAcceptBtn) {
+            acceptBtn.setVisibility(View.GONE);
+            rejectBtn.setVisibility(View.GONE);
+        } else {
+            acceptBtn.setVisibility(View.VISIBLE);
+            rejectBtn.setVisibility(View.VISIBLE);
+        }
 		return view;
     }
 
@@ -280,8 +327,9 @@ public class BookingVehicleAlarmListAdapter extends BaseAdapter {
                     DialogUtil.showAlertDialog(mContext, mContext.getString(R.string.fail));
                 }
             } else if (msg.what==1) {
-                int position = (int)msg.obj;
-                mObmBookingVehicleItems.remove(position);
+//                int position = (int)msg.obj;
+//                mObmBookingVehicleItems.remove(position);
+                setValue(ObmBookingVehicleItemDAO.getInstance().getBroadcastObmBookingVehicleItems());
                 notifyDataSetChanged();
             } else if (msg.what==2) {
                 Intent intent = new Intent(mContext, ObsBottomTabFragmentActivity.class);
