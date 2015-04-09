@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal" android:background="@color/BEIGE">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginRight="110dp"
+        android:layout_marginLeft="10dp"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="25dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="-30dp"
+            android:orientation="vertical" >
+
+            <ImageView
+                android:id="@+id/signature_line"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/red"
+                android:contentDescription="@string/empty" />
+
+            <sg.lt.obs.common.view.CustomTitleTextView
+                android:id="@+id/title"
+                style="@style/SignatureContent"
+                android:text="@string/signatureHint"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/toolbar_ll"
+        android:layout_width="@dimen/SigButtonWidth"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="@dimen/SigPaddingLeft"
+        android:orientation="vertical">
+
+        <sg.lt.obs.common.view.CustomeFontButton
+            android:id="@+id/getsign"
+            style="@style/SignatureButton"
+            android:text="@string/done"/>
+
+        <sg.lt.obs.common.view.CustomeFontButton
+            android:id="@+id/clear"
+            style="@style/SignatureButton"
+            android:layout_marginTop="@dimen/DividerHeight"
+            android:text="@string/clear"/>
+
+        <sg.lt.obs.common.view.CustomeFontButton
+            android:id="@+id/cancel"
+            style="@style/SignatureButton"
+            android:layout_marginTop="@dimen/DividerHeight"
+            android:text="@string/cancel"/>
+    </LinearLayout>
+
+</LinearLayout>

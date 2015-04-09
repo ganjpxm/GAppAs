@@ -3,6 +3,7 @@
 	<color name="white">#ffffff</color>
 	<color name="white_press">#09000000</color>
 	<color name="black">#000000</color>
+    <color name="black_press">#212121</color>
 	<color name="blue">#105ebe</color>
 	<color name="gray_bg">#f0eff5</color>
 	<color name="transparent">#00000000</color>
@@ -18,6 +19,7 @@
     <color name="orange_light">#ffffbb33</color>
     <color name="blue_light">#ff33b5e5</color>
 
-
+    <color name="BEIGE">#E0E0E0</color>
+    <color name="dark_gray">#666363</color>
     <!-- Went to: $android-sdk > Android:v14 > res > values > colors.xml and copied the colors-->
 </resources>

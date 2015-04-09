@@ -11,12 +11,17 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
+import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Bitmap.Config;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
+import android.graphics.Typeface;
+import android.text.TextPaint;
+import android.util.Log;
 import android.widget.ImageView;
 
 /**
@@ -201,5 +206,5 @@ public class ImageUtil {
             return new Rect(0, 0, srcWidth, srcHeight);
         }
     }
-    
+
 }

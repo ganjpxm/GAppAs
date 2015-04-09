@@ -34,16 +34,60 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="20779798-86a2-45cc-8e56-492fbaaa0e65" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/BookingAssignDriverActivity.java" afterPath="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/BookingAssignDriverActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/BookingCompleteActivity.java" afterPath="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/BookingCompleteActivity.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/obs/src/main/assets/fonts/FrutigerLTStd-Bold.ttf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/obs/src/main/assets/fonts/FrutigerLTStd-Roman.ttf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/obs/src/main/res/drawable/bg_btn_square_white.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/obs/src/main/res/drawable/bg_grid_gray.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/obs/src/main/res/drawable/bg_grid_gray_pressed.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/obs/src/main/res/drawable/icon_driver_black.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/obs/src/main/res/drawable/icon_signature_red.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/util/AESCrypt.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/factory/AlbumStorageDirFactory.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/factory/BaseAlbumDirFactory.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/common/view/CustomTitleTextView.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/common/view/CustomeFontButton.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/factory/FroyoAlbumDirFactory.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/util/MultipartUtil.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/SignatureActivity.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/util/TrustModifier.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/obs/src/main/res/layout/signature_activity.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/obs/src/main/res/drawable/style_btn_black.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/obs/src/main/res/drawable/style_grid_area.xml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/appcompat_v7_21_0_2.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/appcompat_v7_21_0_3.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/jackson_core_asl_1_9_7.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/jackson_mapper_asl_1_9_7.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/play_services_6_5_87.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/support_annotations_21_0_2.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/support_annotations_21_0_3.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/support_v4_21_0_2.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/support_v4_21_0_3.xml" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obs/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/obs/src/main/AndroidManifest.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/base/BaseApplication.java" afterPath="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/base/BaseApplication.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/BookingHistoryDetailFragmentActivity.java" afterPath="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/BookingHistoryDetailFragmentActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/fragment/BookingHistoryFragment.java" afterPath="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/fragment/BookingHistoryFragment.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/BookingUpcomingDetailFragmentActivity.java" afterPath="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/BookingUpcomingDetailFragmentActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/BookingVehicleAlarmListActivity.java" afterPath="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/BookingVehicleAlarmListActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/common/adapt/BookingVehicleAlarmListAdapter.java" afterPath="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/common/adapt/BookingVehicleAlarmListAdapter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/util/DateUtil.java" afterPath="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/util/DateUtil.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/util/FileUtil.java" afterPath="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/util/FileUtil.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/util/ImageUtil.java" afterPath="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/util/ImageUtil.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/util/JacksonUtil.java" afterPath="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/util/JacksonUtil.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/fragment/MoreFragment.java" afterPath="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/fragment/MoreFragment.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/util/NetworkUtil.java" afterPath="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/util/NetworkUtil.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/common/entity/ObmBookingVehicleItem.java" afterPath="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/common/entity/ObmBookingVehicleItem.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/common/dao/ObmBookingVehicleItemDAO.java" afterPath="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/common/dao/ObmBookingVehicleItemDAO.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/common/ObsConst.java" afterPath="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/common/ObsConst.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/common/other/ObsUtil.java" afterPath="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/common/other/ObsUtil.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/common/view/TitleView.java" afterPath="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/common/view/TitleView.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obs/src/main/res/layout/booking_vehicle_alarm_list.xml" afterPath="$PROJECT_DIR$/obs/src/main/res/layout/booking_vehicle_alarm_list.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/common/other/PreferenceUtil.java" afterPath="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/common/other/PreferenceUtil.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/entity/Response.java" afterPath="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/entity/Response.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/util/SystemUtil.java" afterPath="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/util/SystemUtil.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obs/src/main/res/layout/activity_booking_detail_history.xml" afterPath="$PROJECT_DIR$/obs/src/main/res/layout/activity_booking_detail_history.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obs/src/main/res/layout/activity_booking_detail_upcoming.xml" afterPath="$PROJECT_DIR$/obs/src/main/res/layout/activity_booking_detail_upcoming.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/glib/build.gradle" afterPath="$PROJECT_DIR$/glib/build.gradle" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obs/build.gradle" afterPath="$PROJECT_DIR$/obs/build.gradle" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obs/src/main/res/values/colors.xml" afterPath="$PROJECT_DIR$/obs/src/main/res/values/colors.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obs/src/main/res/values/dimens.xml" afterPath="$PROJECT_DIR$/obs/src/main/res/values/dimens.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obs/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/obs/src/main/res/values/strings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obs/src/main/res/values/styles.xml" afterPath="$PROJECT_DIR$/obs/src/main/res/values/styles.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="c6d85b13-7c1e-4750-9f68-1b3ca2eb7e87" name="Failed commit: Default" comment="2" />
@@ -69,43 +113,28 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="BookingAssignDriverActivity.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/BookingAssignDriverActivity.java">
+      <file leaf-file-name="SignatureActivity.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/SignatureActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1305" max-vertical-offset="2115">
-              <caret line="126" column="40" selection-start-line="126" selection-start-column="40" selection-end-line="126" selection-end-column="40" />
+            <state vertical-scroll-proportion="-15.076923" vertical-offset="3898" max-vertical-offset="5250">
+              <caret line="286" column="40" selection-start-line="286" selection-start-column="40" selection-end-line="286" selection-end-column="40" />
               <folding>
-                <element signature="e#6136#6161#0" expanded="true" />
-                <element signature="e#6163#6205#0" expanded="true" />
-                <element signature="e#7126#7148#0" expanded="true" />
-                <element signature="e#7243#7282#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BookingCompleteActivity.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/BookingCompleteActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.36585367" vertical-offset="1110" max-vertical-offset="1830">
-              <caret line="115" column="13" selection-start-line="115" selection-start-column="13" selection-end-line="115" selection-end-column="13" />
-              <folding>
-                <element signature="e#5153#5178#0" expanded="true" />
-                <element signature="e#5180#5222#0" expanded="true" />
-                <element signature="e#5846#5868#0" expanded="true" />
-                <element signature="e#5963#6002#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BookingVehicleAlarmListActivity.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/BookingVehicleAlarmListActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1095" max-vertical-offset="1815">
-              <caret line="124" column="28" selection-start-line="124" selection-start-column="28" selection-end-line="124" selection-end-column="28" />
-              <folding>
-                <element signature="e#5105#5130#0" expanded="true" />
+                <element signature="n#!!doc" expanded="true" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#3652#3773#0" expanded="true" />
+                <element signature="e#3768#3769#0" expanded="true" />
+                <element signature="e#3807#5430#0" expanded="true" />
+                <element signature="e#5425#5426#0" expanded="true" />
+                <element signature="e#5463#5701#0" expanded="true" />
+                <element signature="e#5696#5697#0" expanded="true" />
+                <element signature="e#5742#5743#0" expanded="true" />
+                <element signature="e#5764#5765#0" expanded="true" />
+                <element signature="e#5800#5801#0" expanded="true" />
+                <element signature="e#5821#5822#0" expanded="true" />
+                <element signature="e#5862#5863#0" expanded="true" />
+                <element signature="e#5887#5888#0" expanded="true" />
+                <element signature="e#5927#5928#0" expanded="true" />
+                <element signature="e#5951#5952#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -114,15 +143,57 @@
       <file leaf-file-name="BookingUpcomingDetailFragmentActivity.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/BookingUpcomingDetailFragmentActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-6.8846154" vertical-offset="4381" max-vertical-offset="6855">
-              <caret line="356" column="42" selection-start-line="356" selection-start-column="42" selection-end-line="356" selection-end-column="42" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="6399" max-vertical-offset="8355">
+              <caret line="442" column="13" selection-start-line="442" selection-start-column="13" selection-end-line="442" selection-end-column="13" />
               <folding>
-                <element signature="e#15050#15075#0" expanded="true" />
-                <element signature="e#15175#16671#0" expanded="true" />
-                <element signature="e#16648#16649#0" expanded="true" />
-                <element signature="e#17805#17847#0" expanded="true" />
-                <element signature="e#18086#18125#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#20847#20848#0" expanded="true" />
+                <element signature="e#20878#20879#0" expanded="true" />
+                <element signature="e#20923#20924#0" expanded="true" />
+                <element signature="e#20953#20954#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BookingHistoryDetailFragmentActivity.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/BookingHistoryDetailFragmentActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="3540" max-vertical-offset="5925">
+              <caret line="385" column="13" selection-start-line="385" selection-start-column="13" selection-end-line="385" selection-end-column="13" />
+              <folding>
+                <element signature="e#16374#16402#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BookingHistoryFragment.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/fragment/BookingHistoryFragment.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-14.230769" vertical-offset="2090" max-vertical-offset="3045">
+              <caret line="217" column="41" selection-start-line="217" selection-start-column="41" selection-end-line="217" selection-end-column="41" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BookingUpcomingFragment.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/fragment/BookingUpcomingFragment.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-13.230769" vertical-offset="2281" max-vertical-offset="3075">
+              <caret line="227" column="0" selection-start-line="227" selection-start-column="0" selection-end-line="227" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ObsConst.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/common/ObsConst.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.3611111" vertical-offset="0" max-vertical-offset="2010">
+              <caret line="16" column="35" selection-start-line="16" selection-start-column="35" selection-end-line="16" selection-end-column="35" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -1442,7 +1513,7 @@
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="$PROJECT_DIR$" value="7105008810000" />
+        <entry key="$PROJECT_DIR$" value="7119715351000" />
       </map>
     </option>
     <option name="projectBuildClasspath">
@@ -1852,57 +1923,57 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/base/Const.java" />
-        <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/obs/src/main/res/xml/ecommerce_tracker.xml" />
-        <option value="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/common/activity/ObsActivity.java" />
-        <option value="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/fragment/MyProfileFragment.java" />
-        <option value="$PROJECT_DIR$/obs/src/main/res/xml/global_tracker.xml" />
-        <option value="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/DriverLoginActivity.java" />
-        <option value="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/service/BackgroundLocationService1.java" />
-        <option value="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/service/LocationLoggerServiceManager.java" />
-        <option value="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/service/BackgroundLocationService.java" />
-        <option value="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/service/LocationUpdateService.java" />
-        <option value="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/service/LocationBroadcastReceiver.java" />
-        <option value="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/common/other/ObsApplication.java" />
-        <option value="$PROJECT_DIR$/obs/src/main/res/layout/booking_vehicle_list_item.xml" />
-        <option value="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/thirdparty/astickyheader/SimpleSectionedListAdapter.java" />
-        <option value="$PROJECT_DIR$/obs/src/main/res/values/style_circle_bg.xml" />
-        <option value="$PROJECT_DIR$/obs/src/main/res/drawable/style_circle_bg.xml" />
-        <option value="$PROJECT_DIR$/obs/src/main/res/drawable/style_circle_gray.xml" />
-        <option value="$PROJECT_DIR$/obs/src/main/res/layout/booking_vehicle_list_item_header.xml" />
         <option value="$PROJECT_DIR$/glib/src/main/res/values/strings.xml" />
-        <option value="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/fragment/MoreFragment.java" />
-        <option value="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/util/DateUtil.java" />
         <option value="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/ObsBottomTabFragmentActivity.java" />
         <option value="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/common/adapt/BookingVehicleUpcomingListAdapter.java" />
         <option value="$PROJECT_DIR$/obs/src/main/res/layout/common_header.xml" />
         <option value="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/SplashActivity.java" />
-        <option value="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/util/SystemUtil.java" />
-        <option value="$PROJECT_DIR$/obs/src/main/res/values/styles.xml" />
-        <option value="$PROJECT_DIR$/obs/src/main/res/layout/activity_booking_complete.xml" />
         <option value="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/common/adapt/BookingVehicleHistoryListAdapter.java" />
         <option value="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/common/dao/ObmVehicleDAO.java" />
         <option value="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/common/entity/ObmVehicle.java" />
-        <option value="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/common/dao/ObmBookingVehicleItemDAO.java" />
-        <option value="$PROJECT_DIR$/obs/src/main/res/layout/activity_booking_detail_upcoming.xml" />
         <option value="$PROJECT_DIR$/obs/src/main/res/layout/activity_reassign_driver.xml" />
-        <option value="$PROJECT_DIR$/obs/src/main/res/values/strings.xml" />
-        <option value="$PROJECT_DIR$/obs/src/main/AndroidManifest.xml" />
-        <option value="$PROJECT_DIR$/obs/src/main/res/layout/activity_booking_detail_history.xml" />
-        <option value="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/BookingHistoryDetailFragmentActivity.java" />
-        <option value="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/fragment/BookingHistoryFragment.java" />
         <option value="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/fragment/BookingUpcomingFragment.java" />
-        <option value="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/common/other/ObsUtil.java" />
-        <option value="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/common/entity/ObmBookingVehicleItem.java" />
         <option value="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/common/view/TitleView.java" />
-        <option value="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/common/ObsConst.java" />
         <option value="$PROJECT_DIR$/obs/src/main/res/layout/booking_vehicle_alarm_list.xml" />
         <option value="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/BookingVehicleAlarmListActivity.java" />
         <option value="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/common/adapt/BookingVehicleAlarmListAdapter.java" />
         <option value="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/BookingAssignDriverActivity.java" />
         <option value="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/BookingCompleteActivity.java" />
+        <option value="$PROJECT_DIR$/obs/src/main/res/layout/activity_booking_complete.xml" />
+        <option value="$PROJECT_DIR$/obs/src/main/res/layout/activity_booking_detail_upcoming.xml" />
+        <option value="$PROJECT_DIR$/obs/src/main/res/layout/activity_booking_detail_history.xml" />
+        <option value="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/common/entity/ObmBookingVehicleItem.java" />
+        <option value="$PROJECT_DIR$/obs/build.gradle" />
+        <option value="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/util/SystemUtil.java" />
+        <option value="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/util/FileUtil.java" />
+        <option value="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/common/view/CustomTitleTextView.java" />
+        <option value="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/common/view/CustomeFontButton.java" />
+        <option value="$PROJECT_DIR$/obs/src/main/res/values/strings.xml" />
+        <option value="$PROJECT_DIR$/obs/src/main/res/values/dimens.xml" />
+        <option value="$PROJECT_DIR$/obs/src/main/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/obs/src/main/res/drawable/style_btn_black.xml" />
+        <option value="$PROJECT_DIR$/obs/src/main/res/values/styles.xml" />
+        <option value="$PROJECT_DIR$/obs/src/main/res/values/colors.xml" />
+        <option value="$PROJECT_DIR$/obs/src/main/res/layout/signature_activity.xml" />
+        <option value="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/util/VolleyJsonRequestUtil.java" />
+        <option value="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/util/NetworkUtil.java" />
+        <option value="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/util/MultipartRequest.java" />
+        <option value="$PROJECT_DIR$/glib/build.gradle" />
+        <option value="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/base/BaseApplication.java" />
+        <option value="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/common/other/PreferenceUtil.java" />
+        <option value="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/entity/Response.java" />
+        <option value="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/util/JacksonUtil.java" />
+        <option value="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/util/MultipartUtil.java" />
+        <option value="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/fragment/MoreFragment.java" />
+        <option value="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/common/dao/ObmBookingVehicleItemDAO.java" />
+        <option value="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/common/other/ObsUtil.java" />
         <option value="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/BookingUpcomingDetailFragmentActivity.java" />
+        <option value="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/util/ImageUtil.java" />
+        <option value="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/util/DateUtil.java" />
+        <option value="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/SignatureActivity.java" />
+        <option value="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/fragment/BookingHistoryFragment.java" />
+        <option value="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/BookingHistoryDetailFragmentActivity.java" />
+        <option value="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/common/ObsConst.java" />
       </list>
     </option>
   </component>
@@ -1910,10 +1981,8 @@
     <treeState />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="116" />
-    <option name="y" value="23" />
-    <option name="width" value="1279" />
-    <option name="height" value="864" />
+    <option name="width" value="1440" />
+    <option name="height" value="900" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -1941,16 +2010,78 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="PackagesPane">
+      <pane id="AndroidView">
         <subPane>
           <PATH>
             <PATH_ELEMENT>
               <option name="myItemId" value="GApp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GApp" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
+              <option name="myItemId" value="obs" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GApp" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="obs" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GApp" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="obs" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="obs" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GApp" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gdemo" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GApp" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gdemo" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -2057,36 +2188,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="layout" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GApp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GAppAs" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="obs" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="java" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -2146,81 +2247,425 @@
               <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="obs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="common" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GApp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GAppAs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="obs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="obs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="common" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="other" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GApp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GAppAs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="obs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GApp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GAppAs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="obs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GApp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GAppAs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gradle" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wrapper" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GApp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GAppAs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="glib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GApp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GAppAs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="glib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GApp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GAppAs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="glib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="glib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GApp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GAppAs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="glib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="glib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GApp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GAppAs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="glib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="glib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="util" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GApp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GAppAs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="glib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="glib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="entity" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GApp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GAppAs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="glib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="glib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="base" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GApp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GAppAs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="glib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GApp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GAppAs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="glib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="libs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GApp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GAppAs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="glib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="build" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GApp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GAppAs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="glib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="build" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="generated" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="AndroidView">
+      <pane id="PackagesPane">
         <subPane>
           <PATH>
             <PATH_ELEMENT>
               <option name="myItemId" value="GApp" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GApp" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="obs" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GApp" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="obs" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GApp" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="obs" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="obs" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GApp" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gdemo" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GApp" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gdemo" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -2246,7 +2691,7 @@
     <property name="android.project.structure.last.selected" value="gdemo" />
     <property name="android.project.structure.proportion" value="0.15" />
     <property name="restartRequiresConfirmation" value="true" />
-    <property name="FullScreen" value="false" />
+    <property name="FullScreen" value="true" />
     <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager2.STATE" value="ToolWindow" />
     <property name="UI_DESIGNER_EDITOR_MODE.PaletteToolWindowManager.WIDTH" value="242" />
     <property name="full.screen.before.presentation.mode" value="false" />
@@ -2259,18 +2704,18 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="sg.lt.obs.common.view" />
       <recent name="sg.lt.obs" />
       <recent name="sg.lt.obs.common.entity" />
       <recent name="sg.lt.obs.common.dao" />
       <recent name="sg.lt.obs.common.adapt" />
-      <recent name="org.ganjp.gdemo.adapt" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/obs/src/main/res/layout" />
+      <recent name="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/util" />
+      <recent name="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/entity" />
       <recent name="$PROJECT_DIR$/obs/src/main/res/drawable" />
-      <recent name="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/service" />
-      <recent name="$PROJECT_DIR$/obs/src/main/res/xml" />
-      <recent name="$PROJECT_DIR$/gdemo/src/main/res/layout" />
+      <recent name="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/factory" />
+      <recent name="$PROJECT_DIR$/obs/src/main/assets/fonts" />
     </key>
     <key name="CreateClassDialog.RecentsKey">
       <recent name="sg.lt.obs.service" />
@@ -2616,7 +3061,11 @@
       <created>1426675863134</created>
       <updated>1426675863134</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="2">
+      <created>1426750398074</created>
+      <updated>1426750398074</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -2640,42 +3089,42 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="116" y="23" width="1279" height="864" extended-state="0" />
-    <editor active="true" />
+    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25337332" sideWeight="0.5321337" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.20371868" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" x="473" y="225" width="450" height="456" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25320056" sideWeight="0.5321337" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.11516452" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" x="473" y="225" width="450" height="456" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19460343" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.1800554" sideWeight="0.4996209" order="15" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2513369" sideWeight="0.4851711" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17923187" sideWeight="0.4996209" order="15" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18013245" sideWeight="0.48518518" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25434244" sideWeight="0.4851711" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.047008548" sideWeight="0.53920776" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.27244094" sideWeight="0.4055851" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21770681" sideWeight="0.47513813" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21468145" sideWeight="0.53828657" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2907966" sideWeight="0.2637571" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22934473" sideWeight="0.48019403" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.46079224" order="14" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2270195" sideWeight="0.48019403" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27915633" sideWeight="0.46079224" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19190405" sideWeight="0.4996209" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19444445" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19384836" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.1807419" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28779304" sideWeight="0.5944149" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21390374" sideWeight="0.47210994" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.29470673" sideWeight="0.5944149" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21091811" sideWeight="0.47210994" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Memory Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21468145" sideWeight="0.53828657" order="12" side_tool="true" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18013245" sideWeight="0.48518518" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25337332" sideWeight="0.5321337" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25320056" sideWeight="0.5321337" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.047008548" sideWeight="0.53920776" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2907966" sideWeight="0.2637571" order="3" side_tool="true" content_ui="tabs" />
@@ -2684,22 +3133,22 @@
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19190405" sideWeight="0.4996209" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28779304" sideWeight="0.5944149" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21390374" sideWeight="0.47210994" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.29470673" sideWeight="0.5944149" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21091811" sideWeight="0.47210994" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Memory Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21468145" sideWeight="0.53828657" order="12" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.20371868" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" x="473" y="225" width="450" height="456" />
+      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.11516452" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" x="473" y="225" width="450" height="456" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.1800554" sideWeight="0.4996209" order="15" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17923187" sideWeight="0.4996209" order="15" side_tool="false" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19460343" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18013245" sideWeight="0.48518518" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2513369" sideWeight="0.4851711" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25434244" sideWeight="0.4851711" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.27244094" sideWeight="0.4055851" order="4" side_tool="true" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22934473" sideWeight="0.48019403" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.46079224" order="14" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19444445" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2270195" sideWeight="0.48019403" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27915633" sideWeight="0.46079224" order="14" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19384836" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.1807419" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -2737,231 +3186,48 @@
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="245" />
+      <option name="time" value="295" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/MainActivity.java">
+    <entry file="jar://$PROJECT_DIR$/../../../../program/adt-bundle-mac-x86_64-20140321/sdk/extras/android/m2repository/com/android/support/support-v4/21.0.3/support-v4-21.0.3-sources.jar!/android/support/v4/app/FragmentActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="630">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/BookingDetailActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1530">
-          <caret line="16" column="34" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="34" />
+        <state vertical-scroll-proportion="0.33290488" vertical-offset="11141" max-vertical-offset="12465">
+          <caret line="812" column="16" selection-start-line="812" selection-start-column="16" selection-end-line="812" selection-end-column="16" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../../../program/adt-bundle-mac-x86_64-20140321/sdk/sources/android-21/com/android/internal/policy/impl/PhoneWindow.java">
+    <entry file="file://$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/common/view/CustomTitleTextView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2783" max-vertical-offset="66735">
-          <caret line="300" column="0" selection-start-line="300" selection-start-column="0" selection-end-line="300" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/obs/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="539">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gdemo/src/main/java/org/ganjp/gdemo/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1800">
-          <caret line="30" column="57" selection-start-line="30" selection-start-column="57" selection-end-line="30" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../../../program/adt-bundle-mac-x86_64-20140321/sdk/sources/android-21/android/widget/EditText.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33333334" vertical-offset="517" max-vertical-offset="1890">
-          <caret line="78" column="20" selection-start-line="78" selection-start-column="20" selection-end-line="78" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../../../program/adt-bundle-mac-x86_64-20140321/sdk/sources/android-21/android/util/Log.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33333334" vertical-offset="1807" max-vertical-offset="3075">
-          <caret line="160" column="22" selection-start-line="160" selection-start-column="22" selection-end-line="160" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../../../program/adt-bundle-mac-x86_64-20140321/sdk/sources/android-21/android/database/sqlite/SQLiteOpenHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="7.154532" vertical-offset="0" max-vertical-offset="5475">
-          <caret line="340" column="25" selection-start-line="340" selection-start-column="25" selection-end-line="340" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/common/dao/DatabaseHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8235294" vertical-offset="465" max-vertical-offset="1230">
-          <caret line="71" column="19" selection-start-line="71" selection-start-column="19" selection-end-line="71" selection-end-column="19" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="594">
+          <caret line="0" column="29" selection-start-line="0" selection-start-column="8" selection-end-line="0" selection-end-column="29" />
           <folding>
-            <element signature="e#1529#1530#0" expanded="false" />
-            <element signature="e#1579#1580#0" expanded="false" />
+            <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/common/dao/DAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.099624" vertical-offset="0" max-vertical-offset="4080">
-          <caret line="50" column="19" selection-start-line="50" selection-start-column="19" selection-end-line="50" selection-end-column="19" />
-          <folding>
-            <element signature="e#2219#2220#0" expanded="false" />
-            <element signature="e#2261#2262#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/SplashActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="105" max-vertical-offset="1425">
-          <caret line="44" column="0" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/util/SystemUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="346" max-vertical-offset="990">
-          <caret line="55" column="0" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../../../program/adt-bundle-mac-x86_64-20140321/sdk/sources/android-21/android/os/Build.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.559464" vertical-offset="86" max-vertical-offset="9705">
-          <caret line="46" column="36" selection-start-line="46" selection-start-column="31" selection-end-line="46" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/obs/src/main/res/drawable/style_btn_haiti.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="664">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/obs/build/intermediates/manifests/full/debug/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8" vertical-offset="1235" max-vertical-offset="2100">
-          <caret line="109" column="58" selection-start-line="109" selection-start-column="58" selection-end-line="109" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/fragment/MoreFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.35665295" vertical-offset="1105" max-vertical-offset="2745">
-          <caret line="130" column="116" selection-start-line="130" selection-start-column="44" selection-end-line="130" selection-end-column="116" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../../../program/adt-bundle-mac-x86_64-20140321/sdk/platforms/android-21/data/res/values/config.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4595336" vertical-offset="1720" max-vertical-offset="28170">
-          <caret line="137" column="68" selection-start-line="137" selection-start-column="68" selection-end-line="137" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../../../program/adt-bundle-mac-x86_64-20140321/sdk/platforms/android-21/data/res/values/themes.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.41838133" vertical-offset="9730" max-vertical-offset="12870">
-          <caret line="669" column="71" selection-start-line="669" selection-start-column="71" selection-end-line="669" selection-end-column="71" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/obs/src/main/res/values/styles.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="810">
-          <caret line="43" column="57" selection-start-line="43" selection-start-column="57" selection-end-line="43" selection-end-column="57" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/obs/src/main/res/layout/activity_booking_complete.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5405405" vertical-offset="0" max-vertical-offset="666">
-          <caret line="24" column="110" selection-start-line="24" selection-start-column="110" selection-end-line="24" selection-end-column="110" />
-          <folding>
-            <element signature="e#679#706#0" expanded="false" />
-            <element signature="e#1013#1039#0" expanded="false" />
-            <element signature="e#1804#1822#0" expanded="false" />
-            <element signature="e#2144#2160#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/common/adapt/BookingVehicleHistoryListAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="909" max-vertical-offset="3270">
-          <caret line="118" column="52" selection-start-line="118" selection-start-column="52" selection-end-line="118" selection-end-column="52" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/common/entity/BmConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1095">
-          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/obs/src/main/res/values/strings.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.36" vertical-offset="161" max-vertical-offset="810">
-          <caret line="33" column="62" selection-start-line="33" selection-start-column="62" selection-end-line="33" selection-end-column="62" />
+        <state vertical-scroll-proportion="0.8681898" vertical-offset="286" max-vertical-offset="945">
+          <caret line="52" column="39" selection-start-line="52" selection-start-column="39" selection-end-line="52" selection-end-column="39" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/common/dao/ObmBookingVehicleItemDAO.java">
+    <entry file="file://$PROJECT_DIR$/obs/src/main/res/values/dimens.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2099" max-vertical-offset="8655">
-          <caret line="176" column="31" selection-start-line="176" selection-start-column="31" selection-end-line="176" selection-end-column="31" />
+        <state vertical-scroll-proportion="0.85858583" vertical-offset="0" max-vertical-offset="660">
+          <caret line="34" column="46" selection-start-line="34" selection-start-column="46" selection-end-line="34" selection-end-column="46" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/obs/src/main/res/layout/activity_reassign_driver.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.20865533" vertical-offset="0" max-vertical-offset="647">
-          <caret line="9" column="44" selection-start-line="9" selection-start-column="30" selection-end-line="9" selection-end-column="44" />
-          <folding>
-            <element signature="e#679#710#0" expanded="false" />
-            <element signature="e#1221#1237#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../../../program/adt-bundle-mac-x86_64-20140321/sdk/platforms/android-21/data/res/layout/simple_spinner_item.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="647">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/obs/src/main/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1080" max-vertical-offset="2085">
-          <caret line="95" column="0" selection-start-line="95" selection-start-column="0" selection-end-line="95" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="1049" max-vertical-offset="2130">
+          <caret line="88" column="43" selection-start-line="88" selection-start-column="43" selection-end-line="88" selection-end-column="43" />
           <folding>
             <element signature="e#3532#3550#0" expanded="true" />
             <element signature="e#3864#3903#0" expanded="true" />
@@ -2970,241 +3236,446 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../../../program/adt-bundle-mac-x86_64-20140321/sdk/sources/android-21/android/widget/AbsSpinner.java">
+    <entry file="file://$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/common/view/CustomeFontButton.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3323442" vertical-offset="3466" max-vertical-offset="6690">
-          <caret line="279" column="16" selection-start-line="279" selection-start-column="16" selection-end-line="279" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/base/Const.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6884273" vertical-offset="16" max-vertical-offset="690">
-          <caret line="37" column="31" selection-start-line="37" selection-start-column="31" selection-end-line="37" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/obs/src/main/res/layout/activity_booking_detail_upcoming.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1633" max-vertical-offset="2370">
-          <caret line="131" column="29" selection-start-line="117" selection-start-column="12" selection-end-line="131" selection-end-column="29" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="453">
+          <caret line="0" column="29" selection-start-line="0" selection-start-column="8" selection-end-line="0" selection-end-column="29" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/obs/src/main/res/layout/activity_booking_detail_history.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8029294" vertical-offset="1602" max-vertical-offset="2505">
+          <caret line="147" column="56" selection-start-line="147" selection-start-column="44" selection-end-line="147" selection-end-column="56" />
+          <folding>
+            <element signature="e#2307#2321#0" expanded="true" />
+            <element signature="e#3014#3029#0" expanded="true" />
+            <element signature="e#3884#3899#0" expanded="true" />
+            <element signature="e#4640#4655#0" expanded="true" />
+            <element signature="e#5538#5553#0" expanded="true" />
+            <element signature="e#6294#6309#0" expanded="true" />
+            <element signature="e#7104#7116#0" expanded="true" />
+            <element signature="e#7797#7812#0" expanded="true" />
+            <element signature="e#8574#8598#0" expanded="true" />
+            <element signature="e#9296#9311#0" expanded="true" />
+            <element signature="e#10072#10089#0" expanded="true" />
+            <element signature="e#10773#10788#0" expanded="true" />
+            <element signature="e#11583#11599#0" expanded="true" />
+            <element signature="e#12338#12353#0" expanded="true" />
+            <element signature="e#13998#14013#0" expanded="true" />
+            <element signature="e#14384#14413#0" expanded="true" />
+            <element signature="e#14830#14848#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
       <provider editor-type-id="android-designer">
         <state />
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/BookingVehicleAlarmListActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1438" max-vertical-offset="2325">
-          <caret line="129" column="57" selection-start-line="129" selection-start-column="42" selection-end-line="129" selection-end-column="57" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="540" max-vertical-offset="2475">
+          <caret line="36" column="37" selection-start-line="36" selection-start-column="37" selection-end-line="36" selection-end-column="37" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../../../program/adt-bundle-mac-x86_64-20140321/sdk/sources/android-21/android/app/Activity.java">
+    <entry file="file://$PROJECT_DIR$/obs/src/main/res/drawable/style_btn_haiti.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.372" vertical-offset="86724" max-vertical-offset="89820">
-          <caret line="6019" column="0" selection-start-line="6019" selection-start-column="0" selection-end-line="6019" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.32258064" vertical-offset="0" max-vertical-offset="558">
+          <caret line="12" column="64" selection-start-line="12" selection-start-column="58" selection-end-line="12" selection-end-column="64" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/BookingHistoryDetailFragmentActivity.java">
+    <entry file="file://$PROJECT_DIR$/obs/src/main/res/drawable/style_btn_red.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.57034796" vertical-offset="4798" max-vertical-offset="5760">
-          <caret line="351" column="30" selection-start-line="351" selection-start-column="30" selection-end-line="351" selection-end-column="30" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="165">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/obs/src/main/res/drawable/style_btn_black.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.057840616" vertical-offset="0" max-vertical-offset="778">
+          <caret line="3" column="99" selection-start-line="3" selection-start-column="99" selection-end-line="3" selection-end-column="99" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/obs/src/main/res/values/styles.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="722" max-vertical-offset="1500">
+          <caret line="91" column="12" selection-start-line="91" selection-start-column="12" selection-end-line="91" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/obs/src/main/res/values/colors.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="465">
+          <caret line="21" column="31" selection-start-line="21" selection-start-column="31" selection-end-line="21" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/common/other/ObsApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="825">
+          <caret line="28" column="43" selection-start-line="28" selection-start-column="43" selection-end-line="28" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/util/HtmlUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="780">
+          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.httpcomponents/httpmime/4.3.6/2b5dc16e6104e3341c210ef4113a2fc1b4f2ea5f/httpmime-4.3.6-sources.jar!/org/apache/http/entity/mime/MultipartEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="2.7190332" vertical-offset="0" max-vertical-offset="1935">
+          <caret line="169" column="0" selection-start-line="49" selection-start-column="4" selection-end-line="169" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/base/BaseApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.23913044" vertical-offset="480" max-vertical-offset="1170">
+          <caret line="50" column="7" selection-start-line="50" selection-start-column="7" selection-end-line="50" selection-end-column="7" />
           <folding>
             <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/common/entity/ObmBookingVehicleItem.java">
+    <entry file="file://$PROJECT_DIR$/../../../../program/adt-bundle-mac-x86_64-20140321/sdk/sources/android-21/android/content/SharedPreferences.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6480144" vertical-offset="5161" max-vertical-offset="5715">
-          <caret line="516" column="34" selection-start-line="516" selection-start-column="34" selection-end-line="516" selection-end-column="34" />
+        <state vertical-scroll-proportion="0.70289856" vertical-offset="3400" max-vertical-offset="5535">
+          <caret line="274" column="16" selection-start-line="274" selection-start-column="16" selection-end-line="274" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/common/other/PreferenceUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.5217391" vertical-offset="900" max-vertical-offset="1590">
+          <caret line="39" column="26" selection-start-line="39" selection-start-column="26" selection-end-line="39" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/util/JacksonUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.46116504" vertical-offset="395" max-vertical-offset="1995">
+          <caret line="57" column="46" selection-start-line="57" selection-start-column="46" selection-end-line="57" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/glib/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.69174755" vertical-offset="0" max-vertical-offset="525">
+          <caret line="19" column="1" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/util/DialogUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33333334" vertical-offset="1552" max-vertical-offset="6090">
+          <caret line="128" column="0" selection-start-line="128" selection-start-column="0" selection-end-line="128" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/glib/src/main/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="675">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/entity/Response.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="645">
+          <caret line="13" column="24" selection-start-line="13" selection-start-column="24" selection-end-line="13" selection-end-column="24" />
           <folding>
-            <element signature="e#13039#13040#0" expanded="false" />
-            <element signature="e#13081#13082#0" expanded="false" />
-            <element signature="e#13121#13122#0" expanded="false" />
-            <element signature="e#13159#13160#0" expanded="false" />
-            <element signature="e#13344#13345#0" expanded="false" />
-            <element signature="e#13397#13398#0" expanded="false" />
-            <element signature="e#13443#13444#0" expanded="false" />
+            <element signature="n#!!doc" expanded="false" />
+            <element signature="e#470#471#0" expanded="false" />
+            <element signature="e#506#507#0" expanded="false" />
+            <element signature="e#535#536#0" expanded="false" />
+            <element signature="e#553#554#0" expanded="false" />
+            <element signature="e#590#591#0" expanded="false" />
+            <element signature="e#613#614#0" expanded="false" />
+            <element signature="e#708#709#0" expanded="false" />
+            <element signature="e#737#738#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/glib/src/main/res/values/strings.xml">
+    <entry file="file://$PROJECT_DIR$/../../../../program/adt-bundle-mac-x86_64-20140321/sdk/sources/android-21/android/app/Activity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3478261" vertical-offset="250" max-vertical-offset="900">
-          <caret line="30" column="18" selection-start-line="30" selection-start-column="18" selection-end-line="30" selection-end-column="18" />
+        <state vertical-scroll-proportion="0.3321976" vertical-offset="63555" max-vertical-offset="89820">
+          <caret line="4442" column="22" selection-start-line="4442" selection-start-column="22" selection-end-line="4442" selection-end-column="22" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/common/view/TitleView.java">
+    <entry file="file://$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/util/NetworkUtil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-14.0" vertical-offset="251" max-vertical-offset="1620">
-          <caret line="53" column="35" selection-start-line="53" selection-start-column="35" selection-end-line="53" selection-end-column="35" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="3270" max-vertical-offset="3945">
+          <caret line="289" column="10" selection-start-line="289" selection-start-column="10" selection-end-line="289" selection-end-column="10" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/fragment/BookingHistoryFragment.java">
+    <entry file="file://$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/util/MultipartUtil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.5877342" vertical-offset="1723" max-vertical-offset="2880">
-          <caret line="230" column="98" selection-start-line="230" selection-start-column="98" selection-end-line="230" selection-end-column="98" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="390" max-vertical-offset="7140">
+          <caret line="74" column="48" selection-start-line="74" selection-start-column="48" selection-end-line="74" selection-end-column="48" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.1388889" vertical-offset="0" max-vertical-offset="630">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/common/entity/ObmBookingVehicleItem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.53521127" vertical-offset="5360" max-vertical-offset="5715">
+          <caret line="526" column="18" selection-start-line="526" selection-start-column="18" selection-end-line="526" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/util/FileUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33290488" vertical-offset="71" max-vertical-offset="5520">
+          <caret line="52" column="23" selection-start-line="52" selection-start-column="23" selection-end-line="52" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/common/entity/BaseModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33908045" vertical-offset="362" max-vertical-offset="1800">
+          <caret line="48" column="21" selection-start-line="48" selection-start-column="21" selection-end-line="48" selection-end-column="21" />
+          <folding>
+            <element signature="e#990#991#0" expanded="false" />
+            <element signature="e#1018#1019#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/common/dao/DAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4937304" vertical-offset="1980" max-vertical-offset="4050">
+          <caret line="166" column="7" selection-start-line="166" selection-start-column="7" selection-end-line="166" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/common/dao/ObmBookingVehicleItemDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33222038" vertical-offset="3446" max-vertical-offset="8805">
+          <caret line="268" column="16" selection-start-line="268" selection-start-column="16" selection-end-line="268" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../../program/adt-bundle-mac-x86_64-20140321/sdk/sources/android-21/android/graphics/Typeface.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.38448277" vertical-offset="947" max-vertical-offset="5415">
+          <caret line="113" column="7" selection-start-line="113" selection-start-column="5" selection-end-line="113" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/util/AESCrypt.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.098971725" vertical-offset="107" max-vertical-offset="885">
+          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/base/Const.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="690">
+          <caret line="23" column="31" selection-start-line="23" selection-start-column="31" selection-end-line="23" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/fragment/MoreFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-17.961538" vertical-offset="1243" max-vertical-offset="2760">
+          <caret line="158" column="9" selection-start-line="158" selection-start-column="9" selection-end-line="158" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/DriverLoginActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="2445" max-vertical-offset="4650">
+          <caret line="231" column="43" selection-start-line="231" selection-start-column="43" selection-end-line="231" selection-end-column="43" />
+          <folding>
+            <element signature="e#10314#10315#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../../program/adt-bundle-mac-x86_64-20140321/sdk/sources/android-21/android/view/View.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33290488" vertical-offset="220016" max-vertical-offset="306960">
+          <caret line="15082" column="27" selection-start-line="15082" selection-start-column="21" selection-end-line="15082" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../../program/adt-bundle-mac-x86_64-20140321/sdk/sources/android-21/android/graphics/Bitmap.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33273056" vertical-offset="10496" max-vertical-offset="23940">
+          <caret line="759" column="25" selection-start-line="759" selection-start-column="25" selection-end-line="759" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../../program/adt-bundle-mac-x86_64-20140321/sdk/sources/android-21/android/graphics/Canvas.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33273056" vertical-offset="3386" max-vertical-offset="29730">
+          <caret line="275" column="14" selection-start-line="275" selection-start-column="11" selection-end-line="275" selection-end-column="14" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/common/other/ObsUtil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1515" max-vertical-offset="4725">
-          <caret line="148" column="65" selection-start-line="148" selection-start-column="65" selection-end-line="148" selection-end-column="65" />
-          <folding />
+        <state vertical-scroll-proportion="0.5104364" vertical-offset="5506" max-vertical-offset="6990">
+          <caret line="425" column="73" selection-start-line="425" selection-start-column="73" selection-end-line="425" selection-end-column="73" />
+          <folding>
+            <element signature="e#21707#22727#0" expanded="true" />
+            <element signature="e#22712#22713#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/obs/src/main/res/layout/booking_vehicle_alarm_list.xml">
+    <entry file="file://$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/util/ImageUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="2687" max-vertical-offset="3240">
+          <caret line="187" column="65" selection-start-line="187" selection-start-column="65" selection-end-line="187" selection-end-column="65" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/obs/src/main/res/layout/signature_activity.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.28965518" vertical-offset="0" max-vertical-offset="1050">
+          <caret line="14" column="41" selection-start-line="14" selection-start-column="29" selection-end-line="14" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
       <provider editor-type-id="android-designer">
         <state />
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/util/DateUtil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4973822" vertical-offset="0" max-vertical-offset="573">
-          <caret line="19" column="15" selection-start-line="19" selection-start-column="15" selection-end-line="19" selection-end-column="15" />
+        <state vertical-scroll-proportion="0.23650385" vertical-offset="551" max-vertical-offset="3855">
+          <caret line="61" column="62" selection-start-line="61" selection-start-column="31" selection-end-line="61" selection-end-column="62" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/base/BaseActivity.java">
+    <entry file="file://$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/SignatureActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.22916667" vertical-offset="0" max-vertical-offset="2475">
-          <caret line="25" column="22" selection-start-line="25" selection-start-column="22" selection-end-line="25" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/common/activity/ObsActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.22916667" vertical-offset="0" max-vertical-offset="1650">
-          <caret line="32" column="49" selection-start-line="32" selection-start-column="49" selection-end-line="32" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/common/ObsConst.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8666667" vertical-offset="0" max-vertical-offset="1905">
-          <caret line="29" column="69" selection-start-line="29" selection-start-column="69" selection-end-line="29" selection-end-column="69" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/obs/src/main/res/layout/fragment_booking_upcoming.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.0" vertical-offset="0" max-vertical-offset="495">
-          <caret line="9" column="4" selection-start-line="9" selection-start-column="4" selection-end-line="10" selection-end-column="79" />
-          <folding />
+        <state vertical-scroll-proportion="-15.076923" vertical-offset="3898" max-vertical-offset="5250">
+          <caret line="286" column="40" selection-start-line="286" selection-start-column="40" selection-end-line="286" selection-end-column="40" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#3652#3773#0" expanded="true" />
+            <element signature="e#3768#3769#0" expanded="true" />
+            <element signature="e#3807#5430#0" expanded="true" />
+            <element signature="e#5425#5426#0" expanded="true" />
+            <element signature="e#5463#5701#0" expanded="true" />
+            <element signature="e#5696#5697#0" expanded="true" />
+            <element signature="e#5742#5743#0" expanded="true" />
+            <element signature="e#5764#5765#0" expanded="true" />
+            <element signature="e#5800#5801#0" expanded="true" />
+            <element signature="e#5821#5822#0" expanded="true" />
+            <element signature="e#5862#5863#0" expanded="true" />
+            <element signature="e#5887#5888#0" expanded="true" />
+            <element signature="e#5927#5928#0" expanded="true" />
+            <element signature="e#5951#5952#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/fragment/BookingUpcomingFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.038462" vertical-offset="898" max-vertical-offset="3120">
-          <caret line="122" column="69" selection-start-line="122" selection-start-column="69" selection-end-line="122" selection-end-column="69" />
-          <folding>
-            <element signature="e#3600#5007#0" expanded="true" />
-            <element signature="e#5002#5003#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../../../program/adt-bundle-mac-x86_64-20140321/sdk/sources/android-21/android/os/Handler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33333334" vertical-offset="3435" max-vertical-offset="11205">
-          <caret line="278" column="25" selection-start-line="278" selection-start-column="25" selection-end-line="278" selection-end-column="25" />
+        <state vertical-scroll-proportion="-13.230769" vertical-offset="2281" max-vertical-offset="3075">
+          <caret line="227" column="0" selection-start-line="227" selection-start-column="0" selection-end-line="227" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/common/adapt/BookingVehicleAlarmListAdapter.java">
+    <entry file="file://$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/fragment/BookingHistoryFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="3988" max-vertical-offset="4665">
-          <caret line="340" column="6" selection-start-line="340" selection-start-column="6" selection-end-line="340" selection-end-column="6" />
-          <folding>
-            <element signature="e#2924#2947#0" expanded="true" />
-            <element signature="e#15363#15397#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/BookingVehicleAlarmListActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1095" max-vertical-offset="1815">
-          <caret line="124" column="28" selection-start-line="124" selection-start-column="28" selection-end-line="124" selection-end-column="28" />
-          <folding>
-            <element signature="e#5105#5130#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/util/DialogUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.1" vertical-offset="607" max-vertical-offset="6090">
-          <caret line="57" column="23" selection-start-line="57" selection-start-column="23" selection-end-line="57" selection-end-column="23" />
+        <state vertical-scroll-proportion="-14.230769" vertical-offset="2090" max-vertical-offset="3045">
+          <caret line="217" column="41" selection-start-line="217" selection-start-column="41" selection-end-line="217" selection-end-column="41" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/BookingUpcomingDetailFragmentActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.8846154" vertical-offset="4381" max-vertical-offset="6855">
-          <caret line="356" column="42" selection-start-line="356" selection-start-column="42" selection-end-line="356" selection-end-column="42" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="6399" max-vertical-offset="8355">
+          <caret line="442" column="13" selection-start-line="442" selection-start-column="13" selection-end-line="442" selection-end-column="13" />
           <folding>
-            <element signature="e#15050#15075#0" expanded="true" />
-            <element signature="e#15175#16671#0" expanded="true" />
-            <element signature="e#16648#16649#0" expanded="true" />
-            <element signature="e#17805#17847#0" expanded="true" />
-            <element signature="e#18086#18125#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#20847#20848#0" expanded="true" />
+            <element signature="e#20878#20879#0" expanded="true" />
+            <element signature="e#20923#20924#0" expanded="true" />
+            <element signature="e#20953#20954#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/BookingAssignDriverActivity.java">
+    <entry file="file://$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/BookingHistoryDetailFragmentActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1305" max-vertical-offset="2115">
-          <caret line="126" column="40" selection-start-line="126" selection-start-column="40" selection-end-line="126" selection-end-column="40" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="3540" max-vertical-offset="5925">
+          <caret line="385" column="13" selection-start-line="385" selection-start-column="13" selection-end-line="385" selection-end-column="13" />
           <folding>
-            <element signature="e#6136#6161#0" expanded="true" />
-            <element signature="e#6163#6205#0" expanded="true" />
-            <element signature="e#7126#7148#0" expanded="true" />
-            <element signature="e#7243#7282#0" expanded="true" />
+            <element signature="e#16374#16402#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/BookingCompleteActivity.java">
+    <entry file="file://$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/common/ObsConst.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.36585367" vertical-offset="1110" max-vertical-offset="1830">
-          <caret line="115" column="13" selection-start-line="115" selection-start-column="13" selection-end-line="115" selection-end-column="13" />
-          <folding>
-            <element signature="e#5153#5178#0" expanded="true" />
-            <element signature="e#5180#5222#0" expanded="true" />
-            <element signature="e#5846#5868#0" expanded="true" />
-            <element signature="e#5963#6002#0" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.3611111" vertical-offset="0" max-vertical-offset="2010">
+          <caret line="16" column="35" selection-start-line="16" selection-start-column="35" selection-end-line="16" selection-end-column="35" />
+          <folding />
         </state>
       </provider>
     </entry>

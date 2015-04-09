@@ -2,4 +2,37 @@
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <!-- Text Size -->
+    <dimen name="AppTitle">30sp</dimen>
+    <dimen name="AppHeader">18sp</dimen>
+    <dimen name="AppFormContent">17sp</dimen>
+    <dimen name="AppSwitchContent">16sp</dimen>
+    <dimen name="AppParagraphTitle">15sp</dimen>
+    <dimen name="AppParagraphHeader">14sp</dimen>
+    <dimen name="AppParagraphContent">12sp</dimen>
+
+    <!-- Padding/Margin -->
+    <dimen name="SpaceExtra">30dp</dimen>
+    <dimen name="SpaceLarge">20dp</dimen>
+    <dimen name="SpaceMedium">15dp</dimen>
+    <dimen name="SpaceStandard">10dp</dimen>
+    <dimen name="SpaceSmall">5dp</dimen>
+    <dimen name="SpaceLittle">3dp</dimen>
+    <dimen name="SpaceMicro">1dp</dimen>
+    <dimen name="SpaceZero">0dp</dimen>
+
+    <!-- General -->
+    <dimen name="DividerHeight">2dp</dimen>
+    <dimen name="ButtonHeight">50dp</dimen>
+
+    <!-- App Title -->
+    <dimen name="AppTitleHeight">45dp</dimen>
+    <dimen name="AppTitleButtonHeight">40dp</dimen>
+
+    <!-- Signature -->
+    <dimen name="SigPaddingLeft">-100dp</dimen>
+    <dimen name="SigButtonWidth">100dp</dimen>
+    <dimen name="SigContentHeight">50dp</dimen>
+    <dimen name="SigContentPadding">-50dp</dimen>
 </resources>

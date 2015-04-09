@@ -209,10 +209,21 @@ public class BookingHistoryFragment extends Fragment implements OnItemClickListe
     @Override
     public void onResume() {
         super.onResume();
-        String isNeedRefresh = PreferenceUtil.getString(ObsConst.KEY_HISTORY_LIST_NEEED_REFRESH);
-        if (StringUtil.hasText(isNeedRefresh) && Const.VALUE_YES.equalsIgnoreCase(isNeedRefresh)) {
-            resetListWithSectionValue();
-            PreferenceUtil.saveString(ObsConst.KEY_HISTORY_LIST_NEEED_REFRESH, Const.VALUE_NO);
+        if (mActivity.getIntent().getExtras()!=null) {
+            boolean isRefresh = mActivity.getIntent().getExtras().getBoolean("isRefresh");
+            if (isRefresh) {
+                try {
+                    resetListWithSectionValue();
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+            }
+        } else {
+            String isNeedRefresh = PreferenceUtil.getString(ObsConst.KEY_HISTORY_LIST_NEEED_REFRESH);
+            if (StringUtil.hasText(isNeedRefresh) && Const.VALUE_YES.equalsIgnoreCase(isNeedRefresh)) {
+                resetListWithSectionValue();
+                PreferenceUtil.saveString(ObsConst.KEY_HISTORY_LIST_NEEED_REFRESH, Const.VALUE_NO);
+            }
         }
     }
 	

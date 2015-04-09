@@ -125,9 +125,9 @@
                     <TextView android:id="@+id/driver_tv" android:layout_width="fill_parent" android:layout_height="wrap_content"
                         android:paddingTop="1dip"  android:paddingBottom="5dip" android:textSize="16sp" android:textColor="@color/black"/>
                 </LinearLayout>
-                <Button android:id="@+id/reassign_driver_btn" android:layout_width="80dip" android:layout_height="40dip" android:layout_centerVertical="true"
+                <Button android:id="@+id/reassign_driver_btn" android:layout_width="40dip" android:layout_height="40dip" android:layout_centerVertical="true"
                     android:layout_marginBottom="5dip" android:layout_marginRight="5dip" android:layout_marginTop="5dip"
-                    android:text="@string/reassign_driver" android:textSize="16sp"  style="@style/btn_haiti"
+                    android:background ="@drawable/icon_driver_black"
                     android:layout_alignParentRight="true" android:contentDescription="@string/empty" />
             </RelativeLayout>
 
@@ -140,6 +140,18 @@
                 android:layout_marginLeft="5dip" android:layout_marginRight="5dip" android:layout_marginTop="5dip" android:layout_marginBottom="10dp"
                 android:paddingLeft="5dip" android:paddingRight="5dip" android:paddingTop="10dip" android:paddingBottom="10dip"
                 android:background="@color/white" android:textSize="16sp" android:textColor="@color/black" android:visibility="gone"/>
+
+            <LinearLayout android:id="@+id/signature_ll" android:layout_width="match_parent" android:layout_height="160dip"
+                android:layout_marginLeft="5dip" android:layout_marginRight="5dip" android:layout_marginBottom="5dip"
+                android:orientation="vertical" android:background="@drawable/bg_btn_square_white">
+
+                <ImageView android:id="@+id/signature_iv" android:layout_width="300dp" android:layout_height="130dp" android:scaleType="fitXY"
+                    android:layout_gravity="center" android:contentDescription="@string/empty" android:background="@drawable/icon_signature_red"/>
+
+                <TextView android:id="@+id/signature_tv" android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dip" android:layout_marginRight="5dip" android:layout_marginBottom="10dp" android:layout_gravity="center"
+                    android:text="@string/passenger_signature" android:textSize="16sp" android:textStyle="bold" android:textColor="@color/black" />
+            </LinearLayout>
 
             <Button android:id="@+id/booking_complete_btn" android:layout_width="fill_parent" android:layout_height="40dp"
                 android:layout_marginLeft="5dip" android:layout_marginRight="5dip" android:layout_marginTop="5dip" android:layout_marginBottom="10dp"

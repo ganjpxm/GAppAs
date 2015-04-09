@@ -55,7 +55,7 @@ public class PreferenceUtil {
 	public static boolean saveInt(String key, int value) {
 		SharedPreferences sp = ObsApplication.getAppContext().getSharedPreferences(ObsConst.APP_PACKAGE, Activity.MODE_PRIVATE);  
         SharedPreferences.Editor editor = sp.edit();  
-        editor.putInt(key, value);  
+        editor.putInt(key, value);
         editor.commit(); 
         return true;
 	}
@@ -70,7 +70,7 @@ public class PreferenceUtil {
 		SharedPreferences sp = ObsApplication.getAppContext().getSharedPreferences(ObsConst.APP_PACKAGE, Activity.MODE_PRIVATE); 
         return sp.getString(key, "");
 	}
-	 
+
 	/**
 	 * <p>getLong</p>
 	 * 

@@ -14,6 +14,8 @@ import android.text.Html;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -24,8 +26,12 @@ import org.ganjp.glib.core.base.ActivityStack;
 import org.ganjp.glib.core.base.Const;
 import org.ganjp.glib.core.util.DateUtil;
 import org.ganjp.glib.core.util.DialogUtil;
+import org.ganjp.glib.core.util.FileUtil;
+import org.ganjp.glib.core.util.ImageUtil;
 import org.ganjp.glib.core.util.StringUtil;
+import org.ganjp.glib.core.util.SystemUtil;
 
+import java.io.File;
 import java.util.Date;
 import java.util.Locale;
 
@@ -62,7 +68,9 @@ public class BookingHistoryDetailFragmentActivity extends FragmentActivity imple
 
     private RelativeLayout stop1Rl;
     private RelativeLayout stop2Rl;
-	
+
+    private LinearLayout signatureLl;
+
 	private Button directionBtn;
     private Button routerStop1Btn;
     private Button routerStop2Btn;
@@ -76,6 +84,9 @@ public class BookingHistoryDetailFragmentActivity extends FragmentActivity imple
 
     private FragmentActivity mActivity;
     private String driverInfos;
+
+    private ImageView signatureIv;
+    private boolean isRefreshHistoryTab = false;
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -104,8 +115,8 @@ public class BookingHistoryDetailFragmentActivity extends FragmentActivity imple
 		
 		pickupDateTimeTv = (TextView) findViewById(R.id.pickup_datetime_tv);
 		pickupDateTimeTv.setText(DateUtil.formateDate(new Date(obmBookingVehicleItem.getPickupDateTime().getTime()), "EEE, dd MMM yyyy, HH:mm a"));
-		
-		String address = "";
+
+        String address = "";
 		if ("0101".equalsIgnoreCase(obmBookingVehicleItem.getBookingServiceCd())) {
 			address += "<b>" + obmBookingVehicleItem.getFlightNumber() + "</b> " + obmBookingVehicleItem.getPickupAddress();
 		} else {
@@ -184,12 +195,19 @@ public class BookingHistoryDetailFragmentActivity extends FragmentActivity imple
 			remarkTv.setText(Html.fromHtml(remark, new ImageGetter(), null));
 		}
 
+        signatureLl = (LinearLayout) findViewById(R.id.signature_ll);
+        signatureLl.setOnClickListener(this);
+        signatureIv = (ImageView) findViewById(R.id.signature_iv);
+        String signatureFullPath = ObsUtil.getSignatureFullPath(obmBookingVehicleItem.getLeadPassengerSignaturePath());
+        if (new File(signatureFullPath).exists()) {
+            ImageUtil.setImgNormal(signatureIv, signatureFullPath);
+        }
+
         bookingCompleteBtn = (Button) findViewById(R.id.booking_complete_btn);
         bookingCompleteBtn.setOnClickListener(this);
         bookingCompleteBtn.setVisibility(View.VISIBLE);
 
         if (obmBookingVehicleItem.getDriverClaimPrice()!=null && obmBookingVehicleItem.getDriverClaimPrice()>0) {
-
 
             if (StringUtil.hasText(obmBookingVehicleItem.getDriverClaimStatus()) && "Paid".equalsIgnoreCase(obmBookingVehicleItem.getDriverClaimStatus())) {
                 bookingCompleteBtn.setEnabled(false);
@@ -306,6 +324,24 @@ public class BookingHistoryDetailFragmentActivity extends FragmentActivity imple
                     }
                 }
             }).start();
+        } else if (view == signatureLl) {
+            if (!SystemUtil.hasSdcard()) {
+                DialogUtil.showInfoDialog(BookingHistoryDetailFragmentActivity.this, getString(R.string.insertSD));
+                return;
+            }
+            Intent intent = new Intent(BookingHistoryDetailFragmentActivity.this, SignatureActivity.class);
+            String dateStr = "";
+            try {
+                dateStr = DateUtil.getYYYYMmDdHhMmFormate(obmBookingVehicleItem.getPickupDateTime().getTime());
+            } catch (Exception ex) {
+
+            }
+            String signaturePath = ObsUtil.getSignatureDirPath() + obmBookingVehicleItem.getBookingNumber() + dateStr + ".jpg";
+            FileUtil.createFile(signaturePath);
+            intent.putExtra(ObsConst.KEY_FILE_FULL_PATH, signaturePath);
+            intent.putExtra(ObsConst.KEY_BOOKING_VEHICLE_ITEM_ID, obmBookingVehicleItem.getBookingVehicleItemId());
+            intent.putExtra(ObsConst.KEY_BOOKING_NUMBER, obmBookingVehicleItem.getBookingNumber());
+            startActivityForResult(intent, 1);
         }
     }
 
@@ -335,6 +371,20 @@ public class BookingHistoryDetailFragmentActivity extends FragmentActivity imple
     @Override
     protected void onResume() {
         super.onResume();
+        String signatureFullPath = PreferenceUtil.getString(ObsConst.KEY_FILE_FULL_PATH);
+        if (StringUtil.hasText(signatureFullPath)) {
+            ImageUtil.setImgNormal(signatureIv, signatureFullPath);
+            PreferenceUtil.saveString(ObsConst.KEY_FILE_FULL_PATH, "");
+            obmBookingVehicleItem.setLeadPassengerSignaturePath(signatureFullPath);
+            try {
+                ObmBookingVehicleItemDAO.getInstance().update(obmBookingVehicleItem.getBookingVehicleItemId(),
+                        ObmBookingVehicleItemDAO.COLUMN_LEAD_PASSENGER_SIGNATURE_PATH, signatureFullPath);
+                isRefreshHistoryTab = true;
+                return;
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
         String isNeedRefresh = PreferenceUtil.getString(ObsConst.KEY_DETAIL_NEEED_REFRESH);
         if (StringUtil.hasText(isNeedRefresh) && Const.VALUE_YES.equalsIgnoreCase(isNeedRefresh)) {
             String bookingVehicleItemId = obmBookingVehicleItem.getBookingVehicleItemId();
@@ -346,6 +396,7 @@ public class BookingHistoryDetailFragmentActivity extends FragmentActivity imple
             PreferenceUtil.saveString(ObsConst.KEY_DETAIL_NEEED_REFRESH, Const.VALUE_NO);
         }
         ActivityStack.setActiveActivity(this);
+        isRefreshHistoryTab = false;
     }
 	
 	@Override

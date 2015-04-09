@@ -2,6 +2,7 @@ package sg.lt.obs.fragment;
 
 import org.ganjp.glib.core.base.Const;
 import org.ganjp.glib.core.util.DialogUtil;
+import org.ganjp.glib.core.util.FileUtil;
 import org.ganjp.glib.core.util.HttpConnection;
 import org.ganjp.glib.core.util.NetworkUtil;
 
@@ -30,6 +31,8 @@ import android.widget.RelativeLayout;
 
 import com.google.android.gms.analytics.HitBuilders;
 import com.google.android.gms.analytics.Tracker;
+
+import java.io.File;
 
 public class MoreFragment extends Fragment implements OnClickListener {
 
@@ -105,6 +108,7 @@ public class MoreFragment extends Fragment implements OnClickListener {
                         final String regId = PreferenceUtil.getString(ObsConst.KEY_REG_ID_OBS);
                         final String userId = PreferenceUtil.getString(ObsConst.KEY_USER_ID_OBS);
                         PreferenceUtil.clear();
+                        FileUtil.delete(new File(ObsUtil.getSignatureDirPath()));
                         ObmBookingVehicleItemDAO.getInstance().delete();
                         if (NetworkUtil.isNetworkAvailable(mActivity)) {
                             new Thread(new Runnable() {

@@ -4,9 +4,20 @@
  */
 package sg.lt.obs.common.other;
 
+import android.content.Context;
 import android.location.Location;
+import android.os.AsyncTask;
 import android.os.Build;
+import android.os.Environment;
+import android.util.Log;
 
+import java.io.BufferedInputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
+import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -16,9 +27,13 @@ import org.apache.http.NameValuePair;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.protocol.HTTP;
+import org.apache.http.util.ByteArrayBuffer;
 import org.codehaus.jackson.map.ObjectMapper;
+import org.ganjp.glib.core.entity.Response;
 import org.ganjp.glib.core.util.DateUtil;
+import org.ganjp.glib.core.util.FileUtil;
 import org.ganjp.glib.core.util.HttpConnection;
+import org.ganjp.glib.core.util.MultipartUtil;
 import org.ganjp.glib.core.util.StringUtil;
 import org.ganjp.glib.core.base.Const;
 import sg.lt.obs.common.ObsConst;
@@ -80,9 +95,9 @@ public abstract class ObsUtil {
             }
 		}
         if (url.indexOf("?")!=-1) {
-            url += "&version=1.1";
+            url += "&version=1.2";
         } else {
-            url += "?version=1.1";
+            url += "?version=1.2";
         }
 		pHttpConnection.get(url);
 		if (pHttpConnection.getResponse()!=null) {
@@ -95,6 +110,12 @@ public abstract class ObsUtil {
 			if (StringUtil.hasText(data) && !"[]".equalsIgnoreCase(data)) {
 		    	ObjectMapper mapper = new ObjectMapper();
 		    	obmBookingVehicleItems = mapper.readValue(data, ObmBookingVehicleItem[].class);
+                for (ObmBookingVehicleItem obmBookingVehicleItem : obmBookingVehicleItems) {
+                    if (StringUtil.hasText(obmBookingVehicleItem.getLeadPassengerSignaturePath())) {
+                        String signatureFullPath = ObsUtil.getSignatureFullPath(obmBookingVehicleItem.getLeadPassengerSignaturePath());
+                        downloadFromUrl(ObsConst.SERVER_IP + obmBookingVehicleItem.getLeadPassengerSignaturePath(), signatureFullPath);
+                    }
+                }
                 resultMap.put("updateSize", String.valueOf(obmBookingVehicleItems.length));
                 if (pIsUpdate==false) {
                     ObmBookingVehicleItemDAO.getInstance().dropTable();
@@ -127,6 +148,19 @@ public abstract class ObsUtil {
                 }
 			}
 		}
+
+        try {
+            String signaturePathBookingVehicleItemIds = PreferenceUtil.getString(ObsConst.KEY_SIGNATURE_PATH_BOOKING_VEHICLE_ITEM_IDS);
+            if (StringUtil.hasText(signaturePathBookingVehicleItemIds) && signaturePathBookingVehicleItemIds.indexOf(",")!=-1) {
+                String[] signaturePathBookingVehicleItemIdArr = signaturePathBookingVehicleItemIds.split(";");
+                for (String signaturePathBookingVehicleItemId : signaturePathBookingVehicleItemIdArr) {
+                    final String[] arr = signaturePathBookingVehicleItemId.split(",");
+                    new ObsUtil.UploadSignatureTask(ObsApplication.getAppContext()).execute(ObsConst.URL_UPLOAD_SIGNATURE, arr[0], arr[1]);
+                }
+            }
+        } catch (Exception ex) {
+
+        }
 		return resultMap;
 	}
 
@@ -331,5 +365,137 @@ public abstract class ObsUtil {
             ex.printStackTrace();
         }
         return result;
+    }
+
+    public static String getSignatureName(String leadPassengerSignaturePath) {
+        if (StringUtil.hasText(leadPassengerSignaturePath) && leadPassengerSignaturePath.indexOf("/")!=-1) {
+            return leadPassengerSignaturePath.substring(leadPassengerSignaturePath.lastIndexOf("/") + 1, leadPassengerSignaturePath.length());
+        } else {
+            return "";
+        }
+    }
+
+    public static String getSignatureFullPath(String leadPassengerSignaturePath) {
+        String signatureName = getSignatureName(leadPassengerSignaturePath);
+        if (StringUtil.hasText(signatureName)) {
+            String fullPath = ObsUtil.getSignatureDirPath() + signatureName;
+            FileUtil.createFile(fullPath);
+            return fullPath;
+        } else {
+            return "";
+        }
+    }
+
+    public static String getSignatureDirPath() {
+        File file;
+        file = ObsApplication.getAppContext().getExternalFilesDir(Environment.DIRECTORY_PICTURES);
+        if (file!=null && !file.exists()) {
+            file.mkdirs();
+        }
+        return file.getAbsolutePath() + File.separatorChar + ObsConst.KEY_SIGNATURE + File.separatorChar;
+    }
+    /**
+     * <p>submit file and application No to server</p>
+     *
+     * @param requestURL
+     * @param fileFullPath
+     * @param bookingVehicleItemId
+     * @return
+     */
+    public static Response uploadSignature(String requestURL, String fileFullPath, String bookingVehicleItemId) {
+        try {
+            MultipartUtil multipart = new MultipartUtil(requestURL, "UTF-8", false);
+            multipart.addFilePart("files", new File(fileFullPath));
+            multipart.addFormField("bookingVehicleItemId", bookingVehicleItemId + "," + PreferenceUtil.getString(ObsConst.KEY_USER_NAME_OBS) + "," +  SystemUtil.getDeviceName());
+            return multipart.getResponse();
+        } catch (IOException ex) {
+            System.out.println("ERROR: " + ex.getMessage());
+            ex.printStackTrace();
+        }
+        return null;
+    }
+
+    public static void downloadFromUrl(final String imageURL, final String fileFullPath) {
+        if (!new File(fileFullPath).exists()) {
+            new Thread(new Runnable() {
+                public void run() {
+                    try {
+                        URL url = new URL(imageURL);
+                        File file = new File(fileFullPath);
+
+                        URLConnection urlConnection = url.openConnection();
+                        InputStream inpuntStream = urlConnection.getInputStream();
+                        BufferedInputStream bis = new BufferedInputStream(inpuntStream);
+                        ByteArrayBuffer baf = new ByteArrayBuffer(50);
+                        int current = 0;
+                        while ((current = bis.read()) != -1) {
+                            baf.append((byte) current);
+                        }
+                        FileOutputStream fos = new FileOutputStream(file);
+                        fos.write(baf.toByteArray());
+                        fos.close();
+                    } catch (IOException e) {
+                        Log.d("ObsUtil", "Error: " + e);
+                    }
+                }
+            }).start();
+        }
+    }
+
+    /**
+     * <p>Upload signature</p>
+     */
+    public static class UploadSignatureTask extends AsyncTask<String, Integer, Response> {
+        Context context = null;
+        public UploadSignatureTask(Context ctx) {
+            super();
+            context = ctx;
+        }
+
+        @Override
+        protected void onPreExecute() {
+            //TODO
+        }
+
+        @Override
+        protected Response doInBackground(String... param) {
+            Response response = null;
+            try {
+                response = ObsUtil.uploadSignature(param[0], param[1], param[2]);
+                response.setMessage(param[1] + "," + param[2]);
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+            return response;
+        }
+
+        @Override
+        protected void onPostExecute(Response response) {
+            try {
+                if (response!=null) {
+                    String result = response.getResult();
+                    if (Response.STATUS_SUCCESS.equalsIgnoreCase(result)) {
+                        String signaturePathBookingVehicleItemIds = PreferenceUtil.getString(ObsConst.KEY_SIGNATURE_PATH_BOOKING_VEHICLE_ITEM_IDS);
+                        if (StringUtil.hasText(signaturePathBookingVehicleItemIds)) {
+                            if (signaturePathBookingVehicleItemIds.indexOf(";")!=-1) {
+                                if (signaturePathBookingVehicleItemIds.indexOf(signaturePathBookingVehicleItemIds + ";")!=-1) {
+                                    signaturePathBookingVehicleItemIds = signaturePathBookingVehicleItemIds.replaceAll(signaturePathBookingVehicleItemIds + ";", "");
+                                } else {
+                                    signaturePathBookingVehicleItemIds = signaturePathBookingVehicleItemIds.replaceAll(signaturePathBookingVehicleItemIds, "");
+                                }
+                                PreferenceUtil.saveString(ObsConst.KEY_SIGNATURE_PATH_BOOKING_VEHICLE_ITEM_IDS, signaturePathBookingVehicleItemIds);
+                            } else {
+                                PreferenceUtil.saveString(ObsConst.KEY_SIGNATURE_PATH_BOOKING_VEHICLE_ITEM_IDS, "");
+                            }
+                        }
+
+                        ObsUtil.getBookingVehicleItemsFromWeb(new HttpConnection(false), true);
+
+                    }
+                }
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
     }
 }

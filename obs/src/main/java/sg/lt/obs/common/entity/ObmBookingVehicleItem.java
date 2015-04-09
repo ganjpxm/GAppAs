@@ -76,6 +76,8 @@ public class ObmBookingVehicleItem extends BaseModel implements Serializable {
     public String historyDriverUserIds;
     public String broadcastTag;
 
+    private String leadPassengerSignaturePath;
+
     private boolean isNew = false;
     public boolean isHideAcceptBtn = false;
     public boolean isHideTitle = false;
@@ -520,5 +522,13 @@ public class ObmBookingVehicleItem extends BaseModel implements Serializable {
 
     public void setHideTitle(boolean isHideTitle) {
         this.isHideTitle = isHideTitle;
+    }
+
+    public String getLeadPassengerSignaturePath() {
+        return leadPassengerSignaturePath;
+    }
+
+    public void setLeadPassengerSignaturePath(String leadPassengerSignaturePath) {
+        this.leadPassengerSignaturePath = leadPassengerSignaturePath;
     }
 }

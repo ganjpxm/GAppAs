@@ -55,6 +55,18 @@ public class DateUtil {
     }
 
     /**
+     * <p>getNowDdEmMmYYYYHhMmFormate</p>
+     *
+     * @return
+     */
+    public static final String getNowDdEmMmYYYYHhMmAmPmFormate() {
+        Date date=new Date();
+        DateFormat df2 = new SimpleDateFormat("dd MMM yyyy HH:mm a");
+        String dateText = df2.format(date);
+        return dateText;
+    }
+
+    /**
      * <p>getDdMmYYYYHhMmSsFormate</p>
      *
      * @param time
@@ -69,6 +81,17 @@ public class DateUtil {
     	} else {
     		return "";
     	}
+    }
+
+    public static final String getYYYYMmDdHhMmFormate(long time) {
+        if (time>0) {
+            Date date=new Date(time);
+            DateFormat df2 = new SimpleDateFormat("yyyyMMddHHmm");
+            String dateText = df2.format(date);
+            return dateText;
+        } else {
+            return "";
+        }
     }
 
     /**

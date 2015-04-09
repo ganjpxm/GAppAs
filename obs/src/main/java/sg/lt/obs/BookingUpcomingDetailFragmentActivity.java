@@ -7,7 +7,9 @@ import android.graphics.drawable.Drawable;
 import android.location.Address;
 import android.location.Geocoder;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v4.app.FragmentActivity;
@@ -16,6 +18,8 @@ import android.text.Html;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -32,12 +36,17 @@ import com.google.android.gms.maps.model.PolylineOptions;
 
 import org.ganjp.glib.core.base.ActivityStack;
 import org.ganjp.glib.core.base.Const;
+import org.ganjp.glib.core.entity.Response;
 import org.ganjp.glib.core.util.DateUtil;
 import org.ganjp.glib.core.util.DialogUtil;
+import org.ganjp.glib.core.util.FileUtil;
 import org.ganjp.glib.core.util.HttpConnection;
+import org.ganjp.glib.core.util.ImageUtil;
 import org.ganjp.glib.core.util.NetworkUtil;
 import org.ganjp.glib.core.util.StringUtil;
+import org.ganjp.glib.core.util.SystemUtil;
 
+import java.io.File;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
@@ -73,9 +82,13 @@ public class BookingUpcomingDetailFragmentActivity extends FragmentActivity impl
 	private TextView vehicleTv;
 	private TextView remarkTv;
 
+    private ImageView signatureIv;
+
     private RelativeLayout stop1Rl;
     private RelativeLayout stop2Rl;
-	
+
+    private LinearLayout signatureLl;
+
 	private Button directionBtn;
     private Button routerStop1Btn;
     private Button routerStop2Btn;
@@ -208,6 +221,14 @@ public class BookingUpcomingDetailFragmentActivity extends FragmentActivity impl
                 && !ObsConst.DRIVER_ACTION_OK.equalsIgnoreCase(obmBookingVehicleItem.getDriverAction())) {
             okBtn.setOnClickListener(this);
             okBtn.setVisibility(View.VISIBLE);
+        }
+
+        signatureLl = (LinearLayout) findViewById(R.id.signature_ll);
+        signatureLl.setOnClickListener(this);
+        signatureIv = (ImageView) findViewById(R.id.signature_iv);
+        String signatureFullPath = ObsUtil.getSignatureFullPath(obmBookingVehicleItem.getLeadPassengerSignaturePath());
+        if (new File(signatureFullPath).exists()) {
+            ImageUtil.setImgNormal(signatureIv, signatureFullPath);
         }
 
         if (NetworkUtil.isNetworkAvailable(this)) {
@@ -347,6 +368,24 @@ public class BookingUpcomingDetailFragmentActivity extends FragmentActivity impl
                 }
             }).start();
 
+        } else if (view == signatureLl) {
+            if (!SystemUtil.hasSdcard()) {
+                DialogUtil.showInfoDialog(BookingUpcomingDetailFragmentActivity.this, getString(R.string.insertSD));
+                return;
+            }
+            Intent intent = new Intent(BookingUpcomingDetailFragmentActivity.this, SignatureActivity.class);
+            String dateStr = "";
+            try {
+                dateStr = DateUtil.getYYYYMmDdHhMmFormate(obmBookingVehicleItem.getPickupDateTime().getTime());
+            } catch (Exception ex) {
+
+            }
+            String signaturePath = ObsUtil.getSignatureDirPath() + obmBookingVehicleItem.getBookingNumber() + dateStr + ".jpg";
+            FileUtil.createFile(signaturePath);
+            intent.putExtra(ObsConst.KEY_FILE_FULL_PATH, signaturePath);
+            intent.putExtra(ObsConst.KEY_BOOKING_VEHICLE_ITEM_ID, obmBookingVehicleItem.getBookingVehicleItemId());
+            intent.putExtra(ObsConst.KEY_BOOKING_NUMBER, obmBookingVehicleItem.getBookingNumber());
+            startActivityForResult(intent, 1);
         }
     }
 
@@ -389,6 +428,21 @@ public class BookingUpcomingDetailFragmentActivity extends FragmentActivity impl
     @Override
     protected void onResume() {
         super.onResume();
+        String signatureFullPath = PreferenceUtil.getString(ObsConst.KEY_FILE_FULL_PATH);
+        if (StringUtil.hasText(signatureFullPath)) {
+            ImageUtil.setImgNormal(signatureIv, signatureFullPath);
+            PreferenceUtil.saveString(ObsConst.KEY_FILE_FULL_PATH, "");
+            obmBookingVehicleItem.setLeadPassengerSignaturePath(signatureFullPath);
+            try {
+                ObmBookingVehicleItemDAO.getInstance().update(obmBookingVehicleItem.getBookingVehicleItemId(),
+                        ObmBookingVehicleItemDAO.COLUMN_LEAD_PASSENGER_SIGNATURE_PATH, signatureFullPath);
+                isRefreshUpcomingTab = true;
+                return;
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
+
         String isNeedRefresh = PreferenceUtil.getString(ObsConst.KEY_DETAIL_NEEED_REFRESH);
         if (StringUtil.hasText(isNeedRefresh) && Const.VALUE_YES.equalsIgnoreCase(isNeedRefresh)) {
             String bookingVehicleItemId = obmBookingVehicleItem.getBookingVehicleItemId();
@@ -503,6 +557,4 @@ public class BookingUpcomingDetailFragmentActivity extends FragmentActivity impl
         }
 
     }
-
-
 }

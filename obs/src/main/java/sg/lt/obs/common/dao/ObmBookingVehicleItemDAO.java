@@ -80,6 +80,7 @@ public class ObmBookingVehicleItemDAO extends DAO {
     public static final String  COLUMN_LEAD_PASSENGER_GENDER        = "leadPassengerGender";
     public static final String  COLUMN_LEAD_PASSENGER_MOBILE_NUMBER = "leadPassengerMobileNumber";
     public static final String  COLUMN_LEAD_PASSENGER_EMAIL         = "leadPassengerEmail";
+    public static final String  COLUMN_LEAD_PASSENGER_SIGNATURE_PATH= "leadPassengerSignaturePath";
     public static final String  COLUMN_NUMBER_OF_PASSENGER          = "numberOfPassenger";
 
 	public static final String  COLUMN_DRIVER_USER_NAME            = "driverUserName";
@@ -139,6 +140,7 @@ public class ObmBookingVehicleItemDAO extends DAO {
             .append(COLUMN_LEAD_PASSENGER_GENDER).append(" TEXT, ")
 			.append(COLUMN_LEAD_PASSENGER_MOBILE_NUMBER).append(" TEXT, ")
             .append(COLUMN_LEAD_PASSENGER_EMAIL).append(" TEXT, ")
+            .append(COLUMN_LEAD_PASSENGER_SIGNATURE_PATH).append(" TEXT, ")
             .append(COLUMN_NUMBER_OF_PASSENGER).append(" TEXT, ")
 
 			.append(COLUMN_DRIVER_USER_NAME).append(" TEXT, ")
@@ -234,6 +236,7 @@ public class ObmBookingVehicleItemDAO extends DAO {
             cv.put(COLUMN_LEAD_PASSENGER_GENDER, obmBookingVehicleItem.getLeadPassengerGender());
 			cv.put(COLUMN_LEAD_PASSENGER_MOBILE_NUMBER, obmBookingVehicleItem.getLeadPassengerMobileNumber());
             cv.put(COLUMN_LEAD_PASSENGER_EMAIL, obmBookingVehicleItem.getLeadPassengerEmail());
+            cv.put(COLUMN_LEAD_PASSENGER_SIGNATURE_PATH, obmBookingVehicleItem.getLeadPassengerSignaturePath());
             cv.put(COLUMN_NUMBER_OF_PASSENGER, obmBookingVehicleItem.getNumberOfPassenger());
 
 			cv.put(COLUMN_DRIVER_USER_NAME, obmBookingVehicleItem.getDriverUserName());
@@ -262,6 +265,12 @@ public class ObmBookingVehicleItemDAO extends DAO {
 		}
 		return updateLatestTime;
 	}
+
+    public void update(String uuid, String columnName, String value) {
+        ContentValues cv = new ContentValues();
+        cv.put(columnName, value);
+        super.insertOrUpdate(cv, COLUMN_BOOKING_VEHICLE_ITEM_ID + " = ?", new String[]{uuid});
+    }
 	
 	/**
 	 * <p>Insert Or Update a record of BookingVehicleItem</p>
@@ -549,6 +558,7 @@ public class ObmBookingVehicleItemDAO extends DAO {
         ObmBookingVehicleItem.setLeadPassengerGender(cursor.getString(cursor.getColumnIndex(COLUMN_LEAD_PASSENGER_GENDER)));
 		ObmBookingVehicleItem.setLeadPassengerMobileNumber(cursor.getString(cursor.getColumnIndex(COLUMN_LEAD_PASSENGER_MOBILE_NUMBER)));
         ObmBookingVehicleItem.setLeadPassengerEmail(cursor.getString(cursor.getColumnIndex(COLUMN_LEAD_PASSENGER_EMAIL)));
+        ObmBookingVehicleItem.setLeadPassengerSignaturePath(cursor.getString(cursor.getColumnIndex(COLUMN_LEAD_PASSENGER_SIGNATURE_PATH)));
         ObmBookingVehicleItem.setNumberOfPassenger(cursor.getString(cursor.getColumnIndex(COLUMN_NUMBER_OF_PASSENGER)));
 
 		ObmBookingVehicleItem.setDriverUserName(cursor.getString(cursor.getColumnIndex(COLUMN_DRIVER_USER_NAME)));

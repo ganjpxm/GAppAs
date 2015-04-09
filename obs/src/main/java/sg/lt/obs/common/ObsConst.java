@@ -14,7 +14,7 @@ public abstract class ObsConst {
 	
 	//----------------------------- Obs -----------------
     public static final String DATABASE_NAME = "ltobs.db";
-    public static final int DATABASE_VERSION = 1;
+    public static final int DATABASE_VERSION = 3;
 	public static final String SERVER_IP = "http://119.9.74.121";
 //	public static final String SERVER_IP = "http://192.168.1.4:8080/obs";
 	public static final String URL_LOGIN = SERVER_IP + "/allOrg/login";
@@ -24,6 +24,7 @@ public abstract class ObsConst {
 	public static final String URL_RESPONSE_BROADCAST_BOOKING = SERVER_IP + "/web/responseBroadcastBooking";
     public static final String URL_GET_DRIVER_PROFILE = SERVER_IP + "/free/01/driver/profile?isApp=yes&driverUserId=";
     public static final String URL_TRACK_LOCATION = SERVER_IP + "/web/01/track/location";
+    public static final String URL_UPLOAD_SIGNATURE = SERVER_IP + "/web/01/uploadSignature";
 
 
     public static final String BOOKING_STATUS_CD_PENDING = "0800";
@@ -66,7 +67,7 @@ public abstract class ObsConst {
     public static final String KEY_BROADCAST_BOOKING_VEHICLE_ITEM_IDS = "broadcastBookingVehicleItemIds";
     public static final String KEY_DRIVER_INFO_OBS        = "ObsDriverInfos";
     public static final String KEY_IS_PAST                = "isPast";
-    public static final String KEY_BATCH_BROADCAST_BOOKING_VEHICLE_ITEM_IDS = "broadcastBookingVehicleItemIds";
+    public static final String KEY_BATCH_BROADCAST_BOOKING_VEHICLE_ITEM_IDS = "batchBroadcastBookingVehicleItemIds";
 
 	public static final String KEY_REG_ID_OBS             = "ObsRegistrationId";
 	public static final String KEY_APP_VERSION_OBS        = "ObsAppVersion";
@@ -83,13 +84,18 @@ public abstract class ObsConst {
 	public static final String KEY_USE_PUSH_NOTIFICATION  = "usePushNotification";
 	public static final String KEY_PLATFORM          	  = "platform";
     public static final String KEY_BOOKING_VEHICLE_ITEM_ID = "bookingVehicleItemId";
+    public static final String KEY_BOOKING_NUMBER           = "bookingNumber";
     public static final String KEY_ACTION                 = "action";
     public static final String KEY_DETAIL_NEEED_REFRESH   = "detailNeedRefresh";
     public static final String KEY_UPCOMING_LIST_NEEED_REFRESH   = "upcomingListNeedRefresh";
     public static final String KEY_HISTORY_LIST_NEEED_REFRESH   = "historyListNeedRefresh";
+    public static final String KEY_SIGNATURE = "Signature";
 
     public static final String KEY_TRACK_DATE             = "trackDate";
     public static final String KEY_TRACK_CONTENT          = "trackContent";
+
+    public static final String KEY_FILE_FULL_PATH         = "fileFullPath";
+    public static final String KEY_SIGNATURE_PATH_BOOKING_VEHICLE_ITEM_IDS = "signaturePathBookingVehicleItemIds";
 
 	public static final String VALUE_BOOKING_SERVICE_CD_ARRIVAL   = "0101";
 	public static final String VALUE_BOOKING_SERVICE_CD_DEPARTURE = "0102";
@@ -99,6 +105,7 @@ public abstract class ObsConst {
 	
 	public static final String VALUE_LOGIN_USER_CD = "mobile";
 	public static final String VALUE_LOGIN_PASSWORD = "1";
+
 
     public static final Boolean IGNORE_SSL = false;
 	

@@ -21,7 +21,7 @@ import android.content.res.Configuration;
  *
  */
 public class BaseApplication extends Application {
-	
+
 	private boolean mIsScreenLarge;
 	private boolean mIsScreenExtraLarge;
 
@@ -47,8 +47,8 @@ public class BaseApplication extends Application {
 	public static Context getAppContext() {
 		return BaseApplication.context;
 	}
-	
-	/**
+
+   	/**
 	 * <p>is tablet</p>
 	 * 
 	 * @return boolean

@@ -34,7 +34,7 @@ public class JacksonUtil {
 	public static void writeList2Json() throws IOException {
 		List<Response> responseList = new ArrayList<Response>();
 		Response response = new Response();
-		response.setStatus(Response.STATUS_SUCCESS);
+		response.setResult(Response.STATUS_SUCCESS);
 		responseList.add(response);
 		objectMapper.writeValue(System.out, responseList);
 	}
@@ -55,7 +55,7 @@ public class JacksonUtil {
 		String json = "{\"status\":\"Success\"}";
 		try {
 			Response acc = objectMapper.readValue(json, Response.class);
-			System.out.println(acc.getStatus());
+			System.out.println(acc.getResult());
 		} catch (JsonParseException e) {
 			e.printStackTrace();
 		} catch (JsonMappingException e) {
