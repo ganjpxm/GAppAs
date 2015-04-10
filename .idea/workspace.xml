@@ -34,60 +34,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="20779798-86a2-45cc-8e56-492fbaaa0e65" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/obs/src/main/assets/fonts/FrutigerLTStd-Bold.ttf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/obs/src/main/assets/fonts/FrutigerLTStd-Roman.ttf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/obs/src/main/res/drawable/bg_btn_square_white.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/obs/src/main/res/drawable/bg_grid_gray.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/obs/src/main/res/drawable/bg_grid_gray_pressed.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/obs/src/main/res/drawable/icon_driver_black.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/obs/src/main/res/drawable/icon_signature_red.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/util/AESCrypt.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/factory/AlbumStorageDirFactory.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/factory/BaseAlbumDirFactory.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/common/view/CustomTitleTextView.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/common/view/CustomeFontButton.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/factory/FroyoAlbumDirFactory.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/util/MultipartUtil.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/SignatureActivity.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/util/TrustModifier.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/obs/src/main/res/layout/signature_activity.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/obs/src/main/res/drawable/style_btn_black.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/obs/src/main/res/drawable/style_grid_area.xml" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/appcompat_v7_21_0_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/appcompat_v7_21_0_3.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/jackson_core_asl_1_9_7.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/jackson_mapper_asl_1_9_7.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/play_services_6_5_87.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/support_annotations_21_0_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/support_annotations_21_0_3.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/support_v4_21_0_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/support_v4_21_0_3.xml" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obs/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/obs/src/main/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/base/BaseApplication.java" afterPath="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/base/BaseApplication.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/BookingHistoryDetailFragmentActivity.java" afterPath="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/BookingHistoryDetailFragmentActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/fragment/BookingHistoryFragment.java" afterPath="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/fragment/BookingHistoryFragment.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/BookingUpcomingDetailFragmentActivity.java" afterPath="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/BookingUpcomingDetailFragmentActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/util/DateUtil.java" afterPath="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/util/DateUtil.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/util/FileUtil.java" afterPath="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/util/FileUtil.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/util/ImageUtil.java" afterPath="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/util/ImageUtil.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/util/JacksonUtil.java" afterPath="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/util/JacksonUtil.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/fragment/MoreFragment.java" afterPath="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/fragment/MoreFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/util/NetworkUtil.java" afterPath="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/util/NetworkUtil.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/common/entity/ObmBookingVehicleItem.java" afterPath="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/common/entity/ObmBookingVehicleItem.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/common/dao/ObmBookingVehicleItemDAO.java" afterPath="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/common/dao/ObmBookingVehicleItemDAO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/common/ObsConst.java" afterPath="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/common/ObsConst.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/common/other/ObsUtil.java" afterPath="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/common/other/ObsUtil.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/common/other/PreferenceUtil.java" afterPath="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/common/other/PreferenceUtil.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/entity/Response.java" afterPath="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/entity/Response.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/util/SystemUtil.java" afterPath="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/util/SystemUtil.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obs/src/main/res/layout/activity_booking_detail_history.xml" afterPath="$PROJECT_DIR$/obs/src/main/res/layout/activity_booking_detail_history.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obs/src/main/res/layout/activity_booking_detail_upcoming.xml" afterPath="$PROJECT_DIR$/obs/src/main/res/layout/activity_booking_detail_upcoming.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/glib/build.gradle" afterPath="$PROJECT_DIR$/glib/build.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obs/build.gradle" afterPath="$PROJECT_DIR$/obs/build.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obs/src/main/res/values/colors.xml" afterPath="$PROJECT_DIR$/obs/src/main/res/values/colors.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obs/src/main/res/values/dimens.xml" afterPath="$PROJECT_DIR$/obs/src/main/res/values/dimens.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obs/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/obs/src/main/res/values/strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obs/src/main/res/values/styles.xml" afterPath="$PROJECT_DIR$/obs/src/main/res/values/styles.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="c6d85b13-7c1e-4750-9f68-1b3ca2eb7e87" name="Failed commit: Default" comment="2" />
@@ -116,8 +64,8 @@
       <file leaf-file-name="SignatureActivity.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/SignatureActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-15.076923" vertical-offset="3898" max-vertical-offset="5250">
-              <caret line="286" column="40" selection-start-line="286" selection-start-column="40" selection-end-line="286" selection-end-column="40" />
+            <state vertical-scroll-proportion="-17.115385" vertical-offset="1610" max-vertical-offset="5250">
+              <caret line="137" column="73" selection-start-line="137" selection-start-column="55" selection-end-line="137" selection-end-column="73" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
                 <element signature="imports" expanded="true" />
@@ -143,26 +91,30 @@
       <file leaf-file-name="BookingUpcomingDetailFragmentActivity.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/BookingUpcomingDetailFragmentActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="6399" max-vertical-offset="8355">
-              <caret line="442" column="13" selection-start-line="442" selection-start-column="13" selection-end-line="442" selection-end-column="13" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="3714" max-vertical-offset="8565">
+              <caret line="270" column="12" selection-start-line="270" selection-start-column="12" selection-end-line="273" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#20847#20848#0" expanded="true" />
-                <element signature="e#20878#20879#0" expanded="true" />
-                <element signature="e#20923#20924#0" expanded="true" />
-                <element signature="e#20953#20954#0" expanded="true" />
+                <element signature="e#21705#21706#0" expanded="true" />
+                <element signature="e#21736#21737#0" expanded="true" />
+                <element signature="e#21781#21782#0" expanded="true" />
+                <element signature="e#21811#21812#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BookingHistoryDetailFragmentActivity.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="BookingHistoryDetailFragmentActivity.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/BookingHistoryDetailFragmentActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="3540" max-vertical-offset="5925">
-              <caret line="385" column="13" selection-start-line="385" selection-start-column="13" selection-end-line="385" selection-end-column="13" />
+            <state vertical-scroll-proportion="0.8336079" vertical-offset="2809" max-vertical-offset="6300">
+              <caret line="261" column="13" selection-start-line="261" selection-start-column="13" selection-end-line="261" selection-end-column="13" />
               <folding>
-                <element signature="e#16374#16402#0" expanded="true" />
+                <element signature="e#17614#17642#0" expanded="true" />
+                <element signature="e#19444#19445#0" expanded="true" />
+                <element signature="e#19475#19476#0" expanded="true" />
+                <element signature="e#21447#21448#0" expanded="true" />
+                <element signature="e#21477#21478#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -171,8 +123,8 @@
       <file leaf-file-name="BookingHistoryFragment.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/fragment/BookingHistoryFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-14.230769" vertical-offset="2090" max-vertical-offset="3045">
-              <caret line="217" column="41" selection-start-line="217" selection-start-column="41" selection-end-line="217" selection-end-column="41" />
+            <state vertical-scroll-proportion="-12.5" vertical-offset="2090" max-vertical-offset="3045">
+              <caret line="214" column="21" selection-start-line="214" selection-start-column="21" selection-end-line="214" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -188,11 +140,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ObsConst.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="ObsConst.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/common/ObsConst.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.3611111" vertical-offset="0" max-vertical-offset="2010">
-              <caret line="16" column="35" selection-start-line="16" selection-start-column="35" selection-end-line="16" selection-end-column="35" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="1232" max-vertical-offset="2010">
+              <caret line="129" column="59" selection-start-line="129" selection-start-column="59" selection-end-line="129" selection-end-column="59" />
               <folding />
             </state>
           </provider>
@@ -1967,13 +1919,13 @@
         <option value="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/fragment/MoreFragment.java" />
         <option value="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/common/dao/ObmBookingVehicleItemDAO.java" />
         <option value="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/common/other/ObsUtil.java" />
-        <option value="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/BookingUpcomingDetailFragmentActivity.java" />
         <option value="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/util/ImageUtil.java" />
         <option value="$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/util/DateUtil.java" />
         <option value="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/SignatureActivity.java" />
         <option value="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/fragment/BookingHistoryFragment.java" />
-        <option value="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/BookingHistoryDetailFragmentActivity.java" />
         <option value="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/common/ObsConst.java" />
+        <option value="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/BookingUpcomingDetailFragmentActivity.java" />
+        <option value="$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/BookingHistoryDetailFragmentActivity.java" />
       </list>
     </option>
   </component>
@@ -2162,32 +2114,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GApp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GAppAs" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="obs" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="java" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -2286,44 +2212,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="obs" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="common" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="other" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GApp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GAppAs" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="obs" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="assets" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -2375,282 +2263,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="glib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GApp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GAppAs" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="glib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GApp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GAppAs" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="glib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="glib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GApp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GAppAs" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="glib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="glib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="core" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GApp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GAppAs" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="glib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="glib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="core" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="util" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GApp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GAppAs" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="glib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="glib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="core" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="entity" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GApp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GAppAs" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="glib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="glib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="core" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="base" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GApp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GAppAs" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="glib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GApp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GAppAs" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="glib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="libs" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GApp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GAppAs" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="glib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="build" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GApp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GAppAs" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="glib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="build" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="generated" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -3065,7 +2677,11 @@
       <created>1426750398074</created>
       <updated>1426750398074</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="2">
+      <created>1428587730946</created>
+      <updated>1428587730946</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -3090,7 +2706,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25320056" sideWeight="0.5321337" order="7" side_tool="false" content_ui="tabs" />
@@ -3098,23 +2714,23 @@
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19460343" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17923187" sideWeight="0.4996209" order="15" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18013245" sideWeight="0.48518518" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25434244" sideWeight="0.4851711" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.047008548" sideWeight="0.53920776" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.1923077" sideWeight="0.47353363" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.1923077" sideWeight="0.52646637" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.27244094" sideWeight="0.4055851" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21770681" sideWeight="0.47513813" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21468145" sideWeight="0.53828657" order="9" side_tool="true" content_ui="tabs" />
+      <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.1923077" sideWeight="0.52646637" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2907966" sideWeight="0.2637571" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2270195" sideWeight="0.48019403" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27915633" sideWeight="0.46079224" order="14" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19602978" sideWeight="0.46079224" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19190405" sideWeight="0.4996209" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19384836" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.1807419" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.29470673" sideWeight="0.5944149" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2739628" sideWeight="0.5944149" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21091811" sideWeight="0.47210994" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Memory Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21468145" sideWeight="0.53828657" order="12" side_tool="true" content_ui="tabs" />
+      <window_info id="Memory Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.1923077" sideWeight="0.52646637" order="12" side_tool="true" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -3133,7 +2749,7 @@
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19190405" sideWeight="0.4996209" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.29470673" sideWeight="0.5944149" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3004292" sideWeight="0.5944149" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21091811" sideWeight="0.47210994" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Memory Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21468145" sideWeight="0.53828657" order="12" side_tool="true" content_ui="tabs" />
@@ -3144,10 +2760,10 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17923187" sideWeight="0.4996209" order="15" side_tool="false" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19460343" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18013245" sideWeight="0.48518518" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25434244" sideWeight="0.4851711" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25434244" sideWeight="0.4851711" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.27244094" sideWeight="0.4055851" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2270195" sideWeight="0.48019403" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27915633" sideWeight="0.46079224" order="14" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.20471464" sideWeight="0.46079224" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19384836" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.1807419" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -3456,14 +3072,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/common/entity/ObmBookingVehicleItem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.53521127" vertical-offset="5360" max-vertical-offset="5715">
-          <caret line="526" column="18" selection-start-line="526" selection-start-column="18" selection-end-line="526" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/glib/src/main/java/org/ganjp/glib/core/util/FileUtil.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33290488" vertical-offset="71" max-vertical-offset="5520">
@@ -3536,7 +3144,7 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="2445" max-vertical-offset="4650">
           <caret line="231" column="43" selection-start-line="231" selection-start-column="43" selection-end-line="231" selection-end-column="43" />
           <folding>
-            <element signature="e#10314#10315#0" expanded="true" />
+            <element signature="e#10314#10315#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -3581,8 +3189,8 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="2687" max-vertical-offset="3240">
           <caret line="187" column="65" selection-start-line="187" selection-start-column="65" selection-end-line="187" selection-end-column="65" />
           <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="imports" expanded="true" />
+            <element signature="n#!!doc" expanded="false" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -3606,10 +3214,45 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/common/ObsConst.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1232" max-vertical-offset="2010">
+          <caret line="129" column="59" selection-start-line="129" selection-start-column="59" selection-end-line="129" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/fragment/BookingUpcomingFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-13.230769" vertical-offset="2281" max-vertical-offset="3075">
+          <caret line="227" column="0" selection-start-line="227" selection-start-column="0" selection-end-line="227" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/fragment/BookingHistoryFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-12.5" vertical-offset="2090" max-vertical-offset="3045">
+          <caret line="214" column="21" selection-start-line="214" selection-start-column="21" selection-end-line="214" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/common/entity/ObmBookingVehicleItem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33161953" vertical-offset="4212" max-vertical-offset="5745">
+          <caret line="414" column="17" selection-start-line="414" selection-start-column="17" selection-end-line="414" selection-end-column="17" />
+          <folding>
+            <element signature="e#10890#10891#0" expanded="false" />
+            <element signature="e#10929#10930#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/SignatureActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-15.076923" vertical-offset="3898" max-vertical-offset="5250">
-          <caret line="286" column="40" selection-start-line="286" selection-start-column="40" selection-end-line="286" selection-end-column="40" />
+        <state vertical-scroll-proportion="-17.115385" vertical-offset="1610" max-vertical-offset="5250">
+          <caret line="137" column="73" selection-start-line="137" selection-start-column="55" selection-end-line="137" selection-end-column="73" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="imports" expanded="true" />
@@ -3631,51 +3274,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/fragment/BookingUpcomingFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.230769" vertical-offset="2281" max-vertical-offset="3075">
-          <caret line="227" column="0" selection-start-line="227" selection-start-column="0" selection-end-line="227" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/fragment/BookingHistoryFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-14.230769" vertical-offset="2090" max-vertical-offset="3045">
-          <caret line="217" column="41" selection-start-line="217" selection-start-column="41" selection-end-line="217" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/BookingUpcomingDetailFragmentActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="6399" max-vertical-offset="8355">
-          <caret line="442" column="13" selection-start-line="442" selection-start-column="13" selection-end-line="442" selection-end-column="13" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="3714" max-vertical-offset="8565">
+          <caret line="270" column="12" selection-start-line="270" selection-start-column="12" selection-end-line="273" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#20847#20848#0" expanded="true" />
-            <element signature="e#20878#20879#0" expanded="true" />
-            <element signature="e#20923#20924#0" expanded="true" />
-            <element signature="e#20953#20954#0" expanded="true" />
+            <element signature="e#21705#21706#0" expanded="true" />
+            <element signature="e#21736#21737#0" expanded="true" />
+            <element signature="e#21781#21782#0" expanded="true" />
+            <element signature="e#21811#21812#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/BookingHistoryDetailFragmentActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="3540" max-vertical-offset="5925">
-          <caret line="385" column="13" selection-start-line="385" selection-start-column="13" selection-end-line="385" selection-end-column="13" />
+        <state vertical-scroll-proportion="0.8336079" vertical-offset="2809" max-vertical-offset="6300">
+          <caret line="261" column="13" selection-start-line="261" selection-start-column="13" selection-end-line="261" selection-end-column="13" />
           <folding>
-            <element signature="e#16374#16402#0" expanded="true" />
+            <element signature="e#17614#17642#0" expanded="true" />
+            <element signature="e#19444#19445#0" expanded="true" />
+            <element signature="e#19475#19476#0" expanded="true" />
+            <element signature="e#21447#21448#0" expanded="true" />
+            <element signature="e#21477#21478#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/obs/src/main/java/sg/lt/obs/common/ObsConst.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3611111" vertical-offset="0" max-vertical-offset="2010">
-          <caret line="16" column="35" selection-start-line="16" selection-start-column="35" selection-end-line="16" selection-end-column="35" />
-          <folding />
         </state>
       </provider>
     </entry>

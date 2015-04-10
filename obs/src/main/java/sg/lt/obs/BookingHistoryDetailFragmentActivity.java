@@ -188,7 +188,7 @@ public class BookingHistoryDetailFragmentActivity extends FragmentActivity imple
         vehicleTv = (TextView) findViewById(R.id.vehicle_tv);
         vehicleTv.setText(Html.fromHtml(vehicle, new ImageGetter(), null));
 
-		if (StringUtil.isNotEmpty(obmBookingVehicleItem.getRemark())) {
+		if (StringUtil.hasText(obmBookingVehicleItem.getRemark())) {
 			remarkTv = (TextView) findViewById(R.id.remark_tv);
 			remarkTv.setVisibility(View.VISIBLE);
             String remark = "<img src='icon_comment_red'/> " + obmBookingVehicleItem.getRemark();
@@ -196,8 +196,18 @@ public class BookingHistoryDetailFragmentActivity extends FragmentActivity imple
 		}
 
         signatureLl = (LinearLayout) findViewById(R.id.signature_ll);
-        signatureLl.setOnClickListener(this);
         signatureIv = (ImageView) findViewById(R.id.signature_iv);
+        Float driverClaimPrice = obmBookingVehicleItem.getDriverClaimPrice();
+        if (driverClaimPrice!=null && driverClaimPrice>0 && ObsConst.BOOKING_STATUS_CD_COMPLETED.equals(obmBookingVehicleItem.getBookingStatusCd())) {
+            if (!StringUtil.hasText(obmBookingVehicleItem.getLeadPassengerSignaturePath())) {
+                signatureLl.setVisibility(View.GONE);
+            } else {
+                signatureLl.setVisibility(View.VISIBLE);
+            }
+        } else {
+            signatureLl.setOnClickListener(this);
+            signatureLl.setVisibility(View.VISIBLE);
+        }
         String signatureFullPath = ObsUtil.getSignatureFullPath(obmBookingVehicleItem.getLeadPassengerSignaturePath());
         if (new File(signatureFullPath).exists()) {
             ImageUtil.setImgNormal(signatureIv, signatureFullPath);
@@ -222,8 +232,12 @@ public class BookingHistoryDetailFragmentActivity extends FragmentActivity imple
 	@Override
     public void onClick(View view) {
     	if (view == mBackBtn) {
-    		startActivity(new Intent(this, ObsBottomTabFragmentActivity.class));
-    		overridePendingTransition(org.ganjp.glib.R.anim.in_from_left, org.ganjp.glib.R.anim.out_to_right);
+            Intent intent = new Intent(this, ObsBottomTabFragmentActivity.class);
+            if (isRefreshHistoryTab) {
+                intent.putExtra("isRefresh", true);
+            }
+            startActivity(intent);
+            overridePendingTransition(org.ganjp.glib.R.anim.in_from_left, org.ganjp.glib.R.anim.out_to_right);
 		} else if (view == mCopyBtn) {
             String bookingInfo = obmBookingVehicleItem.getBookingNumber();
             if ("Cash".equalsIgnoreCase(obmBookingVehicleItem.getPaymentMode())) {
@@ -234,8 +248,15 @@ public class BookingHistoryDetailFragmentActivity extends FragmentActivity imple
                 bookingInfo += "\nNot Paid";
             }
             bookingInfo += "\n\n" + DateUtil.formateDate(new Date(obmBookingVehicleItem.getPickupDateTime().getTime()), "EEE, dd MMM yyyy, HH:mm a");
-            bookingInfo += "\n" + obmBookingVehicleItem.getPickupAddress();
-            bookingInfo += "\nto " + obmBookingVehicleItem.getDestination();
+            bookingInfo += "\n";
+            if (ObsConst.VALUE_BOOKING_SERVICE_CD_ARRIVAL.equals(obmBookingVehicleItem.getBookingServiceCd()) && StringUtil.hasText(obmBookingVehicleItem.getFlightNumber())) {
+                bookingInfo += "(" + obmBookingVehicleItem.getFlightNumber() + ") ";
+            }
+            bookingInfo += obmBookingVehicleItem.getPickupAddress();
+            bookingInfo += "\nto ";
+            if (ObsConst.VALUE_BOOKING_SERVICE_CD_DEPARTURE.equals(obmBookingVehicleItem.getBookingServiceCd()) && StringUtil.hasText(obmBookingVehicleItem.getFlightNumber())) {
+                bookingInfo += "(" + obmBookingVehicleItem.getFlightNumber() + ") ";
+            }
             if (StringUtil.hasText(obmBookingVehicleItem.getStop1Address())) {
                 bookingInfo += "\nStop1 " + obmBookingVehicleItem.getStop1Address();
             }

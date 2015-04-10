@@ -224,11 +224,18 @@ public class BookingUpcomingDetailFragmentActivity extends FragmentActivity impl
         }
 
         signatureLl = (LinearLayout) findViewById(R.id.signature_ll);
-        signatureLl.setOnClickListener(this);
-        signatureIv = (ImageView) findViewById(R.id.signature_iv);
-        String signatureFullPath = ObsUtil.getSignatureFullPath(obmBookingVehicleItem.getLeadPassengerSignaturePath());
-        if (new File(signatureFullPath).exists()) {
-            ImageUtil.setImgNormal(signatureIv, signatureFullPath);
+
+        String driverAction = obmBookingVehicleItem.getDriverAction();
+        if (StringUtil.hasText(driverAction) && ObsConst.DRIVER_ACTION_OK.equalsIgnoreCase(driverAction)) {
+            signatureLl.setVisibility(View.VISIBLE);
+            signatureLl.setOnClickListener(this);
+            signatureIv = (ImageView) findViewById(R.id.signature_iv);
+            String signatureFullPath = ObsUtil.getSignatureFullPath(obmBookingVehicleItem.getLeadPassengerSignaturePath());
+            if (new File(signatureFullPath).exists()) {
+                ImageUtil.setImgNormal(signatureIv, signatureFullPath);
+            }
+        } else {
+            signatureLl.setVisibility(View.GONE);
         }
 
         if (NetworkUtil.isNetworkAvailable(this)) {
@@ -240,7 +247,6 @@ public class BookingUpcomingDetailFragmentActivity extends FragmentActivity impl
 	@Override
     public void onClick(View view) {
     	if (view == mBackBtn) {
-            startActivity(new Intent(this, ObsBottomTabFragmentActivity.class));
             Intent intent = new Intent(this, ObsBottomTabFragmentActivity.class);
             if (isRefreshUpcomingTab) {
                 intent.putExtra("isRefresh", true);
@@ -257,8 +263,16 @@ public class BookingUpcomingDetailFragmentActivity extends FragmentActivity impl
                 bookingInfo += "\nNot Paid";
             }
             bookingInfo += "\n\n" + DateUtil.formateDate(new Date(obmBookingVehicleItem.getPickupDateTime().getTime()), "EEE, dd MMM yyyy, HH:mm a");
-            bookingInfo += "\n" + obmBookingVehicleItem.getPickupAddress();
-            bookingInfo += "\nto" + obmBookingVehicleItem.getDestination();
+            bookingInfo += "\n";
+            if (ObsConst.VALUE_BOOKING_SERVICE_CD_ARRIVAL.equals(obmBookingVehicleItem.getBookingServiceCd()) && StringUtil.hasText(obmBookingVehicleItem.getFlightNumber())) {
+                bookingInfo += "(" + obmBookingVehicleItem.getFlightNumber() + ") ";
+            }
+            bookingInfo += obmBookingVehicleItem.getPickupAddress();
+            bookingInfo += "\nto ";
+            if (ObsConst.VALUE_BOOKING_SERVICE_CD_DEPARTURE.equals(obmBookingVehicleItem.getBookingServiceCd()) && StringUtil.hasText(obmBookingVehicleItem.getFlightNumber())) {
+                bookingInfo += "(" + obmBookingVehicleItem.getFlightNumber() + ") ";
+            }
+            bookingInfo += obmBookingVehicleItem.getDestination();
             if (StringUtil.hasText(obmBookingVehicleItem.getStop1Address())) {
                 bookingInfo += "\nStop1 " + obmBookingVehicleItem.getStop1Address();
             }
