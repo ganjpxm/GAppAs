@@ -378,9 +378,7 @@ public abstract class ObsUtil {
     public static String getSignatureFullPath(String leadPassengerSignaturePath) {
         String signatureName = getSignatureName(leadPassengerSignaturePath);
         if (StringUtil.hasText(signatureName)) {
-            String fullPath = ObsUtil.getSignatureDirPath() + signatureName;
-            FileUtil.createFile(fullPath);
-            return fullPath;
+            return ObsUtil.getSignatureDirPath() + signatureName;
         } else {
             return "";
         }
@@ -392,7 +390,11 @@ public abstract class ObsUtil {
         if (file!=null && !file.exists()) {
             file.mkdirs();
         }
-        return file.getAbsolutePath() + File.separatorChar + ObsConst.KEY_SIGNATURE + File.separatorChar;
+        String dirPath = file.getAbsolutePath() + File.separatorChar + ObsConst.KEY_SIGNATURE;
+        if (!new File(dirPath).exists()) {
+            new File(dirPath).mkdir();
+        }
+        return dirPath + File.separatorChar;
     }
     /**
      * <p>submit file and application No to server</p>

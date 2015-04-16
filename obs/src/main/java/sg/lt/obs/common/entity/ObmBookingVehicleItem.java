@@ -531,4 +531,15 @@ public class ObmBookingVehicleItem extends BaseModel implements Serializable {
     public void setLeadPassengerSignaturePath(String leadPassengerSignaturePath) {
         this.leadPassengerSignaturePath = leadPassengerSignaturePath;
     }
+
+    public String getBookingUserName() {
+        String name = this.bookingUserFirstName;
+        if (!StringUtil.hasText(name)) {
+            name = "";
+        }
+        if (StringUtil.hasText(this.getBookingUserLastName())) {
+            name += " " + this.getBookingUserLastName();
+        }
+        return name;
+    }
 }

@@ -45,7 +45,7 @@
     <string name="error_connect_fail"><![CDATA[Sorry for connection exception. Please try again.]]></string>
     <string name="title_activity_alarm_list">AlarmListActivity</string>
 
-    <string name="version_info">Version 1.2</string>
+    <string name="version_info">Version 1.2.1</string>
     <string name="insertSD">Please insert SD card.</string>
 
     <!-- Signature Info -->
@@ -54,4 +54,5 @@
     <string name="done">&#160;Done</string>
     <string name="cancel">Cancel</string>
     <string name="signature">Signature</string>
+    <string name="update">Update</string>
 </resources>

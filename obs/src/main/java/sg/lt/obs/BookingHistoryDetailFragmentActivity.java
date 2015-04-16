@@ -266,6 +266,8 @@ public class BookingHistoryDetailFragmentActivity extends FragmentActivity imple
             bookingInfo += "\n\n" + obmBookingVehicleItem.getVehicle() + " - " + obmBookingVehicleItem.getNumberOfPassenger() + " pax";
             bookingInfo += "\nPassenger : " +  obmBookingVehicleItem.getLeadPassengerGender() + " " + obmBookingVehicleItem.getLeadPassengerName()
                     + " " + obmBookingVehicleItem.getLeadPassengerMobileNumber();
+            bookingInfo += "\nBook by : " +  obmBookingVehicleItem.getBookingUserGender()+ " " + obmBookingVehicleItem.getBookingUserName()
+                    + " " + obmBookingVehicleItem.getBookingUserMobileNumber();
             bookingInfo += "\n\nFrom " + PreferenceUtil.getString(ObsConst.KEY_USER_NAME_OBS);
             ClipboardManager clipboardManager = (ClipboardManager)getSystemService(Context.CLIPBOARD_SERVICE);
             clipboardManager.setText(bookingInfo);

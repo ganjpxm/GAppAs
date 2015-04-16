@@ -15,6 +15,7 @@ import sg.lt.obs.common.other.PreferenceUtil;
 import sg.lt.obs.common.view.TitleView;
 import sg.lt.obs.R;
 
+import android.app.DownloadManager;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
@@ -42,6 +43,7 @@ public class MoreFragment extends Fragment implements OnClickListener {
 
     private RelativeLayout openWebsiteRl;
 	private RelativeLayout clearDataRl;
+    private RelativeLayout updateRl;
 	private RelativeLayout aboutRl;
 	private RelativeLayout logoutRl;
 
@@ -84,7 +86,10 @@ public class MoreFragment extends Fragment implements OnClickListener {
 
 		clearDataRl = (RelativeLayout) mParent.findViewById(R.id.reload_data_rl);
 		clearDataRl.setOnClickListener(this);
-		
+
+        updateRl = (RelativeLayout) mParent.findViewById(R.id.update_rl);
+        updateRl.setOnClickListener(this);
+
 		aboutRl = (RelativeLayout) mParent.findViewById(R.id.about_rl);
 		aboutRl.setOnClickListener(this);
 		
@@ -146,7 +151,10 @@ public class MoreFragment extends Fragment implements OnClickListener {
 		} else if (view == aboutRl) {
 			DialogUtil.showAlertDialog(mActivity, android.R.drawable.ic_dialog_info, getResources().getString(R.string.title),
                     getResources().getString(R.string.version_info), null, mActivity.getString(R.string.ok));;
-		}
+		} else if (view == updateRl) {
+            Intent goToMarket = new Intent(Intent.ACTION_VIEW).setData(Uri.parse("market://details?id=sg.lt.obs"));
+            startActivity(goToMarket);
+        }
     }
 
 	@Override
